@@ -1,0 +1,373 @@
+[
+  {
+    "id": "10-mathematics-real-numbers-euclids-division-lemma",
+    "chapterId": "10-mathematics-real-numbers",
+    "subjectId": "mathematics",
+    "classLevel": 10,
+    "name": "Euclid's Division Lemma",
+    "order": 1,
+    "hasContent": true,
+    "concept": "Euclid's division lemma says that for any two positive integers a and b, there are unique whole numbers q and r such that a = bq + r with 0 <= r < b. In plain words: when you divide a by b you get a quotient and a remainder, and the remainder is always smaller than the divisor. Repeating this idea on (b, r) gives Euclid's algorithm for finding the HCF of two numbers quickly.",
+    "keyPoints": [
+      "The remainder r is always between 0 and b - 1.",
+      "The quotient q and remainder r are unique for given a and b.",
+      "Euclid's algorithm: HCF(a, b) = HCF(b, r), repeat until the remainder is 0.",
+      "The last non-zero remainder is the HCF."
+    ],
+    "formulae": [
+      "a = bq + r, 0 <= r < b",
+      "HCF(a, b) = HCF(b, a mod b)"
+    ],
+    "examples": [
+      {
+        "problem": "Find the HCF of 135 and 225 using Euclid's algorithm.",
+        "solution": "225 = 135 x 1 + 90; 135 = 90 x 1 + 45; 90 = 45 x 2 + 0. The last non-zero remainder is 45, so HCF = 45."
+      },
+      {
+        "problem": "Show that any positive even integer is of the form 2q.",
+        "solution": "Take a = 2q + r with r = 0 or 1. If r = 0 the number is 2q (even); if r = 1 it is 2q + 1 (odd). So every even integer is 2q."
+      }
+    ],
+    "commonMistakes": [
+      "Writing the remainder larger than the divisor.",
+      "Stopping the algorithm before the remainder reaches 0.",
+      "Reporting the last quotient instead of the last non-zero remainder as the HCF."
+    ],
+    "revision": {
+      "concept": "Divide, take the remainder, divide again. HCF is the last non-zero remainder.",
+      "formula": "a = bq + r, 0 <= r < b",
+      "commonMistake": "Confusing the last quotient with the HCF.",
+      "miniQuestion": {
+        "question": "HCF of 96 and 404 by Euclid's algorithm?",
+        "answer": "4"
+      }
+    },
+    "quizId": "10-mathematics-real-numbers-euclids-division-lemma-quiz"
+  },
+  {
+    "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
+    "chapterId": "10-mathematics-real-numbers",
+    "subjectId": "mathematics",
+    "classLevel": 10,
+    "name": "Fundamental Theorem of Arithmetic",
+    "order": 2,
+    "hasContent": true,
+    "concept": "Every composite number can be written as a product of primes, and this factorisation is unique apart from the order of the factors. This lets us compute HCF and LCM from prime factorisations, and prove facts such as the irrationality of root 2.",
+    "keyPoints": [
+      "Prime factorisation of a number is unique.",
+      "HCF = product of the smallest powers of common primes.",
+      "LCM = product of the greatest powers of all primes involved.",
+      "HCF(a, b) x LCM(a, b) = a x b for two positive integers."
+    ],
+    "formulae": [
+      "HCF x LCM = a x b",
+      "a = p1^e1 x p2^e2 x ... (unique)"
+    ],
+    "examples": [
+      {
+        "problem": "Find HCF and LCM of 12 and 18.",
+        "solution": "12 = 2^2 x 3, 18 = 2 x 3^2. HCF = 2 x 3 = 6, LCM = 2^2 x 3^2 = 36. Check: 6 x 36 = 216 = 12 x 18."
+      },
+      {
+        "problem": "Can 6^n end with the digit 0 for any natural number n?",
+        "solution": "6^n = 2^n x 3^n has no factor 5, and a number ending in 0 must have 2 and 5 as factors. So no."
+      }
+    ],
+    "commonMistakes": [
+      "Using the largest power of a common prime for HCF instead of the smallest.",
+      "Forgetting that HCF x LCM = product holds only for two numbers.",
+      "Treating 1 as a prime."
+    ],
+    "revision": {
+      "concept": "Factorise into primes; smallest common powers give HCF, largest powers give LCM.",
+      "formula": "HCF x LCM = a x b",
+      "commonMistake": "Mixing up which powers to take for HCF and LCM.",
+      "miniQuestion": {
+        "question": "LCM of 8 and 12?",
+        "answer": "24"
+      }
+    },
+    "quizId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-quiz"
+  },
+  {
+    "id": "10-mathematics-polynomials-zeros-and-coefficients",
+    "chapterId": "10-mathematics-polynomials",
+    "subjectId": "mathematics",
+    "classLevel": 10,
+    "name": "Zeros and Coefficients",
+    "order": 1,
+    "hasContent": true,
+    "concept": "A zero of a polynomial p(x) is a value of x that makes p(x) = 0. For a quadratic ax^2 + bx + c with zeros alpha and beta, the sum of zeros is -b/a and the product is c/a. Graphically, zeros are the points where the curve crosses the x-axis.",
+    "keyPoints": [
+      "Degree n polynomial has at most n zeros.",
+      "Sum of zeros of ax^2 + bx + c is -b/a.",
+      "Product of zeros is c/a.",
+      "A quadratic with given zeros alpha, beta is k[x^2 - (alpha + beta)x + alpha beta]."
+    ],
+    "formulae": [
+      "alpha + beta = -b/a",
+      "alpha x beta = c/a",
+      "p(x) = k[x^2 - (sum)x + product]"
+    ],
+    "examples": [
+      {
+        "problem": "Find the zeros of x^2 - 5x + 6 and verify the relations.",
+        "solution": "x^2 - 5x + 6 = (x - 2)(x - 3), zeros 2 and 3. Sum 5 = -(-5)/1, product 6 = 6/1. Verified."
+      },
+      {
+        "problem": "Form a quadratic whose zeros are 4 and -1.",
+        "solution": "Sum = 3, product = -4, so x^2 - 3x - 4."
+      }
+    ],
+    "commonMistakes": [
+      "Dropping the minus sign in -b/a.",
+      "Using the coefficient of x as a.",
+      "Confusing zeros with coefficients when forming a polynomial."
+    ],
+    "revision": {
+      "concept": "Zeros make the polynomial zero; their sum and product come straight from the coefficients.",
+      "formula": "alpha + beta = -b/a, alpha beta = c/a",
+      "commonMistake": "Sign error in the sum of zeros.",
+      "miniQuestion": {
+        "question": "Sum of zeros of 2x^2 - 8x + 6?",
+        "answer": "4"
+      }
+    },
+    "quizId": "10-mathematics-polynomials-zeros-and-coefficients-quiz"
+  },
+  {
+    "id": "10-mathematics-quadratic-equations-standard-form",
+    "chapterId": "10-mathematics-quadratic-equations",
+    "subjectId": "mathematics",
+    "classLevel": 10,
+    "name": "Standard Form of a Quadratic Equation",
+    "order": 1,
+    "hasContent": true,
+    "concept": "A quadratic equation is any equation that can be arranged as ax^2 + bx + c = 0 with a not equal to 0. Before solving, always move every term to one side and collect like terms so that a, b and c can be read off correctly. Many word problems become quadratics once the unknown is chosen carefully.",
+    "keyPoints": [
+      "a must be non-zero, otherwise the equation is linear.",
+      "Expand brackets and bring everything to the left side first.",
+      "Identify a, b, c only after the equation is in standard form.",
+      "Check whether a given value is a root by substituting it."
+    ],
+    "formulae": [
+      "ax^2 + bx + c = 0, a != 0"
+    ],
+    "examples": [
+      {
+        "problem": "Is (x + 1)^2 = 2(x - 3) a quadratic equation?",
+        "solution": "Expanding: x^2 + 2x + 1 = 2x - 6, so x^2 + 7 = 0. Yes, a = 1, b = 0, c = 7."
+      },
+      {
+        "problem": "Is x(x + 1) + 8 = (x + 2)(x - 2) quadratic?",
+        "solution": "x^2 + x + 8 = x^2 - 4 gives x + 12 = 0. The x^2 terms cancel, so it is linear, not quadratic."
+      }
+    ],
+    "commonMistakes": [
+      "Reading b and c before rearranging.",
+      "Forgetting that a = 0 makes it linear.",
+      "Sign slips when moving terms across the equals sign."
+    ],
+    "revision": {
+      "concept": "Rearrange to ax^2 + bx + c = 0, then read a, b, c.",
+      "formula": "ax^2 + bx + c = 0",
+      "commonMistake": "Reading coefficients before rearranging.",
+      "miniQuestion": {
+        "question": "For 3x^2 = 5x - 2, what are a, b, c?",
+        "answer": "a = 3, b = -5, c = 2"
+      }
+    },
+    "quizId": "10-mathematics-quadratic-equations-standard-form-quiz"
+  },
+  {
+    "id": "10-mathematics-quadratic-equations-solving-by-factorisation",
+    "chapterId": "10-mathematics-quadratic-equations",
+    "subjectId": "mathematics",
+    "classLevel": 10,
+    "name": "Solving by Factorisation and the Quadratic Formula",
+    "order": 2,
+    "hasContent": true,
+    "concept": "To solve ax^2 + bx + c = 0 by factorisation, split the middle term bx into two terms whose coefficients multiply to a x c and add to b, then factor by grouping and set each factor to zero. When splitting is hard, use the quadratic formula x = [-b +/- sqrt(b^2 - 4ac)] / 2a, which works for every quadratic. Always verify roots by substitution.",
+    "keyPoints": [
+      "Product of the two split numbers must equal a x c, their sum must equal b.",
+      "If one factor is zero the whole product is zero, so set each factor to zero.",
+      "The quadratic formula works even when factorisation fails.",
+      "Word problems: choose the unknown, form the equation, reject roots that make no sense (negative length, fractional people)."
+    ],
+    "formulae": [
+      "x = [-b +/- sqrt(b^2 - 4ac)] / 2a",
+      "Split: p x q = a x c, p + q = b",
+      "(x - alpha)(x - beta) = 0"
+    ],
+    "examples": [
+      {
+        "problem": "Solve x^2 - 7x + 12 = 0.",
+        "solution": "Need two numbers with product 12 and sum -7: -3 and -4. (x - 3)(x - 4) = 0, so x = 3 or x = 4."
+      },
+      {
+        "problem": "Solve 2x^2 + x - 6 = 0.",
+        "solution": "a x c = -12, need sum 1: 4 and -3. 2x^2 + 4x - 3x - 6 = 2x(x + 2) - 3(x + 2) = (2x - 3)(x + 2). x = 3/2 or x = -2."
+      },
+      {
+        "problem": "Solve x^2 + 2x - 1 = 0.",
+        "solution": "Not factorable over integers. Formula: x = [-2 +/- sqrt(4 + 4)] / 2 = -1 +/- sqrt 2."
+      }
+    ],
+    "commonMistakes": [
+      "Splitting the middle term with numbers whose product is c instead of a x c.",
+      "Writing -b as +b in the formula.",
+      "Forgetting to divide by 2a, not just 2.",
+      "Keeping a root that fails the real-world condition of a word problem."
+    ],
+    "revision": {
+      "concept": "Split the middle term using product a x c and sum b, factor, set each factor to zero. Otherwise use the formula.",
+      "formula": "x = [-b +/- sqrt(b^2 - 4ac)] / 2a",
+      "commonMistake": "Using product c instead of a x c when a is not 1.",
+      "miniQuestion": {
+        "question": "Roots of x^2 - 3x - 10 = 0?",
+        "answer": "5 and -2"
+      }
+    },
+    "quizId": "10-mathematics-quadratic-equations-solving-by-factorisation-quiz"
+  },
+  {
+    "id": "10-mathematics-quadratic-equations-nature-of-roots",
+    "chapterId": "10-mathematics-quadratic-equations",
+    "subjectId": "mathematics",
+    "classLevel": 10,
+    "name": "Nature of Roots and the Discriminant",
+    "order": 3,
+    "hasContent": true,
+    "concept": "The discriminant D = b^2 - 4ac tells you what kind of roots a quadratic has without solving it. D > 0 gives two distinct real roots, D = 0 gives two equal real roots, and D < 0 means there are no real roots. This is used to find unknown coefficients that make roots equal.",
+    "keyPoints": [
+      "D = b^2 - 4ac.",
+      "D > 0: two distinct real roots. D = 0: equal roots. D < 0: no real roots.",
+      "For equal roots, set D = 0 and solve for the unknown.",
+      "If D is a perfect square the roots are rational."
+    ],
+    "formulae": [
+      "D = b^2 - 4ac",
+      "Equal roots when b^2 = 4ac"
+    ],
+    "examples": [
+      {
+        "problem": "Nature of roots of 2x^2 - 4x + 3 = 0?",
+        "solution": "D = 16 - 24 = -8 < 0. No real roots."
+      },
+      {
+        "problem": "Find k so that kx^2 + 4x + 1 = 0 has equal roots.",
+        "solution": "D = 16 - 4k = 0, so k = 4."
+      }
+    ],
+    "commonMistakes": [
+      "Computing 4ac with the wrong sign of c.",
+      "Squaring b but forgetting the sign of b does not matter after squaring.",
+      "Concluding 'no roots' instead of 'no real roots'."
+    ],
+    "revision": {
+      "concept": "Compute D = b^2 - 4ac; its sign tells the nature of the roots.",
+      "formula": "D = b^2 - 4ac",
+      "commonMistake": "Sign error in 4ac when c is negative.",
+      "miniQuestion": {
+        "question": "For x^2 - 6x + 9 = 0, what is D and the nature of roots?",
+        "answer": "D = 0, equal roots"
+      }
+    },
+    "quizId": "10-mathematics-quadratic-equations-nature-of-roots-quiz"
+  },
+  {
+    "id": "9-physics-motion-equations-of-motion",
+    "chapterId": "9-physics-motion",
+    "subjectId": "physics",
+    "classLevel": 9,
+    "name": "Equations of Motion",
+    "order": 1,
+    "hasContent": true,
+    "concept": "When an object moves in a straight line with uniform acceleration, three equations connect initial velocity u, final velocity v, acceleration a, time t and displacement s. Pick the equation that contains the three quantities you know and the one you want. Always write the units and keep signs consistent: choose one direction as positive.",
+    "keyPoints": [
+      "v = u + at links velocity and time.",
+      "s = ut + (1/2)at^2 links displacement and time.",
+      "v^2 = u^2 + 2as links velocity and displacement (no time).",
+      "Deceleration means a is negative when the positive direction is the direction of motion.",
+      "Convert km/h to m/s by multiplying by 5/18."
+    ],
+    "formulae": [
+      "v = u + at",
+      "s = ut + (1/2)at^2",
+      "v^2 = u^2 + 2as",
+      "1 km/h = 5/18 m/s"
+    ],
+    "examples": [
+      {
+        "problem": "A car at 20 m/s accelerates at 2 m/s^2 for 10 s. Distance covered?",
+        "solution": "s = ut + (1/2)at^2 = 20 x 10 + 0.5 x 2 x 100 = 200 + 100 = 300 m."
+      },
+      {
+        "problem": "A train slows from 30 m/s to rest in 15 s. Acceleration?",
+        "solution": "a = (v - u)/t = (0 - 30)/15 = -2 m/s^2. The negative sign shows retardation."
+      }
+    ],
+    "commonMistakes": [
+      "Mixing km/h and m/s in the same equation.",
+      "Forgetting the 1/2 in s = ut + (1/2)at^2.",
+      "Using a positive a for a slowing object.",
+      "Reporting a velocity without units."
+    ],
+    "revision": {
+      "concept": "Three equations for uniform acceleration; pick the one with your three known quantities.",
+      "formula": "v = u + at, s = ut + 1/2 at^2, v^2 = u^2 + 2as",
+      "commonMistake": "Sign of acceleration during retardation.",
+      "miniQuestion": {
+        "question": "u = 5 m/s, a = 3 m/s^2, t = 4 s. Find v.",
+        "answer": "17 m/s"
+      }
+    },
+    "quizId": "9-physics-motion-equations-of-motion-quiz"
+  },
+  {
+    "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+    "chapterId": "10-chemistry-chemical-reactions-and-equations",
+    "subjectId": "chemistry",
+    "classLevel": 10,
+    "name": "Balancing Chemical Equations",
+    "order": 1,
+    "hasContent": true,
+    "concept": "A chemical equation is balanced when each element has the same number of atoms on both sides, because atoms are neither created nor destroyed in a reaction (law of conservation of mass). Balance by adjusting coefficients in front of formulas, never by changing subscripts. Then add physical states and reaction conditions.",
+    "keyPoints": [
+      "Count atoms of each element on both sides.",
+      "Change coefficients, never subscripts.",
+      "Balance the element that appears in the fewest formulas first; leave H and O for the end.",
+      "Add state symbols: (s), (l), (g), (aq).",
+      "Types: combination, decomposition, displacement, double displacement, redox."
+    ],
+    "formulae": [
+      "Mass of reactants = mass of products",
+      "Coefficient x subscript = atoms of that element"
+    ],
+    "examples": [
+      {
+        "problem": "Balance Fe + H2O -> Fe3O4 + H2.",
+        "solution": "3Fe + 4H2O -> Fe3O4 + 4H2. Fe: 3 = 3, O: 4 = 4, H: 8 = 8."
+      },
+      {
+        "problem": "Balance Mg + O2 -> MgO.",
+        "solution": "2Mg + O2 -> 2MgO."
+      }
+    ],
+    "commonMistakes": [
+      "Changing a subscript to balance, which changes the substance.",
+      "Forgetting diatomic gases: H2, O2, N2, Cl2.",
+      "Not rechecking every element after the last change."
+    ],
+    "revision": {
+      "concept": "Equal atoms of every element on both sides, achieved by coefficients only.",
+      "formula": "Reactant atoms = Product atoms",
+      "commonMistake": "Editing subscripts instead of coefficients.",
+      "miniQuestion": {
+        "question": "Balance H2 + O2 -> H2O.",
+        "answer": "2H2 + O2 -> 2H2O"
+      }
+    },
+    "quizId": "10-chemistry-chemical-reactions-and-equations-balancing-equations-quiz"
+  }
+]

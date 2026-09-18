@@ -1,0 +1,1052 @@
+[
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q1",
+      "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "In a = bq + r, the remainder r satisfies",
+      "options": [
+        "r > b",
+        "0 <= r < b",
+        "r = b",
+        "r < 0"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q1",
+      "correctIndex": 1,
+      "explanation": "The remainder is always non-negative and smaller than the divisor."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q2",
+      "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "Using Euclid's algorithm, HCF(135, 225) is",
+      "options": [
+        "5",
+        "15",
+        "45",
+        "90"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q2",
+      "correctIndex": 2,
+      "explanation": "225 = 135 x 1 + 90, 135 = 90 x 1 + 45, 90 = 45 x 2 + 0. HCF = 45."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q3",
+      "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "HCF of 96 and 404 is",
+      "options": [
+        "2",
+        "4",
+        "8",
+        "12"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q3",
+      "correctIndex": 1,
+      "explanation": "404 = 96 x 4 + 20, 96 = 20 x 4 + 16, 20 = 16 x 1 + 4, 16 = 4 x 4 + 0. HCF = 4."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q4",
+      "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "If 117 = 65 x 1 + r, then r is",
+      "options": [
+        "52",
+        "42",
+        "65",
+        "117"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q4",
+      "correctIndex": 0,
+      "explanation": "117 - 65 = 52, and 52 < 65 as required."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q5",
+      "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "Any positive odd integer has the form",
+      "options": [
+        "2q",
+        "2q + 1",
+        "4q",
+        "q + 1"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q5",
+      "correctIndex": 1,
+      "explanation": "Dividing by 2 leaves remainder 0 or 1; odd numbers have remainder 1."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q6",
+      "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "The largest number dividing 245 and 1029 leaving remainder 5 in each case is",
+      "options": [
+        "16",
+        "32",
+        "64",
+        "8"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-euclids-division-lemma-q6",
+      "correctIndex": 0,
+      "explanation": "Subtract 5: HCF(240, 1024) = 16."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q1",
+      "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "Prime factorisation of 140 is",
+      "options": [
+        "2^2 x 5 x 7",
+        "2 x 5 x 7",
+        "2^2 x 35",
+        "2^3 x 5"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q1",
+      "correctIndex": 0,
+      "explanation": "140 = 2 x 70 = 2 x 2 x 35 = 2^2 x 5 x 7."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q2",
+      "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "HCF(12, 18) is",
+      "options": [
+        "2",
+        "3",
+        "6",
+        "36"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q2",
+      "correctIndex": 2,
+      "explanation": "12 = 2^2 x 3, 18 = 2 x 3^2, common smallest powers give 2 x 3 = 6."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q3",
+      "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "If HCF(a, b) = 6 and a x b = 216, then LCM(a, b) is",
+      "options": [
+        "12",
+        "24",
+        "36",
+        "48"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q3",
+      "correctIndex": 2,
+      "explanation": "LCM = (a x b) / HCF = 216 / 6 = 36."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q4",
+      "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "Which number can never end with the digit 0?",
+      "options": [
+        "10^n",
+        "6^n",
+        "20^n",
+        "30^n"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q4",
+      "correctIndex": 1,
+      "explanation": "6^n = 2^n x 3^n has no factor 5, so it cannot end in 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q5",
+      "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "LCM of 6, 72 and 120 is",
+      "options": [
+        "360",
+        "720",
+        "240",
+        "180"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q5",
+      "correctIndex": 0,
+      "explanation": "6 = 2 x 3, 72 = 2^3 x 3^2, 120 = 2^3 x 3 x 5. LCM = 2^3 x 3^2 x 5 = 360."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q6",
+      "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "The number 7 x 11 x 13 + 13 is",
+      "options": [
+        "prime",
+        "composite",
+        "irrational",
+        "a perfect square"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q6",
+      "correctIndex": 1,
+      "explanation": "It equals 13 x (77 + 1) = 13 x 78, so it has factors other than 1 and itself."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q1",
+      "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "Zeros of x^2 - 5x + 6 are",
+      "options": [
+        "2, 3",
+        "-2, -3",
+        "1, 6",
+        "-1, -6"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q1",
+      "correctIndex": 0,
+      "explanation": "(x - 2)(x - 3) = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q2",
+      "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "Sum of the zeros of x^2 - 7x + 10 is",
+      "options": [
+        "-7",
+        "7",
+        "10",
+        "-10"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q2",
+      "correctIndex": 1,
+      "explanation": "Sum = -b/a = 7."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q3",
+      "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "Product of the zeros of 2x^2 - 8x + 6 is",
+      "options": [
+        "4",
+        "-4",
+        "3",
+        "-3"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q3",
+      "correctIndex": 2,
+      "explanation": "Product = c/a = 6/2 = 3."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q4",
+      "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "A quadratic with zeros 4 and -1 is",
+      "options": [
+        "x^2 - 3x - 4",
+        "x^2 + 3x - 4",
+        "x^2 - 3x + 4",
+        "x^2 + 5x + 4"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q4",
+      "correctIndex": 0,
+      "explanation": "Sum 3, product -4, so x^2 - 3x - 4."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q5",
+      "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "If one zero of x^2 - 6x + k is twice the other, k is",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "12"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q5",
+      "correctIndex": 2,
+      "explanation": "Zeros a and 2a: 3a = 6, a = 2, product 2 x 4 = 8 = k."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q6",
+      "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "The maximum number of zeros of a cubic polynomial is",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-polynomials-zeros-and-coefficients-q6",
+      "correctIndex": 2,
+      "explanation": "A degree n polynomial has at most n zeros."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q1",
+      "topicId": "10-mathematics-quadratic-equations-standard-form",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "Which of these is a quadratic equation?",
+      "options": [
+        "x + 1/x = 2",
+        "2x + 3 = 0",
+        "x^3 = 8",
+        "x = 5"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q1",
+      "correctIndex": 0,
+      "explanation": "x + 1/x = 2 gives x^2 - 2x + 1 = 0, degree 2."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q2",
+      "topicId": "10-mathematics-quadratic-equations-standard-form",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "For 3x^2 = 5x - 2, the values of a, b, c in standard form are",
+      "options": [
+        "3, 5, -2",
+        "3, -5, 2",
+        "-3, 5, 2",
+        "3, -5, -2"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q2",
+      "correctIndex": 1,
+      "explanation": "3x^2 - 5x + 2 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q3",
+      "topicId": "10-mathematics-quadratic-equations-standard-form",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "(x + 1)^2 = 2(x - 3) simplifies to",
+      "options": [
+        "x^2 + 7 = 0",
+        "x^2 - 7 = 0",
+        "x^2 + 4x + 7 = 0",
+        "x^2 - 5 = 0"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q3",
+      "correctIndex": 0,
+      "explanation": "x^2 + 2x + 1 = 2x - 6 gives x^2 + 7 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q4",
+      "topicId": "10-mathematics-quadratic-equations-standard-form",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "Is x(x + 1) + 8 = (x + 2)(x - 2) quadratic?",
+      "options": [
+        "Yes, a = 1",
+        "Yes, a = 2",
+        "No, the x^2 terms cancel",
+        "No, it has no constant"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q4",
+      "correctIndex": 2,
+      "explanation": "Both sides have x^2, leaving x + 12 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q5",
+      "topicId": "10-mathematics-quadratic-equations-standard-form",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "Two consecutive positive integers have product 306. The equation is",
+      "options": [
+        "x^2 + x - 306 = 0",
+        "x^2 - x - 306 = 0",
+        "x^2 + 306 = 0",
+        "2x + 1 = 306"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q5",
+      "correctIndex": 0,
+      "explanation": "x(x + 1) = 306."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q6",
+      "topicId": "10-mathematics-quadratic-equations-standard-form",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "Which value is a root of x^2 - 3x - 10 = 0?",
+      "options": [
+        "2",
+        "5",
+        "-5",
+        "3"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-standard-form-q6",
+      "correctIndex": 1,
+      "explanation": "25 - 15 - 10 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q1",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "Roots of x^2 - 7x + 12 = 0 are",
+      "options": [
+        "3, 4",
+        "-3, -4",
+        "2, 6",
+        "-2, -6"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q1",
+      "correctIndex": 0,
+      "explanation": "Product 12, sum -7: -3 and -4, so (x - 3)(x - 4)."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q2",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "To split the middle term of 2x^2 + x - 6, the two numbers must have product",
+      "options": [
+        "-6",
+        "-12",
+        "6",
+        "12"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q2",
+      "correctIndex": 1,
+      "explanation": "Product must be a x c = 2 x (-6) = -12."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q3",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "Roots of 2x^2 + x - 6 = 0 are",
+      "options": [
+        "3/2, -2",
+        "-3/2, 2",
+        "3, -2",
+        "2, -3"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q3",
+      "correctIndex": 0,
+      "explanation": "Split with 4 and -3: (2x - 3)(x + 2) = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q4",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "Roots of x^2 - 3x - 10 = 0 are",
+      "options": [
+        "5, -2",
+        "-5, 2",
+        "5, 2",
+        "-5, -2"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q4",
+      "correctIndex": 0,
+      "explanation": "Product -10, sum -3: -5 and 2, so (x - 5)(x + 2)."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q5",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "Roots of x^2 + 2x - 1 = 0 are",
+      "options": [
+        "-1 +/- sqrt 2",
+        "1 +/- sqrt 2",
+        "-2 +/- sqrt 2",
+        "-1 +/- 2"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q5",
+      "correctIndex": 0,
+      "explanation": "Formula: x = [-2 +/- sqrt(4 + 4)] / 2 = -1 +/- sqrt 2."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q6",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "In the quadratic formula the denominator is",
+      "options": [
+        "2",
+        "a",
+        "2a",
+        "b"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q6",
+      "correctIndex": 2,
+      "explanation": "x = [-b +/- sqrt(b^2 - 4ac)] / 2a."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q7",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 4,
+      "text": "A rectangle of area 60 has length 7 more than breadth. The breadth is",
+      "options": [
+        "5",
+        "12",
+        "-12",
+        "7"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q7",
+      "correctIndex": 0,
+      "explanation": "b^2 + 7b - 60 = 0, (b + 12)(b - 5) = 0; reject -12."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q8",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 4,
+      "text": "If x = 2 is a root of x^2 + kx - 10 = 0, then k is",
+      "options": [
+        "3",
+        "-3",
+        "5",
+        "-5"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q8",
+      "correctIndex": 0,
+      "explanation": "4 + 2k - 10 = 0, so k = 3."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q1",
+      "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "The discriminant of ax^2 + bx + c = 0 is",
+      "options": [
+        "b^2 + 4ac",
+        "b^2 - 4ac",
+        "4ac - b^2",
+        "b - 4ac"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q1",
+      "correctIndex": 1,
+      "explanation": "D = b^2 - 4ac."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q2",
+      "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 1,
+      "text": "If D < 0 the equation has",
+      "options": [
+        "two distinct real roots",
+        "equal roots",
+        "no real roots",
+        "one root"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q2",
+      "correctIndex": 2,
+      "explanation": "Negative discriminant means no real roots."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q3",
+      "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "Nature of roots of 2x^2 - 4x + 3 = 0",
+      "options": [
+        "distinct real",
+        "equal real",
+        "no real roots",
+        "rational"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q3",
+      "correctIndex": 2,
+      "explanation": "D = 16 - 24 = -8 < 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q4",
+      "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 2,
+      "text": "kx^2 + 4x + 1 = 0 has equal roots when k is",
+      "options": [
+        "2",
+        "4",
+        "8",
+        "16"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q4",
+      "correctIndex": 1,
+      "explanation": "16 - 4k = 0 gives k = 4."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q5",
+      "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "For x^2 - 6x + 9 = 0 the roots are",
+      "options": [
+        "3 and -3",
+        "3 and 3",
+        "0 and 6",
+        "no real roots"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q5",
+      "correctIndex": 1,
+      "explanation": "D = 36 - 36 = 0, equal roots x = 3."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q6",
+      "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "level": 3,
+      "text": "2x^2 + kx + 3 = 0 has equal roots when k equals",
+      "options": [
+        "+/- 6",
+        "+/- 2 sqrt 6",
+        "+/- sqrt 6",
+        "+/- 12"
+      ]
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-nature-of-roots-q6",
+      "correctIndex": 1,
+      "explanation": "k^2 - 24 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-q1",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "level": 1,
+      "text": "u = 5 m/s, a = 3 m/s^2, t = 4 s. Final velocity is",
+      "options": [
+        "12 m/s",
+        "17 m/s",
+        "20 m/s",
+        "8 m/s"
+      ]
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-q1",
+      "correctIndex": 1,
+      "explanation": "v = u + at = 5 + 12 = 17 m/s."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-q2",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "level": 1,
+      "text": "72 km/h in m/s is",
+      "options": [
+        "20 m/s",
+        "72 m/s",
+        "18 m/s",
+        "25 m/s"
+      ]
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-q2",
+      "correctIndex": 0,
+      "explanation": "72 x 5/18 = 20 m/s."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-q3",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "level": 2,
+      "text": "A ball from rest falls 3 s with a = 10 m/s^2. Distance fallen is",
+      "options": [
+        "30 m",
+        "45 m",
+        "90 m",
+        "15 m"
+      ]
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-q3",
+      "correctIndex": 1,
+      "explanation": "s = 0.5 x 10 x 9 = 45 m."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-q4",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "level": 2,
+      "text": "A train slows from 30 m/s to rest in 15 s. Its acceleration is",
+      "options": [
+        "2 m/s^2",
+        "-2 m/s^2",
+        "0.5 m/s^2",
+        "-0.5 m/s^2"
+      ]
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-q4",
+      "correctIndex": 1,
+      "explanation": "a = (0 - 30)/15 = -2 m/s^2."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-q5",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "level": 3,
+      "text": "Which equation does not contain time?",
+      "options": [
+        "v = u + at",
+        "s = ut + 1/2 at^2",
+        "v^2 = u^2 + 2as",
+        "s = vt"
+      ]
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-q5",
+      "correctIndex": 2,
+      "explanation": "v^2 = u^2 + 2as links velocities, acceleration and displacement."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-q6",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "level": 3,
+      "text": "A bike at 15 m/s brakes at 3 m/s^2. Stopping distance is",
+      "options": [
+        "5 m",
+        "22.5 m",
+        "37.5 m",
+        "45 m"
+      ]
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-q6",
+      "correctIndex": 2,
+      "explanation": "0 = 225 - 6s, s = 37.5 m."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q1",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "level": 1,
+      "text": "Balanced form of H2 + O2 -> H2O is",
+      "options": [
+        "H2 + O2 -> H2O2",
+        "2H2 + O2 -> 2H2O",
+        "H2 + 2O2 -> 2H2O",
+        "2H2 + 2O2 -> 2H2O"
+      ]
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q1",
+      "correctIndex": 1,
+      "explanation": "Two hydrogen molecules and one oxygen molecule give two water molecules."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q2",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "level": 1,
+      "text": "To balance an equation you may change",
+      "options": [
+        "subscripts",
+        "coefficients",
+        "formulas",
+        "element symbols"
+      ]
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q2",
+      "correctIndex": 1,
+      "explanation": "Changing subscripts changes the substance itself."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q3",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "level": 2,
+      "text": "Coefficients that balance Fe + H2O -> Fe3O4 + H2 are",
+      "options": [
+        "3, 4, 1, 4",
+        "1, 4, 1, 4",
+        "3, 4, 1, 2",
+        "2, 3, 1, 3"
+      ]
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q3",
+      "correctIndex": 0,
+      "explanation": "3Fe + 4H2O -> Fe3O4 + 4H2."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q4",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "level": 2,
+      "text": "Fe + CuSO4 -> FeSO4 + Cu is a",
+      "options": [
+        "combination",
+        "decomposition",
+        "displacement",
+        "double displacement"
+      ]
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q4",
+      "correctIndex": 2,
+      "explanation": "Iron displaces copper from its salt."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q5",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "level": 3,
+      "text": "The law behind balancing equations is",
+      "options": [
+        "conservation of energy",
+        "conservation of mass",
+        "law of constant proportions",
+        "Avogadro's law"
+      ]
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q5",
+      "correctIndex": 1,
+      "explanation": "Atoms are neither created nor destroyed in a reaction."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q6",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "level": 3,
+      "text": "C3H8 + O2 -> CO2 + H2O balanced needs how many O2?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q6",
+      "correctIndex": 2,
+      "explanation": "3CO2 + 4H2O need 10 O atoms, so 5O2."
+    }
+  }
+]
