@@ -18,4 +18,6 @@ Open the demo (`npm run demo` or the GitHub Pages preview). Log in as **aarav@ed
 | 12 | Buddy: send a request to CuriousHarbor49 (Priya). Optional: log in as Priya in a private window, accept, open the room | "Anonymous matching in the same class. Requests refuse phone numbers and handles. The shared room measures time on the server and credits both students on stop." | 4:45 |
 | 13 | Resize to phone width or open on a phone | "Bottom navigation, drawer menu, same features." | 5:00 |
 
-If asked what is not yet built: Groups. Each page says so and shows no dead buttons. Their Firestore rules and data model are already in place.
+Groups: as Aarav, join the private NEET group with code EDU-7K4P9, or request to join the public Physics Circle and approve it as Rahul (rahul@eduorbit.demo) to show roles, invite codes, the discussion filter and the group session.
+
+Everything in the spec is now built. Not yet authored: most chapter content (the structure is complete, five chapters have lessons and questions).

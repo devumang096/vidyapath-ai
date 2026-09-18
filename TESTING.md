@@ -4,8 +4,8 @@
 
 | Suite | Command | Covers | Last result |
 |---|---|---|---|
-| Server logic | `npm run test:functions` | IST dates, streak with protection tokens, mastery formula and bands, grading of all five question types, spin cooldown and weights, AI validation and crisis notice, fallback variation and hint progression, badges, invite codes, `computeOutcome` ledgers and balances, lesson and chapter completion, first-correct payout, session caps, redemption failures and success, spin replay protection, assessment period keys, deterministic paper building with bucket borrowing, grading with unanswered-as-wrong, ownership and double-submit guards, Buddy ranking and gender preference, request guards and contact-sharing filter, accept and decline, unmatch, room state machine with per-participant credit and idempotent stop, challenge validation, progress, one-time payout and expiry | 48 passed (2026-09-19) |
-| Demo shims and callables | `npm test` | Firestore shim queries, four-subject invariant, auth shim (wrong password, duplicate email, Google-style account), engine-generated seed history with ledger consistency, `submitAnswer` grading and idempotency, `completeLesson` chapter completion, `recordStudySession` caps and streak, `redeemReward` stock and coin invariants, `spinWheel` cooldown, `askAi` variation, persistence and support notice, one daily paper per period with resume, grading, replay and cross-user rejection, Buddy match, request, accept, room from both accounts, challenge and unmatch, `deleteAccount` | 16 passed (2026-09-19) |
+| Server logic | `npm run test:functions` | IST dates, streak with protection tokens, mastery formula and bands, grading of all five question types, spin cooldown and weights, AI validation and crisis notice, fallback variation and hint progression, badges, invite codes, `computeOutcome` ledgers and balances, lesson and chapter completion, first-correct payout, session caps, redemption failures and success, spin replay protection, assessment period keys, deterministic paper building with bucket borrowing, grading with unanswered-as-wrong, ownership and double-submit guards, Buddy ranking and gender preference, request guards and contact-sharing filter, accept and decline, unmatch, room state machine with per-participant credit and idempotent stop, challenge validation, progress, one-time payout and expiry, group creation and validation (subject whitelist, exam mismatch, contact filter), staff-only edits, join requests and approval with capacity, invite codes (revoked, expired, used up, full), invitations, role changes with owner-only transfer, member removal limits, owner handover and archive on leave, discussion filter and announcement rights, reaction toggling, helpful marks, moderation, reports, group room credit, group-total challenge payout | 61 passed (2026-09-19) |
+| Demo shims and callables | `npm test` | Firestore shim queries, four-subject invariant, auth shim (wrong password, duplicate email, Google-style account), engine-generated seed history with ledger consistency, `submitAnswer` grading and idempotency, `completeLesson` chapter completion, `recordStudySession` caps and streak, `redeemReward` stock and coin invariants, `spinWheel` cooldown, `askAi` variation, persistence and support notice, one daily paper per period with resume, grading, replay and cross-user rejection, Buddy match, request, accept, room from both accounts, challenge and unmatch, Groups end to end (request and approve, owner transfer, filtered posts, reactions, moderation, code join, session, challenge, leave with handover), `deleteAccount` | 17 passed (2026-09-19) |
 | Content | `npm run seed:check` | Referential integrity, exact subject whitelist, slugs, question types vs keys, JEE/NEET subject rules, reward stock and prices | passed (2026-09-19) |
 | Firestore rules | `firebase emulators:exec --only firestore "npm run test:rules"` | Every "a student cannot" case from spec section 99 plus admin limits | **Not run in build environment** (no emulator or Java) |
 | Typecheck and build | `npm run typecheck`, `vite build --mode demo` | Frontend and Functions types, production bundle | passed (2026-09-19) |
@@ -88,6 +88,21 @@ Verified column: **Demo** means checked in the browser against the in-browser de
 | Challenge create and refresh | Progress from real activity; both must finish; paid once; expiry honoured | Demo (create, refresh) + Automated (completion, payout, expiry) |
 | Unmatch | Pair ended, both free to match again, room closed | Demo |
 | Block and report | Block ends the pair and hides both ways; report stored for moderators | Not run in browser (client writes validated by rules) |
+
+### Groups
+| Case | Expected | Verified |
+|---|---|---|
+| Discover and request to join a public group | Request stored; owner sees it under Requests and reports | Demo |
+| Owner approves | Member added, member count updated | Demo |
+| Join with invite code (case-insensitive) | Member added, uses incremented; bad, revoked, expired or used-up codes refused | Demo (valid code) + Automated (refusals) |
+| Owner creates and revokes a code | Listed with uses and expiry | Demo (create) + Automated (revoke rights) |
+| Invite by anonymous username; recipient accepts or declines | Invitation and notification; membership on accept | Automated |
+| Roles | Only the owner sets roles; transfer demotes the old owner; admins cannot remove admins or the owner; members cannot self-promote | Automated |
+| Post with a phone number or handle | Refused with a clear message | Demo |
+| Post, reply, reaction toggle, helpful mark (not on own post), hide by staff | Persisted and reflected live | Demo (post, reaction, helpful) + Automated (reply, hide, own-post guard) |
+| Group study session | Start, join, pause, resume, stop; each present member credited on stop | Demo (start) + Automated (credit) |
+| Group challenge | Group total across members, paid once to contributors, expiry honoured | Automated |
+| Leave | Ownership handed to earliest admin or member, or group archived when empty | Automated |
 
 ### Security (spec 99)
 | Case | Expected | Verified |

@@ -2,7 +2,8 @@
 // streak and mastery logic is the same code the server runs (functions/src/lib), so the demo
 // behaves like production minus the network.
 import type {
-  AssessmentAttemptDoc, AssessmentDoc, AiMessageDoc, AiMode, BuddyChallengeDoc, BuddyPairDoc, BuddyPreferencesDoc, BuddyRequestDoc, BuddySessionDoc, ChallengeKind, ChapterDoc, LessonDoc, LessonProgressDoc, ChapterProgressDoc, PublicProfile, QuestionDoc, QuestionKeyDoc, RedemptionDoc, RewardDoc,
+  AssessmentAttemptDoc, AssessmentDoc, AiMessageDoc, AiMode, BuddyChallengeDoc, BuddyPairDoc, BuddyPreferencesDoc, BuddyRequestDoc, BuddySessionDoc, ChallengeKind, ChapterDoc,
+  GroupChallengeDoc, GroupDoc, GroupInvitationDoc, GroupInviteCodeDoc, GroupJoinRequestDoc, GroupMemberDoc, GroupPostDoc, GroupPostReactionDoc, GroupReplyDoc, GroupRole, GroupSessionDoc, ReportReason, LessonDoc, LessonProgressDoc, ChapterProgressDoc, PublicProfile, QuestionDoc, QuestionKeyDoc, RedemptionDoc, RewardDoc,
   SpinStateDoc, TopicDoc, TopicMasteryDoc, UserDoc
 } from "../lib/types";
 import { applyWrites } from "../../functions/src/lib/writes.js";
@@ -11,6 +12,9 @@ import { completeLesson, LogicError, recordSession, SESSION_KINDS, submitAnswer 
 import { redeem, spin } from "../../functions/src/lib/rewards.js";
 import { PERIODIC_KINDS, periodKeyFor, startAttempt, submitAttempt } from "../../functions/src/lib/assessments.js";
 import { cancelRequest, countActivity, createChallenge, rankCandidates, refreshChallenge, respondRequest, roomAction, sendRequest, sessionDoc, unmatch, type RoomAction } from "../../functions/src/lib/buddy.js";
+import * as groups from "../../functions/src/lib/groups.js";
+import { applyRoomAction, ROOM_ACTIONS, stopEventId } from "../../functions/src/lib/room.js";
+import { inviteCode } from "./hash";
 import type { OutcomeContext } from "../../functions/src/lib/outcome.js";
 import { parseSubmittedAnswer } from "../../functions/src/lib/grading.js";
 import { fallbackResponse, planMinutes } from "../../functions/src/lib/aiFallback.js";
@@ -75,6 +79,17 @@ function logicGuard<T>(work: () => T): T {
 function memberDocs(uid: string, kind: ChallengeKind) {
   const rows = (path: string) => runQuery({ path, filters: [{ field: "userId", op: "==", value: uid }], orders: [], max: null }).map((row) => row.data as never);
   return { learningSessions: kind === "study_minutes" ? rows("learningSessions") : [], questionAttempts: kind === "questions" ? rows("questionAttempts") : [], chapterProgress: kind === "chapter" ? rows("chapterProgress") : [], assessmentAttempts: kind === "assessment" ? rows("assessmentAttempts") : [] };
+}
+
+function groupContext(uid: string, groupId: string): { group: GroupDoc | null; member: GroupMemberDoc | null } {
+  return { group: getDoc<GroupDoc>(`groups/${groupId}`), member: getDoc<GroupMemberDoc>(`groupMembers/${groupId}_${uid}`) };
+}
+function requireProfile(uid: string): PublicProfile {
+  return requireDoc<PublicProfile>(`publicProfiles/${uid}`, "Profile not found.", "failed-precondition");
+}
+function firstWhere<T>(path: string, filters: { field: string; op: string; value: unknown }[]): T | null {
+  const rows = runQuery({ path, filters, orders: [], max: 1 });
+  return rows.length ? (rows[0].data as unknown as T) : null;
 }
 
 export const callables: Record<string, Handler> = {
@@ -292,6 +307,198 @@ export const callables: Record<string, Handler> = {
     }
     return logicGuard(() => {
       const { writes, result } = refreshChallenge({ uid, challenge, counts, contexts, clock });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+
+  async createGroup(uid, input) {
+    return logicGuard(() => {
+      const { writes, result } = groups.createGroup({ uid, profile: requireProfile(uid), groupId: newDocId(), fields: groups.validateGroupInput(input), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async updateGroup(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    return logicGuard(() => {
+      applyOrThrow(groups.updateGroup({ uid, ...groupContext(uid, groupId), fields: groups.validateGroupInput(input), resources: Array.isArray(input.resources) ? (input.resources as { title: string; url: string }[]) : null, clock: demoClock() }));
+      return { updated: true };
+    });
+  },
+  async requestJoinGroup(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    return logicGuard(() => {
+      const pending = firstWhere<GroupJoinRequestDoc>("groupJoinRequests", [{ field: "groupId", op: "==", value: groupId }, { field: "uid", op: "==", value: uid }, { field: "status", op: "==", value: "pending" }]);
+      const { writes, result } = groups.requestJoin({ uid, ...groupContext(uid, groupId), pending, message: typeof input.message === "string" ? input.message : "", requestId: newDocId(), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async respondJoinRequest(uid, input) {
+    const requestId = requireString(input.requestId, "requestId", 80);
+    const request = requireDoc<GroupJoinRequestDoc>(`groupJoinRequests/${requestId}`, "Request not found.");
+    return logicGuard(() => {
+      const { writes, result } = groups.respondJoinRequest({ uid, ...groupContext(uid, request.groupId), request, approve: input.approve === true, requesterProfile: getDoc<PublicProfile>(`publicProfiles/${request.uid}`), requesterMember: getDoc<GroupMemberDoc>(`groupMembers/${request.groupId}_${request.uid}`), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async createGroupInviteCode(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    return logicGuard(() => {
+      let code = inviteCode();
+      while (getDoc(`groupInviteCodes/${code}`)) code = inviteCode();
+      const { writes, result } = groups.createInviteCode({ uid, ...groupContext(uid, groupId), code, expiresInHours: requireNumber(input.expiresInHours ?? 72, "expiresInHours", 1, 720), maxUses: requireNumber(input.maxUses ?? 10, "maxUses", 1, 100), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async revokeGroupInviteCode(uid, input) {
+    const code = requireString(input.code, "code", 12).toUpperCase();
+    const codeDoc = requireDoc<GroupInviteCodeDoc>(`groupInviteCodes/${code}`, "Code not found.");
+    logicGuard(() => applyOrThrow(groups.revokeInviteCode({ uid, ...groupContext(uid, codeDoc.groupId), code: codeDoc, clock: demoClock() })));
+    return { revoked: true };
+  },
+  async joinGroupWithCode(uid, input) {
+    const code = requireString(input.code, "code", 12).toUpperCase().trim();
+    return logicGuard(() => {
+      const codeDoc = getDoc<GroupInviteCodeDoc>(`groupInviteCodes/${code}`);
+      const ctx = codeDoc ? groupContext(uid, codeDoc.groupId) : { group: null, member: null };
+      const { writes, result } = groups.joinWithCode({ uid, profile: requireProfile(uid), code: codeDoc, ...ctx, clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async inviteToGroup(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    const anonUsername = requireString(input.anonUsername, "anonUsername", 40);
+    return logicGuard(() => {
+      const toProfile = firstWhere<PublicProfile>("publicProfiles", [{ field: "anonUsername", op: "==", value: anonUsername }]);
+      const { writes, result } = groups.invite({ uid, ...groupContext(uid, groupId), toProfile, toMember: toProfile ? getDoc<GroupMemberDoc>(`groupMembers/${groupId}_${toProfile.uid}`) : null, pending: toProfile ? firstWhere<GroupInvitationDoc>("groupInvitations", [{ field: "groupId", op: "==", value: groupId }, { field: "toUid", op: "==", value: toProfile.uid }, { field: "status", op: "==", value: "pending" }]) : null, invitationId: newDocId(), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async respondGroupInvitation(uid, input) {
+    const invitationId = requireString(input.invitationId, "invitationId", 80);
+    const invitation = requireDoc<GroupInvitationDoc>(`groupInvitations/${invitationId}`, "Invitation not found.");
+    return logicGuard(() => {
+      const { writes, result } = groups.respondInvitation({ uid, profile: requireProfile(uid), invitation, accept: input.accept === true, ...groupContext(uid, invitation.groupId), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async leaveGroup(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    return logicGuard(() => {
+      const others = runQuery({ path: "groupMembers", filters: [{ field: "groupId", op: "==", value: groupId }], orders: [], max: null }).map((row) => row.data as unknown as GroupMemberDoc).filter((member) => member.uid !== uid);
+      const { writes, result } = groups.leaveGroup({ uid, ...groupContext(uid, groupId), others, clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async removeGroupMember(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    const targetUid = requireString(input.targetUid, "targetUid", 128);
+    logicGuard(() => applyOrThrow(groups.removeMember({ uid, ...groupContext(uid, groupId), target: getDoc<GroupMemberDoc>(`groupMembers/${groupId}_${targetUid}`), clock: demoClock() })));
+    return { removed: true };
+  },
+  async setGroupRole(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    const targetUid = requireString(input.targetUid, "targetUid", 128);
+    logicGuard(() => applyOrThrow(groups.setRole({ uid, ...groupContext(uid, groupId), target: getDoc<GroupMemberDoc>(`groupMembers/${groupId}_${targetUid}`), role: requireString(input.role, "role", 10) as GroupRole, clock: demoClock() })));
+    return { updated: true };
+  },
+  async createGroupPost(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    return logicGuard(() => {
+      const { writes, result } = groups.createPost({ uid, ...groupContext(uid, groupId), kind: (input.kind as GroupPostDoc["kind"]) ?? "post", title: String(input.title ?? ""), body: String(input.body ?? ""), postId: newDocId(), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async createGroupReply(uid, input) {
+    const postId = requireString(input.postId, "postId", 80);
+    const post = requireDoc<GroupPostDoc>(`groupPosts/${postId}`, "Post not found.");
+    return logicGuard(() => {
+      const { writes, result } = groups.createReply({ uid, ...groupContext(uid, post.groupId), post, body: String(input.body ?? ""), replyId: newDocId(), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async reactToGroupPost(uid, input) {
+    const postId = requireString(input.postId, "postId", 80);
+    const post = requireDoc<GroupPostDoc>(`groupPosts/${postId}`, "Post not found.");
+    return logicGuard(() => {
+      const { writes, result } = groups.reactToPost({ uid, ...groupContext(uid, post.groupId), post, existing: getDoc<GroupPostReactionDoc>(`groupPostReactions/${postId}_${uid}`), emoji: requireString(input.emoji, "emoji", 4), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async markGroupHelpful(uid, input) {
+    const targetType = input.targetType === "reply" ? "reply" : "post";
+    const targetId = requireString(input.targetId, "targetId", 80);
+    const target = requireDoc<GroupPostDoc | GroupReplyDoc>(`${targetType === "post" ? "groupPosts" : "groupReplies"}/${targetId}`, "Not found.");
+    return logicGuard(() => {
+      const { writes, result } = groups.markHelpful({ uid, ...groupContext(uid, target.groupId), target, targetType });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async moderateGroupContent(uid, input) {
+    const targetType = input.targetType === "reply" ? "reply" : "post";
+    const targetId = requireString(input.targetId, "targetId", 80);
+    const target = requireDoc<GroupPostDoc | GroupReplyDoc>(`${targetType === "post" ? "groupPosts" : "groupReplies"}/${targetId}`, "Not found.");
+    logicGuard(() => applyOrThrow(groups.moderate({ uid, ...groupContext(uid, target.groupId), targetType, target, hidden: input.hidden === true })));
+    return { hidden: input.hidden === true };
+  },
+  async reportInGroup(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    return logicGuard(() => {
+      const { writes, result } = groups.reportInGroup({ uid, ...groupContext(uid, groupId), targetType: input.targetType as "post" | "reply" | "member", targetId: String(input.targetId ?? ""), reason: input.reason as ReportReason, details: String(input.details ?? ""), reportId: newDocId(), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async groupSessionAction(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    const action = requireString(input.action, "action", 10) as RoomAction;
+    if (!ROOM_ACTIONS.includes(action)) throw new DemoError("invalid-argument", "Unknown room action.");
+    const clock = demoClock();
+    const historyId = `${groupId}_${newDocId()}`;
+    return logicGuard(() => {
+      groups.requireGroupMember(uid, ...Object.values(groupContext(uid, groupId)) as [GroupDoc | null, GroupMemberDoc | null]);
+      const session = getDoc<GroupSessionDoc>(`groupSessions/${groupId}_live`) ?? { status: "idle" as const, startedAt: null, resumedAt: null, accumulatedSec: 0, participants: {}, startedBy: null, updatedAt: null };
+      const contexts = new Map<string, OutcomeContext>();
+      if (action === "stop") for (const participant of Object.keys(session.participants)) contexts.set(participant, contextFrom(readDoc, participant, stopEventId(participant, "group", historyId), clock));
+      const { writes, result } = applyRoomAction({ uid, session, action, livePath: `groupSessions/${groupId}_live`, historyPath: `groupSessions/${historyId}`, historyExtra: { groupId }, kind: "group", contexts, clock });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async createGroupChallenge(uid, input) {
+    const groupId = requireString(input.groupId, "groupId", 80);
+    return logicGuard(() => {
+      const { writes, result } = groups.createGroupChallenge({ uid, ...groupContext(uid, groupId), kind: requireString(input.kind, "kind", 20) as ChallengeKind, target: requireNumber(input.target, "target", 1, 100_000), days: requireNumber(input.days ?? 14, "days", 1, 30), challengeId: newDocId(), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+  async refreshGroupChallenge(uid, input) {
+    const challengeId = requireString(input.challengeId, "challengeId", 80);
+    const challenge = requireDoc<GroupChallengeDoc>(`groupChallenges/${challengeId}`, "Challenge not found.");
+    const clock = demoClock();
+    const sinceMs = toMillis(challenge.startsAt) ?? 0;
+    const memberUids = runQuery({ path: "groupMembers", filters: [{ field: "groupId", op: "==", value: challenge.groupId }], orders: [], max: null }).map((row) => (row.data as unknown as GroupMemberDoc).uid);
+    const counts: Record<string, number> = {};
+    const contexts = new Map<string, OutcomeContext>();
+    for (const member of memberUids) {
+      counts[member] = countActivity(challenge.kind, memberDocs(member, challenge.kind), sinceMs);
+      contexts.set(member, contextFrom(readDoc, member, `challenge_${challenge.id}_${member}`, clock));
+    }
+    return logicGuard(() => {
+      const { writes, result } = groups.refreshGroupChallenge({ uid, ...groupContext(uid, challenge.groupId), challenge, counts, contexts, clock });
       applyOrThrow(writes);
       return result;
     });

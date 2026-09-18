@@ -51,6 +51,13 @@ EduOrbit treats security and data protection as the first priority (spec section
 | `respondBuddyRequest` / `cancelBuddyRequest` / `unmatchBuddy` | recipient-only accept, sender-only cancel, member-only unmatch | pair creation checks both students are still free |
 | `buddyRoomAction` | member of an active pair; state machine rejects invalid transitions | stop credits each present participant once through `session_{uid}_buddy-{historyId}`, capped at 60 minutes |
 | `createBuddyChallenge` / `refreshBuddyChallenge` | member only; target bounds per kind | progress from server documents only; payout once per member; expired challenges never complete |
+| `createGroup` / `updateGroup` | name 3..60, description, goal, rules capped, subject whitelist, JEE/NEET subject rules, 2..50 members, contact filter on every text field; edits by owner or admin only | max members cannot drop below the current count |
+| `requestJoinGroup` / `respondJoinRequest` | public groups only, not a member, not full, one pending request; staff decide | approval re-checks capacity and existing membership |
+| `createGroupInviteCode` / `revokeGroupInviteCode` / `joinGroupWithCode` | staff only; 1..720 hours, 1..100 uses; join checks revoked, expired, used up, full | uses counted server-side |
+| `inviteToGroup` / `respondGroupInvitation` | staff invite by anonymous username; recipient-only response | one pending invitation per student per group |
+| `leaveGroup` / `removeGroupMember` / `setGroupRole` | owner leaving hands over or archives; admins remove members only; owner alone changes roles, transfer demotes the old owner | no client can ever write a role |
+| `createGroupPost` / `createGroupReply` / `reactToGroupPost` / `markGroupHelpful` / `moderateGroupContent` / `reportInGroup` | members only; announcements by staff; contact filter; one reaction per student; no helpful mark on own content; staff hide | reaction and helpful toggles are idempotent |
+| `groupSessionAction` / `createGroupChallenge` / `refreshGroupChallenge` | member of the group; challenges created by staff | same room engine and once-only payout as Buddy |
 | `deleteAccount` | authenticated | deletes every student-owned document, ends buddy pairs, removes group memberships, deletes the Auth user |
 
 ## 4. Student safety
@@ -58,12 +65,11 @@ EduOrbit treats security and data protection as the first priority (spec section
 - Other students see only `publicProfiles`: anonymous username, avatar, class, goal, subjects, language, level, progress summary. Never name, email, phone, school or location.
 - Block and report are client-writable with validated shapes; blocks are private to the blocker.
 - OrbitAI's system prompt forbids off-study content and links; a crisis-language detector prepends helpline guidance (Tele-MANAS 14416, KIRAN 1800-599-0019) and the UI states that OrbitAI is not a counsellor.
-- Buddy request messages pass through `functions/src/lib/safety.ts`, which refuses phone numbers, emails, handles, links and messaging-app contacts. The same filter will guard group posts and replies.
-- Planned for the Groups phase: owner/admin/member role checks in every group callable, invite codes with expiry and usage limits.
+- Buddy request messages, group names, descriptions, goals, rules, join-request messages, posts and replies all pass through `functions/src/lib/safety.ts`, which refuses phone numbers, emails, handles, links and messaging-app contacts.
+- Group roles exist only in `groupMembers` documents written by Functions; rules deny every client write, and `isGroupStaff` in the rules reads the stored role for report visibility.
 
 ## 5. Known gaps
 
 - Firestore rules tests (`tests/rules`) are written but were not executed in the build environment (no emulator). Run them before launch.
 - App Check is not enabled. Enable it on Functions and Firestore for production.
-- Groups callables are not yet implemented; their rules are in place so no client can create those documents in the meantime.
 - Email verification is encouraged with a banner but does not block usage.

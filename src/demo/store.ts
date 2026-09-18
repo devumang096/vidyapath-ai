@@ -39,7 +39,7 @@ export class DemoError extends Error {
 }
 
 const STORAGE_KEY = "eduorbit.demo.store";
-const STORAGE_VERSION = 4;
+const STORAGE_VERSION = 5;
 
 const contentDocs = new Map<string, DocData>();
 const userDocs = new Map<string, DocData>();

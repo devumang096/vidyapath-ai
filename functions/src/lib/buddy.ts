@@ -1,7 +1,8 @@
 // Pure Buddy logic: matching, requests, pairs, the shared study room and pair challenges.
 // Nothing here exposes a name, email, phone or location: candidates are described by
 // publicProfiles only, and every action re-checks membership and blocks.
-import { computeOutcome, notificationOp, toMillis, type OutcomeContext, type OutcomeResult } from "./outcome.js";
+import { computeOutcome, notificationOp, toMillis, type OutcomeContext } from "./outcome.js";
+import { applyRoomAction, emptySession, type RoomAction, type RoomResult } from "./room.js";
 import { LogicError } from "./learning.js";
 import { contactSharingMessage, findContactSharing } from "./safety.js";
 import type { Clock, WriteOp } from "./writes.js";
@@ -164,27 +165,10 @@ export function unmatch(uid: string, pair: BuddyPairDoc | null, clock: Clock): W
   return writes;
 }
 
-// ---------- shared study room ----------
+// ---------- shared study room (engine in room.ts) ----------
 
-export type RoomAction = "join" | "leave" | "start" | "pause" | "resume" | "stop" | "reset";
-
-export function emptySession(): SharedSessionState {
-  return { status: "idle", startedAt: null, resumedAt: null, accumulatedSec: 0, participants: {}, startedBy: null, updatedAt: null };
-}
-
-/** Seconds the room has been running, including the current open stretch. */
-export function runningSeconds(session: SharedSessionState, nowMs: number): number {
-  const resumedMs = session.status === "running" ? toMillis(session.resumedAt) : null;
-  return session.accumulatedSec + (resumedMs !== null ? Math.max(0, Math.floor((nowMs - resumedMs) / 1000)) : 0);
-}
-
-function creditPresent(session: SharedSessionState, nowMs: number): SharedSessionState["participants"] {
-  const resumedMs = session.status === "running" ? toMillis(session.resumedAt) : null;
-  const elapsed = resumedMs !== null ? Math.max(0, Math.floor((nowMs - resumedMs) / 1000)) : 0;
-  const participants: SharedSessionState["participants"] = {};
-  for (const [uid, entry] of Object.entries(session.participants)) participants[uid] = { ...entry, seconds: entry.seconds + (entry.present ? elapsed : 0) };
-  return participants;
-}
+export type { RoomAction, RoomResult } from "./room.js";
+export { emptySession, runningSeconds } from "./room.js";
 
 export interface RoomInput {
   uid: string;
@@ -197,85 +181,20 @@ export interface RoomInput {
   clock: Clock;
 }
 
-export interface RoomResult {
-  status: SharedSessionState["status"];
-  accumulatedSec: number;
-  credited: Record<string, { minutes: number; rewards: OutcomeResult | null }>;
-}
-
-/**
- * State machine for a shared room. Every transition credits elapsed time to the participants who
- * were present, so per-student time is accurate even if one side leaves mid-session. Stop writes a
- * history document and records a "buddy" study session for each participant through the same engine
- * that caps and validates solo sessions.
- */
+/** Buddy wrapper around the shared room engine: only members of an active pair may act. */
 export function roomAction(input: RoomInput): { writes: WriteOp[]; result: RoomResult } {
   const pair = requireMember(input.uid, input.pair);
-  const { clock, action } = input;
-  const nowMs = clock.now.getTime();
-  const session = input.session;
-  const participants = creditPresent(session, nowMs);
-  const accumulatedSec = runningSeconds(session, nowMs);
-  const path = `${session.id.startsWith("buddySessions/") ? "" : "buddySessions/"}${session.id}`;
-  const base = { participants, updatedAt: clock.stamp };
-  const writes: WriteOp[] = [];
-  const credited: RoomResult["credited"] = {};
-  let next: Partial<SharedSessionState> = {};
-  switch (action) {
-    case "join":
-      participants[input.uid] = participants[input.uid] ? { ...participants[input.uid], present: true } : { joinedAt: clock.stamp, seconds: 0, present: true };
-      next = { resumedAt: session.status === "running" ? clock.stamp : session.resumedAt, accumulatedSec: session.status === "running" ? accumulatedSec : session.accumulatedSec };
-      break;
-    case "leave":
-      if (participants[input.uid]) participants[input.uid] = { ...participants[input.uid], present: false };
-      next = { resumedAt: session.status === "running" ? clock.stamp : session.resumedAt, accumulatedSec: session.status === "running" ? accumulatedSec : session.accumulatedSec };
-      break;
-    case "start":
-      if (session.status === "running") throw new LogicError("failed-precondition", "The room is already running.");
-      participants[input.uid] = participants[input.uid] ? { ...participants[input.uid], present: true } : { joinedAt: clock.stamp, seconds: 0, present: true };
-      next = { status: "running", startedAt: session.status === "idle" || session.status === "stopped" ? clock.stamp : session.startedAt, resumedAt: clock.stamp, accumulatedSec: session.status === "paused" ? session.accumulatedSec : 0, startedBy: session.startedBy ?? input.uid };
-      if (session.status === "idle" || session.status === "stopped") for (const uid of Object.keys(participants)) participants[uid] = { ...participants[uid], seconds: 0 };
-      break;
-    case "pause":
-      if (session.status !== "running") throw new LogicError("failed-precondition", "The room is not running.");
-      next = { status: "paused", resumedAt: null, accumulatedSec };
-      break;
-    case "resume":
-      if (session.status !== "paused") throw new LogicError("failed-precondition", "The room is not paused.");
-      participants[input.uid] = participants[input.uid] ? { ...participants[input.uid], present: true } : { joinedAt: clock.stamp, seconds: 0, present: true };
-      next = { status: "running", resumedAt: clock.stamp };
-      break;
-    case "stop": {
-      if (session.status !== "running" && session.status !== "paused") throw new LogicError("failed-precondition", "Nothing to stop.");
-      next = { status: "stopped", resumedAt: null, accumulatedSec };
-      writes.push({ path: `buddySessions/${input.historyId}`, data: { id: input.historyId, pairId: pair.id, members: pair.members, status: "stopped", startedAt: session.startedAt, resumedAt: null, accumulatedSec, participants, startedBy: session.startedBy, updatedAt: clock.stamp, finalizedAt: clock.stamp } });
-      for (const [uid, entry] of Object.entries(participants)) {
-        const minutes = Math.min(60, Math.floor(entry.seconds / 60));
-        const ctx = input.contexts.get(uid);
-        if (!ctx || minutes < 1) {
-          credited[uid] = { minutes: 0, rewards: null };
-          continue;
-        }
-        const eventId = `session_${uid}_buddy-${input.historyId}`;
-        if (ctx.eventDone) {
-          credited[uid] = { minutes: 0, rewards: null };
-          continue;
-        }
-        writes.push({ path: `learningSessions/${eventId}`, data: { id: eventId, userId: uid, topicId: null, kind: "buddy", minutes, date: clock.today, createdAt: clock.stamp } });
-        const outcome = computeOutcome(ctx, { eventId, reason: "buddy_session", refId: input.historyId, xp: minutes * ctx.config.studyMinuteXp, coins: 0, activity: { minutes } }, clock);
-        writes.push(...outcome.writes);
-        credited[uid] = { minutes, rewards: outcome.result };
-      }
-      break;
-    }
-    case "reset":
-      if (session.status === "running") throw new LogicError("failed-precondition", "Pause or stop before resetting.");
-      next = { status: "idle", startedAt: null, resumedAt: null, accumulatedSec: 0, startedBy: null };
-      for (const uid of Object.keys(participants)) participants[uid] = { ...participants[uid], seconds: 0 };
-      break;
-  }
-  writes.unshift({ path, merge: true, data: { ...base, ...next } });
-  return { writes, result: { status: (next.status ?? session.status) as SharedSessionState["status"], accumulatedSec: next.accumulatedSec ?? accumulatedSec, credited } };
+  return applyRoomAction({
+    uid: input.uid,
+    session: input.session,
+    action: input.action,
+    livePath: `buddySessions/${input.session.id}`,
+    historyPath: `buddySessions/${input.historyId}`,
+    historyExtra: { pairId: pair.id, members: pair.members },
+    kind: "buddy",
+    contexts: input.contexts,
+    clock: input.clock
+  });
 }
 
 // ---------- challenges ----------

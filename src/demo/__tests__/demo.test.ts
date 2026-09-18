@@ -236,6 +236,44 @@ describe("callables", () => {
     await expect(room({ action: "start" })).rejects.toMatchObject({ code: "functions/failed-precondition" });
   });
 
+  it("runs groups end to end: request and approve, invite code, roles, filtered discussion, session and challenge", async () => {
+    await login("aarav@eduorbit.demo");
+    const c = <I, O>(name: string) => call<I, O>(name);
+    const { requestId } = await c<{ groupId: string; message: string }, { requestId: string }>("requestJoinGroup")({ groupId: "demo-group-physics", message: "" });
+    await expect(c<{ groupId: string; message: string }, unknown>("requestJoinGroup")({ groupId: "demo-group-physics", message: "" })).rejects.toMatchObject({ code: "functions/already-exists" });
+    await expect(c<{ requestId: string; approve: boolean }, unknown>("respondJoinRequest")({ requestId, approve: true })).rejects.toMatchObject({ code: "functions/permission-denied" });
+    await expect(c<{ groupId: string; kind: string; title: string; body: string }, unknown>("createGroupPost")({ groupId: "demo-group-physics", kind: "post", title: "Hello", body: "hi" })).rejects.toMatchObject({ code: "functions/permission-denied" });
+    await login("rahul@eduorbit.demo");
+    expect((await c<{ requestId: string; approve: boolean }, { status: string }>("respondJoinRequest")({ requestId, approve: true })).status).toBe("approved");
+    expect((await getDoc(doc(null, "groups", "demo-group-physics"))).data()?.memberCount).toBe(3);
+    await expect(c<{ groupId: string; targetUid: string; role: string }, unknown>("setGroupRole")({ groupId: "demo-group-physics", targetUid: AARAV, role: "owner" })).resolves.toBeDefined();
+    expect((await getDoc(doc(null, "groupMembers", `demo-group-physics_${AARAV}`))).data()?.role).toBe("owner");
+    expect((await getDoc(doc(null, "groupMembers", "demo-group-physics_demo-rahul"))).data()?.role).toBe("admin");
+    await login("aarav@eduorbit.demo");
+    await expect(c<{ groupId: string; kind: string; title: string; body: string }, unknown>("createGroupPost")({ groupId: "demo-group-physics", kind: "post", title: "Meet outside", body: "Text me on whatsapp 9876543210" })).rejects.toMatchObject({ code: "functions/invalid-argument" });
+    const { postId } = await c<{ groupId: string; kind: string; title: string; body: string }, { postId: string }>("createGroupPost")({ groupId: "demo-group-physics", kind: "announcement", title: "Test on Friday", body: "Chapter 8, all topics." });
+    const reaction = await c<{ postId: string; emoji: string }, { reactions: Record<string, number>; mine: string | null }>("reactToGroupPost")({ postId, emoji: "💡" });
+    expect(reaction).toEqual({ reactions: { "💡": 1 }, mine: "💡" });
+    await expect(c<{ targetType: string; targetId: string }, unknown>("markGroupHelpful")({ targetType: "post", targetId: postId })).rejects.toMatchObject({ code: "functions/invalid-argument" });
+    const { replyId } = await c<{ postId: string; body: string }, { replyId: string }>("createGroupReply")({ postId, body: "Noted." });
+    expect((await getDoc(doc(null, "groupPosts", postId))).data()?.replyCount).toBe(1);
+    await c<{ targetType: string; targetId: string; hidden: boolean }, unknown>("moderateGroupContent")({ targetType: "reply", targetId: replyId, hidden: true });
+    expect((await getDoc(doc(null, "groupReplies", replyId))).data()?.hidden).toBe(true);
+    const joined = await c<{ code: string }, { groupId: string; alreadyMember: boolean }>("joinGroupWithCode")({ code: "edu-7k4p9" });
+    expect(joined).toEqual({ groupId: "demo-group-bio", alreadyMember: false });
+    expect((await getDoc(doc(null, "groupInviteCodes", "EDU-7K4P9"))).data()?.uses).toBe(1);
+    await expect(c<{ code: string }, unknown>("joinGroupWithCode")({ code: "EDU-NOPE1" })).rejects.toMatchObject({ code: "functions/not-found" });
+    const session = c<{ groupId: string; action: string }, { status: string }>("groupSessionAction");
+    expect((await session({ groupId: "demo-group-physics", action: "start" })).status).toBe("running");
+    expect((await session({ groupId: "demo-group-physics", action: "stop" })).status).toBe("stopped");
+    const { challengeId } = await c<{ groupId: string; kind: string; target: number; days: number }, { challengeId: string }>("createGroupChallenge")({ groupId: "demo-group-physics", kind: "questions", target: 50, days: 14 });
+    const refreshed = await c<{ challengeId: string }, { totalProgress: number; completed: boolean }>("refreshGroupChallenge")({ challengeId });
+    expect(refreshed.completed).toBe(false);
+    const left = await c<{ groupId: string }, { archived: boolean; newOwner: string | null }>("leaveGroup")({ groupId: "demo-group-physics" });
+    expect(left.newOwner).toBe("demo-rahul");
+    expect((await getDoc(doc(null, "groupMembers", `demo-group-physics_${AARAV}`))).exists()).toBe(false);
+  });
+
   it("deletes every document the student owns", async () => {
     await login("aarav@eduorbit.demo");
     await call<Record<string, never>, { deleted: boolean }>("deleteAccount")({});

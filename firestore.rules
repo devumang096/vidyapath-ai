@@ -29,6 +29,7 @@ service cloud.firestore {
       return value is map && value.keys().hasOnly(['streak', 'dailyGoal', 'weakTopic', 'assessment', 'buddy', 'group', 'reward']);
     }
     function isGroupMember(groupId) { return signedIn() && exists(/databases/$(database)/documents/groupMembers/$(groupId + '_' + request.auth.uid)); }
+    function isGroupStaff(groupId) { return isGroupMember(groupId) && get(/databases/$(database)/documents/groupMembers/$(groupId + '_' + request.auth.uid)).data.role in ['owner', 'admin']; }
 
     // ---------- content: readable when signed in, written only by admins / the seed script ----------
     match /subjects/{id} { allow read: if signedIn(); allow write: if isAdmin(); }
@@ -132,7 +133,8 @@ service cloud.firestore {
     match /groupInviteCodes/{id} { allow read: if isGroupMember(resource.data.groupId); allow write: if false; }
     match /groupPosts/{id} { allow read: if isGroupMember(resource.data.groupId) && (resource.data.hidden == false || resource.data.authorUid == request.auth.uid || isAdmin()); allow write: if false; }
     match /groupReplies/{id} { allow read: if isGroupMember(resource.data.groupId) && (resource.data.hidden == false || resource.data.authorUid == request.auth.uid || isAdmin()); allow write: if false; }
-    match /groupReports/{id} { allow read: if isAdmin() || (signedIn() && resource.data.reporterUid == request.auth.uid); allow write: if false; }
+    match /groupReports/{id} { allow read: if isAdmin() || isGroupStaff(resource.data.groupId) || (signedIn() && resource.data.reporterUid == request.auth.uid); allow write: if false; }
+    match /groupPostReactions/{id} { allow read: if isGroupMember(resource.data.groupId); allow write: if false; }
     match /groupSessions/{id} { allow read: if isGroupMember(resource.data.groupId); allow write: if false; }
     match /groupChallenges/{id} { allow read: if isGroupMember(resource.data.groupId); allow write: if false; }
 

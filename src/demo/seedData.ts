@@ -11,6 +11,7 @@ import rewardsJson from "../../seed/content/rewards.json";
 import badgesJson from "../../seed/content/badges.json";
 import appConfigJson from "../../seed/content/appConfig.json";
 import { completeLesson, recordSession, submitAnswer } from "../../functions/src/lib/learning.js";
+import { createGroup, createInviteCode, createPost, memberDoc, validateGroupInput } from "../../functions/src/lib/groups.js";
 import { istDate } from "../../functions/src/lib/time.js";
 import { anonUsername, avatarFor } from "./hash";
 import { applyToMap, contextFrom, demoClock } from "./engine";
@@ -127,10 +128,27 @@ function replayAarav(docs: Map<string, DocData>, content: Map<string, DocData>):
   }
 }
 
+/** One public group owned by Rahul with Priya as a member and a couple of posts, one private group owned by Priya with a live invite code. */
+function seedGroups(docs: Map<string, DocData>): void {
+  const profile = (uid: string) => docs.get(`publicProfiles/${uid}`) as unknown as Parameters<typeof createGroup>[0]["profile"];
+  const clock = demoClock(new Date(Date.now() - 2 * DAY));
+  const publicGroup = createGroup({ uid: "demo-rahul", profile: profile("demo-rahul"), groupId: "demo-group-physics", clock, fields: validateGroupInput({ name: "Class 10 Physics Circle", description: "Motion, force and electricity, one chapter a week. Ask anything, answer what you can.", privacy: "public", focus: "subject", classLevel: 10, path: "school", subjectId: "physics", studyGoal: "Finish Class 10 Physics before the pre-boards", rules: "Study talk only. No phone numbers or handles.", maxMembers: 20, cover: "atom" }) });
+  applyToMap(docs, publicGroup.writes);
+  applyToMap(docs, [{ path: "groupMembers/demo-group-physics_demo-priya", data: memberDoc("demo-group-physics", profile("demo-priya"), "member", clock) as unknown as DocData }, { path: "groups/demo-group-physics", merge: true, data: { memberCount: 2 } }]);
+  const group = docs.get("groups/demo-group-physics") as never;
+  const member = docs.get("groupMembers/demo-group-physics_demo-rahul") as never;
+  applyToMap(docs, createPost({ uid: "demo-rahul", group, member, kind: "announcement", title: "This week: Equations of Motion", body: "Read the lesson, try the Basic set, and post any question you get stuck on.", postId: "demo-post-1", clock }).writes);
+  applyToMap(docs, createPost({ uid: "demo-priya", group: docs.get("groups/demo-group-physics") as never, member: docs.get("groupMembers/demo-group-physics_demo-priya") as never, kind: "question", title: "Why is acceleration negative when a train slows down?", body: "I keep getting the sign wrong in v = u + at.", postId: "demo-post-2", clock: demoClock(new Date(Date.now() - DAY)) }).writes);
+  const privateGroup = createGroup({ uid: "demo-priya", profile: profile("demo-priya"), groupId: "demo-group-bio", clock, fields: validateGroupInput({ name: "NEET Biology Sprint", description: "Private group for NEET aspirants doing Botany and Zoology together.", privacy: "private", focus: "neet", classLevel: 10, path: "neet", subjectId: "biology", studyGoal: "50 questions a week each", rules: "Join only if you are preparing for NEET.", maxMembers: 10, cover: "leaf" }) });
+  applyToMap(docs, privateGroup.writes);
+  applyToMap(docs, createInviteCode({ uid: "demo-priya", group: docs.get("groups/demo-group-bio") as never, member: docs.get("groupMembers/demo-group-bio_demo-priya") as never, code: "EDU-7K4P9", expiresInHours: 24 * 30, maxUses: 20, clock }).writes);
+}
+
 export function seedUserDocs(): Map<string, DocData> {
   const docs = new Map<string, DocData>();
   const now = Timestamp.now();
   for (const account of DEMO_ACCOUNTS) for (const [path, data] of baseDocs(account, now)) docs.set(path, data);
   replayAarav(docs, contentDocs());
+  seedGroups(docs);
   return docs;
 }

@@ -542,10 +542,17 @@ export interface GroupDoc {
   maxMembers: number;
   memberCount: number;
   ownerUid: string;
+  resources: { title: string; url: string }[];
+  postCount: number;
   status: "active" | "archived";
   createdAt: unknown;
   updatedAt: unknown;
 }
+
+export const GROUP_COVERS = ["orbit", "atom", "leaf", "sigma", "flask", "spark"] as const;
+export type GroupCover = (typeof GROUP_COVERS)[number];
+export const GROUP_FOCUS_LABELS: Record<GroupFocus, string> = { class: "Class", jee: "JEE", neet: "NEET", subject: "Subject", chapter: "Chapter", project: "Project", goal: "Study goal" };
+export const REACTIONS = ["👍", "💡", "🎯", "🙌"] as const;
 
 export interface GroupMemberDoc {
   id: string;
@@ -600,9 +607,19 @@ export interface GroupPostDoc {
   title: string;
   body: string;
   reactions: Record<string, number>;
+  helpfulBy: string[];
   helpfulCount: number;
   replyCount: number;
   hidden: boolean;
+  createdAt: unknown;
+}
+
+export interface GroupPostReactionDoc {
+  id: string;
+  postId: string;
+  groupId: string;
+  uid: string;
+  emoji: string;
   createdAt: unknown;
 }
 
@@ -613,6 +630,7 @@ export interface GroupReplyDoc {
   authorUid: string;
   authorName: string;
   body: string;
+  helpfulBy: string[];
   helpfulCount: number;
   hidden: boolean;
   createdAt: unknown;

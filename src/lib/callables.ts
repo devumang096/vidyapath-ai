@@ -1,11 +1,12 @@
 import { httpsCallable } from "firebase/functions";
 import { functions } from "./firebase";
-import type { AiMode, AiSource, ChallengeKind, SessionKind, Strength, SubmittedAnswer } from "./types";
+import type { AiMode, AiSource, ChallengeKind, GroupRole, ReportReason, SessionKind, Strength, SubmittedAnswer } from "./types";
 import type { StartResult, SubmitResult } from "../../functions/src/lib/assessments.js";
 import type { RankedCandidate, RoomAction, RoomResult } from "../../functions/src/lib/buddy.js";
+import type { GroupInput } from "../../functions/src/lib/groups.js";
 import type { OutcomeResult } from "../../functions/src/lib/outcome.js";
 
-export type { OutcomeResult, StartResult as AssessmentStartResult, SubmitResult as AssessmentSubmitResult, RankedCandidate, RoomAction, RoomResult };
+export type { OutcomeResult, StartResult as AssessmentStartResult, SubmitResult as AssessmentSubmitResult, RankedCandidate, RoomAction, RoomResult, GroupInput };
 
 function call<Input, Output>(name: string) {
   const callable = httpsCallable<Input, Output>(functions, name);
@@ -41,6 +42,27 @@ export const api = {
   buddyRoomAction: call<{ action: RoomAction }, RoomResult>("buddyRoomAction"),
   createBuddyChallenge: call<{ kind: ChallengeKind; target: number; days: number }, { challengeId: string }>("createBuddyChallenge"),
   refreshBuddyChallenge: call<{ challengeId: string }, { progress: Record<string, number>; completed: boolean; rewarded: string[] }>("refreshBuddyChallenge"),
+  createGroup: call<GroupInput, { groupId: string }>("createGroup"),
+  updateGroup: call<GroupInput & { groupId: string; resources?: { title: string; url: string }[] }, { updated: boolean }>("updateGroup"),
+  requestJoinGroup: call<{ groupId: string; message: string }, { requestId: string }>("requestJoinGroup"),
+  respondJoinRequest: call<{ requestId: string; approve: boolean }, { status: "approved" | "rejected" }>("respondJoinRequest"),
+  createGroupInviteCode: call<{ groupId: string; expiresInHours: number; maxUses: number }, { code: string; expiresAt: number }>("createGroupInviteCode"),
+  revokeGroupInviteCode: call<{ code: string }, { revoked: boolean }>("revokeGroupInviteCode"),
+  joinGroupWithCode: call<{ code: string }, { groupId: string; alreadyMember: boolean }>("joinGroupWithCode"),
+  inviteToGroup: call<{ groupId: string; anonUsername: string }, { invitationId: string }>("inviteToGroup"),
+  respondGroupInvitation: call<{ invitationId: string; accept: boolean }, { status: "accepted" | "declined"; groupId: string }>("respondGroupInvitation"),
+  leaveGroup: call<{ groupId: string }, { archived: boolean; newOwner: string | null }>("leaveGroup"),
+  removeGroupMember: call<{ groupId: string; targetUid: string }, { removed: boolean }>("removeGroupMember"),
+  setGroupRole: call<{ groupId: string; targetUid: string; role: GroupRole }, { updated: boolean }>("setGroupRole"),
+  createGroupPost: call<{ groupId: string; kind: "post" | "question" | "announcement"; title: string; body: string }, { postId: string }>("createGroupPost"),
+  createGroupReply: call<{ postId: string; body: string }, { replyId: string }>("createGroupReply"),
+  reactToGroupPost: call<{ postId: string; emoji: string }, { reactions: Record<string, number>; mine: string | null }>("reactToGroupPost"),
+  markGroupHelpful: call<{ targetType: "post" | "reply"; targetId: string }, { helpfulCount: number; marked: boolean }>("markGroupHelpful"),
+  moderateGroupContent: call<{ targetType: "post" | "reply"; targetId: string; hidden: boolean }, { hidden: boolean }>("moderateGroupContent"),
+  reportInGroup: call<{ groupId: string; targetType: "post" | "reply" | "member"; targetId: string; reason: ReportReason; details: string }, { reportId: string }>("reportInGroup"),
+  groupSessionAction: call<{ groupId: string; action: RoomAction }, RoomResult>("groupSessionAction"),
+  createGroupChallenge: call<{ groupId: string; kind: ChallengeKind; target: number; days: number }, { challengeId: string }>("createGroupChallenge"),
+  refreshGroupChallenge: call<{ challengeId: string }, { progress: Record<string, number>; totalProgress: number; completed: boolean; rewarded: string[] }>("refreshGroupChallenge"),
   askAi: call<
     { conversationId: string; mode: AiMode; message?: string; beginner?: boolean; topicId?: string | null; chapterId?: string | null; questionId?: string | null; attemptAnswer?: string },
     { text: string; source: AiSource; notice: string | null; remaining: number }
