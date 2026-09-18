@@ -2,7 +2,7 @@
 // streak and mastery logic is the same code the server runs (functions/src/lib), so the demo
 // behaves like production minus the network.
 import type {
-  AssessmentAttemptDoc, AssessmentDoc, AiMessageDoc, AiMode, ChapterDoc, LessonDoc, LessonProgressDoc, ChapterProgressDoc, PublicProfile, QuestionDoc, QuestionKeyDoc, RedemptionDoc, RewardDoc,
+  AssessmentAttemptDoc, AssessmentDoc, AiMessageDoc, AiMode, BuddyChallengeDoc, BuddyPairDoc, BuddyPreferencesDoc, BuddyRequestDoc, BuddySessionDoc, ChallengeKind, ChapterDoc, LessonDoc, LessonProgressDoc, ChapterProgressDoc, PublicProfile, QuestionDoc, QuestionKeyDoc, RedemptionDoc, RewardDoc,
   SpinStateDoc, TopicDoc, TopicMasteryDoc, UserDoc
 } from "../lib/types";
 import { applyWrites } from "../../functions/src/lib/writes.js";
@@ -10,6 +10,8 @@ import { toMillis } from "../../functions/src/lib/outcome.js";
 import { completeLesson, LogicError, recordSession, SESSION_KINDS, submitAnswer } from "../../functions/src/lib/learning.js";
 import { redeem, spin } from "../../functions/src/lib/rewards.js";
 import { PERIODIC_KINDS, periodKeyFor, startAttempt, submitAttempt } from "../../functions/src/lib/assessments.js";
+import { cancelRequest, countActivity, createChallenge, rankCandidates, refreshChallenge, respondRequest, roomAction, sendRequest, sessionDoc, unmatch, type RoomAction } from "../../functions/src/lib/buddy.js";
+import type { OutcomeContext } from "../../functions/src/lib/outcome.js";
 import { parseSubmittedAnswer } from "../../functions/src/lib/grading.js";
 import { fallbackResponse, planMinutes } from "../../functions/src/lib/aiFallback.js";
 import { needsSupportNotice, SUPPORT_NOTICE } from "../../functions/src/lib/aiValidate.js";
@@ -53,6 +55,26 @@ function run<T>(uid: string, eventId: string, work: (ctx: ReturnType<typeof cont
     if (error instanceof LogicError) throw new DemoError(error.code, error.message);
     throw error;
   }
+}
+
+function activePair(uid: string): BuddyPairDoc | null {
+  const rows = runQuery({ path: "buddies", filters: [{ field: "members", op: "array-contains", value: uid }, { field: "status", op: "==", value: "active" }], orders: [], max: 1 });
+  return rows.length ? (rows[0].data as unknown as BuddyPairDoc) : null;
+}
+function applyOrThrow(writes: Parameters<typeof applyWrites>[1]): void {
+  applyWrites(storeSink, writes);
+}
+function logicGuard<T>(work: () => T): T {
+  try {
+    return work();
+  } catch (error) {
+    if (error instanceof LogicError) throw new DemoError(error.code, error.message);
+    throw error;
+  }
+}
+function memberDocs(uid: string, kind: ChallengeKind) {
+  const rows = (path: string) => runQuery({ path, filters: [{ field: "userId", op: "==", value: uid }], orders: [], max: null }).map((row) => row.data as never);
+  return { learningSessions: kind === "study_minutes" ? rows("learningSessions") : [], questionAttempts: kind === "questions" ? rows("questionAttempts") : [], chapterProgress: kind === "chapter" ? rows("chapterProgress") : [], assessmentAttempts: kind === "assessment" ? rows("assessmentAttempts") : [] };
 }
 
 export const callables: Record<string, Handler> = {
@@ -177,6 +199,102 @@ export const callables: Record<string, Handler> = {
     const mastery = new Map(topicIds.map((topicId) => [topicId, getDoc<TopicMasteryDoc>(`topicMastery/${uid}_${topicId}`)]));
     const poolSizes = new Map(topicIds.map((topicId) => [topicId, count("questions", "topicId", topicId)]));
     return run(uid, `assessment_${attemptId}`, (ctx, clock) => submitAttempt({ ctx, clock, attempt, questions, keys, rawAnswers, timeTakenSec, mastery, poolSizes }));
+  },
+
+  async findBuddyCandidates(uid) {
+    const me = { profile: requireDoc<PublicProfile>(`publicProfiles/${uid}`, "Profile not found.", "failed-precondition"), prefs: getDoc<BuddyPreferencesDoc>(`buddyPreferences/${uid}`) };
+    const blocked = new Set<string>(listDocs(`blocks/${uid}/users`).map((row) => row.id));
+    const open = runQuery({ path: "buddyPreferences", filters: [{ field: "open", op: "==", value: true }], orders: [], max: 200 });
+    const candidates = open.map((row) => ({ profile: getDoc<PublicProfile>(`publicProfiles/${row.id}`), prefs: row.data as unknown as BuddyPreferencesDoc })).filter((row): row is { profile: PublicProfile; prefs: BuddyPreferencesDoc } => Boolean(row.profile));
+    for (const candidate of candidates) if (getDoc(`blocks/${candidate.profile.uid}/users/${uid}`)) blocked.add(candidate.profile.uid);
+    return { candidates: rankCandidates(me, candidates, blocked) };
+  },
+
+  async sendBuddyRequest(uid, input) {
+    const toUid = requireString(input.toUid, "toUid", 128);
+    const message = typeof input.message === "string" ? input.message : "";
+    const fromProfile = requireDoc<PublicProfile>(`publicProfiles/${uid}`, "Profile not found.");
+    const toProfile = requireDoc<PublicProfile>(`publicProfiles/${toUid}`, "Student not found.");
+    const pending = runQuery({ path: "buddyRequests", filters: [{ field: "status", op: "==", value: "pending" }], orders: [], max: null }).map((row) => row.data as unknown as BuddyRequestDoc);
+    const existing = pending.find((row) => (row.fromUid === uid && row.toUid === toUid) || (row.fromUid === toUid && row.toUid === uid)) ?? null;
+    const requestId = newDocId();
+    return logicGuard(() => {
+      const { writes, result } = sendRequest({
+        fromUid: uid, toUid, message, requestId, blockedEitherWay: Boolean(getDoc(`blocks/${uid}/users/${toUid}`) || getDoc(`blocks/${toUid}/users/${uid}`)),
+        fromProfile, toProfile, toPrefsOpen: getDoc<BuddyPreferencesDoc>(`buddyPreferences/${toUid}`)?.open === true, existingBetween: existing,
+        recipientNotify: getDoc<UserDoc>(`users/${toUid}`)?.notificationPrefs?.buddy !== false, clock: demoClock()
+      });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+
+  async respondBuddyRequest(uid, input) {
+    const requestId = requireString(input.requestId, "requestId", 80);
+    const request = requireDoc<BuddyRequestDoc>(`buddyRequests/${requestId}`, "Request not found.");
+    return logicGuard(() => {
+      const { writes, result } = respondRequest({ uid, request, accept: input.accept === true, fromProfile: requireDoc<PublicProfile>(`publicProfiles/${request.fromUid}`, "Profile not found."), toProfile: requireDoc<PublicProfile>(`publicProfiles/${request.toUid}`, "Profile not found."), pairId: newDocId(), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+
+  async cancelBuddyRequest(uid, input) {
+    const requestId = requireString(input.requestId, "requestId", 80);
+    const request = requireDoc<BuddyRequestDoc>(`buddyRequests/${requestId}`, "Request not found.");
+    logicGuard(() => applyOrThrow(cancelRequest(uid, request, demoClock())));
+    return { cancelled: true };
+  },
+
+  async unmatchBuddy(uid) {
+    logicGuard(() => applyOrThrow(unmatch(uid, activePair(uid), demoClock())));
+    return { ended: true };
+  },
+
+  async buddyRoomAction(uid, input) {
+    const action = requireString(input.action, "action", 10) as RoomAction;
+    const pair = activePair(uid);
+    if (!pair) throw new DemoError("failed-precondition", "You do not have a Buddy yet.");
+    const clock = demoClock();
+    const historyId = `${pair.id}_${newDocId()}`;
+    const session = sessionDoc(getDoc<BuddySessionDoc>(`buddySessions/${pair.id}_live`), pair.id, pair.members);
+    const contexts = new Map<string, OutcomeContext>();
+    if (action === "stop") for (const member of pair.members) contexts.set(member, contextFrom(readDoc, member, `session_${member}_buddy-${historyId}`, clock));
+    return logicGuard(() => {
+      const { writes, result } = roomAction({ uid, pair, session, action, contexts, historyId, clock });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+
+  async createBuddyChallenge(uid, input) {
+    const kind = requireString(input.kind, "kind", 20) as ChallengeKind;
+    const target = requireNumber(input.target, "target", 1, 10_000);
+    const days = requireNumber(input.days ?? 7, "days", 1, 30);
+    return logicGuard(() => {
+      const { writes, result } = createChallenge({ uid, pair: activePair(uid), kind, target, days, challengeId: newDocId(), clock: demoClock() });
+      applyOrThrow(writes);
+      return result;
+    });
+  },
+
+  async refreshBuddyChallenge(uid, input) {
+    const challengeId = requireString(input.challengeId, "challengeId", 80);
+    const challenge = requireDoc<BuddyChallengeDoc>(`buddyChallenges/${challengeId}`, "Challenge not found.");
+    if (!challenge.members.includes(uid)) throw new DemoError("permission-denied", "You are not in this challenge.");
+    const clock = demoClock();
+    const sinceMs = toMillis(challenge.startsAt) ?? 0;
+    const counts: Record<string, number> = {};
+    const contexts = new Map<string, OutcomeContext>();
+    for (const member of challenge.members) {
+      counts[member] = countActivity(challenge.kind, memberDocs(member, challenge.kind), sinceMs);
+      contexts.set(member, contextFrom(readDoc, member, `challenge_${challenge.id}_${member}`, clock));
+    }
+    return logicGuard(() => {
+      const { writes, result } = refreshChallenge({ uid, challenge, counts, contexts, clock });
+      applyOrThrow(writes);
+      return result;
+    });
   },
 
   async askAi(uid, input) {

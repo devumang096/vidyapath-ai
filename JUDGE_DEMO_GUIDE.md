@@ -15,7 +15,7 @@ Open the demo (`npm run demo` or the GitHub Pages preview). Log in as **aarav@ed
 | 9 | Assessments: start the Daily Assessment, answer a few, submit | "Papers are built on the server, one per day. Result shows strong and weak topics with recommendations, and updates mastery." | 3:40 |
 | 10 | Rewards: spin, then redeem the Pen Set | "Server-timed 24-hour spin. Redemption checks eligibility, balance and stock in one transaction and reduces stock. Try the Backpack: refused, nothing deducted." | 4:10 |
 | 11 | Calendar: click a green day | "Study time, questions, accuracy, lessons, topics, XP and coins per day." | 4:30 |
-| 12 | Settings: scroll to Delete account | "Full server-side deletion. Also: notification preferences, language, privacy statement." | 4:45 |
+| 12 | Buddy: send a request to CuriousHarbor49 (Priya). Optional: log in as Priya in a private window, accept, open the room | "Anonymous matching in the same class. Requests refuse phone numbers and handles. The shared room measures time on the server and credits both students on stop." | 4:45 |
 | 13 | Resize to phone width or open on a phone | "Bottom navigation, drawer menu, same features." | 5:00 |
 
-If asked what is not yet built: Buddy and Groups. Each page says so and shows no dead buttons. Their Firestore rules and data model are already in place.
+If asked what is not yet built: Groups. Each page says so and shows no dead buttons. Their Firestore rules and data model are already in place.

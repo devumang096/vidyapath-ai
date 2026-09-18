@@ -72,7 +72,8 @@ function baseDocs(account: DemoAccount, now: Timestamp): [string, DocData][] {
       progressSummary: { accuracy: 0, questionsSolved: 0, lessonsCompleted: 0 }, buddyStatus: "none", buddyPairId: null, updatedAt: now
     }],
     [`streaks/${uid}`, { uid, current: 0, longest: 0, lastQualifiedDate: null, protectionTokens: 0, milestonesAwarded: [], updatedAt: now }],
-    [`spinState/${uid}`, { uid, nextSpinAt: null, lastResult: null, totalSpins: 0 }]
+    [`spinState/${uid}`, { uid, nextSpinAt: null, lastResult: null, totalSpins: 0 }],
+    [`buddyPreferences/${uid}`, { uid, open: role === "student", subjects: subjects.slice(0, 2), schedule: uid === "demo-rahul" ? "morning" : "evening", genderPreference: "any", gender: "unspecified", updatedAt: now }]
   ];
 }
 

@@ -1,10 +1,11 @@
 import { httpsCallable } from "firebase/functions";
 import { functions } from "./firebase";
-import type { AiMode, AiSource, SessionKind, Strength, SubmittedAnswer } from "./types";
+import type { AiMode, AiSource, ChallengeKind, SessionKind, Strength, SubmittedAnswer } from "./types";
 import type { StartResult, SubmitResult } from "../../functions/src/lib/assessments.js";
+import type { RankedCandidate, RoomAction, RoomResult } from "../../functions/src/lib/buddy.js";
 import type { OutcomeResult } from "../../functions/src/lib/outcome.js";
 
-export type { OutcomeResult, StartResult as AssessmentStartResult, SubmitResult as AssessmentSubmitResult };
+export type { OutcomeResult, StartResult as AssessmentStartResult, SubmitResult as AssessmentSubmitResult, RankedCandidate, RoomAction, RoomResult };
 
 function call<Input, Output>(name: string) {
   const callable = httpsCallable<Input, Output>(functions, name);
@@ -32,6 +33,14 @@ export const api = {
   redeemReward: call<{ rewardId: string; redemptionKey: string }, { alreadyRedeemed: boolean; redemptionId: string; coinsSpent: number; remainingCoins: number }>("redeemReward"),
   startAssessment: call<{ assessmentId: string; scopeId?: string | null }, StartResult>("startAssessment"),
   submitAssessment: call<{ attemptId: string; answers: Record<string, SubmittedAnswer>; timeTakenSec: number }, SubmitResult>("submitAssessment"),
+  findBuddyCandidates: call<Record<string, never>, { candidates: RankedCandidate[] }>("findBuddyCandidates"),
+  sendBuddyRequest: call<{ toUid: string; message: string }, { requestId: string }>("sendBuddyRequest"),
+  respondBuddyRequest: call<{ requestId: string; accept: boolean }, { status: "accepted" | "declined"; pairId: string | null }>("respondBuddyRequest"),
+  cancelBuddyRequest: call<{ requestId: string }, { cancelled: boolean }>("cancelBuddyRequest"),
+  unmatchBuddy: call<Record<string, never>, { ended: boolean }>("unmatchBuddy"),
+  buddyRoomAction: call<{ action: RoomAction }, RoomResult>("buddyRoomAction"),
+  createBuddyChallenge: call<{ kind: ChallengeKind; target: number; days: number }, { challengeId: string }>("createBuddyChallenge"),
+  refreshBuddyChallenge: call<{ challengeId: string }, { progress: Record<string, number>; completed: boolean; rewarded: string[] }>("refreshBuddyChallenge"),
   askAi: call<
     { conversationId: string; mode: AiMode; message?: string; beginner?: boolean; topicId?: string | null; chapterId?: string | null; questionId?: string | null; attemptAnswer?: string },
     { text: string; source: AiSource; notice: string | null; remaining: number }

@@ -206,6 +206,36 @@ describe("callables", () => {
     await expect(submit({ attemptId: first.attemptId, answers: {}, timeTakenSec: 1 })).rejects.toMatchObject({ code: "functions/permission-denied" });
   });
 
+  it("matches buddies, runs a shared room that credits both students, and completes a challenge once", async () => {
+    await login("aarav@eduorbit.demo");
+    const find = call<Record<string, never>, { candidates: { uid: string; reasons: string[] }[] }>("findBuddyCandidates");
+    const found = await find({});
+    expect(found.candidates.map((row) => row.uid)).toContain(PRIYA);
+    expect(found.candidates.every((row) => !("email" in row))).toBe(true);
+    const { requestId } = await call<{ toUid: string; message: string }, { requestId: string }>("sendBuddyRequest")({ toUid: PRIYA, message: "Physics tonight?" });
+    await expect(call<{ toUid: string; message: string }, unknown>("sendBuddyRequest")({ toUid: PRIYA, message: "" })).rejects.toMatchObject({ code: "functions/already-exists" });
+    await expect(call<{ requestId: string; accept: boolean }, unknown>("respondBuddyRequest")({ requestId, accept: true })).rejects.toMatchObject({ code: "functions/permission-denied" });
+    await login("priya@eduorbit.demo");
+    const accepted = await call<{ requestId: string; accept: boolean }, { status: string; pairId: string }>("respondBuddyRequest")({ requestId, accept: true });
+    expect(accepted.status).toBe("accepted");
+    expect(((await getDoc(doc(null, "publicProfiles", AARAV))).data() as unknown as PublicProfile).buddyStatus).toBe("matched");
+    const room = call<{ action: string }, { status: string; credited: Record<string, { minutes: number }> }>("buddyRoomAction");
+    expect((await room({ action: "start" })).status).toBe("running");
+    await login("aarav@eduorbit.demo");
+    expect((await room({ action: "join" })).status).toBe("running");
+    await expect(room({ action: "start" })).rejects.toMatchObject({ code: "functions/failed-precondition" });
+    const stopped = await room({ action: "stop" });
+    expect(stopped.status).toBe("stopped");
+    expect(Object.keys(stopped.credited).sort()).toEqual([AARAV, PRIYA].sort());
+    expect(listDocs("buddySessions").filter((row) => row.data.finalizedAt)).toHaveLength(1);
+    const { challengeId } = await call<{ kind: string; target: number; days: number }, { challengeId: string }>("createBuddyChallenge")({ kind: "questions", target: 5, days: 7 });
+    const refresh = call<{ challengeId: string }, { progress: Record<string, number>; completed: boolean; rewarded: string[] }>("refreshBuddyChallenge");
+    expect((await refresh({ challengeId })).completed).toBe(false);
+    await call<Record<string, never>, unknown>("unmatchBuddy")({});
+    expect(((await getDoc(doc(null, "publicProfiles", PRIYA))).data() as unknown as PublicProfile).buddyStatus).toBe("none");
+    await expect(room({ action: "start" })).rejects.toMatchObject({ code: "functions/failed-precondition" });
+  });
+
   it("deletes every document the student owns", async () => {
     await login("aarav@eduorbit.demo");
     await call<Record<string, never>, { deleted: boolean }>("deleteAccount")({});

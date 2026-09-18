@@ -4,8 +4,8 @@
 
 | Suite | Command | Covers | Last result |
 |---|---|---|---|
-| Server logic | `npm run test:functions` | IST dates, streak with protection tokens, mastery formula and bands, grading of all five question types, spin cooldown and weights, AI validation and crisis notice, fallback variation and hint progression, badges, invite codes, `computeOutcome` ledgers and balances, lesson and chapter completion, first-correct payout, session caps, redemption failures and success, spin replay protection, assessment period keys, deterministic paper building with bucket borrowing, grading with unanswered-as-wrong, ownership and double-submit guards | 39 passed (2026-09-19) |
-| Demo shims and callables | `npm test` | Firestore shim queries, four-subject invariant, auth shim (wrong password, duplicate email, Google-style account), engine-generated seed history with ledger consistency, `submitAnswer` grading and idempotency, `completeLesson` chapter completion, `recordStudySession` caps and streak, `redeemReward` stock and coin invariants, `spinWheel` cooldown, `askAi` variation, persistence and support notice, one daily paper per period with resume, grading, replay and cross-user rejection, `deleteAccount` | 15 passed (2026-09-19) |
+| Server logic | `npm run test:functions` | IST dates, streak with protection tokens, mastery formula and bands, grading of all five question types, spin cooldown and weights, AI validation and crisis notice, fallback variation and hint progression, badges, invite codes, `computeOutcome` ledgers and balances, lesson and chapter completion, first-correct payout, session caps, redemption failures and success, spin replay protection, assessment period keys, deterministic paper building with bucket borrowing, grading with unanswered-as-wrong, ownership and double-submit guards, Buddy ranking and gender preference, request guards and contact-sharing filter, accept and decline, unmatch, room state machine with per-participant credit and idempotent stop, challenge validation, progress, one-time payout and expiry | 48 passed (2026-09-19) |
+| Demo shims and callables | `npm test` | Firestore shim queries, four-subject invariant, auth shim (wrong password, duplicate email, Google-style account), engine-generated seed history with ledger consistency, `submitAnswer` grading and idempotency, `completeLesson` chapter completion, `recordStudySession` caps and streak, `redeemReward` stock and coin invariants, `spinWheel` cooldown, `askAi` variation, persistence and support notice, one daily paper per period with resume, grading, replay and cross-user rejection, Buddy match, request, accept, room from both accounts, challenge and unmatch, `deleteAccount` | 16 passed (2026-09-19) |
 | Content | `npm run seed:check` | Referential integrity, exact subject whitelist, slugs, question types vs keys, JEE/NEET subject rules, reward stock and prices | passed (2026-09-19) |
 | Firestore rules | `firebase emulators:exec --only firestore "npm run test:rules"` | Every "a student cannot" case from spec section 99 plus admin limits | **Not run in build environment** (no emulator or Java) |
 | Typecheck and build | `npm run typecheck`, `vite build --mode demo` | Frontend and Functions types, production bundle | passed (2026-09-19) |
@@ -76,6 +76,18 @@ Verified column: **Demo** means checked in the browser against the in-browser de
 | Redeem without enough coins or stock | Error, nothing deducted | Automated (demo and functions tests) |
 | Calendar day click | Study time, questions, accuracy, lessons, topics, XP, coins, streak | Demo |
 | Project create, tasks, complete, notes, resources, delete | Persisted, progress recalculated | Demo (create, tasks, complete); notes, resources, delete not run in browser |
+
+### Buddy
+| Case | Expected | Verified |
+|---|---|---|
+| Preferences saved | Open flag, subjects, schedule, gender preference persisted | Demo |
+| Candidates | Same class only, anonymous names, ranked with reasons; blocked and matched students hidden | Demo (ranking) + Automated (blocks, matched, gender) |
+| Send request with a phone number | Refused with a clear message, nothing stored | Automated |
+| Request, accept from the other account | Pair created, both profiles matched, live room seeded, notification | Demo |
+| Room start, join from the other account, pause, resume, stop | Shared status on both sides, per-student time, stop records the session and credits minutes | Demo (under one minute, so 0 credited) + Automated (25 minute credit, replay-safe) |
+| Challenge create and refresh | Progress from real activity; both must finish; paid once; expiry honoured | Demo (create, refresh) + Automated (completion, payout, expiry) |
+| Unmatch | Pair ended, both free to match again, room closed | Demo |
+| Block and report | Block ends the pair and hides both ways; report stored for moderators | Not run in browser (client writes validated by rules) |
 
 ### Security (spec 99)
 | Case | Expected | Verified |

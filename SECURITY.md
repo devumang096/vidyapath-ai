@@ -45,6 +45,12 @@ EduOrbit treats security and data protection as the first priority (spec section
 | `spinWheel` | none | event id from the spin counter; 24 h cooldown checked against server time |
 | `redeemReward` | reward exists, available, in stock, eligibility met, balance sufficient, once-per-user honoured | once per redemption key; any failure throws before writes |
 | `askAi` | mode whitelist, message cap 1500 chars, ids capped, conversation ownership | 40 requests per student per IST day; output validated, hint mode leak check, crisis support notice |
+| `startAssessment` / `submitAssessment` | template exists, scope required for topic and chapter tests, answers validated per question type | one paper per period; attempt owner check; finalized attempts return the stored result |
+| `findBuddyCandidates` | none | returns anonymous profile fields only; excludes blocks in either direction, closed and matched students, other classes |
+| `sendBuddyRequest` | target exists, same class, open, not matched, not blocked, no pending request, message free of phone, email, handle, link or app contact | one pending request per pair of students |
+| `respondBuddyRequest` / `cancelBuddyRequest` / `unmatchBuddy` | recipient-only accept, sender-only cancel, member-only unmatch | pair creation checks both students are still free |
+| `buddyRoomAction` | member of an active pair; state machine rejects invalid transitions | stop credits each present participant once through `session_{uid}_buddy-{historyId}`, capped at 60 minutes |
+| `createBuddyChallenge` / `refreshBuddyChallenge` | member only; target bounds per kind | progress from server documents only; payout once per member; expired challenges never complete |
 | `deleteAccount` | authenticated | deletes every student-owned document, ends buddy pairs, removes group memberships, deletes the Auth user |
 
 ## 4. Student safety
@@ -52,11 +58,12 @@ EduOrbit treats security and data protection as the first priority (spec section
 - Other students see only `publicProfiles`: anonymous username, avatar, class, goal, subjects, language, level, progress summary. Never name, email, phone, school or location.
 - Block and report are client-writable with validated shapes; blocks are private to the blocker.
 - OrbitAI's system prompt forbids off-study content and links; a crisis-language detector prepends helpline guidance (Tele-MANAS 14416, KIRAN 1800-599-0019) and the UI states that OrbitAI is not a counsellor.
-- Planned for the Buddy and Groups phases: server-side contact-sharing filter on posts and replies, owner/admin/member role checks in every group callable, invite codes with expiry and usage limits.
+- Buddy request messages pass through `functions/src/lib/safety.ts`, which refuses phone numbers, emails, handles, links and messaging-app contacts. The same filter will guard group posts and replies.
+- Planned for the Groups phase: owner/admin/member role checks in every group callable, invite codes with expiry and usage limits.
 
 ## 5. Known gaps
 
 - Firestore rules tests (`tests/rules`) are written but were not executed in the build environment (no emulator). Run them before launch.
 - App Check is not enabled. Enable it on Functions and Firestore for production.
-- Assessments, Buddy and Groups callables are not yet implemented; their rules are in place so no client can create those documents in the meantime.
+- Groups callables are not yet implemented; their rules are in place so no client can create those documents in the meantime.
 - Email verification is encouraged with a banner but does not block usage.
