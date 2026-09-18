@@ -1,56 +1,51 @@
 [
   {
-    "id": "first_module",
-    "name": "First Module",
-    "description": "Completed your first learning module.",
-    "icon": "\ud83d\udcd8"
+    "id": "first_step",
+    "name": "First Step",
+    "description": "Completed your first lesson or answered your first question.",
+    "criteria": "lessonsCompleted >= 1 or questionsSolved >= 1",
+    "icon": "🚀"
   },
   {
-    "id": "problems_10",
-    "name": "10 Problems Solved",
-    "description": "Solved ten problems in the Problem Lab.",
-    "icon": "\ud83e\udde9"
-  },
-  {
-    "id": "questions_100",
-    "name": "100 Questions",
-    "description": "Answered one hundred questions correctly.",
-    "icon": "\ud83d\udcaf"
-  },
-  {
-    "id": "streak_7",
-    "name": "7-Day Streak",
+    "id": "week_warrior",
+    "name": "Week Warrior",
     "description": "Seven days of meaningful learning in a row.",
-    "icon": "\ud83d\udd25"
+    "criteria": "streak >= 7",
+    "icon": "🔥"
   },
   {
-    "id": "streak_30",
-    "name": "30-Day Streak",
+    "id": "consistency_champion",
+    "name": "Consistency Champion",
     "description": "Thirty days of meaningful learning in a row.",
-    "icon": "\ud83c\udfc5"
+    "criteria": "streak >= 30",
+    "icon": "🏅"
   },
   {
-    "id": "streak_100",
-    "name": "100-Day Streak",
-    "description": "One hundred days of meaningful learning in a row.",
-    "icon": "\ud83c\udfc6"
+    "id": "knowledge_explorer",
+    "name": "Knowledge Explorer",
+    "description": "Completed ten lessons.",
+    "criteria": "lessonsCompleted >= 10",
+    "icon": "📘"
   },
   {
     "id": "problem_solver",
     "name": "Problem Solver",
-    "description": "Solved twenty-five problems.",
-    "icon": "\ud83d\udee0\ufe0f"
+    "description": "Answered one hundred questions correctly.",
+    "criteria": "questionsSolved >= 100",
+    "icon": "🧩"
   },
   {
-    "id": "revision_master",
-    "name": "Revision Master",
-    "description": "Completed ten revision sessions.",
-    "icon": "\ud83d\udd01"
+    "id": "orbit_explorer",
+    "name": "Orbit Explorer",
+    "description": "Completed a lesson, a practice question and an assessment.",
+    "criteria": "lessonsCompleted >= 1 and questionsSolved >= 1 and assessmentsCompleted >= 1",
+    "icon": "🪐"
   },
   {
-    "id": "lucky_spin",
-    "name": "Lucky Spin",
-    "description": "Won a badge on the spin wheel.",
-    "icon": "\ud83c\udfa1"
+    "id": "ninety_day_champion",
+    "name": "90-Day Champion",
+    "description": "Ninety days of meaningful learning in a row.",
+    "criteria": "streak >= 90",
+    "icon": "🏆"
   }
 ]

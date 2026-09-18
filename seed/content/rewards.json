@@ -1,57 +1,155 @@
 [
   {
     "id": "notebook",
-    "name": "Study Notebook",
-    "description": "A ruled VidyaPath notebook for your working and formulas.",
-    "starsRequired": 60,
+    "name": "Notebook",
+    "description": "A ruled EduOrbit notebook for working and formulas.",
+    "icon": "📓",
+    "coinPrice": 80,
+    "stock": 50,
     "available": true,
     "oncePerUser": false,
+    "eligibility": {
+      "minStreak": 0,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 0
+    },
     "kind": "physical",
-    "prototype": true,
     "order": 1
   },
   {
-    "id": "study-planner",
-    "name": "Printed Study Planner",
-    "description": "A 12-week planner with daily targets and revision slots.",
-    "starsRequired": 120,
+    "id": "pens",
+    "name": "Pen Set",
+    "description": "A set of three smooth-writing ball pens.",
+    "icon": "🖊️",
+    "coinPrice": 40,
+    "stock": 100,
     "available": true,
     "oncePerUser": false,
+    "eligibility": {
+      "minStreak": 0,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 0
+    },
     "kind": "physical",
-    "prototype": true,
     "order": 2
   },
   {
-    "id": "educational-book",
-    "name": "Educational Book",
-    "description": "A problem-solving book for your goal, chosen at fulfilment.",
-    "starsRequired": 250,
+    "id": "highlighters",
+    "name": "Highlighters",
+    "description": "Four pastel highlighters for revision notes.",
+    "icon": "🖍️",
+    "coinPrice": 60,
+    "stock": 80,
     "available": true,
     "oncePerUser": false,
+    "eligibility": {
+      "minStreak": 0,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 0
+    },
     "kind": "physical",
-    "prototype": true,
     "order": 3
   },
   {
-    "id": "certificate",
-    "name": "Certificate of Consistency",
-    "description": "A digital certificate recognising your learning consistency.",
-    "starsRequired": 150,
+    "id": "geometry-box",
+    "name": "Geometry Box",
+    "description": "Compass, protractor, set squares and ruler.",
+    "icon": "📐",
+    "coinPrice": 150,
+    "stock": 40,
     "available": true,
-    "oncePerUser": true,
-    "kind": "digital",
-    "prototype": false,
+    "oncePerUser": false,
+    "eligibility": {
+      "minStreak": 0,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 0
+    },
+    "kind": "physical",
     "order": 4
   },
   {
-    "id": "special-goodie",
-    "name": "Special Goodie",
-    "description": "A surprise VidyaPath goodie for top learners.",
-    "starsRequired": 500,
+    "id": "tshirt",
+    "name": "EduOrbit T-shirt",
+    "description": "Cotton T-shirt with the EduOrbit orbit mark.",
+    "icon": "👕",
+    "coinPrice": 400,
+    "stock": 25,
     "available": true,
     "oncePerUser": true,
+    "eligibility": {
+      "minStreak": 7,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 50
+    },
     "kind": "physical",
-    "prototype": true,
     "order": 5
+  },
+  {
+    "id": "bottle",
+    "name": "Water Bottle",
+    "description": "750 ml steel bottle for long study sessions.",
+    "icon": "🧴",
+    "coinPrice": 300,
+    "stock": 30,
+    "available": true,
+    "oncePerUser": false,
+    "eligibility": {
+      "minStreak": 7,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 50
+    },
+    "kind": "physical",
+    "order": 6
+  },
+  {
+    "id": "tiffin",
+    "name": "Tiffin Box",
+    "description": "Two-tier steel tiffin box.",
+    "icon": "🍱",
+    "coinPrice": 350,
+    "stock": 20,
+    "available": true,
+    "oncePerUser": false,
+    "eligibility": {
+      "minStreak": 7,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 50
+    },
+    "kind": "physical",
+    "order": 7
+  },
+  {
+    "id": "pencil-box",
+    "name": "Pencil Box",
+    "description": "Magnetic pencil box with two compartments.",
+    "icon": "✏️",
+    "coinPrice": 120,
+    "stock": 60,
+    "available": true,
+    "oncePerUser": false,
+    "eligibility": {
+      "minStreak": 0,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 0
+    },
+    "kind": "physical",
+    "order": 8
+  },
+  {
+    "id": "bag",
+    "name": "Backpack",
+    "description": "Padded backpack with a laptop sleeve.",
+    "icon": "🎒",
+    "coinPrice": 900,
+    "stock": 10,
+    "available": true,
+    "oncePerUser": true,
+    "eligibility": {
+      "minStreak": 7,
+      "minChaptersCompleted": 0,
+      "minQuestionsSolved": 50
+    },
+    "kind": "physical",
+    "order": 9
   }
 ]

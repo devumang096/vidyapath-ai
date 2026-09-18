@@ -1,0 +1,115 @@
+[
+  {
+    "id": "daily",
+    "kind": "daily",
+    "title": "Daily Assessment",
+    "description": "Ten mixed questions from your subjects. One per day.",
+    "questionCounts": {
+      "1": 5,
+      "2": 3,
+      "3": 2
+    },
+    "timeLimitSec": 900,
+    "examTag": null,
+    "subjectIds": [],
+    "order": 1
+  },
+  {
+    "id": "weekly",
+    "kind": "weekly",
+    "title": "Weekly Assessment",
+    "description": "Twenty questions across everything you studied this week.",
+    "questionCounts": {
+      "1": 8,
+      "2": 8,
+      "3": 4
+    },
+    "timeLimitSec": 1800,
+    "examTag": null,
+    "subjectIds": [],
+    "order": 2
+  },
+  {
+    "id": "monthly",
+    "kind": "monthly",
+    "title": "Monthly Assessment",
+    "description": "Thirty questions with a heavier weight on advanced problems.",
+    "questionCounts": {
+      "1": 10,
+      "2": 12,
+      "3": 8
+    },
+    "timeLimitSec": 2700,
+    "examTag": null,
+    "subjectIds": [],
+    "order": 3
+  },
+  {
+    "id": "topic_test",
+    "kind": "topic_test",
+    "title": "Topic Test",
+    "description": "A quick test on a single topic.",
+    "questionCounts": {
+      "1": 3,
+      "2": 2,
+      "3": 1
+    },
+    "timeLimitSec": 600,
+    "examTag": null,
+    "subjectIds": [],
+    "order": 4
+  },
+  {
+    "id": "chapter_test",
+    "kind": "chapter_test",
+    "title": "Chapter Test",
+    "description": "Fifteen questions covering a whole chapter.",
+    "questionCounts": {
+      "1": 6,
+      "2": 6,
+      "3": 3
+    },
+    "timeLimitSec": 1200,
+    "examTag": null,
+    "subjectIds": [],
+    "order": 5
+  },
+  {
+    "id": "jee_mock",
+    "kind": "jee_mock",
+    "title": "JEE Mock",
+    "description": "Physics, Chemistry and Mathematics in one timed paper.",
+    "questionCounts": {
+      "1": 6,
+      "2": 12,
+      "3": 12
+    },
+    "timeLimitSec": 3600,
+    "examTag": "jee",
+    "subjectIds": [
+      "physics",
+      "chemistry",
+      "mathematics"
+    ],
+    "order": 6
+  },
+  {
+    "id": "neet_mock",
+    "kind": "neet_mock",
+    "title": "NEET Mock",
+    "description": "Physics, Chemistry and Biology in one timed paper.",
+    "questionCounts": {
+      "1": 12,
+      "2": 12,
+      "3": 6
+    },
+    "timeLimitSec": 3600,
+    "examTag": "neet",
+    "subjectIds": [
+      "physics",
+      "chemistry",
+      "biology"
+    ],
+    "order": 7
+  }
+]

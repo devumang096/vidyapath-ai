@@ -1,183 +1,140 @@
 import { useMemo } from "react";
-import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
-import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { db } from "../lib/firebase";
-import { content, SUBJECT_NAMES, useContent } from "../lib/content";
+import { Link } from "react-router-dom";
+import { collection, limit, orderBy, query, where } from "firebase/firestore";
+import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { useAuth } from "../context/AuthContext";
-import { usePreferences } from "../context/PreferencesContext";
+import { content, learnPath, useContent } from "../lib/content";
+import { db } from "../lib/firebase";
+import { byStrength, STRENGTH_ORDER } from "../lib/recommend";
+import { SUBJECT_IDS, SUBJECT_NAMES } from "../lib/subjects";
 import { useQueryOnce } from "../hooks/useFirestore";
-import { AsyncState, EmptyState, PageHeader, StatTile, Tag } from "../components/ui";
-import { LEVEL_NAMES, MISTAKE_LABELS, type BadgeDoc, type DailyActivityDoc, type ModuleProgressDoc, type MistakeType, type TopicProgressDoc } from "../lib/types";
-
-interface AwardedBadge {
-  badgeId: string;
-}
+import { AsyncState, PageHeader, StrengthTag } from "../components/ui";
+import { STRENGTH_LABELS, type BadgeDoc, type DailyActivityDoc, type TopicMasteryDoc } from "../lib/types";
 
 export default function ProgressPage() {
   const { user, profile } = useAuth();
-  const { lowData } = usePreferences();
   const uid = user?.uid ?? "";
-  const topicProgress = useQueryOnce<TopicProgressDoc>(() => (uid ? query(collection(db, `studentProgress/${uid}/topics`)) : null), [uid]);
-  const moduleProgress = useQueryOnce<ModuleProgressDoc>(() => (uid ? query(collection(db, `studentProgress/${uid}/modules`)) : null), [uid]);
-  const activity = useQueryOnce<DailyActivityDoc>(() => (uid ? query(collection(db, "dailyActivity"), where("uid", "==", uid), orderBy("date", "desc"), limit(14)) : null), [uid]);
-  const awarded = useQueryOnce<AwardedBadge>(() => (uid ? query(collection(db, `userBadges/${uid}/badges`)) : null), [uid]);
+  const mastery = useQueryOnce<TopicMasteryDoc>(() => (uid ? query(collection(db, "topicMastery"), where("userId", "==", uid)) : null), [uid]);
+  const days = useQueryOnce<DailyActivityDoc>(() => (uid ? query(collection(db, "dailyActivity"), where("uid", "==", uid), orderBy("date", "desc"), limit(30)) : null), [uid]);
+  const earned = useQueryOnce<{ badgeId: string; awardedAt: unknown }>(() => (uid ? query(collection(db, `userBadges/${uid}/badges`)) : null), [uid]);
   const topics = useContent(() => content.allTopics(), []);
-  const badges = useContent(async () => (await getDocs(collection(db, "badges"))).docs.map((item) => ({ id: item.id, ...item.data() }) as BadgeDoc), []);
+  const chapters = useContent(() => content.allChapters(), []);
+  const badges = useContent(() => content.badges(), []);
 
-  const topicById = useMemo(() => new Map((topics.data ?? []).map((topic) => [topic.id, topic])), [topics.data]);
-
-  const subjectAccuracy = useMemo(() => {
-    const totals = new Map<string, { attempts: number; correct: number }>();
-    topicProgress.data.forEach((entry) => {
-      const current = totals.get(entry.subjectId) ?? { attempts: 0, correct: 0 };
-      totals.set(entry.subjectId, { attempts: current.attempts + entry.attempts, correct: current.correct + entry.correct });
-    });
-    return [...totals.entries()]
-      .filter(([, value]) => value.attempts > 0)
-      .map(([subjectId, value]) => ({ subject: SUBJECT_NAMES[subjectId as keyof typeof SUBJECT_NAMES] ?? subjectId, accuracy: Math.round((value.correct / value.attempts) * 100) }));
-  }, [topicProgress.data]);
-
-  const mistakesByType = useMemo(() => {
-    const counts: Partial<Record<MistakeType, number>> = {};
-    topicProgress.data.forEach((entry) => {
-      Object.entries(entry.mistakeCounts ?? {}).forEach(([type, count]) => {
-        counts[type as MistakeType] = (counts[type as MistakeType] ?? 0) + (count ?? 0);
-      });
-    });
-    return (Object.entries(counts) as [MistakeType, number][]).filter(([, count]) => count > 0).map(([type, count]) => ({ type: MISTAKE_LABELS[type], count }));
-  }, [topicProgress.data]);
-
-  const minutesPerDay = useMemo(() => [...activity.data].reverse().map((entry) => ({ date: entry.date.slice(5), minutes: entry.minutes })), [activity.data]);
-  const totalMinutes = activity.data.reduce((sum, entry) => sum + entry.minutes, 0);
-  const totalAttempts = topicProgress.data.reduce((sum, entry) => sum + entry.attempts, 0);
-  const totalCorrect = topicProgress.data.reduce((sum, entry) => sum + entry.correct, 0);
-  const overallAccuracy = totalAttempts === 0 ? 0 : Math.round((totalCorrect / totalAttempts) * 100);
-  const revisions = activity.data.reduce((sum, entry) => sum + entry.revisions, 0);
-  const completedModules = moduleProgress.data.filter((entry) => entry.status === "completed").length;
-  const badgeById = useMemo(() => new Map((badges.data ?? []).map((badge) => [badge.id, badge])), [badges.data]);
-
-  const loading = topicProgress.loading || moduleProgress.loading || activity.loading || awarded.loading || topics.loading || badges.loading;
-  const error = topicProgress.error || moduleProgress.error || activity.error || awarded.error || topics.error || badges.error;
+  const bySubject = useMemo(() => SUBJECT_IDS.map((subject) => {
+    const rows = mastery.data.filter((row) => row.subjectId === subject);
+    const attempts = rows.reduce((sum, row) => sum + row.attempts, 0);
+    const correct = rows.reduce((sum, row) => sum + row.correct, 0);
+    return { subject: SUBJECT_NAMES[subject], accuracy: attempts ? Math.round((correct / attempts) * 100) : 0, attempts, mastery: rows.length ? Math.round(rows.reduce((sum, row) => sum + row.mastery, 0) / rows.length) : 0 };
+  }).filter((row) => row.attempts > 0), [mastery.data]);
+  const groups = useMemo(() => byStrength(mastery.data), [mastery.data]);
+  const series = useMemo(() => [...days.data].reverse().map((day) => ({ date: day.date.slice(5), minutes: day.minutes, questions: day.questions, accuracy: day.questions ? Math.round((day.correct / day.questions) * 100) : null })), [days.data]);
+  const topicMeta = (topicId: string) => {
+    const topic = topics.data?.find((item) => item.id === topicId);
+    const chapter = topic ? chapters.data?.find((item) => item.id === topic.chapterId) : null;
+    return { name: topic?.name ?? topicId, chapter: chapter?.name ?? "", link: topic && chapter ? learnPath(chapter, topic) : "/learn" };
+  };
+  const loading = mastery.loading || topics.loading || chapters.loading;
 
   return (
-    <div>
-      <PageHeader title="Progress" subtitle="Your learning in numbers: accuracy by subject, where mistakes come from, and how consistently you study." />
-      <AsyncState loading={loading} error={error} loadingLabel="Crunching your progress...">
-        <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          <StatTile label="Study minutes (14 days)" value={totalMinutes} />
-          <StatTile label="Modules completed" value={completedModules} />
-          <StatTile label="Questions solved" value={profile?.questionsSolved ?? totalCorrect} />
-          <StatTile label="Accuracy" value={`${overallAccuracy}%`} />
-          <StatTile label="Revision sessions" value={revisions} />
-        </div>
-
+    <div className="mx-auto max-w-6xl">
+      <PageHeader title="Progress" subtitle="Everything here is derived from graded answers, assessments and saved study sessions." />
+      <AsyncState loading={loading} error={mastery.error ?? topics.error ?? chapters.error} empty={mastery.data.length === 0} emptyTitle="Start your first lesson to begin building your learning journey." emptyBody="Answer questions in any topic and this page fills with real accuracy, mastery and strength data." emptyAction={<Link to="/learn" className="btn-primary">Open Learn</Link>}>
         <div className="grid gap-4 lg:grid-cols-2">
-          <ChartCard title="Accuracy by subject" empty={subjectAccuracy.length === 0} lowData={lowData} table={<SimpleTable rows={subjectAccuracy.map((row) => [row.subject, `${row.accuracy}%`])} headers={["Subject", "Accuracy"]} />}>
-            <ResponsiveContainer width="100%" height={240}>
-              <BarChart data={subjectAccuracy}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="subject" />
-                <YAxis domain={[0, 100]} unit="%" />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="accuracy" name="Accuracy %" fill="#2f5bea" radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </ChartCard>
+          <section className="card">
+            <h2 className="text-lg font-semibold">Accuracy by subject</h2>
+            <div className="mt-3 h-56">
+              <ResponsiveContainer>
+                <BarChart data={bySubject}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="subject" tick={{ fontSize: 12 }} />
+                  <YAxis domain={[0, 100]} tick={{ fontSize: 12 }} />
+                  <Tooltip />
+                  <Bar dataKey="accuracy" name="Accuracy %" fill="#2f5bea" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="mastery" name="Avg mastery" fill="#93b0ff" radius={[6, 6, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </section>
+          <section className="card">
+            <h2 className="text-lg font-semibold">Study minutes, last 30 days</h2>
+            <div className="mt-3 h-56">
+              {series.length ? (
+                <ResponsiveContainer>
+                  <LineChart data={series}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                    <XAxis dataKey="date" tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="minutes" name="Minutes" stroke="#2f5bea" strokeWidth={2} dot={false} />
+                    <Line type="monotone" dataKey="questions" name="Questions" stroke="#f59e0b" strokeWidth={2} dot={false} />
+                  </LineChart>
+                </ResponsiveContainer>
+              ) : <p className="text-sm text-ink-500">Save a study session to see your minutes here.</p>}
+            </div>
+          </section>
+        </div>
 
-          <ChartCard title="Mistakes by type" empty={mistakesByType.length === 0} lowData={lowData} table={<SimpleTable rows={mistakesByType.map((row) => [row.type, String(row.count)])} headers={["Mistake type", "Count"]} />}>
-            <ResponsiveContainer width="100%" height={240}>
-              <BarChart data={mistakesByType} layout="vertical" margin={{ left: 40 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" allowDecimals={false} />
-                <YAxis type="category" dataKey="type" width={140} />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="count" name="Mistakes" fill="#d97706" radius={[0, 4, 4, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </ChartCard>
-
-          <ChartCard title="Study minutes per day (last 14 days)" empty={minutesPerDay.length === 0} lowData={lowData} table={<SimpleTable rows={minutesPerDay.map((row) => [row.date, String(row.minutes)])} headers={["Date", "Minutes"]} />}>
-            <ResponsiveContainer width="100%" height={240}>
-              <LineChart data={minutesPerDay}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis allowDecimals={false} unit="m" />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="minutes" name="Minutes" stroke="#16a34a" strokeWidth={2} dot={{ r: 3 }} />
-              </LineChart>
-            </ResponsiveContainer>
-          </ChartCard>
-
-          <div className="card">
-            <p className="mb-3 font-semibold">Badges earned</p>
-            {awarded.data.length === 0 ? (
-              <p className="text-sm text-ink-500">No badges yet. Complete a module to earn your first one.</p>
-            ) : (
-              <ul className="flex flex-wrap gap-2">
-                {awarded.data.map((entry) => {
-                  const badge = badgeById.get(entry.badgeId);
-                  return (
-                    <li key={entry.badgeId} className="rounded-lg border border-ink-200 px-3 py-2 text-sm" title={badge?.description}>
-                      <span aria-hidden="true">{badge?.icon ?? "🏅"} </span>{badge?.name ?? entry.badgeId}
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
+        <section className="card mt-4">
+          <h2 className="text-lg font-semibold">Strengths and weaknesses</h2>
+          <p className="text-sm text-ink-500">Topics need three graded attempts before they are rated.</p>
+          <div className="mt-3 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {STRENGTH_ORDER.filter((strength) => strength !== "unrated").map((strength) => (
+              <div key={strength}>
+                <h3 className="flex items-center gap-2 text-sm font-semibold"><StrengthTag strength={strength} /><span className="text-ink-500">{groups[strength].length}</span></h3>
+                <ul className="mt-2 space-y-1 text-sm">
+                  {groups[strength].length === 0 && <li className="text-ink-500">None yet</li>}
+                  {groups[strength].map((row) => {
+                    const meta = topicMeta(row.topicId);
+                    return <li key={row.id}><Link to={meta.link} className="text-brand-700 hover:underline">{meta.name}</Link> <span className="text-xs text-ink-500">{meta.chapter} · {Math.round(row.mastery)}</span></li>;
+                  })}
+                </ul>
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
 
-        <div className="card mt-4 overflow-x-auto">
-          <p className="mb-3 font-semibold">Topic mastery</p>
-          {topicProgress.data.length === 0 ? (
-            <EmptyState title="No topic progress yet" body="Solve problems or take a quiz and this table fills in." />
-          ) : (
-            <table className="w-full text-sm">
-              <thead className="text-left text-xs uppercase text-ink-500">
-                <tr><th className="py-2">Topic</th><th>Level unlocked</th><th>Accuracy</th><th>Attempts</th><th>Mastery</th></tr>
-              </thead>
-              <tbody>
-                {topicProgress.data.map((entry) => (
-                  <tr key={entry.topicId} className="border-t border-ink-200">
-                    <td className="py-2">{topicById.get(entry.topicId)?.name ?? entry.topicId}</td>
-                    <td><Tag tone="brand">Level {entry.levelUnlocked}: {LEVEL_NAMES[entry.levelUnlocked]}</Tag></td>
-                    <td>{entry.accuracy}%</td>
-                    <td>{entry.attempts}</td>
-                    <td>{Math.round(entry.mastery)}%</td>
+        <section className="card mt-4 overflow-x-auto">
+          <h2 className="text-lg font-semibold">Topic table</h2>
+          <table className="mt-3 w-full text-left text-sm">
+            <thead className="text-xs uppercase tracking-wide text-ink-500"><tr><th className="py-2">Topic</th><th>Subject</th><th>Attempts</th><th>Accuracy</th><th>Mastery</th><th>Strength</th></tr></thead>
+            <tbody>
+              {[...mastery.data].sort((left, right) => left.mastery - right.mastery).map((row) => {
+                const meta = topicMeta(row.topicId);
+                return (
+                  <tr key={row.id} className="border-t border-ink-200">
+                    <td className="py-2"><Link to={meta.link} className="text-brand-700 hover:underline">{meta.name}</Link></td>
+                    <td>{SUBJECT_NAMES[row.subjectId]}</td>
+                    <td>{row.attempts}</td>
+                    <td>{row.accuracy}%</td>
+                    <td>{Math.round(row.mastery)}</td>
+                    <td><StrengthTag strength={row.strength} /></td>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
+                );
+              })}
+            </tbody>
+          </table>
+        </section>
       </AsyncState>
-    </div>
-  );
-}
 
-function ChartCard({ title, empty, lowData, table, children }: { title: string; empty: boolean; lowData: boolean; table: React.ReactNode; children: React.ReactNode }) {
-  return (
-    <div className="card">
-      <p className="mb-3 font-semibold">{title}</p>
-      {empty ? <EmptyState title="No data yet" body="Keep learning and this chart will appear." /> : lowData ? table : children}
+      <section className="card mt-4">
+        <h2 className="text-lg font-semibold">Badges</h2>
+        <AsyncState loading={badges.loading || earned.loading} error={badges.error ?? earned.error} skeletonLines={2}>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            {(badges.data ?? []).map((badge: BadgeDoc) => {
+              const has = earned.data.some((item) => item.badgeId === badge.id) || ((profile as unknown as { badgeIds?: string[] })?.badgeIds ?? []).includes(badge.id);
+              return (
+                <li key={badge.id} className={`rounded-xl border p-3 text-sm ${has ? "border-success-500 bg-success-500/10" : "border-ink-200 opacity-70"}`}>
+                  <p className="font-semibold">{badge.icon} {badge.name}</p>
+                  <p className="text-xs text-ink-500">{badge.description}</p>
+                  <p className="mt-1 text-xs">{has ? "Earned" : `Unlocks when: ${badge.criteria}`}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </AsyncState>
+        <p className="mt-3 text-xs text-ink-500">Strength labels: {STRENGTH_ORDER.filter((strength) => strength !== "unrated").map((strength) => STRENGTH_LABELS[strength]).join(", ")}.</p>
+      </section>
     </div>
-  );
-}
-
-function SimpleTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
-  return (
-    <table className="w-full text-sm">
-      <thead className="text-left text-xs uppercase text-ink-500">
-        <tr>{headers.map((header) => <th key={header} className="py-1">{header}</th>)}</tr>
-      </thead>
-      <tbody>
-        {rows.map((row, index) => (
-          <tr key={index} className="border-t border-ink-200">{row.map((cell, cellIndex) => <td key={cellIndex} className="py-1">{cell}</td>)}</tr>
-        ))}
-      </tbody>
-    </table>
   );
 }

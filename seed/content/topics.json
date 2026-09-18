@@ -42,7 +42,8 @@
         "answer": "4"
       }
     },
-    "quizId": "10-mathematics-real-numbers-euclids-division-lemma-quiz"
+    "slug": "euclids-division-lemma",
+    "category": null
   },
   {
     "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
@@ -87,7 +88,8 @@
         "answer": "24"
       }
     },
-    "quizId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-quiz"
+    "slug": "fundamental-theorem-of-arithmetic",
+    "category": null
   },
   {
     "id": "10-mathematics-polynomials-zeros-and-coefficients",
@@ -133,7 +135,8 @@
         "answer": "4"
       }
     },
-    "quizId": "10-mathematics-polynomials-zeros-and-coefficients-quiz"
+    "slug": "zeros-and-coefficients",
+    "category": null
   },
   {
     "id": "10-mathematics-quadratic-equations-standard-form",
@@ -177,7 +180,8 @@
         "answer": "a = 3, b = -5, c = 2"
       }
     },
-    "quizId": "10-mathematics-quadratic-equations-standard-form-quiz"
+    "slug": "standard-form",
+    "category": null
   },
   {
     "id": "10-mathematics-quadratic-equations-solving-by-factorisation",
@@ -228,7 +232,8 @@
         "answer": "5 and -2"
       }
     },
-    "quizId": "10-mathematics-quadratic-equations-solving-by-factorisation-quiz"
+    "slug": "solving-by-factorisation",
+    "category": null
   },
   {
     "id": "10-mathematics-quadratic-equations-nature-of-roots",
@@ -273,7 +278,8 @@
         "answer": "D = 0, equal roots"
       }
     },
-    "quizId": "10-mathematics-quadratic-equations-nature-of-roots-quiz"
+    "slug": "nature-of-roots",
+    "category": null
   },
   {
     "id": "9-physics-motion-equations-of-motion",
@@ -322,7 +328,8 @@
         "answer": "17 m/s"
       }
     },
-    "quizId": "9-physics-motion-equations-of-motion-quiz"
+    "slug": "equations-of-motion",
+    "category": null
   },
   {
     "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
@@ -368,6 +375,7 @@
         "answer": "2H2 + O2 -> 2H2O"
       }
     },
-    "quizId": "10-chemistry-chemical-reactions-and-equations-balancing-equations-quiz"
+    "slug": "balancing-equations",
+    "category": null
   }
 ]

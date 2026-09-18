@@ -38,8 +38,8 @@ export class DemoError extends Error {
   }
 }
 
-const STORAGE_KEY = "vidyapath.demo.store";
-const STORAGE_VERSION = 1;
+const STORAGE_KEY = "eduorbit.demo.store";
+const STORAGE_VERSION = 3;
 
 const contentDocs = new Map<string, DocData>();
 const userDocs = new Map<string, DocData>();
@@ -63,7 +63,7 @@ export function newDocId(): string {
 function resolveSentinels(data: DocData): DocData {
   const resolved: DocData = {};
   for (const [key, value] of Object.entries(data)) {
-    resolved[key] = value === SERVER_TIMESTAMP ? Timestamp.now() : value;
+    resolved[key] = value === SERVER_TIMESTAMP ? Timestamp.now() : value instanceof Date ? Timestamp.fromDate(value) : value;
   }
   return resolved;
 }
@@ -163,6 +163,12 @@ export function removeDoc(path: string): void {
   userDocs.delete(path);
   scheduleNotify();
 }
+
+/** WriteSink for functions/src/lib/writes.ts so feature logic runs unchanged against this store. */
+export const storeSink = {
+  set: (path: string, data: DocData, merge: boolean) => writeDoc(path, data, merge),
+  delete: (path: string) => removeDoc(path)
+};
 
 export function listDocs(collectionPath: string): { id: string; data: DocData }[] {
   const byId = new Map<string, DocData>();

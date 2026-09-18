@@ -1,33 +1,49 @@
 // firebase/auth stand-in for --mode demo builds. Accounts live in the demo store; the signed-in uid is kept in localStorage.
 import "./init";
-import { DemoError, listDocs, newDocId, readDoc, writeDoc } from "./store";
+import { DemoError, listDocs, newDocId, readDoc, removeDoc, writeDoc } from "./store";
 
 export interface DemoUser {
   uid: string;
   email: string;
   displayName: string;
+  photoURL: string | null;
   emailVerified: boolean;
+  providerData: { providerId: string }[];
   getIdTokenResult: () => Promise<{ claims: Record<string, unknown> }>;
+  reload: () => Promise<void>;
 }
 interface AccountDoc {
   uid: string;
   email: string;
   password: string;
   displayName: string;
+  photoURL: string | null;
   admin: boolean;
+  emailVerified: boolean;
+  provider: "password" | "google.com";
 }
 
-const SESSION_KEY = "vidyapath.demo.uid";
+const SESSION_KEY = "eduorbit.demo.uid";
+const GOOGLE_DEMO_UID = "demo-google";
 const listeners = new Set<(user: DemoUser | null) => void>();
 let currentUser: DemoUser | null = null;
 
 function toUser(account: AccountDoc): DemoUser {
-  return { uid: account.uid, email: account.email, displayName: account.displayName, emailVerified: true, getIdTokenResult: async () => ({ claims: account.admin ? { admin: true } : {} }) };
+  return {
+    uid: account.uid,
+    email: account.email,
+    displayName: account.displayName,
+    photoURL: account.photoURL,
+    emailVerified: account.emailVerified,
+    providerData: [{ providerId: account.provider }],
+    getIdTokenResult: async () => ({ claims: account.admin ? { admin: true } : {} }),
+    reload: async () => undefined
+  };
 }
 
 function accountByEmail(email: string): AccountDoc | null {
   const wanted = email.trim().toLowerCase();
-  return (listDocs("demoAccounts").map((row) => row.data as unknown as AccountDoc).find((account) => account.email.toLowerCase() === wanted)) ?? null;
+  return listDocs("demoAccounts").map((row) => row.data as unknown as AccountDoc).find((account) => account.email.toLowerCase() === wanted) ?? null;
 }
 
 function rememberUid(uid: string | null): void {
@@ -56,12 +72,18 @@ function restoreSession(): void {
 }
 restoreSession();
 
+function requireCurrentAccount(): AccountDoc {
+  const account = currentUser ? (readDoc(`demoAccounts/${currentUser.uid}`) as AccountDoc | null) : null;
+  if (!account) throw new DemoError("auth/requires-recent-login", "Please sign in again.");
+  return account;
+}
+
 export function currentUid(): string | null {
   return currentUser?.uid ?? null;
 }
 
-export function getAuth(): object {
-  return {};
+export function getAuth(): { currentUser: DemoUser | null } {
+  return { currentUser };
 }
 export function connectAuthEmulator(): void {}
 
@@ -84,8 +106,24 @@ export async function createUserWithEmailAndPassword(_auth: unknown, email: stri
   if (!email.includes("@")) throw new DemoError("auth/invalid-email", "That email address does not look right.");
   if (password.length < 6) throw new DemoError("auth/weak-password", "Choose a stronger password.");
   if (accountByEmail(email)) throw new DemoError("auth/email-already-in-use", "An account with this email already exists.");
-  const account: AccountDoc = { uid: `demo_${newDocId()}`, email: email.trim(), password, displayName: "", admin: false };
+  const account: AccountDoc = { uid: `demo_${newDocId()}`, email: email.trim(), password, displayName: "", photoURL: null, admin: false, emailVerified: false, provider: "password" };
   writeDoc(`demoAccounts/${account.uid}`, { ...account });
+  const user = toUser(account);
+  setCurrent(user);
+  return { user };
+}
+
+export class GoogleAuthProvider {
+  static PROVIDER_ID = "google.com";
+}
+
+/** Demo Google sign-in: signs into a fixed Google-style account so the complete-profile flow can be exercised. */
+export async function signInWithPopup(_auth: unknown, _provider: unknown): Promise<{ user: DemoUser }> {
+  let account = readDoc(`demoAccounts/${GOOGLE_DEMO_UID}`) as AccountDoc | null;
+  if (!account) {
+    account = { uid: GOOGLE_DEMO_UID, email: "google.student@eduorbit.demo", password: "", displayName: "Demo Google Student", photoURL: null, admin: false, emailVerified: true, provider: "google.com" };
+    writeDoc(`demoAccounts/${GOOGLE_DEMO_UID}`, { ...account });
+  }
   const user = toUser(account);
   setCurrent(user);
   return { user };
@@ -97,4 +135,39 @@ export async function signOut(): Promise<void> {
 
 export async function sendPasswordResetEmail(_auth: unknown, email: string): Promise<void> {
   if (!accountByEmail(email)) throw new DemoError("auth/user-not-found", "No account exists for this email.");
+}
+
+/** Demo: verification is instant because no email can be sent from the browser. */
+export async function sendEmailVerification(user: DemoUser): Promise<void> {
+  writeDoc(`demoAccounts/${user.uid}`, { emailVerified: true }, true);
+  const account = readDoc(`demoAccounts/${user.uid}`) as AccountDoc | null;
+  if (account) setCurrent(toUser(account));
+}
+
+export class EmailAuthProvider {
+  static credential(email: string, password: string): { email: string; password: string } {
+    return { email, password };
+  }
+}
+
+export async function reauthenticateWithCredential(user: DemoUser, credential: { email: string; password: string }): Promise<void> {
+  const account = readDoc(`demoAccounts/${user.uid}`) as AccountDoc | null;
+  if (!account || account.password !== credential.password) throw new DemoError("auth/wrong-password", "Current password is wrong.");
+}
+
+export async function updatePassword(user: DemoUser, password: string): Promise<void> {
+  if (password.length < 6) throw new DemoError("auth/weak-password", "Choose a stronger password.");
+  writeDoc(`demoAccounts/${user.uid}`, { password }, true);
+}
+
+export async function updateProfile(user: DemoUser, patch: { displayName?: string; photoURL?: string | null }): Promise<void> {
+  writeDoc(`demoAccounts/${user.uid}`, { ...patch }, true);
+  const account = readDoc(`demoAccounts/${user.uid}`) as AccountDoc | null;
+  if (account) setCurrent(toUser(account));
+}
+
+export async function deleteUser(user: DemoUser): Promise<void> {
+  requireCurrentAccount();
+  removeDoc(`demoAccounts/${user.uid}`);
+  setCurrent(null);
 }

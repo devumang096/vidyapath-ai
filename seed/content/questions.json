@@ -5,18 +5,32 @@
       "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "In a = bq + r, the remainder r satisfies",
       "options": [
         "r > b",
         "0 <= r < b",
         "r = b",
         "r < 0"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-euclids-division-lemma-q1",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "The remainder is always non-negative and smaller than the divisor."
     }
   },
@@ -26,18 +40,32 @@
       "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "Using Euclid's algorithm, HCF(135, 225) is",
       "options": [
         "5",
         "15",
         "45",
         "90"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-euclids-division-lemma-q2",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "225 = 135 x 1 + 90, 135 = 90 x 1 + 45, 90 = 45 x 2 + 0. HCF = 45."
     }
   },
@@ -47,18 +75,32 @@
       "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "HCF of 96 and 404 is",
       "options": [
         "2",
         "4",
         "8",
         "12"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-euclids-division-lemma-q3",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "404 = 96 x 4 + 20, 96 = 20 x 4 + 16, 20 = 16 x 1 + 4, 16 = 4 x 4 + 0. HCF = 4."
     }
   },
@@ -68,18 +110,32 @@
       "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "If 117 = 65 x 1 + r, then r is",
       "options": [
         "52",
         "42",
         "65",
         "117"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-euclids-division-lemma-q4",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "117 - 65 = 52, and 52 < 65 as required."
     }
   },
@@ -89,18 +145,32 @@
       "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "Any positive odd integer has the form",
       "options": [
         "2q",
         "2q + 1",
         "4q",
         "q + 1"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-euclids-division-lemma-q5",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Dividing by 2 leaves remainder 0 or 1; odd numbers have remainder 1."
     }
   },
@@ -110,18 +180,32 @@
       "topicId": "10-mathematics-real-numbers-euclids-division-lemma",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "The largest number dividing 245 and 1029 leaving remainder 5 in each case is",
       "options": [
         "16",
         "32",
         "64",
         "8"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-euclids-division-lemma-q6",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Subtract 5: HCF(240, 1024) = 16."
     }
   },
@@ -131,18 +215,32 @@
       "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "Prime factorisation of 140 is",
       "options": [
         "2^2 x 5 x 7",
         "2 x 5 x 7",
         "2^2 x 35",
         "2^3 x 5"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q1",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "140 = 2 x 70 = 2 x 2 x 35 = 2^2 x 5 x 7."
     }
   },
@@ -152,18 +250,32 @@
       "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "HCF(12, 18) is",
       "options": [
         "2",
         "3",
         "6",
         "36"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q2",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "12 = 2^2 x 3, 18 = 2 x 3^2, common smallest powers give 2 x 3 = 6."
     }
   },
@@ -173,18 +285,32 @@
       "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "If HCF(a, b) = 6 and a x b = 216, then LCM(a, b) is",
       "options": [
         "12",
         "24",
         "36",
         "48"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q3",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "LCM = (a x b) / HCF = 216 / 6 = 36."
     }
   },
@@ -194,18 +320,32 @@
       "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "Which number can never end with the digit 0?",
       "options": [
         "10^n",
         "6^n",
         "20^n",
         "30^n"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q4",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "6^n = 2^n x 3^n has no factor 5, so it cannot end in 0."
     }
   },
@@ -215,18 +355,32 @@
       "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "LCM of 6, 72 and 120 is",
       "options": [
         "360",
         "720",
         "240",
         "180"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q5",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "6 = 2 x 3, 72 = 2^3 x 3^2, 120 = 2^3 x 3 x 5. LCM = 2^3 x 3^2 x 5 = 360."
     }
   },
@@ -236,18 +390,32 @@
       "topicId": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "The number 7 x 11 x 13 + 13 is",
       "options": [
         "prime",
         "composite",
         "irrational",
         "a perfect square"
-      ]
+      ],
+      "chapterId": "10-mathematics-real-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-real-numbers-fundamental-theorem-of-arithmetic-q6",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "It equals 13 x (77 + 1) = 13 x 78, so it has factors other than 1 and itself."
     }
   },
@@ -257,18 +425,32 @@
       "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "Zeros of x^2 - 5x + 6 are",
       "options": [
         "2, 3",
         "-2, -3",
         "1, 6",
         "-1, -6"
-      ]
+      ],
+      "chapterId": "10-mathematics-polynomials",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-polynomials-zeros-and-coefficients-q1",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "(x - 2)(x - 3) = 0."
     }
   },
@@ -278,18 +460,32 @@
       "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "Sum of the zeros of x^2 - 7x + 10 is",
       "options": [
         "-7",
         "7",
         "10",
         "-10"
-      ]
+      ],
+      "chapterId": "10-mathematics-polynomials",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-polynomials-zeros-and-coefficients-q2",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Sum = -b/a = 7."
     }
   },
@@ -299,18 +495,32 @@
       "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "Product of the zeros of 2x^2 - 8x + 6 is",
       "options": [
         "4",
         "-4",
         "3",
         "-3"
-      ]
+      ],
+      "chapterId": "10-mathematics-polynomials",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-polynomials-zeros-and-coefficients-q3",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Product = c/a = 6/2 = 3."
     }
   },
@@ -320,18 +530,32 @@
       "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "A quadratic with zeros 4 and -1 is",
       "options": [
         "x^2 - 3x - 4",
         "x^2 + 3x - 4",
         "x^2 - 3x + 4",
         "x^2 + 5x + 4"
-      ]
+      ],
+      "chapterId": "10-mathematics-polynomials",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-polynomials-zeros-and-coefficients-q4",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Sum 3, product -4, so x^2 - 3x - 4."
     }
   },
@@ -341,18 +565,32 @@
       "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "If one zero of x^2 - 6x + k is twice the other, k is",
       "options": [
         "4",
         "6",
         "8",
         "12"
-      ]
+      ],
+      "chapterId": "10-mathematics-polynomials",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-polynomials-zeros-and-coefficients-q5",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Zeros a and 2a: 3a = 6, a = 2, product 2 x 4 = 8 = k."
     }
   },
@@ -362,18 +600,32 @@
       "topicId": "10-mathematics-polynomials-zeros-and-coefficients",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "The maximum number of zeros of a cubic polynomial is",
       "options": [
         "1",
         "2",
         "3",
         "4"
-      ]
+      ],
+      "chapterId": "10-mathematics-polynomials",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-polynomials-zeros-and-coefficients-q6",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "A degree n polynomial has at most n zeros."
     }
   },
@@ -383,18 +635,32 @@
       "topicId": "10-mathematics-quadratic-equations-standard-form",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "Which of these is a quadratic equation?",
       "options": [
         "x + 1/x = 2",
         "2x + 3 = 0",
         "x^3 = 8",
         "x = 5"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-standard-form-q1",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "x + 1/x = 2 gives x^2 - 2x + 1 = 0, degree 2."
     }
   },
@@ -404,18 +670,32 @@
       "topicId": "10-mathematics-quadratic-equations-standard-form",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "For 3x^2 = 5x - 2, the values of a, b, c in standard form are",
       "options": [
         "3, 5, -2",
         "3, -5, 2",
         "-3, 5, 2",
         "3, -5, -2"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-standard-form-q2",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "3x^2 - 5x + 2 = 0."
     }
   },
@@ -425,18 +705,32 @@
       "topicId": "10-mathematics-quadratic-equations-standard-form",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "(x + 1)^2 = 2(x - 3) simplifies to",
       "options": [
         "x^2 + 7 = 0",
         "x^2 - 7 = 0",
         "x^2 + 4x + 7 = 0",
         "x^2 - 5 = 0"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-standard-form-q3",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "x^2 + 2x + 1 = 2x - 6 gives x^2 + 7 = 0."
     }
   },
@@ -446,18 +740,32 @@
       "topicId": "10-mathematics-quadratic-equations-standard-form",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "Is x(x + 1) + 8 = (x + 2)(x - 2) quadratic?",
       "options": [
         "Yes, a = 1",
         "Yes, a = 2",
         "No, the x^2 terms cancel",
         "No, it has no constant"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-standard-form-q4",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Both sides have x^2, leaving x + 12 = 0."
     }
   },
@@ -467,18 +775,32 @@
       "topicId": "10-mathematics-quadratic-equations-standard-form",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "Two consecutive positive integers have product 306. The equation is",
       "options": [
         "x^2 + x - 306 = 0",
         "x^2 - x - 306 = 0",
         "x^2 + 306 = 0",
         "2x + 1 = 306"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-standard-form-q5",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "x(x + 1) = 306."
     }
   },
@@ -488,18 +810,32 @@
       "topicId": "10-mathematics-quadratic-equations-standard-form",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "Which value is a root of x^2 - 3x - 10 = 0?",
       "options": [
         "2",
         "5",
         "-5",
         "3"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-standard-form-q6",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "25 - 15 - 10 = 0."
     }
   },
@@ -509,18 +845,32 @@
       "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "Roots of x^2 - 7x + 12 = 0 are",
       "options": [
         "3, 4",
         "-3, -4",
         "2, 6",
         "-2, -6"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q1",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Product 12, sum -7: -3 and -4, so (x - 3)(x - 4)."
     }
   },
@@ -530,18 +880,32 @@
       "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "To split the middle term of 2x^2 + x - 6, the two numbers must have product",
       "options": [
         "-6",
         "-12",
         "6",
         "12"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q2",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Product must be a x c = 2 x (-6) = -12."
     }
   },
@@ -551,18 +915,32 @@
       "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "Roots of 2x^2 + x - 6 = 0 are",
       "options": [
         "3/2, -2",
         "-3/2, 2",
         "3, -2",
         "2, -3"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q3",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Split with 4 and -3: (2x - 3)(x + 2) = 0."
     }
   },
@@ -572,18 +950,32 @@
       "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "Roots of x^2 - 3x - 10 = 0 are",
       "options": [
         "5, -2",
         "-5, 2",
         "5, 2",
         "-5, -2"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q4",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Product -10, sum -3: -5 and 2, so (x - 5)(x + 2)."
     }
   },
@@ -593,18 +985,32 @@
       "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "Roots of x^2 + 2x - 1 = 0 are",
       "options": [
         "-1 +/- sqrt 2",
         "1 +/- sqrt 2",
         "-2 +/- sqrt 2",
         "-1 +/- 2"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q5",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Formula: x = [-2 +/- sqrt(4 + 4)] / 2 = -1 +/- sqrt 2."
     }
   },
@@ -614,18 +1020,32 @@
       "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "In the quadratic formula the denominator is",
       "options": [
         "2",
         "a",
         "2a",
         "b"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q6",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "x = [-b +/- sqrt(b^2 - 4ac)] / 2a."
     }
   },
@@ -635,18 +1055,32 @@
       "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 4,
       "text": "A rectangle of area 60 has length 7 more than breadth. The breadth is",
       "options": [
         "5",
         "12",
         "-12",
         "7"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q7",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "b^2 + 7b - 60 = 0, (b + 12)(b - 5) = 0; reject -12."
     }
   },
@@ -656,18 +1090,32 @@
       "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 4,
       "text": "If x = 2 is a root of x^2 + kx - 10 = 0, then k is",
       "options": [
         "3",
         "-3",
         "5",
         "-5"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-solving-by-factorisation-q8",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "4 + 2k - 10 = 0, so k = 3."
     }
   },
@@ -677,18 +1125,32 @@
       "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "The discriminant of ax^2 + bx + c = 0 is",
       "options": [
         "b^2 + 4ac",
         "b^2 - 4ac",
         "4ac - b^2",
         "b - 4ac"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-nature-of-roots-q1",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "D = b^2 - 4ac."
     }
   },
@@ -698,18 +1160,32 @@
       "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 1,
       "text": "If D < 0 the equation has",
       "options": [
         "two distinct real roots",
         "equal roots",
         "no real roots",
         "one root"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-nature-of-roots-q2",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Negative discriminant means no real roots."
     }
   },
@@ -719,18 +1195,32 @@
       "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "Nature of roots of 2x^2 - 4x + 3 = 0",
       "options": [
         "distinct real",
         "equal real",
         "no real roots",
         "rational"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-nature-of-roots-q3",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "D = 16 - 24 = -8 < 0."
     }
   },
@@ -740,18 +1230,32 @@
       "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 2,
       "text": "kx^2 + 4x + 1 = 0 has equal roots when k is",
       "options": [
         "2",
         "4",
         "8",
         "16"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-nature-of-roots-q4",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "16 - 4k = 0 gives k = 4."
     }
   },
@@ -761,18 +1265,32 @@
       "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "For x^2 - 6x + 9 = 0 the roots are",
       "options": [
         "3 and -3",
         "3 and 3",
         "0 and 6",
         "no real roots"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-nature-of-roots-q5",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "D = 36 - 36 = 0, equal roots x = 3."
     }
   },
@@ -782,18 +1300,32 @@
       "topicId": "10-mathematics-quadratic-equations-nature-of-roots",
       "subjectId": "mathematics",
       "classLevel": 10,
-      "level": 3,
       "text": "2x^2 + kx + 3 = 0 has equal roots when k equals",
       "options": [
         "+/- 6",
         "+/- 2 sqrt 6",
         "+/- sqrt 6",
         "+/- 12"
-      ]
+      ],
+      "chapterId": "10-mathematics-quadratic-equations",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-mathematics-quadratic-equations-nature-of-roots-q6",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "k^2 - 24 = 0."
     }
   },
@@ -803,18 +1335,33 @@
       "topicId": "9-physics-motion-equations-of-motion",
       "subjectId": "physics",
       "classLevel": 9,
-      "level": 1,
       "text": "u = 5 m/s, a = 3 m/s^2, t = 4 s. Final velocity is",
       "options": [
         "12 m/s",
         "17 m/s",
         "20 m/s",
         "8 m/s"
-      ]
+      ],
+      "chapterId": "9-physics-motion",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "9-physics-motion-equations-of-motion-q1",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "v = u + at = 5 + 12 = 17 m/s."
     }
   },
@@ -824,18 +1371,33 @@
       "topicId": "9-physics-motion-equations-of-motion",
       "subjectId": "physics",
       "classLevel": 9,
-      "level": 1,
       "text": "72 km/h in m/s is",
       "options": [
         "20 m/s",
         "72 m/s",
         "18 m/s",
         "25 m/s"
-      ]
+      ],
+      "chapterId": "9-physics-motion",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "9-physics-motion-equations-of-motion-q2",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "72 x 5/18 = 20 m/s."
     }
   },
@@ -845,18 +1407,33 @@
       "topicId": "9-physics-motion-equations-of-motion",
       "subjectId": "physics",
       "classLevel": 9,
-      "level": 2,
       "text": "A ball from rest falls 3 s with a = 10 m/s^2. Distance fallen is",
       "options": [
         "30 m",
         "45 m",
         "90 m",
         "15 m"
-      ]
+      ],
+      "chapterId": "9-physics-motion",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "9-physics-motion-equations-of-motion-q3",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "s = 0.5 x 10 x 9 = 45 m."
     }
   },
@@ -866,18 +1443,33 @@
       "topicId": "9-physics-motion-equations-of-motion",
       "subjectId": "physics",
       "classLevel": 9,
-      "level": 2,
       "text": "A train slows from 30 m/s to rest in 15 s. Its acceleration is",
       "options": [
         "2 m/s^2",
         "-2 m/s^2",
         "0.5 m/s^2",
         "-0.5 m/s^2"
-      ]
+      ],
+      "chapterId": "9-physics-motion",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "9-physics-motion-equations-of-motion-q4",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "a = (0 - 30)/15 = -2 m/s^2."
     }
   },
@@ -887,18 +1479,33 @@
       "topicId": "9-physics-motion-equations-of-motion",
       "subjectId": "physics",
       "classLevel": 9,
-      "level": 3,
       "text": "Which equation does not contain time?",
       "options": [
         "v = u + at",
         "s = ut + 1/2 at^2",
         "v^2 = u^2 + 2as",
         "s = vt"
-      ]
+      ],
+      "chapterId": "9-physics-motion",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "9-physics-motion-equations-of-motion-q5",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "v^2 = u^2 + 2as links velocities, acceleration and displacement."
     }
   },
@@ -908,18 +1515,33 @@
       "topicId": "9-physics-motion-equations-of-motion",
       "subjectId": "physics",
       "classLevel": 9,
-      "level": 3,
       "text": "A bike at 15 m/s brakes at 3 m/s^2. Stopping distance is",
       "options": [
         "5 m",
         "22.5 m",
         "37.5 m",
         "45 m"
-      ]
+      ],
+      "chapterId": "9-physics-motion",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "9-physics-motion-equations-of-motion-q6",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "0 = 225 - 6s, s = 37.5 m."
     }
   },
@@ -929,18 +1551,33 @@
       "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
       "subjectId": "chemistry",
       "classLevel": 10,
-      "level": 1,
       "text": "Balanced form of H2 + O2 -> H2O is",
       "options": [
         "H2 + O2 -> H2O2",
         "2H2 + O2 -> 2H2O",
         "H2 + 2O2 -> 2H2O",
         "2H2 + 2O2 -> 2H2O"
-      ]
+      ],
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q1",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Two hydrogen molecules and one oxygen molecule give two water molecules."
     }
   },
@@ -950,18 +1587,33 @@
       "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
       "subjectId": "chemistry",
       "classLevel": 10,
-      "level": 1,
       "text": "To balance an equation you may change",
       "options": [
         "subscripts",
         "coefficients",
         "formulas",
         "element symbols"
-      ]
+      ],
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q2",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Changing subscripts changes the substance itself."
     }
   },
@@ -971,18 +1623,33 @@
       "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
       "subjectId": "chemistry",
       "classLevel": 10,
-      "level": 2,
       "text": "Coefficients that balance Fe + H2O -> Fe3O4 + H2 are",
       "options": [
         "3, 4, 1, 4",
         "1, 4, 1, 4",
         "3, 4, 1, 2",
         "2, 3, 1, 3"
-      ]
+      ],
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q3",
-      "correctIndex": 0,
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "3Fe + 4H2O -> Fe3O4 + 4H2."
     }
   },
@@ -992,18 +1659,33 @@
       "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
       "subjectId": "chemistry",
       "classLevel": 10,
-      "level": 2,
       "text": "Fe + CuSO4 -> FeSO4 + Cu is a",
       "options": [
         "combination",
         "decomposition",
         "displacement",
         "double displacement"
-      ]
+      ],
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q4",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Iron displaces copper from its salt."
     }
   },
@@ -1013,18 +1695,33 @@
       "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
       "subjectId": "chemistry",
       "classLevel": 10,
-      "level": 3,
       "text": "The law behind balancing equations is",
       "options": [
         "conservation of energy",
         "conservation of mass",
         "law of constant proportions",
         "Avogadro's law"
-      ]
+      ],
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q5",
-      "correctIndex": 1,
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "Atoms are neither created nor destroyed in a reaction."
     }
   },
@@ -1034,19 +1731,832 @@
       "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
       "subjectId": "chemistry",
       "classLevel": 10,
-      "level": 3,
       "text": "C3H8 + O2 -> CO2 + H2O balanced needs how many O2?",
       "options": [
         "3",
         "4",
         "5",
         "6"
-      ]
+      ],
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "unit": null,
+      "hints": [],
+      "source": null
     },
     "key": {
       "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-q6",
-      "correctIndex": 2,
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
       "explanation": "3CO2 + 4H2O need 10 O atoms, so 5O2."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p1",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the roots of the equation x^2 - 5x + 6 = 0.",
+      "hints": [
+        "Which two numbers multiply to 6 and add to -5?",
+        "Both numbers are negative because the product is positive and the sum is negative.",
+        "Try -2 and -3."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "x = 2 or x = 3",
+        "-2, -3",
+        "6"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p1",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: A quadratic with a = 1; we need its two roots.\nGiven: a = 1, b = -5, c = 6\nFind: Values of x that satisfy the equation\nConcept: Factorisation by splitting the middle term\nMethod: Find p, q with p x q = a x c = 6 and p + q = -5\nSolve: -2 and -3 work: x^2 - 2x - 3x + 6 = (x - 2)(x - 3) = 0, so x = 2 or 3\nVerify: 2^2 - 10 + 6 = 0 and 3^2 - 15 + 6 = 0. Both check."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p2",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Solve x^2 + 7x + 10 = 0 by factorisation.",
+      "hints": [
+        "Product 10, sum 7.",
+        "Both numbers are positive.",
+        "2 and 5."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "x = -2 or x = -5",
+        "2, 5",
+        "No real roots"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p2",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: Quadratic with a = 1.\nGiven: a = 1, b = 7, c = 10\nFind: Roots\nConcept: Factorisation\nMethod: Numbers with product 10 and sum 7: 2 and 5\nSolve: (x + 2)(x + 5) = 0, x = -2 or -5\nVerify: 4 - 14 + 10 = 0 and 25 - 35 + 10 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p3",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the roots of x^2 - 9 = 0.",
+      "hints": [
+        "x^2 - 9 is a difference of two squares.",
+        "a^2 - b^2 = (a - b)(a + b).",
+        "Two roots, one positive and one negative."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "x = 3 or x = -3",
+        "3",
+        "-3"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p3",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: There is no x term, so b = 0.\nGiven: a = 1, b = 0, c = -9\nFind: Roots\nConcept: Difference of squares\nMethod: x^2 - 9 = (x - 3)(x + 3)\nSolve: x = 3 or x = -3\nVerify: 9 - 9 = 0 for both."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p4",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Solve 2x^2 - 7x + 3 = 0.",
+      "hints": [
+        "The product to use is a x c = 6, not 3.",
+        "Which two numbers multiply to 6 and add to -7?",
+        "Group in pairs after splitting."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "x = 3 or x = 1/2",
+        "3, 1",
+        "3, 2"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p4",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: a = 2, so the product for splitting is a x c.\nGiven: a = 2, b = -7, c = 3\nFind: Roots\nConcept: Splitting the middle term\nMethod: Numbers with product 6 and sum -7: -6 and -1\nSolve: 2x^2 - 6x - x + 3 = 2x(x - 3) - 1(x - 3) = (2x - 1)(x - 3), so x = 1/2 or 3\nVerify: 2(9) - 21 + 3 = 0; 2(1/4) - 7/2 + 3 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p5",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the roots of 3x^2 - 2x - 1 = 0.",
+      "hints": [
+        "a x c = -3.",
+        "Numbers with product -3 and sum -2.",
+        "-3 and 1."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "x = 1 or x = -1/3",
+        "1, -1",
+        "1, 1/3"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p5",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: a = 3.\nGiven: a = 3, b = -2, c = -1\nFind: Roots\nConcept: Splitting the middle term\nMethod: Product -3, sum -2: -3 and 1\nSolve: 3x^2 - 3x + x - 1 = 3x(x - 1) + 1(x - 1) = (3x + 1)(x - 1)\nVerify: 3 - 2 - 1 = 0; 3/9 + 2/3 - 1 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p6",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find two consecutive positive integers whose product is 306.",
+      "hints": [
+        "Let the smaller integer be x. The next one is x + 1.",
+        "x(x + 1) = 306 becomes x^2 + x - 306 = 0.",
+        "Product -306, sum 1: 18 and -17."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "17 and 18",
+        "17",
+        "-18, -17"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p6",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: Two unknowns that differ by 1; one variable suffices.\nGiven: Product of x and x + 1 is 306\nFind: The two integers\nConcept: Word problem to quadratic\nMethod: x^2 + x - 306 = 0; split with 18 and -17\nSolve: (x + 18)(x - 17) = 0; x = 17 (reject -18)\nVerify: 17 x 18 = 306."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p7",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Solve x^2 + 2x - 1 = 0. Give exact roots.",
+      "hints": [
+        "No integer pair has product -1 and sum 2, so use the formula.",
+        "D = b^2 - 4ac = 4 + 4 = 8.",
+        "sqrt 8 = 2 sqrt 2, then divide the whole numerator by 2."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "x = -1 + sqrt 2 or x = -1 - sqrt 2",
+        "-1 +/- 2 sqrt 2",
+        "1 +/- sqrt 2"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p7",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: Middle term will not split over integers.\nGiven: a = 1, b = 2, c = -1\nFind: Exact roots\nConcept: Quadratic formula\nMethod: x = [-b +/- sqrt(b^2 - 4ac)] / 2a\nSolve: x = [-2 +/- sqrt 8] / 2 = [-2 +/- 2 sqrt 2] / 2 = -1 +/- sqrt 2\nVerify: (-1 + sqrt 2)^2 + 2(-1 + sqrt 2) - 1 = 3 - 2 sqrt 2 - 2 + 2 sqrt 2 - 1 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p8",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "If x = 2 is a root of x^2 + kx - 10 = 0, find k and the other root.",
+      "hints": [
+        "A root satisfies the equation: substitute x = 2.",
+        "4 + 2k - 10 = 0.",
+        "Then the product of roots is -10."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "k = 3, other root -5",
+        "3",
+        "-3, 5"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p8",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: A root makes the equation true.\nGiven: Root x = 2 of x^2 + kx - 10 = 0\nFind: k and the second root\nConcept: Substitution and product of roots\nMethod: Substitute x = 2 to get k; product of roots = c/a = -10\nSolve: 4 + 2k - 10 = 0 so k = 3; other root = -10/2 = -5\nVerify: x^2 + 3x - 10 = (x + 5)(x - 2). Correct."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p9",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "A rectangular field has area 60 m^2 and its length is 7 m more than its breadth. Find the breadth.",
+      "hints": [
+        "Let breadth be b, then length is b + 7.",
+        "Area: b(b + 7) = 60.",
+        "One root is negative and must be rejected."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "m"
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p9",
+      "correctIndexes": [],
+      "numericAnswer": 5,
+      "tolerance": 0.01,
+      "explanation": "Understand: Two dimensions linked by a difference; area gives the equation.\nGiven: Area 60, length = breadth + 7\nFind: Breadth\nConcept: Word problem to quadratic\nMethod: b^2 + 7b - 60 = 0; split with 12 and -5\nSolve: (b + 12)(b - 5) = 0; b = 5 (reject -12)\nVerify: 5 x 12 = 60."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p10",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "A train covers 480 km at a uniform speed. If the speed were 8 km/h less, it would take 3 hours more. Find the original speed.",
+      "hints": [
+        "Let the speed be x km/h. Time = 480/x.",
+        "Slower time minus faster time equals 3: 480/(x - 8) - 480/x = 3.",
+        "Clear denominators to get x^2 - 8x - 1280 = 0."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "km/h"
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p10",
+      "correctIndexes": [],
+      "numericAnswer": 40,
+      "tolerance": 0.01,
+      "explanation": "Understand: Speed change produces a time change; use time = distance / speed.\nGiven: Distance 480 km; speed reduced by 8 km/h adds 3 h\nFind: Original speed\nConcept: Rational equation leading to a quadratic\nMethod: 480/(x - 8) - 480/x = 3 gives 480 x 8 = 3x(x - 8), so x^2 - 8x - 1280 = 0\nSolve: (x - 40)(x + 32) = 0; x = 40\nVerify: 480/40 = 12 h; 480/32 = 15 h; difference 3 h."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p11",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the roots of the equation 1/(x - 1) + 1/(x + 1) = 3/4.",
+      "hints": [
+        "Combine the fractions on the left: (x + 1 + x - 1)/(x^2 - 1).",
+        "2x/(x^2 - 1) = 3/4, then cross-multiply.",
+        "3x^2 - 8x - 3 = 0."
+      ],
+      "source": null,
+      "type": "conceptual",
+      "options": [
+        "x = 3 or x = -1/3",
+        "2/3",
+        "-3, 1/3"
+      ],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p11",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Understand: Two fractions with x in the denominator.\nGiven: 1/(x - 1) + 1/(x + 1) = 3/4\nFind: Values of x\nConcept: Combining fractions, then quadratic\nMethod: 2x/(x^2 - 1) = 3/4 gives 8x = 3x^2 - 3, 3x^2 - 8x - 3 = 0\nSolve: (3x + 1)(x - 3) = 0\nVerify: x = 3: 1/2 + 1/4 = 3/4. x = -1/3: 1/(-4/3) + 1/(2/3) = -3/4 + 3/2 = 3/4."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p12",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Two pipes together fill a tank in 6 hours. The larger pipe alone takes 5 hours less than the smaller one. How long does the smaller pipe take alone?",
+      "hints": [
+        "Let the smaller pipe take x hours; the larger takes x - 5.",
+        "Rates add: 1/x + 1/(x - 5) = 1/6.",
+        "Clear denominators: x^2 - 17x + 30 = 0."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "hours"
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p12",
+      "correctIndexes": [],
+      "numericAnswer": 15,
+      "tolerance": 0.01,
+      "explanation": "Understand: Rates of work add when pipes work together.\nGiven: Together 6 h; larger is 5 h faster\nFind: Time for the smaller pipe alone\nConcept: Work rates\nMethod: 1/x + 1/(x - 5) = 1/6 gives 6(2x - 5) = x(x - 5), so x^2 - 17x + 30 = 0\nSolve: (x - 15)(x - 2) = 0; x = 2 is rejected since x - 5 would be negative\nVerify: 1/15 + 1/10 = 1/6."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p13",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "For what value of k are the roots of (k + 1)x^2 - 6x + 3k = 0 reciprocals of each other?",
+      "hints": [
+        "Reciprocal roots have product 1.",
+        "Product = c/a = 3k/(k + 1).",
+        "Solve 3k = k + 1."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p13",
+      "correctIndexes": [],
+      "numericAnswer": 0.5,
+      "tolerance": 0.01,
+      "explanation": "Understand: A condition on the roots translates to a condition on coefficients.\nGiven: (k + 1)x^2 - 6x + 3k = 0, roots alpha and 1/alpha\nFind: k\nConcept: Product of roots = c/a\nMethod: Set 3k/(k + 1) = 1\nSolve: 3k = k + 1, so k = 1/2\nVerify: With k = 1/2: (3/2)x^2 - 6x + 3/2 = 0, product = 1. Also D = 36 - 9 > 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p14",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "If alpha and beta are the roots of x^2 - 5x + 3 = 0, find alpha^2 + beta^2.",
+      "hints": [
+        "You do not need the actual roots.",
+        "alpha^2 + beta^2 = (alpha + beta)^2 - 2 alpha beta.",
+        "Sum = 5, product = 3."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p14",
+      "correctIndexes": [],
+      "numericAnswer": 19,
+      "tolerance": 0.01,
+      "explanation": "Understand: Ask for an expression in the roots, not the roots themselves.\nGiven: x^2 - 5x + 3 = 0\nFind: alpha^2 + beta^2\nConcept: Sum and product of roots with an identity\nMethod: (alpha + beta)^2 = alpha^2 + 2 alpha beta + beta^2\nSolve: 25 - 6 = 19\nVerify: Roots (5 +/- sqrt 13)/2; squares sum to (25 + 13)/2 = 19."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p15",
+      "topicId": "10-mathematics-quadratic-equations-solving-by-factorisation",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "The equations x^2 + ax + 12 = 0 and x^2 + bx + 3 = 0 have a common root 3. Find a + b.",
+      "hints": [
+        "Put x = 3 in both equations.",
+        "9 + 3a + 12 = 0 gives a.",
+        "9 + 3b + 3 = 0 gives b."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-solving-by-factorisation-p15",
+      "correctIndexes": [],
+      "numericAnswer": -11,
+      "tolerance": 0.01,
+      "explanation": "Understand: Same root satisfies both equations.\nGiven: Root 3 is common\nFind: a + b\nConcept: Substitution\nMethod: Substitute x = 3 separately\nSolve: a = -7, b = -4, a + b = -11\nVerify: x^2 - 7x + 12 = (x - 3)(x - 4); x^2 - 4x + 3 = (x - 3)(x - 1). Both contain (x - 3)."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-p1",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A body travels with initial velocity 10 m/s and acceleration 2 m/s^2 for 5 seconds. Find its final velocity.",
+      "hints": [
+        "Which equation connects u, a, t and v?",
+        "v = u + at.",
+        "Multiply a by t first, then add u."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "m/s"
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-p1",
+      "correctIndexes": [],
+      "numericAnswer": 20,
+      "tolerance": 0.01,
+      "explanation": "Given: u = 10 m/s, a = 2 m/s^2, t = 5 s\nFind: v\nConcept: Equations of motion with uniform acceleration\nDiagram: A straight line; body moving right, acceleration in the same direction\nFormula: v = u + at\nSubstitute: v = 10 + (2)(5)\nCalculate: v = 10 + 10 = 20\nUnit Check: m/s + (m/s^2)(s) = m/s\nFinal Answer: 20 m/s"
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-p2",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Express a speed of 54 km/h in m/s.",
+      "hints": [
+        "1 km = 1000 m and 1 h = 3600 s.",
+        "Multiply by 5/18.",
+        "54 x 5 / 18."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "m/s"
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-p2",
+      "correctIndexes": [],
+      "numericAnswer": 15,
+      "tolerance": 0.01,
+      "explanation": "Given: 54 km/h\nFind: Speed in m/s\nConcept: Unit conversion\nDiagram: None needed\nFormula: m/s = km/h x 5/18\nSubstitute: 54 x 5/18\nCalculate: 15\nUnit Check: km/h x (1000 m / 3600 s) gives m/s\nFinal Answer: 15 m/s"
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-p3",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A car moving at 20 m/s accelerates uniformly at 2 m/s^2 for 10 s. How far does it travel in this time?",
+      "hints": [
+        "You have u, a, t and want s.",
+        "s = ut + (1/2)at^2.",
+        "Do not forget the half."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "m"
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-p3",
+      "correctIndexes": [],
+      "numericAnswer": 300,
+      "tolerance": 0.01,
+      "explanation": "Given: u = 20 m/s, a = 2 m/s^2, t = 10 s\nFind: s\nConcept: Uniform acceleration, displacement in time t\nDiagram: Car moving right, accelerating right\nFormula: s = ut + (1/2)at^2\nSubstitute: s = 20 x 10 + 0.5 x 2 x 10^2\nCalculate: 200 + 100 = 300\nUnit Check: (m/s)(s) + (m/s^2)(s^2) = m\nFinal Answer: 300 m"
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-p4",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A bike moving at 15 m/s applies brakes producing a retardation of 3 m/s^2. Find the distance covered before it stops.",
+      "hints": [
+        "Final velocity is 0 when it stops.",
+        "Time is not given, so use v^2 = u^2 + 2as.",
+        "Retardation means a = -3 m/s^2."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "m"
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-p4",
+      "correctIndexes": [],
+      "numericAnswer": 37.5,
+      "tolerance": 0.01,
+      "explanation": "Given: u = 15 m/s, v = 0, a = -3 m/s^2\nFind: s\nConcept: Uniform retardation, no time given\nDiagram: Bike moving right, acceleration pointing left\nFormula: v^2 = u^2 + 2as\nSubstitute: 0 = 15^2 + 2(-3)s\nCalculate: 0 = 225 - 6s, s = 225/6\nUnit Check: (m/s)^2 / (m/s^2) = m\nFinal Answer: 37.5 m"
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-equations-of-motion-p5",
+      "topicId": "9-physics-motion-equations-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A ball is thrown vertically upward with speed 20 m/s. Taking g = 10 m/s^2, find the maximum height reached.",
+      "hints": [
+        "At the top the velocity is zero.",
+        "Take upward as positive, so a = -10 m/s^2.",
+        "v^2 = u^2 + 2as."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "m"
+    },
+    "key": {
+      "id": "9-physics-motion-equations-of-motion-p5",
+      "correctIndexes": [],
+      "numericAnswer": 20,
+      "tolerance": 0.01,
+      "explanation": "Given: u = 20 m/s, v = 0 at the top, a = -10 m/s^2\nFind: Maximum height h\nConcept: Uniformly accelerated motion under gravity\nDiagram: Ball moving up, g pointing down\nFormula: v^2 = u^2 + 2as\nSubstitute: 0 = 400 + 2(-10)h\nCalculate: 20h = 400, h = 20\nUnit Check: (m/s)^2 / (m/s^2) = m\nFinal Answer: 20 m"
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-p1",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Balance the equation Fe + H2O -> Fe3O4 + H2 and give the coefficient of H2O.",
+      "hints": [
+        "Balance Fe first: 3 Fe on the right.",
+        "Then O: 4 oxygens on the right.",
+        "Finally H."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-p1",
+      "correctIndexes": [],
+      "numericAnswer": 4,
+      "tolerance": 0.01,
+      "explanation": "Element/Compound: Fe, H2O, Fe3O4, H2\nProperty: Atoms must balance on both sides\nConcept: Conservation of mass\nTrend/Reaction: Fe: 3, O: 4, then H: 8 needs 4H2\nReasoning: 3Fe + 4H2O -> Fe3O4 + 4H2\nAnswer: Coefficient of H2O is 4"
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-p2",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Balance C3H8 + O2 -> CO2 + H2O and give the coefficient of O2.",
+      "hints": [
+        "Balance C first, then H, then O last.",
+        "3CO2 and 4H2O.",
+        "Count O on the right: 6 + 4."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-p2",
+      "correctIndexes": [],
+      "numericAnswer": 5,
+      "tolerance": 0.01,
+      "explanation": "Element/Compound: C3H8, O2, CO2, H2O\nProperty: Atom counts\nConcept: Conservation of mass; O balanced last\nTrend/Reaction: C: 3CO2; H: 4H2O; O right = 10, so 5O2\nReasoning: C3H8 + 5O2 -> 3CO2 + 4H2O\nAnswer: Coefficient of O2 is 5"
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-p3",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-balancing-equations",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "When 24 g of magnesium burns completely in oxygen it forms 40 g of magnesium oxide. What mass of oxygen reacted?",
+      "hints": [
+        "Mass of reactants equals mass of products.",
+        "Mg + O2 -> MgO: 24 + m = 40.",
+        "Solve for m."
+      ],
+      "source": null,
+      "type": "numerical",
+      "options": [],
+      "unit": "g"
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-balancing-equations-p3",
+      "correctIndexes": [],
+      "numericAnswer": 16,
+      "tolerance": 0.01,
+      "explanation": "Given: Mg 24 g, MgO 40 g\nFormula: Mass of reactants = mass of products\nUnits: grams\nSubstitute: 24 + m = 40\nCalculate: m = 16\nVerify: 2Mg + O2 -> 2MgO: 48 g Mg with 32 g O2 gives 80 g MgO, scaled by half matches"
     }
   }
 ]

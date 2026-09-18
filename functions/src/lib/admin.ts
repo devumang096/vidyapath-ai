@@ -35,31 +35,32 @@ export function requireNumber(value: unknown, field: string, min: number, max: n
 }
 
 export const DEFAULT_CONFIG: RewardConfig = {
-  moduleXp: 50,
-  quizXpPerQuestion: 10,
-  quizStarsPerCorrect: 1,
-  problemXpByLevel: { "1": 20, "2": 35, "3": 50, "4": 75, "5": 100 },
-  problemStarsByLevel: { "1": 1, "2": 2, "3": 3, "4": 5, "5": 8 },
-  challengeXp: 80,
-  challengeStars: 10,
+  lessonXp: 50,
+  questionXpByDifficulty: { "1": 10, "2": 20, "3": 35 },
+  questionCoinsByDifficulty: { "1": 1, "2": 2, "3": 4 },
+  assessmentXpPerQuestion: 10,
+  assessmentCoinsPerCorrect: 1,
+  chapterCompleteXp: 200,
+  chapterCompleteCoins: 25,
+  challengeXp: 150,
+  challengeCoins: 20,
   revisionXp: 25,
   studyMinuteXp: 1,
   streakDayMinutes: 20,
   streakDayQuestions: 10,
-  unlockThresholds: [80, 75, 70, 70],
   spinCooldownHours: 24,
   spinOutcomes: [
-    { label: "+10 Stars", weight: 30, xp: 0, stars: 10, badgeId: null },
-    { label: "+25 Stars", weight: 20, xp: 0, stars: 25, badgeId: null },
-    { label: "+50 Stars", weight: 8, xp: 0, stars: 50, badgeId: null },
-    { label: "+100 XP", weight: 20, xp: 100, stars: 0, badgeId: null },
-    { label: "Lucky Badge", weight: 7, xp: 0, stars: 0, badgeId: "lucky_spin" },
-    { label: "Try Again", weight: 15, xp: 0, stars: 0, badgeId: null }
+    { label: "+10 Orbit Coins", weight: 30, xp: 0, coins: 10, streakProtection: 0, badgeId: null },
+    { label: "+25 Orbit Coins", weight: 20, xp: 0, coins: 25, streakProtection: 0, badgeId: null },
+    { label: "+50 Orbit Coins", weight: 8, xp: 0, coins: 50, streakProtection: 0, badgeId: null },
+    { label: "+100 XP", weight: 20, xp: 100, coins: 0, streakProtection: 0, badgeId: null },
+    { label: "Streak Protection", weight: 7, xp: 0, coins: 0, streakProtection: 1, badgeId: null },
+    { label: "Try Again Tomorrow", weight: 15, xp: 0, coins: 0, streakProtection: 0, badgeId: null }
   ],
   aiDailyLimit: 40,
-  doubtCooldownSec: 120,
-  answerCooldownSec: 30,
-  streakMilestones: [1, 7, 30, 50, 100]
+  streakMilestones: [1, 7, 30, 50, 90, 100],
+  goodieCriteria: { chapters: 20, questions: 2000, streak: 30 },
+  ninetyDayCriteria: { activeDays: 90, streak: 90, studyHours: 100, questions: 1500, chapters: 15 }
 };
 
 let cachedConfig: { value: RewardConfig; loadedAt: number } | null = null;

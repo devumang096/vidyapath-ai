@@ -5,10 +5,17 @@
     "classLevel": 9,
     "name": "Number Systems",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "number-systems",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-polynomials",
@@ -16,10 +23,17 @@
     "classLevel": 9,
     "name": "Polynomials",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "polynomials",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-coordinate-geometry",
@@ -27,10 +41,17 @@
     "classLevel": 9,
     "name": "Coordinate Geometry",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "coordinate-geometry",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-linear-equations-in-two-variables",
@@ -38,10 +59,17 @@
     "classLevel": 9,
     "name": "Linear Equations in Two Variables",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "linear-equations-in-two-variables",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-introduction-to-euclid-s-geometry",
@@ -49,10 +77,17 @@
     "classLevel": 9,
     "name": "Introduction to Euclid's Geometry",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "introduction-to-euclid-s-geometry",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-lines-and-angles",
@@ -60,10 +95,17 @@
     "classLevel": 9,
     "name": "Lines and Angles",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "lines-and-angles",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-triangles",
@@ -71,10 +113,17 @@
     "classLevel": 9,
     "name": "Triangles",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "triangles",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-quadrilaterals",
@@ -82,10 +131,17 @@
     "classLevel": 9,
     "name": "Quadrilaterals",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "quadrilaterals",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-circles",
@@ -93,10 +149,17 @@
     "classLevel": 9,
     "name": "Circles",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "circles",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-heron-s-formula",
@@ -104,10 +167,17 @@
     "classLevel": 9,
     "name": "Heron's Formula",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "heron-s-formula",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-surface-areas-and-volumes",
@@ -115,10 +185,17 @@
     "classLevel": 9,
     "name": "Surface Areas and Volumes",
     "order": 11,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "surface-areas-and-volumes",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-mathematics-statistics",
@@ -126,10 +203,17 @@
     "classLevel": 9,
     "name": "Statistics",
     "order": 12,
-    "sampleOnly": true,
     "examTags": [
-      "board"
-    ]
+      "school"
+    ],
+    "slug": "statistics",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-physics-motion",
@@ -137,12 +221,19 @@
     "classLevel": 9,
     "name": "Motion",
     "order": 1,
-    "sampleOnly": false,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "motion",
+    "category": null,
+    "hasContent": true,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-physics-force-and-laws-of-motion",
@@ -150,12 +241,19 @@
     "classLevel": 9,
     "name": "Force and Laws of Motion",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "force-and-laws-of-motion",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-physics-gravitation",
@@ -163,12 +261,19 @@
     "classLevel": 9,
     "name": "Gravitation",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "gravitation",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-physics-work-and-energy",
@@ -176,12 +281,19 @@
     "classLevel": 9,
     "name": "Work and Energy",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "work-and-energy",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-physics-sound",
@@ -189,12 +301,19 @@
     "classLevel": 9,
     "name": "Sound",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "sound",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-chemistry-matter-in-our-surroundings",
@@ -202,12 +321,19 @@
     "classLevel": 9,
     "name": "Matter in Our Surroundings",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "matter-in-our-surroundings",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-chemistry-is-matter-around-us-pure",
@@ -215,12 +341,19 @@
     "classLevel": 9,
     "name": "Is Matter Around Us Pure",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "is-matter-around-us-pure",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-chemistry-atoms-and-molecules",
@@ -228,12 +361,19 @@
     "classLevel": 9,
     "name": "Atoms and Molecules",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "atoms-and-molecules",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-chemistry-structure-of-the-atom",
@@ -241,12 +381,19 @@
     "classLevel": 9,
     "name": "Structure of the Atom",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "structure-of-the-atom",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-biology-the-fundamental-unit-of-life",
@@ -254,11 +401,18 @@
     "classLevel": 9,
     "name": "The Fundamental Unit of Life",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "the-fundamental-unit-of-life",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-biology-tissues",
@@ -266,11 +420,18 @@
     "classLevel": 9,
     "name": "Tissues",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "tissues",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "9-biology-improvement-in-food-resources",
@@ -278,99 +439,18 @@
     "classLevel": 9,
     "name": "Improvement in Food Resources",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
-  },
-  {
-    "id": "9-social_science-the-french-revolution",
-    "subjectId": "social_science",
-    "classLevel": 9,
-    "name": "The French Revolution",
-    "order": 1,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "9-social_science-india-size-and-location",
-    "subjectId": "social_science",
-    "classLevel": 9,
-    "name": "India Size and Location",
-    "order": 2,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "9-social_science-what-is-democracy-why-democracy",
-    "subjectId": "social_science",
-    "classLevel": 9,
-    "name": "What is Democracy Why Democracy",
-    "order": 3,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "9-social_science-the-story-of-village-palampur",
-    "subjectId": "social_science",
-    "classLevel": 9,
-    "name": "The Story of Village Palampur",
-    "order": 4,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "9-english-the-fun-they-had",
-    "subjectId": "english",
-    "classLevel": 9,
-    "name": "The Fun They Had",
-    "order": 1,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "9-english-the-sound-of-music",
-    "subjectId": "english",
-    "classLevel": 9,
-    "name": "The Sound of Music",
-    "order": 2,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "9-english-the-little-girl",
-    "subjectId": "english",
-    "classLevel": 9,
-    "name": "The Little Girl",
-    "order": 3,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "9-english-a-truly-beautiful-mind",
-    "subjectId": "english",
-    "classLevel": 9,
-    "name": "A Truly Beautiful Mind",
-    "order": 4,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
+    ],
+    "slug": "improvement-in-food-resources",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-real-numbers",
@@ -378,11 +458,18 @@
     "classLevel": 10,
     "name": "Real Numbers",
     "order": 1,
-    "sampleOnly": false,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "real-numbers",
+    "category": null,
+    "hasContent": true,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-polynomials",
@@ -390,11 +477,18 @@
     "classLevel": 10,
     "name": "Polynomials",
     "order": 2,
-    "sampleOnly": false,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "polynomials",
+    "category": null,
+    "hasContent": true,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-pair-of-linear-equations-in-two-variables",
@@ -402,11 +496,18 @@
     "classLevel": 10,
     "name": "Pair of Linear Equations in Two Variables",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "pair-of-linear-equations-in-two-variables",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-quadratic-equations",
@@ -414,11 +515,18 @@
     "classLevel": 10,
     "name": "Quadratic Equations",
     "order": 4,
-    "sampleOnly": false,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "quadratic-equations",
+    "category": null,
+    "hasContent": true,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-arithmetic-progressions",
@@ -426,11 +534,18 @@
     "classLevel": 10,
     "name": "Arithmetic Progressions",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "arithmetic-progressions",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-triangles",
@@ -438,11 +553,18 @@
     "classLevel": 10,
     "name": "Triangles",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "triangles",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-coordinate-geometry",
@@ -450,11 +572,18 @@
     "classLevel": 10,
     "name": "Coordinate Geometry",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "coordinate-geometry",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-introduction-to-trigonometry",
@@ -462,11 +591,18 @@
     "classLevel": 10,
     "name": "Introduction to Trigonometry",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "introduction-to-trigonometry",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-some-applications-of-trigonometry",
@@ -474,11 +610,18 @@
     "classLevel": 10,
     "name": "Some Applications of Trigonometry",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "some-applications-of-trigonometry",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-circles",
@@ -486,11 +629,18 @@
     "classLevel": 10,
     "name": "Circles",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "circles",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-areas-related-to-circles",
@@ -498,11 +648,18 @@
     "classLevel": 10,
     "name": "Areas Related to Circles",
     "order": 11,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "areas-related-to-circles",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-surface-areas-and-volumes",
@@ -510,11 +667,18 @@
     "classLevel": 10,
     "name": "Surface Areas and Volumes",
     "order": 12,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "surface-areas-and-volumes",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-statistics",
@@ -522,11 +686,18 @@
     "classLevel": 10,
     "name": "Statistics",
     "order": 13,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "statistics",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-mathematics-probability",
@@ -534,11 +705,18 @@
     "classLevel": 10,
     "name": "Probability",
     "order": 14,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "probability",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-physics-light-reflection-and-refraction",
@@ -546,12 +724,19 @@
     "classLevel": 10,
     "name": "Light Reflection and Refraction",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "light-reflection-and-refraction",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-physics-the-human-eye-and-the-colourful-world",
@@ -559,12 +744,19 @@
     "classLevel": 10,
     "name": "The Human Eye and the Colourful World",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "the-human-eye-and-the-colourful-world",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-physics-electricity",
@@ -572,12 +764,19 @@
     "classLevel": 10,
     "name": "Electricity",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "electricity",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-physics-magnetic-effects-of-electric-current",
@@ -585,12 +784,19 @@
     "classLevel": 10,
     "name": "Magnetic Effects of Electric Current",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "magnetic-effects-of-electric-current",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-chemistry-chemical-reactions-and-equations",
@@ -598,12 +804,19 @@
     "classLevel": 10,
     "name": "Chemical Reactions and Equations",
     "order": 1,
-    "sampleOnly": false,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "chemical-reactions-and-equations",
+    "category": null,
+    "hasContent": true,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-chemistry-acids-bases-and-salts",
@@ -611,12 +824,19 @@
     "classLevel": 10,
     "name": "Acids Bases and Salts",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "acids-bases-and-salts",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-chemistry-metals-and-non-metals",
@@ -624,12 +844,19 @@
     "classLevel": 10,
     "name": "Metals and Non-metals",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "metals-and-non-metals",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-chemistry-carbon-and-its-compounds",
@@ -637,12 +864,19 @@
     "classLevel": 10,
     "name": "Carbon and its Compounds",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "carbon-and-its-compounds",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-biology-life-processes",
@@ -650,11 +884,18 @@
     "classLevel": 10,
     "name": "Life Processes",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "life-processes",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-biology-control-and-coordination",
@@ -662,11 +903,18 @@
     "classLevel": 10,
     "name": "Control and Coordination",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "control-and-coordination",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-biology-how-do-organisms-reproduce",
@@ -674,11 +922,18 @@
     "classLevel": 10,
     "name": "How do Organisms Reproduce",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "how-do-organisms-reproduce",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-biology-heredity",
@@ -686,11 +941,18 @@
     "classLevel": 10,
     "name": "Heredity",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "heredity",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "10-biology-our-environment",
@@ -698,99 +960,18 @@
     "classLevel": 10,
     "name": "Our Environment",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
-  },
-  {
-    "id": "10-social_science-the-rise-of-nationalism-in-europe",
-    "subjectId": "social_science",
-    "classLevel": 10,
-    "name": "The Rise of Nationalism in Europe",
-    "order": 1,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "10-social_science-resources-and-development",
-    "subjectId": "social_science",
-    "classLevel": 10,
-    "name": "Resources and Development",
-    "order": 2,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "10-social_science-power-sharing",
-    "subjectId": "social_science",
-    "classLevel": 10,
-    "name": "Power Sharing",
-    "order": 3,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "10-social_science-development",
-    "subjectId": "social_science",
-    "classLevel": 10,
-    "name": "Development",
-    "order": 4,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "10-english-a-letter-to-god",
-    "subjectId": "english",
-    "classLevel": 10,
-    "name": "A Letter to God",
-    "order": 1,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "10-english-nelson-mandela-long-walk-to-freedom",
-    "subjectId": "english",
-    "classLevel": 10,
-    "name": "Nelson Mandela Long Walk to Freedom",
-    "order": 2,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "10-english-two-stories-about-flying",
-    "subjectId": "english",
-    "classLevel": 10,
-    "name": "Two Stories about Flying",
-    "order": 3,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
-  },
-  {
-    "id": "10-english-from-the-diary-of-anne-frank",
-    "subjectId": "english",
-    "classLevel": 10,
-    "name": "From the Diary of Anne Frank",
-    "order": 4,
-    "sampleOnly": true,
-    "examTags": [
-      "board"
-    ]
+    ],
+    "slug": "our-environment",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-units-and-measurements",
@@ -798,12 +979,19 @@
     "classLevel": 11,
     "name": "Units and Measurements",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "units-and-measurements",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-motion-in-a-straight-line",
@@ -811,12 +999,19 @@
     "classLevel": 11,
     "name": "Motion in a Straight Line",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "motion-in-a-straight-line",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-motion-in-a-plane",
@@ -824,12 +1019,19 @@
     "classLevel": 11,
     "name": "Motion in a Plane",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "motion-in-a-plane",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-laws-of-motion",
@@ -837,12 +1039,19 @@
     "classLevel": 11,
     "name": "Laws of Motion",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "laws-of-motion",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-work-energy-and-power",
@@ -850,12 +1059,19 @@
     "classLevel": 11,
     "name": "Work Energy and Power",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "work-energy-and-power",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-system-of-particles-and-rotational-motion",
@@ -863,12 +1079,19 @@
     "classLevel": 11,
     "name": "System of Particles and Rotational Motion",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "system-of-particles-and-rotational-motion",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-gravitation",
@@ -876,12 +1099,19 @@
     "classLevel": 11,
     "name": "Gravitation",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "gravitation",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-mechanical-properties-of-solids",
@@ -889,12 +1119,19 @@
     "classLevel": 11,
     "name": "Mechanical Properties of Solids",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "mechanical-properties-of-solids",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-thermodynamics",
@@ -902,12 +1139,19 @@
     "classLevel": 11,
     "name": "Thermodynamics",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "thermodynamics",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-oscillations",
@@ -915,12 +1159,19 @@
     "classLevel": 11,
     "name": "Oscillations",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "oscillations",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-physics-waves",
@@ -928,12 +1179,19 @@
     "classLevel": 11,
     "name": "Waves",
     "order": 11,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "waves",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-some-basic-concepts-of-chemistry",
@@ -941,12 +1199,19 @@
     "classLevel": 11,
     "name": "Some Basic Concepts of Chemistry",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "some-basic-concepts-of-chemistry",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-structure-of-atom",
@@ -954,12 +1219,19 @@
     "classLevel": 11,
     "name": "Structure of Atom",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "structure-of-atom",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-classification-of-elements-and-periodicity",
@@ -967,12 +1239,19 @@
     "classLevel": 11,
     "name": "Classification of Elements and Periodicity",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "classification-of-elements-and-periodicity",
+    "category": "inorganic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-chemical-bonding-and-molecular-structure",
@@ -980,12 +1259,19 @@
     "classLevel": 11,
     "name": "Chemical Bonding and Molecular Structure",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "chemical-bonding-and-molecular-structure",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-thermodynamics",
@@ -993,12 +1279,19 @@
     "classLevel": 11,
     "name": "Thermodynamics",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "thermodynamics",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-equilibrium",
@@ -1006,12 +1299,19 @@
     "classLevel": 11,
     "name": "Equilibrium",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "equilibrium",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-redox-reactions",
@@ -1019,12 +1319,19 @@
     "classLevel": 11,
     "name": "Redox Reactions",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "redox-reactions",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-organic-chemistry-some-basic-principles",
@@ -1032,12 +1339,19 @@
     "classLevel": 11,
     "name": "Organic Chemistry Some Basic Principles",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "organic-chemistry-some-basic-principles",
+    "category": "organic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-chemistry-hydrocarbons",
@@ -1045,12 +1359,19 @@
     "classLevel": 11,
     "name": "Hydrocarbons",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "hydrocarbons",
+    "category": "organic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-sets",
@@ -1058,11 +1379,18 @@
     "classLevel": 11,
     "name": "Sets",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "sets",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-relations-and-functions",
@@ -1070,11 +1398,18 @@
     "classLevel": 11,
     "name": "Relations and Functions",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "relations-and-functions",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-trigonometric-functions",
@@ -1082,11 +1417,18 @@
     "classLevel": 11,
     "name": "Trigonometric Functions",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "trigonometric-functions",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-complex-numbers-and-quadratic-equations",
@@ -1094,11 +1436,18 @@
     "classLevel": 11,
     "name": "Complex Numbers and Quadratic Equations",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "complex-numbers-and-quadratic-equations",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-linear-inequalities",
@@ -1106,11 +1455,18 @@
     "classLevel": 11,
     "name": "Linear Inequalities",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "linear-inequalities",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-permutations-and-combinations",
@@ -1118,11 +1474,18 @@
     "classLevel": 11,
     "name": "Permutations and Combinations",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "permutations-and-combinations",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-binomial-theorem",
@@ -1130,11 +1493,18 @@
     "classLevel": 11,
     "name": "Binomial Theorem",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "binomial-theorem",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-sequences-and-series",
@@ -1142,11 +1512,18 @@
     "classLevel": 11,
     "name": "Sequences and Series",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "sequences-and-series",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-straight-lines",
@@ -1154,11 +1531,18 @@
     "classLevel": 11,
     "name": "Straight Lines",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "straight-lines",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-conic-sections",
@@ -1166,11 +1550,18 @@
     "classLevel": 11,
     "name": "Conic Sections",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "conic-sections",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-limits-and-derivatives",
@@ -1178,11 +1569,18 @@
     "classLevel": 11,
     "name": "Limits and Derivatives",
     "order": 11,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "limits-and-derivatives",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-statistics",
@@ -1190,11 +1588,18 @@
     "classLevel": 11,
     "name": "Statistics",
     "order": 12,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "statistics",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-mathematics-probability",
@@ -1202,11 +1607,18 @@
     "classLevel": 11,
     "name": "Probability",
     "order": 13,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "probability",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-the-living-world",
@@ -1214,11 +1626,18 @@
     "classLevel": 11,
     "name": "The Living World",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "the-living-world",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-biological-classification",
@@ -1226,11 +1645,18 @@
     "classLevel": 11,
     "name": "Biological Classification",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "biological-classification",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-plant-kingdom",
@@ -1238,11 +1664,18 @@
     "classLevel": 11,
     "name": "Plant Kingdom",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "plant-kingdom",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-animal-kingdom",
@@ -1250,11 +1683,18 @@
     "classLevel": 11,
     "name": "Animal Kingdom",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "animal-kingdom",
+    "category": "zoology",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-cell-the-unit-of-life",
@@ -1262,11 +1702,18 @@
     "classLevel": 11,
     "name": "Cell The Unit of Life",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "cell-the-unit-of-life",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-biomolecules",
@@ -1274,11 +1721,18 @@
     "classLevel": 11,
     "name": "Biomolecules",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "biomolecules",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-cell-cycle-and-cell-division",
@@ -1286,11 +1740,18 @@
     "classLevel": 11,
     "name": "Cell Cycle and Cell Division",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "cell-cycle-and-cell-division",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-photosynthesis-in-higher-plants",
@@ -1298,11 +1759,18 @@
     "classLevel": 11,
     "name": "Photosynthesis in Higher Plants",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "photosynthesis-in-higher-plants",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-respiration-in-plants",
@@ -1310,11 +1778,18 @@
     "classLevel": 11,
     "name": "Respiration in Plants",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "respiration-in-plants",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "11-biology-breathing-and-exchange-of-gases",
@@ -1322,11 +1797,18 @@
     "classLevel": 11,
     "name": "Breathing and Exchange of Gases",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "breathing-and-exchange-of-gases",
+    "category": "zoology",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-electric-charges-and-fields",
@@ -1334,12 +1816,19 @@
     "classLevel": 12,
     "name": "Electric Charges and Fields",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "electric-charges-and-fields",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-electrostatic-potential-and-capacitance",
@@ -1347,12 +1836,19 @@
     "classLevel": 12,
     "name": "Electrostatic Potential and Capacitance",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "electrostatic-potential-and-capacitance",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-current-electricity",
@@ -1360,12 +1856,19 @@
     "classLevel": 12,
     "name": "Current Electricity",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "current-electricity",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-moving-charges-and-magnetism",
@@ -1373,12 +1876,19 @@
     "classLevel": 12,
     "name": "Moving Charges and Magnetism",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "moving-charges-and-magnetism",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-electromagnetic-induction",
@@ -1386,12 +1896,19 @@
     "classLevel": 12,
     "name": "Electromagnetic Induction",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "electromagnetic-induction",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-alternating-current",
@@ -1399,12 +1916,19 @@
     "classLevel": 12,
     "name": "Alternating Current",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "alternating-current",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-ray-optics-and-optical-instruments",
@@ -1412,12 +1936,19 @@
     "classLevel": 12,
     "name": "Ray Optics and Optical Instruments",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "ray-optics-and-optical-instruments",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-wave-optics",
@@ -1425,12 +1956,19 @@
     "classLevel": 12,
     "name": "Wave Optics",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "wave-optics",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-dual-nature-of-radiation-and-matter",
@@ -1438,12 +1976,19 @@
     "classLevel": 12,
     "name": "Dual Nature of Radiation and Matter",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "dual-nature-of-radiation-and-matter",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-atoms",
@@ -1451,12 +1996,19 @@
     "classLevel": 12,
     "name": "Atoms",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "atoms",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-nuclei",
@@ -1464,12 +2016,19 @@
     "classLevel": 12,
     "name": "Nuclei",
     "order": 11,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "nuclei",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-physics-semiconductor-electronics",
@@ -1477,12 +2036,19 @@
     "classLevel": 12,
     "name": "Semiconductor Electronics",
     "order": 12,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "semiconductor-electronics",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-solutions",
@@ -1490,12 +2056,19 @@
     "classLevel": 12,
     "name": "Solutions",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "solutions",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-electrochemistry",
@@ -1503,12 +2076,19 @@
     "classLevel": 12,
     "name": "Electrochemistry",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "electrochemistry",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-chemical-kinetics",
@@ -1516,12 +2096,19 @@
     "classLevel": 12,
     "name": "Chemical Kinetics",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "chemical-kinetics",
+    "category": "physical_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-the-d-and-f-block-elements",
@@ -1529,12 +2116,19 @@
     "classLevel": 12,
     "name": "The d and f Block Elements",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "the-d-and-f-block-elements",
+    "category": "inorganic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-coordination-compounds",
@@ -1542,12 +2136,19 @@
     "classLevel": 12,
     "name": "Coordination Compounds",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "coordination-compounds",
+    "category": "inorganic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-haloalkanes-and-haloarenes",
@@ -1555,12 +2156,19 @@
     "classLevel": 12,
     "name": "Haloalkanes and Haloarenes",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "haloalkanes-and-haloarenes",
+    "category": "organic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-alcohols-phenols-and-ethers",
@@ -1568,12 +2176,19 @@
     "classLevel": 12,
     "name": "Alcohols Phenols and Ethers",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "alcohols-phenols-and-ethers",
+    "category": "organic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-aldehydes-ketones-and-carboxylic-acids",
@@ -1581,12 +2196,19 @@
     "classLevel": 12,
     "name": "Aldehydes Ketones and Carboxylic Acids",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "aldehydes-ketones-and-carboxylic-acids",
+    "category": "organic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-amines",
@@ -1594,12 +2216,19 @@
     "classLevel": 12,
     "name": "Amines",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "amines",
+    "category": "organic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-chemistry-biomolecules",
@@ -1607,12 +2236,19 @@
     "classLevel": 12,
     "name": "Biomolecules",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee",
       "neet"
-    ]
+    ],
+    "slug": "biomolecules",
+    "category": "organic_chemistry",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-relations-and-functions",
@@ -1620,11 +2256,18 @@
     "classLevel": 12,
     "name": "Relations and Functions",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "relations-and-functions",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-inverse-trigonometric-functions",
@@ -1632,11 +2275,18 @@
     "classLevel": 12,
     "name": "Inverse Trigonometric Functions",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "inverse-trigonometric-functions",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-matrices",
@@ -1644,11 +2294,18 @@
     "classLevel": 12,
     "name": "Matrices",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "matrices",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-determinants",
@@ -1656,11 +2313,18 @@
     "classLevel": 12,
     "name": "Determinants",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "determinants",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-continuity-and-differentiability",
@@ -1668,11 +2332,18 @@
     "classLevel": 12,
     "name": "Continuity and Differentiability",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "continuity-and-differentiability",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-application-of-derivatives",
@@ -1680,11 +2351,18 @@
     "classLevel": 12,
     "name": "Application of Derivatives",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "application-of-derivatives",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-integrals",
@@ -1692,11 +2370,18 @@
     "classLevel": 12,
     "name": "Integrals",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "integrals",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-application-of-integrals",
@@ -1704,11 +2389,18 @@
     "classLevel": 12,
     "name": "Application of Integrals",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "application-of-integrals",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-differential-equations",
@@ -1716,11 +2408,18 @@
     "classLevel": 12,
     "name": "Differential Equations",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "differential-equations",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-vector-algebra",
@@ -1728,11 +2427,18 @@
     "classLevel": 12,
     "name": "Vector Algebra",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "vector-algebra",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-three-dimensional-geometry",
@@ -1740,11 +2446,18 @@
     "classLevel": 12,
     "name": "Three Dimensional Geometry",
     "order": 11,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "three-dimensional-geometry",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-linear-programming",
@@ -1752,11 +2465,18 @@
     "classLevel": 12,
     "name": "Linear Programming",
     "order": 12,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "linear-programming",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-mathematics-probability",
@@ -1764,11 +2484,18 @@
     "classLevel": 12,
     "name": "Probability",
     "order": 13,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "jee"
-    ]
+    ],
+    "slug": "probability",
+    "category": null,
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-sexual-reproduction-in-flowering-plants",
@@ -1776,11 +2503,18 @@
     "classLevel": 12,
     "name": "Sexual Reproduction in Flowering Plants",
     "order": 1,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "sexual-reproduction-in-flowering-plants",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-human-reproduction",
@@ -1788,11 +2522,18 @@
     "classLevel": 12,
     "name": "Human Reproduction",
     "order": 2,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "human-reproduction",
+    "category": "zoology",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-reproductive-health",
@@ -1800,11 +2541,18 @@
     "classLevel": 12,
     "name": "Reproductive Health",
     "order": 3,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "reproductive-health",
+    "category": "zoology",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-principles-of-inheritance-and-variation",
@@ -1812,11 +2560,18 @@
     "classLevel": 12,
     "name": "Principles of Inheritance and Variation",
     "order": 4,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "principles-of-inheritance-and-variation",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-molecular-basis-of-inheritance",
@@ -1824,11 +2579,18 @@
     "classLevel": 12,
     "name": "Molecular Basis of Inheritance",
     "order": 5,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "molecular-basis-of-inheritance",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-evolution",
@@ -1836,11 +2598,18 @@
     "classLevel": 12,
     "name": "Evolution",
     "order": 6,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "evolution",
+    "category": "zoology",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-human-health-and-disease",
@@ -1848,11 +2617,18 @@
     "classLevel": 12,
     "name": "Human Health and Disease",
     "order": 7,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "human-health-and-disease",
+    "category": "zoology",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-microbes-in-human-welfare",
@@ -1860,11 +2636,18 @@
     "classLevel": 12,
     "name": "Microbes in Human Welfare",
     "order": 8,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "microbes-in-human-welfare",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-biotechnology-principles-and-processes",
@@ -1872,11 +2655,18 @@
     "classLevel": 12,
     "name": "Biotechnology Principles and Processes",
     "order": 9,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "biotechnology-principles-and-processes",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   },
   {
     "id": "12-biology-ecosystem",
@@ -1884,10 +2674,17 @@
     "classLevel": 12,
     "name": "Ecosystem",
     "order": 10,
-    "sampleOnly": true,
     "examTags": [
-      "board",
+      "school",
       "neet"
-    ]
+    ],
+    "slug": "ecosystem",
+    "category": "botany",
+    "hasContent": false,
+    "overview": "",
+    "objectives": [],
+    "formulas": [],
+    "keyConcepts": [],
+    "commonMistakes": []
   }
 ]

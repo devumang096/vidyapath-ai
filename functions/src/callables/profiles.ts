@@ -26,13 +26,15 @@ export const syncPublicProfile = onDocumentWritten("users/{uid}", async (event) 
       classLevel: user.classLevel,
       goal: user.goal,
       subjects: user.subjects ?? [],
-      ...(profileSnap.exists ? {} : { level: 1, progressSummary: { accuracy: 0, questionsSolved: 0, modulesCompleted: 0 }, twinStatus: "none", twinPairId: null }),
+      language: user.language ?? "en",
+      learningLevel: user.learningLevel ?? "beginner",
+      ...(profileSnap.exists ? {} : { progressSummary: { accuracy: 0, questionsSolved: 0, lessonsCompleted: 0 }, buddyStatus: "none", buddyPairId: null }),
       updatedAt: FieldValue.serverTimestamp()
     },
     { merge: true }
   );
   if (!profileSnap.exists) {
-    batch.set(db.doc(`streaks/${uid}`), { uid, current: 0, longest: 0, lastQualifiedDate: null, milestonesAwarded: [], updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    batch.set(db.doc(`streaks/${uid}`), { uid, current: 0, longest: 0, lastQualifiedDate: null, protectionTokens: 0, milestonesAwarded: [], updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     batch.set(db.doc(`spinState/${uid}`), { uid, nextSpinAt: null, lastResult: null, totalSpins: 0 }, { merge: true });
   }
   await batch.commit();

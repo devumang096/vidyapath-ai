@@ -1,150 +1,84 @@
 # Testing
 
-## How to run
+## 1. Automated
 
-| Suite | Command | Needs |
-|---|---|---|
-| Cloud Functions unit tests (streak, adaptive, mistakes, spin, quiz, AI validation, fallback, badges, progress, ledger engine) | `npm run test:functions` | nothing |
-| Frontend logic tests (planner allocation, recommendation) | `npm test` | nothing |
-| TypeScript, both packages | `npm run typecheck` and `npm --prefix functions run build` | nothing |
-| Production build | `npm run build` | nothing |
-| Seed data integrity | `npm run seed:check` | nothing |
-| Firestore rules tests (spec section 54) | `firebase emulators:exec --only firestore "npm run test:rules"` | Java 11+, Firebase CLI |
-| Manual matrix below | run app against emulators or a real project | Firebase project or emulator suite |
+| Suite | Command | Covers | Last result |
+|---|---|---|---|
+| Server logic | `npm run test:functions` | IST dates, streak with protection tokens, mastery formula and bands, grading of all five question types, spin cooldown and weights, AI validation and crisis notice, fallback variation and hint progression, badges, invite codes, `computeOutcome` ledgers and balances, lesson and chapter completion, first-correct payout, session caps, redemption failures and success, spin replay protection | 34 passed (2026-09-19) |
+| Demo shims and callables | `npm test` | Firestore shim queries, four-subject invariant, auth shim (wrong password, duplicate email, Google-style account), engine-generated seed history with ledger consistency, `submitAnswer` grading and idempotency, `completeLesson` chapter completion, `recordStudySession` caps and streak, `redeemReward` stock and coin invariants, `spinWheel` cooldown, `askAi` variation, persistence and support notice, `deleteAccount` | 14 passed (2026-09-19) |
+| Content | `npm run seed:check` | Referential integrity, exact subject whitelist, slugs, question types vs keys, JEE/NEET subject rules, reward stock and prices | passed (2026-09-19) |
+| Firestore rules | `firebase emulators:exec --only firestore "npm run test:rules"` | Every "a student cannot" case from spec section 99 plus admin limits | **Not run in build environment** (no emulator or Java) |
+| Typecheck and build | `npm run typecheck`, `vite build --mode demo` | Frontend and Functions types, production bundle | passed (2026-09-19) |
 
-## Status of this snapshot
+## 2. Manual matrix (spec sections 98 and 99)
 
-The automated suites in the first six rows were run in the environment that produced this repository and pass. The rules tests and the manual matrix were **not run** there: no Firebase project, no Java, and no Gemini key were available. Every row below marked "Not run in build environment" is honest about that. Run them on a team machine before the demo and fill in the "Actual result" column.
-
-## Automated results
-
-| Suite | Tests | Result |
-|---|---|---|
-| functions: logic.test.ts | 28 | pass |
-| functions: engine.test.ts | 5 | pass |
-| src: planner.test.ts | 5 | pass |
-| typecheck root and functions | | pass |
-| vite build | | pass |
-| seed --check | | pass |
-
-## Manual test matrix
-
-Legend for Status: pass / fail / Not run in build environment.
+Verified column: **Demo** means checked in the browser against the in-browser demo (same engine code as the server, no network); **Not run** means it needs a real Firebase project.
 
 ### Authentication
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Register with valid data | Auth user created, users/{uid} written with role student and zero balances, redirected to dashboard | | Not run in build environment |
-| Register with class 13 or role admin (devtools) | Firestore rejects the write | | Not run in build environment |
-| Login with wrong password | Friendly error, no crash | | Not run in build environment |
-| Logout and login | Same profile, XP, Stars, streak | | Not run in build environment |
-| Password reset | Email sent message | | Not run in build environment |
-| Open /dashboard signed out | Redirect to /login | | Not run in build environment |
-| Open /admin as student | Redirect to /dashboard; direct Firestore admin writes rejected | | Not run in build environment |
-
-### Dashboard
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Fresh account | Empty states, CTA suggests Daily Challenge | | Not run in build environment |
-| Demo account | Name, class, goal, streak 17, XP 2450, weak topic Quadratic Equations, recommendation quoting 54% | | Not run in build environment |
-| Network offline | Error state with retry, no blank screen | | Not run in build environment |
+| Case | Expected | Verified |
+|---|---|---|
+| Signup with email | Account created, verification email sent, redirected to onboarding | Demo |
+| Onboarding | Class, path, subjects (path-restricted), daily goal, language, level saved; dashboard opens | Demo |
+| Login, wrong password | Clear error, no navigation | Automated (demo tests) |
+| Google sign-in | Popup, profile completion when no user doc | Automated (simulated popup in demo tests) |
+| Visit /login while signed in | Redirect to /dashboard | Demo |
+| Visit protected route signed out | Redirect to /login, return to the requested route after login | Demo |
+| Forgot password | Reset email sent | Not run |
+| Email verification link | emailVerified becomes true, banner disappears | Not run |
+| Logout then login | Same profile, XP, coins, streak, mastery | Demo |
+| Session persistence | Refresh keeps the session | Demo |
 
 ### Learning
+| Case | Expected | Verified |
+|---|---|---|
+| Learn → Class → Subject → Chapter → Topic | Navigation with breadcrumbs, Preparing tags on unauthored chapters | Demo |
+| Open a topic | Mastery unchanged | Demo |
+| Complete a lesson | Completed tag, XP toast, lessonsCompleted +1, chapter progress bar | Automated (demo and functions tests) |
+| Complete last lesson of a chapter | Chapter bonus XP and coins, chaptersCompleted +1 | Automated |
+| Topic practice by difficulty | Filtered set, server-graded feedback, explanation, mastery shown | Demo |
 
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Open a module | startModule creates a started record | | Not run in build environment |
-| Complete a module | XP awarded once, module completed, streak day qualifies | | Not run in build environment |
-| Complete the same module again (refresh, click again) | alreadyCompleted, no XP | | Not run in build environment |
-| Refresh, relogin, other device | Module still completed | | Not run in build environment |
+### Practice
+| Case | Expected | Verified |
+|---|---|---|
+| Filters | Class, subject, chapter, topic, difficulty, type narrow the set | Not run in browser (topic-level difficulty filter verified) |
+| Random, Chapter, Mixed, Timed | Ordering as described; timer advances on expiry | Not run in browser |
+| Weak Topic mode with no ratings | Honest empty state | Not run in browser |
+| Submit wrong answer | Correct answer and explanation, no reward | Demo |
+| Submit correct answer | Reward once; repeat correct pays nothing | Demo (first payout) + Automated (repeat pays nothing) |
 
-### Quiz
+### Assessments
+Not implemented yet. The page states this.
 
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Questions load, timer runs | Yes | | Not run in build environment |
-| Submit | Score, explanations, XP + Stars on first completion | | Not run in build environment |
-| Submit twice (double click, retry) | Second call returns alreadyFinalized, no extra rewards | | Not run in build environment |
-| Retake the quiz | Accuracy updates, no XP or Stars | | Not run in build environment |
-| Read questionKeys from client | Permission denied | | Not run in build environment |
+### OrbitAI
+| Case | Expected | Verified |
+|---|---|---|
+| Ask from a topic | Context banner, answer from topic content, conversation saved | Demo (fallback content) |
+| Ask explain twice | Different explanation | Demo |
+| Hint mode | Hints one at a time, never the answer | Automated (functions tests) |
+| Crisis language | Support notice prepended | Automated (demo tests) |
+| Gemini answer, daily limit, retry on failure | Real model answer, 40/day cap, Retry button | Not run (needs key) |
 
-### Problem Lab
+### Timer, rewards, calendar, projects
+| Case | Expected | Verified |
+|---|---|---|
+| Timer start, pause, resume, refresh, stop | State survives refresh; whole minutes saved; streak day when 20 min reached | Demo (start, pause, refresh, reset) + Automated (minutes saved, caps, streak) |
+| Spin | One spin, cooldown shown, second spin rejected | Demo |
+| Redeem with enough coins | Coins deducted once, stock -1, redemption pending | Demo |
+| Redeem without enough coins or stock | Error, nothing deducted | Automated (demo and functions tests) |
+| Calendar day click | Study time, questions, accuracy, lessons, topics, XP, coins, streak | Demo |
+| Project create, tasks, complete, notes, resources, delete | Persisted, progress recalculated | Demo (create, tasks, complete); notes, resources, delete not run in browser |
 
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Open a locked level problem | Locked message; submitProblemAttempt rejects | | Not run in build environment |
-| Wrong answer 75 on the motion sample | Mistake classified Formula Selection Error | | Not run in build environment |
-| Wrong answer -20 | Sign Convention Error | | Not run in build environment |
-| Correct answer 20 m/s | Solution revealed, XP + Stars, similar problem offered | | Not run in build environment |
-| Solve again | Correct, no rewards (already solved) | | Not run in build environment |
-| Reveal then solve | Correct, no rewards | | Not run in build environment |
-| Two correct in a row | suggestedLevel rises by one | | Not run in build environment |
+### Security (spec 99)
+| Case | Expected | Verified |
+|---|---|---|
+| Client writes to users.xp, coins, role, streaks, topicMastery, questionAttempts, ledgers, redemptions, rewards | Permission denied | Rules written; **Not run** (emulator) |
+| Read another student's users or topicMastery | Permission denied | Rules written; **Not run** |
+| Read questionKeys | Permission denied | Rules written; **Not run** |
+| Register with role admin, non-zero coins or a subject outside the four | Permission denied | Rules written; **Not run** |
+| Create groupMembers with role owner, or promote self | Permission denied | Rules written; **Not run** |
+| Replay a submitAnswer / redeemReward request | Original result, no second payout or deduction | Automated (demo tests) |
 
-### Rewards, Stars, XP
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Claim with enough Stars | Stars deducted once, claim pending | | Not run in build environment |
-| Claim with insufficient Stars | Server error "need N more Stars", nothing deducted | | Not run in build environment |
-| Claim again with same claimKey | alreadyClaimed, no second deduction | | Not run in build environment |
-| Claim once-per-user reward twice | already-exists error | | Not run in build environment |
-| Set stars via devtools | Permission denied | | Not run in build environment |
-
-### Streak
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Login only | Streak unchanged | | Not run in build environment |
-| 20 minutes or 10 questions or 1 module or 1 revision | Day qualifies, streak +1 | | Not run in build environment |
-| Second qualifying action same day | No further increment | | Not run in build environment |
-| Change device date | No effect (server time) | | Not run in build environment |
-| Milestone 7 | Badge and notification once | | Not run in build environment |
-
-### Spin wheel
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Eligible spin | Result, reward applied, nextSpinAt 24 h ahead | | Not run in build environment |
-| Double click | Second request rejected (already-exists or failed-precondition) | | Not run in build environment |
-| Refresh during cooldown | Countdown persists from server timestamp | | Not run in build environment |
-| Edit spinState from client | Permission denied | | Not run in build environment |
-
-### AI
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| No key configured | Guided fallback with the notice, labelled | | Not run in build environment |
-| Key configured | Real Gemini answer labelled "AI-generated explanation" | | Not run in build environment |
-| Learning Mode ON, ask FULL EXPLANATION first | Hint instead of the answer | | Not run in build environment |
-| 41st call in a day | resource-exhausted message | | Not run in build environment |
-| Timeout or API failure | Fallback shown, error logged | | Not run in build environment |
-
-### Doubts
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Post doubt | Appears in list with anonymous author | | Not run in build environment |
-| Post the same doubt again | already-exists error | | Not run in build environment |
-| Post within 120 s | Cooldown message | | Not run in build environment |
-| Upvote | Count +1, button disabled | | Not run in build environment |
-| Upvote again or self-vote | Rejected | | Not run in build environment |
-| Report | Report doc created, visible in admin | | Not run in build environment |
-| Block | Their content hidden; they cannot answer your doubts | | Not run in build environment |
-
-### Study Twin (prototype)
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Match with seeded searching peer | Pair created, both profiles matched | | Not run in build environment |
-| Partner profile | Only anonymous fields visible | | Not run in build environment |
-| Challenge | 5 questions, results per member | | Not run in build environment |
-
-### Persistence and multi-device
-
-| Test | Expected result | Actual result | Status |
-|---|---|---|---|
-| Device A completes module, device B logs in | Completed on B | | Not run in build environment |
-| Device A earns Stars, device B refreshes | Balance updated (live listener on users doc) | | Not run in build environment |
-| Cross-user read of users/{other} | Permission denied | | Not run in build environment |
+### Mobile
+| Case | Expected | Verified |
+|---|---|---|
+| 390 px viewport | Bottom navigation, drawer for the full menu, no horizontal scroll on landing, dashboard, topic, practice | **Not run** (browser window could not be resized in the build session; layout uses responsive classes, verify on a phone) |

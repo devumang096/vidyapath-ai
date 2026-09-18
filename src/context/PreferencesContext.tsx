@@ -11,7 +11,7 @@ interface PreferencesValue extends Preferences {
   update: (patch: Partial<Preferences>) => void;
 }
 
-const STORAGE_KEY = "vidyapath.preferences";
+const STORAGE_KEY = "eduorbit.preferences";
 const DEFAULTS: Preferences = { lowData: false, reduceMotion: false, fontScale: 1 };
 
 const PreferencesContext = createContext<PreferencesValue>({ ...DEFAULTS, update: () => undefined });

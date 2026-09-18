@@ -1,8 +1,90 @@
 [
-  { "id": "mathematics", "name": "Mathematics", "classLevels": [9, 10, 11, 12], "order": 1 },
-  { "id": "physics", "name": "Physics", "classLevels": [9, 10, 11, 12], "order": 2 },
-  { "id": "chemistry", "name": "Chemistry", "classLevels": [9, 10, 11, 12], "order": 3 },
-  { "id": "biology", "name": "Biology", "classLevels": [9, 10, 11, 12], "order": 4 },
-  { "id": "social_science", "name": "Social Science", "classLevels": [9, 10], "order": 5 },
-  { "id": "english", "name": "English", "classLevels": [9, 10], "order": 6 }
+  {
+    "id": "physics",
+    "name": "Physics",
+    "classLevels": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "examTags": [
+      "school",
+      "jee",
+      "neet"
+    ],
+    "categories": [],
+    "order": 1
+  },
+  {
+    "id": "chemistry",
+    "name": "Chemistry",
+    "classLevels": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "examTags": [
+      "school",
+      "jee",
+      "neet"
+    ],
+    "categories": [
+      {
+        "id": "physical_chemistry",
+        "name": "Physical Chemistry"
+      },
+      {
+        "id": "organic_chemistry",
+        "name": "Organic Chemistry"
+      },
+      {
+        "id": "inorganic_chemistry",
+        "name": "Inorganic Chemistry"
+      }
+    ],
+    "order": 2
+  },
+  {
+    "id": "mathematics",
+    "name": "Mathematics",
+    "classLevels": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "examTags": [
+      "school",
+      "jee"
+    ],
+    "categories": [],
+    "order": 3
+  },
+  {
+    "id": "biology",
+    "name": "Biology",
+    "classLevels": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "examTags": [
+      "school",
+      "neet"
+    ],
+    "categories": [
+      {
+        "id": "botany",
+        "name": "Botany"
+      },
+      {
+        "id": "zoology",
+        "name": "Zoology"
+      }
+    ],
+    "order": 4
+  }
 ]

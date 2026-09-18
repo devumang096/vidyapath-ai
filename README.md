@@ -1,249 +1,110 @@
-# VidyaPath AI
+# EduOrbit
 
-**One Path. From School to Success.**
+**Quality Education. Without Barriers.**
+**Learn. Practice. Ask. Improve. Grow.**
 
-Smart India Hackathon entry for AICTE problem statement **SIH26207** (Software, theme Smart Education, "Student Innovation - Smart Education").
+EduOrbit is a students-only learning platform for Classes 9 to 12, JEE and NEET aspirants. It covers exactly four subjects, Physics, Chemistry, Mathematics and Biology (JEE: Physics, Chemistry, Mathematics; NEET: Physics, Chemistry, Biology), and combines NCERT-aligned lessons, a server-graded question bank, mastery-based strengths and weaknesses, the OrbitAI tutor, Buddy and Group learning, a study timer, streaks, XP, Orbit Coins, badges, an Orbit Store, projects and a learning calendar.
 
-VidyaPath AI is a student-centric learning platform for Class 9 to 12 that combines NCERT-based learning, Board / JEE Foundation / NEET Foundation preparation, a step-by-step Problem Lab, an AI tutor that guides instead of answering, mistake analysis, adaptive practice, a smart study planner, progress tracking, revision, meaningful gamification, peer doubt solving and a safe Study Twin system in one connected loop.
+Smart India Hackathon entry for problem statement **SIH26207** (Smart Education). The repository name is historical; the product is EduOrbit.
 
-The differentiator is not "an AI tutor". It is the loop:
+## 1. Build status
 
-NCERT → Concept → 5-Level Learning → Problem Solving → Step-by-Step Thinking → AI Guidance → Mistake Analysis → Adaptive Practice → Personalised Planning → Progress → Revision.
+The rebuild from the earlier VidyaPath prototype is in progress. Everything marked **live** works end to end through the backend and the in-browser demo; everything marked **planned** is described honestly in the UI and has no dead buttons.
 
-## 1. Features
-
-| Area | What works | Notes |
+| Area | Status | Notes |
 |---|---|---|
-| Authentication | Register, login, logout, password reset, persistent session, protected routes | Firebase Auth |
-| Profile | Name, class, board, stream (11/12), language, subjects, goal | Validated by Firestore rules |
-| Dashboard | Name, class, goal, today's target vs done, streak, XP, Stars, progress, accuracy, weak topics, "What should I study now?", daily challenge, recent activity, revision, Study Twin status, notifications | Deterministic recommendation with a one-sentence reason |
-| NCERT Hub | Class → Subject → Chapter → Topic with concept, key points, formulae, examples, common mistakes, revision card | Full content for the seeded topics, skeleton chapters marked Sample Content elsewhere |
-| 5-level system | Starter, Concept Builder, Application, Competitive, Master; unlock at 80/75/70/70 percent | Unlock state persisted server-side |
-| Problem Lab | Filters, 10-step thinking workflow, subject frameworks (Physics, Physical / Organic / Inorganic Chemistry, Maths), hints, server-checked answers, mistake classification, similar problems, adaptive difficulty | Core feature |
-| AI Problem Coach and AI Tutor | HINT, IDENTIFY CONCEPT, GUIDE ME, CHECK MY APPROACH, FIND MY MISTAKE, FULL EXPLANATION; Explain, Solve With Me, Generate Questions, Check My Answer, Revision, Exam Mode; Learning Mode | Gemini via Cloud Function with validation, usage cap and content-authored fallback |
-| Quizzes | Timer, server scoring, explanations, once-only finalisation | XP and Stars on first completion |
-| Modules | Start, continue, complete once | |
-| Study Planner | Minutes per day, exam date, weak topics → time split | Saved to Firestore |
-| Progress | Accuracy per subject, mistakes by type, minutes per day, topic table, badges | Recharts |
-| Revision | My Weak Topics, Revise Today, revision cards | Revision counts toward streak |
-| Streak | Meaningful-activity days only, IST server time, milestones 1/7/30/50/100 | |
-| XP and Stars | Ledger transactions, server-only balances | |
-| Rewards store | Atomic, idempotent claims | Physical items marked Demo Fulfillment |
-| Spin wheel | Server-side 24 h cooldown, weighted results, history | |
-| Daily challenge | 5 questions, once per day | |
-| Doubt Forum | Post, answer, one vote per answer, report, block, cooldowns, duplicate detection | Anonymous usernames |
-| Study Twin | Match by class, goal, level; compare progress; challenge | Prototype Feature |
-| Career Explorer | 10 informational paths | Static content |
-| Global Search | Chapters, topics, problems, formulae, careers, AI modes | Client-side index |
-| Admin | Reports queue, hide / restore content, reward availability, claim status | Custom-claim role, rule-enforced |
-| Accessibility | Keyboard navigation, focus states, labels, text size, reduced motion | |
-| Low Data Mode | No images, no animations, no shadows | |
-| Loading / error / empty states | Every Firebase and AI dependent page | |
+| Authentication | live | Email/password, Google Sign-In, email verification banner, password reset, password change, account deletion (server-side), protected routes with return URL |
+| Signup and onboarding | live | Name, email, password, class, goal, optional phone/school, then class, path, subjects, daily goal, language, level |
+| Landing, About, Safety, Guidelines, Privacy, Terms, Cookies, Account Deletion, Contact, Help | live | Legal pages are marked as drafts for review |
+| Learn: Class → Subject → Chapter → Topic | live | Full NCERT-aligned chapter skeleton for all four subjects and four classes; topics, lessons and questions authored for a subset (see section 6) |
+| Lessons | live | Start on open, complete on demand, chapter completion bonus when every lesson in the chapter is done |
+| Question engine | live | MCQ, multiple answer, true/false, numerical and conceptual; server grading; attempts stored; XP and coins on first correct attempt only |
+| Practice | live | Filters (class, subject, chapter, topic, difficulty, type) and Random, Weak Topic, Chapter, Mixed and Timed modes |
+| Mastery and strengths | live | Documented formula in `functions/src/lib/mastery.ts`; Strong, Good, Needs Practice, Weak; recommendations from real performance |
+| Dashboard | live | All statistics from server-written documents; honest empty state for new students |
+| Study timer | live | Start, pause, resume, stop, reset; survives refresh; server caps 60 min per session and 600 per day |
+| Streak | live | Meaningful activity only, IST day boundary, protection tokens from the Orbit Spin |
+| XP, Orbit Coins, ledgers | live | Absolute balances written in the same transaction as the ledger entries |
+| Orbit Spin | live | 24 h server cooldown, replay-safe event ids |
+| Orbit Store | live | Eligibility, balance and stock checked in one transaction; stock decremented; redemptions tracked; admin fulfilment |
+| Badges | live | Seven spec badges on real conditions |
+| Free Goodie and 90-Day programs | live | Configurable criteria in `appConfig/rewards`, real progress bars; claim flow lands with Assessments |
+| OrbitAI | live | Explain, Solve, Hint, Quiz, Revision, Mistake Analysis, Study Planner, Beginner mode; context from class, path, chapter, topic, question, weak topics and conversation history; varied re-explanations; crisis support notice; persisted conversations; Gemini via Cloud Function with content-authored fallback |
+| Progress and Calendar | live | Accuracy by subject, minutes over time, strength groups, topic table, badges; month calendar with per-day breakdown |
+| Projects | live | Create, edit, delete, tasks, deadlines, notes, resources, status and progress |
+| Global search | live | Subjects, chapters, topics, lessons, question sets, JEE, NEET, OrbitAI modes, public groups |
+| JEE and NEET hubs | live | Exam → Subject → Chapter with per-chapter accuracy and mastery; PYQ tag ready, mocks land with Assessments |
+| Assessments | planned (next phase) | Templates are live data; start/submit flow, timer, answer preservation and results are next |
+| Buddy | planned | Matching, requests, shared study room, challenges, unmatch, block, report |
+| Groups | planned | Create, discover, invite codes, invitations, roles, discussion, sessions, challenges |
+| Admin | live | Reports, redemptions, store stock; hidden from students, gated by custom claim and rules |
 
-## 2. Architecture
+## 2. Stack
 
-```
-Browser (React + Vite + TypeScript + Tailwind)
-   │  Firebase JS SDK
-   ├── Firebase Auth (email/password, custom claim for admin)
-   ├── Cloud Firestore (reads governed by firestore.rules)
-   └── Cloud Functions (asia-south1, callables)
-          ├── engine: readUserContext → applyOutcome (transaction, idempotent event ids)
-          ├── completeModule, finalizeQuiz, submitProblemAttempt, revealSolution,
-          │   completeDailyChallenge, spinWheel, claimReward, recordStudySession
-          ├── askAi → Gemini (secret key) → validation → fallback
-          ├── postDoubt, postAnswer, voteAnswer
-          ├── matchStudyTwin, createTwinChallenge, submitTwinChallenge
-          └── syncPublicProfile (Firestore trigger on users/{uid})
-```
+React 18, TypeScript, Vite, Tailwind CSS 4, Firebase Authentication, Cloud Firestore, Cloud Functions v2 (Node 22), Gemini through `@google/genai` inside a Function secret. No AI key or service account ever reaches the browser.
 
-Every action that awards or deducts value goes through a Function. The client never writes XP, Stars, streaks, progress, attempts, votes or claims. See `SECURITY.md`.
+## 3. Architecture in one paragraph
 
-## 3. Tech stack
+Feature logic lives as pure functions in `functions/src/lib` (`outcome.ts` for rewards and streaks, `learning.ts` for lessons, answers and sessions, `rewards.ts` for spin and store, `mastery.ts`, `grading.ts`, `aiFallback.ts`). Each returns a list of write operations. Cloud Functions read the documents inside a transaction, call the pure function and apply the writes; the browser demo (`src/demo`) reads from an in-memory store and applies the same writes. Firestore rules (`firestore.rules`) let the client write only its profile preferences, projects, buddy preferences, blocks, reports and notification read flags. Everything with value is server-written.
 
-React 18, Vite 6, TypeScript 5, Tailwind CSS 4, react-router 6, Recharts, Firebase JS SDK 11, Cloud Functions v2 on Node 22, firebase-admin, `@google/genai` (Gemini 2.5 Flash), Vitest.
-
-## 4. Repository layout
-
-```
-src/                 web app
-  lib/               firebase init, typed callables, content loaders, planner logic, types
-  context/           AuthContext (auth + profile + streak), PreferencesContext (UI prefs)
-  hooks/             Firestore read hooks and useAction
-  components/        AppShell, shared UI (AsyncState, tags, modal, toast)
-  pages/             one file per route
-functions/src/       Cloud Functions
-  lib/               pure logic (streak, adaptive, mistakes, spin, quiz, AI validation, fallback, badges, progress, engine)
-  callables/         one file per feature
-  __tests__/         Vitest unit tests
-seed/                content JSON and the seeding script
-tests/rules/         Firestore rules tests (emulator)
-firestore.rules      security rules
-firestore.indexes.json
-firebase.json
-```
-
-## 5. Firebase setup
-
-1. Create a Firebase project. Enable **Authentication → Email/Password**, **Cloud Firestore** (production mode, region asia-south1 recommended), and upgrade to the **Blaze** plan (required for Cloud Functions; the free quota is generous).
-2. Add a Web App in Project settings and copy the config into `.env` (see section 7).
-3. Install the CLI and log in:
-   ```bash
-   npm install
-   npx firebase login
-   cp .firebaserc.example .firebaserc   # put your project id inside
-   ```
-4. Set the Gemini secret (optional, the app falls back without it):
-   ```bash
-   npx firebase functions:secrets:set GEMINI_API_KEY
-   ```
-5. Deploy rules, indexes and functions:
-   ```bash
-   npx firebase deploy --only firestore:rules,firestore:indexes,functions
-   ```
-6. Seed content and demo accounts (section 11), then build and deploy hosting:
-   ```bash
-   npm run build
-   npx firebase deploy --only hosting
-   ```
-
-## 6. Firestore structure
-
-Content (signed-in read, admin write): `subjects`, `chapters`, `topics`, `modules`, `questions`, `quizzes`, `problems`, `rewards`, `dailyChallenges`, `careerPaths`, `badges`, `appConfig/rewards`.
-
-Server-only content: `questionKeys/{questionId}`, `problemSolutions/{problemId}`.
-
-Per student: `users/{uid}` (private), `publicProfiles/{uid}` (anonymous), `studentProgress/{uid}/topics/{topicId}`, `studentProgress/{uid}/modules/{moduleId}`, `streaks/{uid}`, `spinState/{uid}`, `studyPlans/{uid}`, `userBadges/{uid}/badges/{badgeId}`, `aiSessions/{uid}/messages/{id}`, `notifications/{uid}/items/{id}`, `blocks/{uid}/users/{blockedUid}`.
-
-Event records keyed by user id field: `quizAttempts`, `problemAttempts`, `mistakes`, `studySessions`, `dailyActivity/{uid}_{date}`, `aiUsage/{uid}_{date}`, `xpTransactions`, `starsTransactions`, `rewardClaims`, `spinHistory`, `quizCompletions/{uid}_{quizId}`, `challengeCompletions/{uid}_{date}`, `votes/{uid}_{answerId}`, `processedEvents/{eventId}`.
-
-Community: `doubts/{id}`, `doubts/{id}/answers/{id}`, `reports`, `studyTwins`, `twinChallenges`.
-
-All types are in `src/lib/types.ts` (mirrored in `functions/src/types.ts`).
-
-## 7. Environment variables
-
-Copy `.env.example` to `.env`:
-
-```
-VITE_FIREBASE_API_KEY=            # from Firebase web app config
-VITE_FIREBASE_AUTH_DOMAIN=
-VITE_FIREBASE_PROJECT_ID=
-VITE_FIREBASE_STORAGE_BUCKET=
-VITE_FIREBASE_MESSAGING_SENDER_ID=
-VITE_FIREBASE_APP_ID=
-VITE_USE_EMULATORS=false          # true for local emulator suite
-
-GOOGLE_APPLICATION_CREDENTIALS=   # path to a service account JSON, seeding a real project only
-FIREBASE_PROJECT_ID=
-DEMO_STUDENT_EMAIL=aarav@vidyapath.demo
-DEMO_STUDENT_PASSWORD=            # choose one; never commit it
-DEMO_ADMIN_EMAIL=admin@vidyapath.demo
-DEMO_ADMIN_PASSWORD=
-DEMO_PEER_PASSWORD=
-```
-
-`functions/.env.example` documents `GEMINI_API_KEY` (set as a secret, not in a file) and `AI_DAILY_LIMIT`.
-
-The `VITE_*` values identify the project and are safe to ship. Access control comes from Firestore rules and Functions, not from hiding them. `.env`, `.firebaserc` and service account files are git-ignored.
-
-## 8. AI configuration
-
-- Model: `gemini-2.5-flash` through `@google/genai`, called only from `functions/src/callables/askAi.ts`.
-- Key: Functions secret `GEMINI_API_KEY`. For the emulator, create `functions/.secret.local` with `GEMINI_API_KEY=...` (git-ignored).
-- Daily cap per student: `appConfig/rewards.aiDailyLimit` (default 40).
-- Timeout 20 s, max 800 output tokens, temperature 0.4.
-- Validation: empty, too short, over 4000 characters, unsafe patterns. Learning Mode also rejects responses that state the final answer before three guidance turns.
-- Fallback: content-authored coach text from `problemSolutions/{id}.coach` and topic docs, shown with the notice "AI service temporarily unavailable. Showing guided fallback." Without a key the notice reads "AI service not configured."
-- Every response is labelled in the UI as "AI-generated explanation" or "Guided fallback (AI unavailable)".
-
-## 9. Local development
-
-Option A, real project: fill `.env`, then `npm run dev`.
-
-Option B, emulator suite (needs Java 11+):
+## 4. Local development
 
 ```bash
 npm install
 npm --prefix functions install
-npm --prefix functions run build
-# terminal 1
-npx firebase emulators:start --import=.emulator-data --export-on-exit
-# terminal 2
-FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 npm run seed
-VITE_USE_EMULATORS=true npm run dev
+cp .env.example .env        # fill in the Firebase web config
+npm run dev                 # real Firebase project from .env
+npm run demo                # in-browser demo, no Firebase project needed
 ```
 
-Set `admin` claims on the emulator with `FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 npm run set-admin -- admin@vidyapath.demo` (the seed script already does this for the demo admin).
+Demo accounts (password `demo1234`): `aarav@eduorbit.demo` (student with nine days of engine-generated history), `priya@eduorbit.demo` and `rahul@eduorbit.demo` (fresh students), `admin@eduorbit.demo`. Demo data lives in `localStorage` under `eduorbit.demo.*`.
 
-## 10. Deployment
+## 5. Firebase setup
 
-```bash
-npm run build                                   # typecheck + vite build
-npm --prefix functions run build
-npx firebase deploy                             # rules, indexes, functions, hosting
-```
+1. Create a Firebase project on the Blaze plan (Functions need it). Enable Authentication (Email/Password and Google), Firestore and Functions.
+2. Register a web app and copy its config into `.env` (`VITE_FIREBASE_*`).
+3. Set the Gemini key as a Functions secret: `npx firebase functions:secrets:set GEMINI_API_KEY`.
+4. Deploy rules, indexes and functions:
+   ```bash
+   npx firebase deploy --only firestore:rules,firestore:indexes,functions
+   ```
+5. Seed content and demo accounts, then build and deploy hosting:
+   ```bash
+   npm run seed:check   # validates content only
+   npm run seed         # needs GOOGLE_APPLICATION_CREDENTIALS and DEMO_* in .env
+   npm run build
+   npx firebase deploy --only hosting
+   ```
+6. Grant an admin: `npm run set-admin -- admin@example.com`.
 
-Hosting serves `dist/` with an SPA rewrite. Functions deploy to `asia-south1`.
+Composite indexes that Firestore will ask for on first use: `topicMastery (userId, strength, mastery)`, `aiMessages (conversationId, createdAt)`, `aiConversations (userId, updatedAt)`, `dailyActivity (uid, date)`, `questionAttempts (userId, questionId)`, `groups (privacy, nameLower)`. Add them to `firestore.indexes.json` as the console suggests.
 
-### GitHub Pages demo (no Firebase needed)
+## 6. Content
 
-A public preview runs at https://devumang096.github.io/vidyapath-ai/. It is built with `--mode demo`, which swaps the Firebase SDK for the in-browser shims in `src/demo/` (Vite aliases in `vite.config.ts`): seeded content, the demo accounts and Aarav's progress live in memory and localStorage, and every callable runs in the page using the same grading, reward and streak helpers from `functions/src/lib`. Nothing leaves the browser; the AI tutor answers from the guided fallback content.
+Content is data, never React. `seed/content/*.json` holds `subjects` (exactly four), `chapters` (139, NCERT-aligned, with `slug`, `category`, `examTags`, `hasContent`), `topics`, `lessons`, `questions` (each entry is `{ question, key }`; keys are written to `questionKeys` and never readable by clients), `assessments`, `rewards`, `badges` and `appConfig`. `npm run seed:check` validates every reference, the subject whitelist, question types and keys, and JEE/NEET subject rules.
 
-Log in with any demo account and the password `demo1234`: `aarav@vidyapath.demo` (student), `admin@vidyapath.demo` (admin), or `priya`, `rahul`, `meera` at the same domain.
+Authored today: Class 9 Physics Motion, Class 10 Mathematics Real Numbers, Polynomials and Quadratic Equations, Class 10 Chemistry Chemical Reactions and Equations (8 topics, 17 lessons, 73 questions). Every other chapter is present in the structure and shows "Content for this topic is being prepared." To add a chapter: set `hasContent: true`, add topics with `concept`, `keyPoints`, `formulae`, `examples`, `commonMistakes`, lessons with content blocks, and questions of all five types, then run `npm run seed:check`.
 
-```bash
-npm run demo           # local dev server in demo mode
-npm run deploy:pages   # typecheck, build in demo mode with base /vidyapath-ai/, add 404.html for deep links, push dist/ to gh-pages
-```
+## 7. Scripts
 
-## 11. Demo account
+| Script | Purpose |
+|---|---|
+| `npm run dev` / `npm run demo` | Dev server against Firebase / against the in-browser demo |
+| `npm run build` | Typecheck and production build |
+| `npm test` | Vitest: demo shims and callables against the shared engine |
+| `npm run test:functions` | Vitest: pure server logic (streak, mastery, grading, rewards, AI validation) |
+| `npm run test:rules` | Firestore rules tests (needs the emulator) |
+| `npm run seed:check` / `npm run seed` | Validate / write content and demo accounts |
+| `npm run deploy:pages` | Build the demo and publish to GitHub Pages |
 
-Run the seed after deploying functions (the `syncPublicProfile` trigger is not required for seeding; the script writes public profiles itself):
+## 8. Security
 
-```bash
-GOOGLE_APPLICATION_CREDENTIALS=./service-account.json FIREBASE_PROJECT_ID=<id> npm run seed
-```
+See `SECURITY.md` for the full matrix: which collection the client may read or write, which callables exist, how idempotency, rate limits and the four-subject rule are enforced, and what protects minors in Buddy and Groups.
 
-Accounts created (passwords from `.env`):
+## 9. Testing
 
-| Account | Email | Role | Class | Goal |
-|---|---|---|---|---|
-| Demo student (Aarav) | `DEMO_STUDENT_EMAIL` | student | 10, CBSE | Board + JEE Foundation |
-| Demo admin | `DEMO_ADMIN_EMAIL` | admin (custom claim) | 12 | Board |
-| Peers (Priya, Rahul, Meera) | `priya@`, `rahul@`, `meera@vidyapath.demo` | student | 10 | Meera shares Aarav's goal and is searching for a Study Twin |
+See `TESTING.md` for the automated coverage and the manual matrix from spec sections 98 and 99, with a column recording what was verified in this build environment (no Firebase project, no emulator) and what remains for a real project.
 
-Aarav's seeded state: Maths 78 percent, Physics 64 percent, Chemistry 72 percent, weak topic Quadratic Equations (54 percent, concept errors), strong topic Real Numbers, streak 17, XP 2450, 180 Stars, badges and a week of activity. Seeding is idempotent; rerun it to reset the demo.
+## 10. Demo
 
-The click-by-click presentation script is in `JUDGE_DEMO_GUIDE.md`.
-
-## 12. Testing
-
-See `TESTING.md` for commands, the automated results and the manual matrix. Quick check:
-
-```bash
-npm run typecheck && npm test && npm run test:functions && npm run seed:check && npm run build
-```
-
-## 13. Known limitations
-
-- Content depth: full topics exist for Class 10 Mathematics (Real Numbers, Polynomials, Quadratic Equations), Class 9 Science (Motion) and Class 10 Science (Chemical Reactions and Equations). Every other chapter is a labelled skeleton.
-- Study Twin, physical reward fulfilment and the 100-day goodie are prototype workflows with no delivery integration.
-- Notifications are in-app only.
-- No image upload on doubts, no SnapStudy, no automatic content screening, no App Check.
-- Study time comes from a capped client timer.
-- Rules tests and the manual matrix were not executed in the environment that produced this repo (no Firebase project or Java available). Run them before the demo.
-
-## 14. Future scope
-
-- Full NCERT coverage for all four classes with teacher-reviewed content.
-- App Check and email verification.
-- Automatic toxicity screening for doubts.
-- Teacher and moderator roles with dashboards.
-- Push notifications and revision reminders on a schedule.
-- Hindi content and interface.
-- Offline caching of downloaded topics for low-connectivity use.
-
-## License
-
-MIT for the code. Educational content in `seed/content` is original and may be reused with attribution.
+A public preview runs at https://devumang096.github.io/vidyapath-ai/ (built with `--mode demo`). `JUDGE_DEMO_GUIDE.md` is a five-minute click path.

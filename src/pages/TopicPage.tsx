@@ -1,147 +1,176 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
 import { collection, query, where } from "firebase/firestore";
-import { Link, useParams } from "react-router-dom";
-import { db } from "../lib/firebase";
 import { useAuth } from "../context/AuthContext";
-import { api } from "../lib/callables";
-import { content, SUBJECT_NAMES, useContent } from "../lib/content";
-import { newId } from "../lib/format";
+import { content, learnPath, useContent } from "../lib/content";
+import { db } from "../lib/firebase";
+import { formatDuration } from "../lib/format";
+import { isSubjectId, parseClassLevel, SUBJECT_NAMES } from "../lib/subjects";
 import { useDoc, useQueryOnce } from "../hooks/useFirestore";
-import { AsyncState, PageHeader, Tag } from "../components/ui";
-import { LEVEL_NAMES, type Level, type ModuleProgressDoc, type TopicProgressDoc } from "../lib/types";
+import { AsyncState, ContentPreparing, PageHeader, RewardToast, StrengthTag, Tabs, Tag } from "../components/ui";
+import { LessonView } from "../components/LessonView";
+import { QuestionCard } from "../components/QuestionCard";
+import { conversationIdFor, OrbitAiPanel } from "../components/OrbitAiPanel";
+import { StudyTimer } from "../components/StudyTimer";
+import type { OutcomeResult } from "../lib/callables";
+import { DIFFICULTY_LABELS, type ChapterDoc, type Difficulty, type LessonProgressDoc, type QuestionDoc, type TopicDoc, type TopicMasteryDoc } from "../lib/types";
 
-const LEVELS: Level[] = [1, 2, 3, 4, 5];
+type Tab = "learn" | "practice" | "orbitai" | "test" | "progress";
+const TABS: { id: Tab; label: string }[] = [
+  { id: "learn", label: "Learn" },
+  { id: "practice", label: "Practice" },
+  { id: "orbitai", label: "OrbitAI" },
+  { id: "test", label: "Quick Test" },
+  { id: "progress", label: "Progress" }
+];
 
 export default function TopicPage() {
-  const { topicId = "" } = useParams<{ topicId: string }>();
+  const params = useParams();
+  const subjectId = isSubjectId(params.subjectId) ? params.subjectId : null;
+  const classLevel = parseClassLevel(params.classLevel);
+  const loaded = useContent(async () => {
+    if (!subjectId || !classLevel || !params.chapterSlug || !params.topicSlug) return null;
+    const chapter = await content.chapterBySlug(classLevel, subjectId, params.chapterSlug);
+    if (!chapter) return null;
+    const topic = await content.topicBySlug(chapter.id, params.topicSlug);
+    return topic ? { chapter, topic } : null;
+  }, [subjectId, classLevel, params.chapterSlug, params.topicSlug]);
+  if (!subjectId || !classLevel) return <Navigate to="/learn" replace />;
+  return (
+    <AsyncState loading={loaded.loading} error={loaded.error} empty={!loaded.loading && !loaded.data} emptyTitle="Topic not found" emptyBody="This topic is not in the syllabus structure yet.">
+      {loaded.data && <TopicDetail chapter={loaded.data.chapter} topic={loaded.data.topic} />}
+    </AsyncState>
+  );
+}
+
+function TopicDetail({ chapter, topic }: { chapter: ChapterDoc; topic: TopicDoc }) {
   const { user } = useAuth();
   const uid = user?.uid ?? "";
-  const topic = useContent(() => content.topic(topicId), [topicId]);
-  const modules = useContent(() => content.modules(topicId), [topicId]);
-  const moduleProgress = useQueryOnce<ModuleProgressDoc>(() => (uid ? query(collection(db, `studentProgress/${uid}/modules`), where("topicId", "==", topicId)) : null), [uid, topicId]);
-  const topicProgress = useDoc<TopicProgressDoc>(uid ? `studentProgress/${uid}/topics/${topicId}` : null);
-  const startedAt = useRef(Date.now());
-
-  useEffect(() => {
-    startedAt.current = Date.now();
-    return () => {
-      const elapsedSeconds = (Date.now() - startedAt.current) / 1000;
-      if (elapsedSeconds < 60 || !topicId) return;
-      api.recordStudySession({ sessionId: newId(), topicId, minutes: Math.max(1, Math.round(elapsedSeconds / 60)), kind: "learning" }).catch((error) => console.error("Could not record study session", error));
-    };
-  }, [topicId]);
-
-  const statusOf = (moduleId: string) => moduleProgress.data.find((item) => item.moduleId === moduleId)?.status ?? null;
-  const levelUnlocked = topicProgress.data?.levelUnlocked ?? 1;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tab = (TABS.some((item) => item.id === searchParams.get("tab")) ? searchParams.get("tab") : "learn") as Tab;
+  const [toast, setToast] = useState<OutcomeResult | null>(null);
+  const mastery = useDoc<TopicMasteryDoc>(uid ? `topicMastery/${uid}_${topic.id}` : null);
+  const lessons = useContent(() => content.lessons(topic.id), [topic.id]);
+  const lessonProgress = useQueryOnce<LessonProgressDoc>(() => (uid ? query(collection(db, "lessonProgress"), where("userId", "==", uid), where("topicId", "==", topic.id)) : null), [uid, topic.id]);
+  const progressByLesson = new Map(lessonProgress.data.map((row) => [row.lessonId, row]));
+  const setTab = (next: Tab) => setSearchParams((previous) => { previous.set("tab", next); return previous; }, { replace: true });
+  const backTo = searchParams.get("from") === "jee" || searchParams.get("from") === "neet" ? `/${searchParams.get("from")}/${chapter.subjectId}/${chapter.id}` : learnPath(chapter);
+  const aiPath = `${learnPath(chapter, topic)}?tab=orbitai`;
 
   return (
-    <AsyncState loading={topic.loading || modules.loading} error={topic.error ?? modules.error} empty={!topic.loading && !topic.data} emptyTitle="Topic not found">
-      {topic.data && (
-        <div>
-          <PageHeader
-            title={topic.data.name}
-            subtitle={<>{SUBJECT_NAMES[topic.data.subjectId]} · Class {topic.data.classLevel} · <Link to={`/ncert/${topic.data.classLevel}/${topic.data.subjectId}`} className="text-brand-700">Back to chapters</Link></>}
-            action={<Link to={`/ai-tutor?topic=${topic.data.id}`} className="btn-secondary">Ask AI Tutor</Link>}
-          />
-          <div className="grid gap-4 lg:grid-cols-3">
-            <div className="space-y-4 lg:col-span-2">
-              <section className="card" aria-labelledby="concept-heading">
-                <h2 id="concept-heading" className="font-semibold">Concept</h2>
-                <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-ink-700">{topic.data.concept}</p>
-                {topic.data.keyPoints.length > 0 && (
+    <div className="mx-auto max-w-5xl">
+      <PageHeader
+        title={topic.name}
+        subtitle={`Class ${chapter.classLevel} · ${SUBJECT_NAMES[chapter.subjectId]} · ${chapter.name}`}
+        crumbs={[{ label: "Learn", to: "/learn" }, { label: chapter.name, to: backTo }]}
+        action={mastery.data ? <span className="flex items-center gap-2 text-sm text-ink-500">Mastery {Math.round(mastery.data.mastery)} <StrengthTag strength={mastery.data.strength} /></span> : <Tag tone="neutral">Not rated yet</Tag>}
+      />
+      <Tabs tabs={TABS} value={tab} onChange={setTab} />
+      {!topic.hasContent && <ContentPreparing what="this topic" />}
+
+      {tab === "learn" && (
+        <div className="grid gap-4 lg:grid-cols-3">
+          <div className="space-y-4 lg:col-span-2">
+            {topic.hasContent && (
+              <section className="card">
+                <h2 className="text-lg font-semibold">Concept</h2>
+                <p className="mt-2 text-sm text-ink-700">{topic.concept}</p>
+                {topic.keyPoints.length > 0 && <><h3 className="mt-4 text-sm font-semibold">Important points</h3><ul className="mt-1 list-disc pl-5 text-sm text-ink-700">{topic.keyPoints.map((item) => <li key={item}>{item}</li>)}</ul></>}
+                {topic.examples.length > 0 && (
                   <>
-                    <h3 className="mt-4 text-sm font-semibold">Key points</h3>
-                    <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-ink-700">{topic.data.keyPoints.map((point) => <li key={point}>{point}</li>)}</ul>
+                    <h3 className="mt-4 text-sm font-semibold">Examples</h3>
+                    <ol className="mt-1 space-y-2">{topic.examples.map((example) => <li key={example.problem} className="rounded-lg border border-ink-200 p-3 text-sm"><p className="font-medium">{example.problem}</p><p className="mt-1 text-ink-700">{example.solution}</p></li>)}</ol>
                   </>
                 )}
-                {topic.data.formulae.length > 0 && (
-                  <>
-                    <h3 className="mt-4 text-sm font-semibold">Formulae</h3>
-                    <ul className="mt-1 space-y-1 text-sm">{topic.data.formulae.map((formula) => <li key={formula} className="rounded bg-ink-100 px-2 py-1 font-mono">{formula}</li>)}</ul>
-                  </>
-                )}
+                {topic.commonMistakes.length > 0 && <><h3 className="mt-4 text-sm font-semibold">Common mistakes</h3><ul className="mt-1 list-disc pl-5 text-sm text-ink-700">{topic.commonMistakes.map((item) => <li key={item}>{item}</li>)}</ul></>}
               </section>
-              {topic.data.examples.length > 0 && (
-                <section className="card" aria-labelledby="examples-heading">
-                  <h2 id="examples-heading" className="font-semibold">Worked examples</h2>
-                  <ol className="mt-2 space-y-3 text-sm">
-                    {topic.data.examples.map((example, index) => (
-                      <li key={index}>
-                        <p className="font-medium">{index + 1}. {example.problem}</p>
-                        <details className="mt-1">
-                          <summary className="cursor-pointer text-brand-700">Show solution</summary>
-                          <p className="mt-1 whitespace-pre-line text-ink-700">{example.solution}</p>
-                        </details>
-                      </li>
-                    ))}
-                  </ol>
-                </section>
-              )}
-              {topic.data.commonMistakes.length > 0 && (
-                <section className="card" aria-labelledby="mistakes-heading">
-                  <h2 id="mistakes-heading" className="font-semibold">Common mistakes</h2>
-                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-700">{topic.data.commonMistakes.map((mistake) => <li key={mistake}>{mistake}</li>)}</ul>
-                </section>
-              )}
-              {topic.data.revision && (
-                <section className="card border-brand-100 bg-brand-50" aria-labelledby="revision-heading">
-                  <h2 id="revision-heading" className="font-semibold">Revision card</h2>
-                  <dl className="mt-2 grid gap-2 text-sm sm:grid-cols-2">
-                    <div><dt className="font-medium">Concept</dt><dd className="text-ink-700">{topic.data.revision.concept}</dd></div>
-                    <div><dt className="font-medium">Formula</dt><dd className="font-mono text-ink-700">{topic.data.revision.formula}</dd></div>
-                    <div><dt className="font-medium">Common mistake</dt><dd className="text-ink-700">{topic.data.revision.commonMistake}</dd></div>
-                    <div>
-                      <dt className="font-medium">Mini question</dt>
-                      <dd className="text-ink-700">{topic.data.revision.miniQuestion.question}
-                        <details><summary className="cursor-pointer text-brand-700">Answer</summary>{topic.data.revision.miniQuestion.answer}</details>
-                      </dd>
-                    </div>
-                  </dl>
-                </section>
-              )}
-            </div>
-
-            <div className="space-y-4">
-              <section className="card" aria-labelledby="modules-heading">
-                <h2 id="modules-heading" className="font-semibold">Modules</h2>
-                {(modules.data ?? []).length === 0 ? (
-                  <p className="mt-1 text-sm text-ink-500">No modules for this topic yet.</p>
-                ) : (
-                  <ul className="mt-2 space-y-2">
-                    {(modules.data ?? []).map((module) => {
-                      const status = statusOf(module.id);
-                      return (
-                        <li key={module.id} className="flex items-center justify-between gap-2 text-sm">
-                          <Link to={`/learn/module/${module.id}`} className="text-brand-700">{module.title} <span className="text-ink-500">({module.estimatedMinutes} min)</span></Link>
-                          {status === "completed" ? <Tag tone="success">Done</Tag> : status === "started" ? <Tag tone="warn">In progress</Tag> : <Tag>New</Tag>}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-                {topic.data.quizId && <Link to={`/quiz/${topic.data.quizId}`} className="btn-primary mt-3 w-full">Take the topic quiz</Link>}
-              </section>
-
-              <section className="card" aria-labelledby="levels-heading">
-                <h2 id="levels-heading" className="font-semibold">5-level practice</h2>
-                <p className="mt-1 text-xs text-ink-500">Unlock the next level with 80% / 75% / 70% / 70% accuracy on the level before it.</p>
-                <ol className="mt-2 space-y-1">
-                  {LEVELS.map((level) => {
-                    const unlocked = level <= levelUnlocked;
-                    return (
-                      <li key={level} className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm ${unlocked ? "bg-ink-100" : "bg-ink-100/50 text-ink-500"}`}>
-                        <span>Level {level} · {LEVEL_NAMES[level]}</span>
-                        {unlocked ? <Link to={`/problem-lab?topic=${topic.data?.id}&level=${level}`} className="text-brand-700">Practice</Link> : <span aria-label="Locked">🔒</span>}
-                      </li>
-                    );
-                  })}
-                </ol>
-                {topicProgress.data && <p className="mt-2 text-xs text-ink-500">Accuracy {Math.round(topicProgress.data.accuracy)}% over {topicProgress.data.attempts} attempts.</p>}
-              </section>
-            </div>
+            )}
+            <AsyncState loading={lessons.loading || lessonProgress.loading} error={lessons.error ?? lessonProgress.error} empty={(lessons.data ?? []).length === 0} emptyTitle={topic.hasContent ? "No lesson yet" : "Lessons are being prepared"} emptyBody="Practice questions may still be available in the Practice tab.">
+              {(lessons.data ?? []).map((lesson) => (
+                <LessonView key={lesson.id} lesson={lesson} progress={progressByLesson.get(lesson.id) ?? null} onCompleted={(rewards) => { setToast(rewards); lessonProgress.reload(); }} />
+              ))}
+            </AsyncState>
           </div>
+          <aside className="space-y-4">
+            {topic.formulae.length > 0 && (
+              <section className="card">
+                <h2 className="text-lg font-semibold">Formulae</h2>
+                <ul className="mt-2 space-y-1 font-mono text-sm">{topic.formulae.map((item) => <li key={item} className="rounded bg-brand-50 px-2 py-1">{item}</li>)}</ul>
+              </section>
+            )}
+            <StudyTimer topicId={topic.id} kind="learning" onRecorded={(rewards) => setToast(rewards)} />
+          </aside>
         </div>
       )}
-    </AsyncState>
+
+      {tab === "practice" && <TopicPractice topic={topic} aiPath={aiPath} onAnswered={() => mastery.reload()} />}
+      {tab === "orbitai" && uid && <OrbitAiPanel conversationId={conversationIdFor(uid, `topic-${topic.id}`)} context={{ topicId: topic.id, chapterId: chapter.id }} title={`OrbitAI · ${topic.name}`} />}
+      {tab === "test" && (
+        <section className="card">
+          <h2 className="text-lg font-semibold">Quick test</h2>
+          <p className="mt-1 text-sm text-ink-700">A short timed topic test with basic, intermediate and advanced questions. The result updates this topic's mastery and shows what to revise.</p>
+          <Link to={`/assessments?kind=topic_test&scopeId=${topic.id}`} className="btn-primary mt-3">Start topic test</Link>
+        </section>
+      )}
+      {tab === "progress" && <TopicProgress mastery={mastery.data} />}
+      <RewardToast result={toast} onDone={() => setToast(null)} />
+    </div>
+  );
+}
+
+function TopicPractice({ topic, aiPath, onAnswered }: { topic: TopicDoc; aiPath: string; onAnswered: () => void }) {
+  const [difficulty, setDifficulty] = useState<Difficulty | 0>(0);
+  const questions = useContent(() => content.questions({ topicId: topic.id, max: 60 }), [topic.id]);
+  const pool = useMemo(() => (questions.data ?? []).filter((question) => difficulty === 0 || question.difficulty === difficulty), [questions.data, difficulty]);
+  const [index, setIndex] = useState(0);
+  useEffect(() => setIndex(0), [difficulty, topic.id]);
+  const current: QuestionDoc | undefined = pool[index];
+  const counts = { 1: 0, 2: 0, 3: 0 } as Record<Difficulty, number>;
+  for (const question of questions.data ?? []) counts[question.difficulty] += 1;
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap items-center gap-2 text-sm">
+        <span className="text-ink-500">Difficulty:</span>
+        {([0, 1, 2, 3] as (Difficulty | 0)[]).map((level) => (
+          <button key={level} type="button" className={difficulty === level ? "btn-primary py-1" : "btn-secondary py-1"} onClick={() => setDifficulty(level)}>
+            {level === 0 ? `All (${(questions.data ?? []).length})` : `${DIFFICULTY_LABELS[level]} (${counts[level]})`}
+          </button>
+        ))}
+      </div>
+      <AsyncState loading={questions.loading} error={questions.error} empty={pool.length === 0} emptyTitle="Content for this topic is being prepared." emptyBody="No questions exist at this difficulty yet.">
+        {current && (
+          <QuestionCard
+            key={current.id}
+            question={current}
+            index={index}
+            total={pool.length}
+            context="topic"
+            askAiPath={aiPath}
+            onAnswered={onAnswered}
+            onNext={index + 1 < pool.length ? () => setIndex(index + 1) : undefined}
+            onTrySimilar={pool.length > 1 ? () => setIndex((index + 1) % pool.length) : undefined}
+          />
+        )}
+        {current && index + 1 >= pool.length && <p className="text-sm text-ink-500">This is the last question in the set. Change difficulty or open the Quick Test.</p>}
+      </AsyncState>
+    </div>
+  );
+}
+
+function TopicProgress({ mastery }: { mastery: TopicMasteryDoc | null }) {
+  if (!mastery) return <div className="card text-sm text-ink-500">No attempts yet. Opening this topic does not change progress; answering questions does.</div>;
+  return (
+    <section className="card">
+      <h2 className="text-lg font-semibold">Your progress in this topic</h2>
+      <dl className="mt-3 grid grid-cols-2 gap-4 text-sm sm:grid-cols-3">
+        <div><dt className="text-ink-500">Mastery</dt><dd className="text-2xl font-bold">{Math.round(mastery.mastery)}</dd><dd><StrengthTag strength={mastery.strength} /></dd></div>
+        <div><dt className="text-ink-500">Accuracy</dt><dd className="text-2xl font-bold">{mastery.accuracy}%</dd></div>
+        <div><dt className="text-ink-500">Questions attempted</dt><dd className="text-2xl font-bold">{mastery.attempts}</dd></div>
+        <div><dt className="text-ink-500">Correct answers</dt><dd className="text-2xl font-bold">{mastery.correct}</dd></div>
+        <div><dt className="text-ink-500">Distinct questions</dt><dd className="text-2xl font-bold">{mastery.distinctQuestionIds.length}</dd></div>
+        <div><dt className="text-ink-500">Time spent answering</dt><dd className="text-2xl font-bold">{formatDuration(mastery.timeSpentSec)}</dd></div>
+      </dl>
+      <p className="mt-4 text-xs text-ink-500">Mastery combines difficulty-weighted accuracy, assessment results, coverage, recency and repeated mistakes. The formula is documented in functions/src/lib/mastery.ts.</p>
+    </section>
   );
 }

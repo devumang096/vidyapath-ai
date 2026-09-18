@@ -14,7 +14,7 @@ if (!email) {
 
 if (getApps().length === 0) {
   if (process.env.FIREBASE_AUTH_EMULATOR_HOST || process.env.FIRESTORE_EMULATOR_HOST) {
-    initializeApp({ projectId: process.env.FIREBASE_PROJECT_ID || "demo-vidyapath" });
+    initializeApp({ projectId: process.env.FIREBASE_PROJECT_ID || "demo-eduorbit" });
   } else {
     const credentialsPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
     const projectId = process.env.FIREBASE_PROJECT_ID;

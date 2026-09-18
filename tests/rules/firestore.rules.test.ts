@@ -3,24 +3,27 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import { assertFails, assertSucceeds, initializeTestEnvironment, type RulesTestEnvironment } from "@firebase/rules-unit-testing";
 import { doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, getDocs } from "firebase/firestore";
 
-// Security tests for spec section 54: every "a normal student cannot" case.
+// Security tests for spec section 99: every "a student cannot" case.
 // Requires the Firestore emulator: firebase emulators:exec --only firestore "npm run test:rules"
 
 let env: RulesTestEnvironment;
 const STUDENT = "student_a";
 const OTHER = "student_b";
 const ADMIN = "admin_1";
+const PREFS = { streak: true, dailyGoal: true, weakTopic: true, assessment: true, buddy: true, group: true, reward: true };
 
 function studentProfile(uid: string, email: string) {
   return {
-    uid, email, name: "Test", classLevel: 10, board: "CBSE", stream: null, language: "en", subjects: ["mathematics"], goal: "board",
-    role: "student", xp: 0, stars: 0, questionsSolved: 0, modulesCompleted: 0, createdAt: serverTimestamp(), updatedAt: serverTimestamp()
+    uid, email, name: "Test", classLevel: 10, goal: "school", subjects: ["mathematics"], language: "en", learningLevel: "beginner", dailyGoalMinutes: 60,
+    school: null, phone: null, photoURL: null, onboardingComplete: false, notificationPrefs: PREFS, role: "student",
+    xp: 0, coins: 0, questionsSolved: 0, lessonsCompleted: 0, chaptersCompleted: 0, assessmentsCompleted: 0, totalStudyMinutes: 0, activeDays: 0,
+    createdAt: serverTimestamp(), updatedAt: serverTimestamp()
   };
 }
 
 beforeAll(async () => {
   env = await initializeTestEnvironment({
-    projectId: "vidyapath-rules-test",
+    projectId: "eduorbit-rules-test",
     firestore: { rules: readFileSync("firestore.rules", "utf8"), host: "127.0.0.1", port: 8080 }
   });
 });
@@ -33,20 +36,23 @@ beforeEach(async () => {
   await env.clearFirestore();
   await env.withSecurityRulesDisabled(async (context) => {
     const db = context.firestore();
-    await setDoc(doc(db, `users/${STUDENT}`), { ...studentProfile(STUDENT, "a@test.dev"), xp: 100, stars: 50 });
-    await setDoc(doc(db, `users/${OTHER}`), { ...studentProfile(OTHER, "b@test.dev"), xp: 100, stars: 50 });
-    await setDoc(doc(db, `streaks/${STUDENT}`), { uid: STUDENT, current: 3, longest: 3, lastQualifiedDate: "2026-09-17", milestonesAwarded: [] });
-    await setDoc(doc(db, `studentProgress/${OTHER}/topics/t1`), { topicId: "t1", accuracy: 50 });
-    await setDoc(doc(db, `rewards/r1`), { id: "r1", name: "Notebook", starsRequired: 100, available: true });
-    await setDoc(doc(db, `rewardClaims/c1`), { id: "c1", userId: OTHER, rewardId: "r1", status: "pending" });
+    await setDoc(doc(db, `users/${STUDENT}`), { ...studentProfile(STUDENT, "a@test.dev"), xp: 100, coins: 50 });
+    await setDoc(doc(db, `users/${OTHER}`), { ...studentProfile(OTHER, "b@test.dev"), xp: 100, coins: 50 });
+    await setDoc(doc(db, `streaks/${STUDENT}`), { uid: STUDENT, current: 3, longest: 3, lastQualifiedDate: "2026-09-17", protectionTokens: 0, milestonesAwarded: [] });
+    await setDoc(doc(db, `topicMastery/${OTHER}_t1`), { id: `${OTHER}_t1`, userId: OTHER, topicId: "t1", mastery: 50 });
+    await setDoc(doc(db, `topicMastery/${STUDENT}_t1`), { id: `${STUDENT}_t1`, userId: STUDENT, topicId: "t1", mastery: 50 });
+    await setDoc(doc(db, `rewards/r1`), { id: "r1", name: "Notebook", coinPrice: 100, stock: 3, available: true });
+    await setDoc(doc(db, `redemptions/c1`), { id: "c1", userId: OTHER, rewardId: "r1", status: "pending" });
     await setDoc(doc(db, `spinState/${STUDENT}`), { uid: STUDENT, nextSpinAt: null, totalSpins: 0 });
-    await setDoc(doc(db, `doubts/d1`), { id: "d1", authorId: OTHER, hidden: false, status: "open", voteCount: 0, title: "t", body: "b" });
-    await setDoc(doc(db, `doubts/d1/answers/a1`), { id: "a1", doubtId: "d1", authorId: OTHER, hidden: false, voteCount: 0 });
-    await setDoc(doc(db, `doubts/d2`), { id: "d2", authorId: OTHER, hidden: true, status: "open", voteCount: 0, title: "t", body: "b" });
-    await setDoc(doc(db, `studyTwins/p1`), { id: "p1", members: [OTHER, "someone"] });
-    await setDoc(doc(db, `questionKeys/q1`), { id: "q1", correctIndex: 1, explanation: "x" });
-    await setDoc(doc(db, `problemSolutions/p1`), { id: "p1", finalAnswer: "20" });
+    await setDoc(doc(db, `questionKeys/q1`), { id: "q1", correctIndexes: [1], explanation: "x" });
     await setDoc(doc(db, `publicProfiles/${OTHER}`), { uid: OTHER, anonUsername: "CalmOtter42", classLevel: 10 });
+    await setDoc(doc(db, `buddies/p1`), { id: "p1", members: [OTHER, "someone"], status: "active" });
+    await setDoc(doc(db, `groups/g1`), { id: "g1", name: "Secret", privacy: "private", ownerUid: OTHER });
+    await setDoc(doc(db, `groups/g2`), { id: "g2", name: "Open", privacy: "public", ownerUid: OTHER });
+    await setDoc(doc(db, `groupMembers/g1_${OTHER}`), { id: `g1_${OTHER}`, groupId: "g1", uid: OTHER, role: "owner" });
+    await setDoc(doc(db, `groupMembers/g2_${STUDENT}`), { id: `g2_${STUDENT}`, groupId: "g2", uid: STUDENT, role: "member" });
+    await setDoc(doc(db, `groupPosts/post1`), { id: "post1", groupId: "g1", authorUid: OTHER, hidden: false });
+    await setDoc(doc(db, `groupPosts/post2`), { id: "post2", groupId: "g2", authorUid: OTHER, hidden: false });
   });
 });
 
@@ -55,99 +61,99 @@ const asAdmin = () => env.authenticatedContext(ADMIN, { admin: true }).firestore
 const asAnon = () => env.unauthenticatedContext().firestore();
 
 describe("unauthenticated access", () => {
-  it("cannot read users, content or doubts", async () => {
+  it("cannot read users or content", async () => {
     await assertFails(getDoc(doc(asAnon(), `users/${STUDENT}`)));
     await assertFails(getDoc(doc(asAnon(), `topics/t1`)));
-    await assertFails(getDoc(doc(asAnon(), `doubts/d1`)));
+    await assertFails(getDoc(doc(asAnon(), `groups/g2`)));
   });
 });
 
 describe("a student cannot", () => {
-  it("read another student's private profile or progress", async () => {
+  it("read or modify another student's profile or progress", async () => {
     await assertFails(getDoc(doc(asStudent(), `users/${OTHER}`)));
-    await assertFails(getDoc(doc(asStudent(), `studentProgress/${OTHER}/topics/t1`)));
-  });
-  it("modify Stars, XP, role or another student's data", async () => {
-    await assertFails(updateDoc(doc(asStudent(), `users/${STUDENT}`), { stars: 9999, updatedAt: serverTimestamp() }));
-    await assertFails(updateDoc(doc(asStudent(), `users/${STUDENT}`), { xp: 9999, updatedAt: serverTimestamp() }));
-    await assertFails(updateDoc(doc(asStudent(), `users/${STUDENT}`), { role: "admin", updatedAt: serverTimestamp() }));
     await assertFails(updateDoc(doc(asStudent(), `users/${OTHER}`), { name: "Hacked", updatedAt: serverTimestamp() }));
+    await assertFails(getDoc(doc(asStudent(), `topicMastery/${OTHER}_t1`)));
   });
-  it("modify streak, spin state or progress", async () => {
-    await assertFails(updateDoc(doc(asStudent(), `streaks/${STUDENT}`), { current: 100 }));
-    await assertFails(updateDoc(doc(asStudent(), `spinState/${STUDENT}`), { nextSpinAt: null }));
-    await assertFails(setDoc(doc(asStudent(), `studentProgress/${STUDENT}/topics/t1`), { levelUnlocked: 5 }));
+  it("give themselves XP, coins, counters or a role", async () => {
+    await assertFails(updateDoc(doc(asStudent(), `users/${STUDENT}`), { xp: 9999, updatedAt: serverTimestamp() }));
+    await assertFails(updateDoc(doc(asStudent(), `users/${STUDENT}`), { coins: 9999, updatedAt: serverTimestamp() }));
+    await assertFails(updateDoc(doc(asStudent(), `users/${STUDENT}`), { questionsSolved: 500, updatedAt: serverTimestamp() }));
+    await assertFails(updateDoc(doc(asStudent(), `users/${STUDENT}`), { role: "admin", updatedAt: serverTimestamp() }));
   });
-  it("claim rewards, alter prices, or touch another student's claim", async () => {
-    await assertFails(setDoc(doc(asStudent(), `rewardClaims/mine`), { userId: STUDENT, rewardId: "r1", status: "fulfilled" }));
-    await assertFails(updateDoc(doc(asStudent(), `rewards/r1`), { starsRequired: 1 }));
-    await assertFails(updateDoc(doc(asStudent(), `rewardClaims/c1`), { status: "fulfilled" }));
-    await assertFails(getDoc(doc(asStudent(), `rewardClaims/c1`)));
+  it("write streaks, spin state, mastery, attempts, sessions or ledgers", async () => {
+    await assertFails(setDoc(doc(asStudent(), `streaks/${STUDENT}`), { current: 100 }, { merge: true }));
+    await assertFails(setDoc(doc(asStudent(), `spinState/${STUDENT}`), { nextSpinAt: null }, { merge: true }));
+    await assertFails(setDoc(doc(asStudent(), `topicMastery/${STUDENT}_t1`), { mastery: 100 }, { merge: true }));
+    await assertFails(setDoc(doc(asStudent(), `questionAttempts/x`), { userId: STUDENT, correct: true }));
+    await assertFails(setDoc(doc(asStudent(), `assessmentAttempts/x`), { userId: STUDENT, score: 100 }));
+    await assertFails(setDoc(doc(asStudent(), `learningSessions/x`), { userId: STUDENT, minutes: 600 }));
+    await assertFails(setDoc(doc(asStudent(), `xpTransactions/x`), { userId: STUDENT, amount: 1000 }));
+    await assertFails(setDoc(doc(asStudent(), `coinTransactions/x`), { userId: STUDENT, amount: 1000 }));
   });
-  it("write votes, spin history, ledger entries or attempts", async () => {
-    await assertFails(setDoc(doc(asStudent(), `votes/${STUDENT}_a1`), { userId: STUDENT, answerId: "a1" }));
-    await assertFails(updateDoc(doc(asStudent(), `doubts/d1/answers/a1`), { voteCount: 999 }));
-    await assertFails(setDoc(doc(asStudent(), `spinHistory/x`), { userId: STUDENT, result: "+50 Stars" }));
-    await assertFails(setDoc(doc(asStudent(), `starsTransactions/x`), { userId: STUDENT, amount: 1000 }));
-    await assertFails(setDoc(doc(asStudent(), `quizAttempts/x`), { userId: STUDENT, score: 10, finalized: true }));
+  it("redeem directly, change prices or stock, or touch another student's redemption", async () => {
+    await assertFails(setDoc(doc(asStudent(), `redemptions/mine`), { userId: STUDENT, rewardId: "r1", status: "fulfilled" }));
+    await assertFails(updateDoc(doc(asStudent(), `rewards/r1`), { coinPrice: 1 }));
+    await assertFails(updateDoc(doc(asStudent(), `rewards/r1`), { stock: 999 }));
+    await assertFails(getDoc(doc(asStudent(), `redemptions/c1`)));
   });
-  it("read answer keys or worked solutions", async () => {
+  it("read answer keys", async () => {
     await assertFails(getDoc(doc(asStudent(), `questionKeys/q1`)));
-    await assertFails(getDoc(doc(asStudent(), `problemSolutions/p1`)));
   });
-  it("change moderation fields or read hidden content", async () => {
-    await assertFails(updateDoc(doc(asStudent(), `doubts/d1`), { hidden: true }));
-    await assertFails(getDoc(doc(asStudent(), `doubts/d2`)));
+  it("read a buddy pair they are not in, or write buddy requests", async () => {
+    await assertFails(getDoc(doc(asStudent(), `buddies/p1`)));
+    await assertFails(setDoc(doc(asStudent(), `buddyRequests/x`), { fromUid: STUDENT, toUid: OTHER, status: "accepted" }));
   });
-  it("read a private workspace (study twin pair) it is not part of", async () => {
-    await assertFails(getDoc(doc(asStudent(), `studyTwins/p1`)));
+  it("read private groups or their posts, or promote themselves", async () => {
+    await assertFails(getDoc(doc(asStudent(), `groups/g1`)));
+    await assertFails(getDoc(doc(asStudent(), `groupPosts/post1`)));
+    await assertFails(setDoc(doc(asStudent(), `groupMembers/g1_${STUDENT}`), { groupId: "g1", uid: STUDENT, role: "owner" }));
+    await assertFails(updateDoc(doc(asStudent(), `groupMembers/g2_${STUDENT}`), { role: "admin" }));
+    await assertFails(setDoc(doc(asStudent(), `groups/g3`), { id: "g3", name: "Mine", privacy: "public", ownerUid: STUDENT }));
   });
-  it("create a doubt directly, bypassing cooldown checks", async () => {
-    await assertFails(setDoc(doc(asStudent(), `doubts/new`), { authorId: STUDENT, hidden: false, title: "x", body: "y" }));
-  });
-  it("register with a non-student role or a non-zero balance", async () => {
-    const db = env.authenticatedContext("fresh", { email: "f@test.dev" }).firestore();
-    await assertFails(setDoc(doc(db, "users/fresh"), { ...studentProfile("fresh", "f@test.dev"), role: "admin" }));
-    await assertFails(setDoc(doc(db, "users/fresh"), { ...studentProfile("fresh", "f@test.dev"), stars: 500 }));
-    await assertFails(setDoc(doc(db, "users/fresh"), { ...studentProfile("fresh", "f@test.dev"), classLevel: 13 }));
+  it("register with a non-student role, a non-zero balance or a foreign subject", async () => {
+    const fresh = env.authenticatedContext("new_user", { email: "n@test.dev" }).firestore();
+    await assertFails(setDoc(doc(fresh, "users/new_user"), { ...studentProfile("new_user", "n@test.dev"), role: "admin" }));
+    await assertFails(setDoc(doc(fresh, "users/new_user"), { ...studentProfile("new_user", "n@test.dev"), coins: 500 }));
+    await assertFails(setDoc(doc(fresh, "users/new_user"), { ...studentProfile("new_user", "n@test.dev"), subjects: ["english"] }));
+    await assertFails(setDoc(doc(fresh, "users/new_user"), { ...studentProfile("new_user", "n@test.dev"), goal: "board" }));
   });
 });
 
 describe("a student can", () => {
   it("register with a valid profile and edit preferences only", async () => {
-    const db = env.authenticatedContext("fresh", { email: "f@test.dev" }).firestore();
-    await assertSucceeds(setDoc(doc(db, "users/fresh"), studentProfile("fresh", "f@test.dev")));
-    await assertSucceeds(updateDoc(doc(db, "users/fresh"), { name: "New Name", goal: "board_jee", updatedAt: serverTimestamp() }));
+    const fresh = env.authenticatedContext("new_user", { email: "n@test.dev" }).firestore();
+    await assertSucceeds(setDoc(doc(fresh, "users/new_user"), studentProfile("new_user", "n@test.dev")));
+    await assertSucceeds(updateDoc(doc(fresh, "users/new_user"), { dailyGoalMinutes: 90, onboardingComplete: true, subjects: ["physics", "biology"], updatedAt: serverTimestamp() }));
   });
-  it("read own data and public content", async () => {
+  it("read own data and public content, public groups and own group's posts", async () => {
     await assertSucceeds(getDoc(doc(asStudent(), `users/${STUDENT}`)));
-    await assertSucceeds(getDoc(doc(asStudent(), `streaks/${STUDENT}`)));
+    await assertSucceeds(getDoc(doc(asStudent(), `topicMastery/${STUDENT}_t1`)));
     await assertSucceeds(getDoc(doc(asStudent(), `rewards/r1`)));
     await assertSucceeds(getDoc(doc(asStudent(), `publicProfiles/${OTHER}`)));
-    await assertSucceeds(getDocs(query(collection(asStudent(), "doubts"), where("hidden", "==", false))));
+    await assertSucceeds(getDoc(doc(asStudent(), `groups/g2`)));
+    await assertSucceeds(getDoc(doc(asStudent(), `groupPosts/post2`)));
+    await assertSucceeds(getDocs(query(collection(asStudent(), "topicMastery"), where("userId", "==", STUDENT))));
   });
-  it("file a report, block a user, and save a study plan", async () => {
-    await assertSucceeds(setDoc(doc(asStudent(), "reports/rep1"), {
-      reporterId: STUDENT, targetType: "doubt", targetId: "d1", doubtId: "d1", reason: "spam", details: "", status: "open", createdAt: serverTimestamp()
-    }));
+  it("file a report, block a user, save buddy preferences and manage projects", async () => {
+    await assertSucceeds(setDoc(doc(asStudent(), "reports/rep1"), { reporterId: STUDENT, targetType: "user", targetId: OTHER, groupId: null, reason: "spam", details: "", status: "open", createdAt: serverTimestamp() }));
     await assertSucceeds(setDoc(doc(asStudent(), `blocks/${STUDENT}/users/${OTHER}`), { blockedUid: OTHER, createdAt: serverTimestamp() }));
-    await assertSucceeds(setDoc(doc(asStudent(), `studyPlans/${STUDENT}`), {
-      uid: STUDENT, minutesPerDay: 120, examDate: "2027-03-01", subjects: ["mathematics"], allocation: { learning: 30 }, focusTopicIds: [], updatedAt: serverTimestamp()
-    }));
-    await assertFails(setDoc(doc(asStudent(), `studyPlans/${STUDENT}`), {
-      uid: STUDENT, minutesPerDay: 5000, examDate: null, subjects: [], allocation: {}, focusTopicIds: [], updatedAt: serverTimestamp()
-    }));
+    await assertSucceeds(setDoc(doc(asStudent(), `buddyPreferences/${STUDENT}`), { uid: STUDENT, open: true, subjects: ["physics"], schedule: "evening", genderPreference: "any", gender: "unspecified", updatedAt: serverTimestamp() }));
+    await assertSucceeds(setDoc(doc(asStudent(), "projects/p1"), { id: "p1", userId: STUDENT, name: "Science fair", description: "", goal: "", startDate: null, deadline: null, status: "not_started", notes: "", resources: [], taskCount: 0, completedTaskCount: 0, createdAt: serverTimestamp(), updatedAt: serverTimestamp() }));
+    await assertSucceeds(setDoc(doc(asStudent(), "projectTasks/t1"), { id: "t1", projectId: "p1", userId: STUDENT, title: "Plan", done: false, dueDate: null, order: 0, createdAt: serverTimestamp(), updatedAt: serverTimestamp() }));
+    await assertFails(setDoc(doc(asStudent(), "projects/p2"), { id: "p2", userId: OTHER, name: "Not mine", description: "", goal: "", startDate: null, deadline: null, status: "not_started", notes: "", resources: [], taskCount: 0, completedTaskCount: 0, createdAt: serverTimestamp(), updatedAt: serverTimestamp() }));
   });
 });
 
 describe("an admin can", () => {
-  it("hide content, resolve reports and update claim status", async () => {
-    await assertSucceeds(updateDoc(doc(asAdmin(), `doubts/d1`), { hidden: true }));
-    await assertSucceeds(updateDoc(doc(asAdmin(), `rewardClaims/c1`), { status: "fulfilled" }));
-    await assertSucceeds(updateDoc(doc(asAdmin(), `rewards/r1`), { available: false }));
-  });
-  it("still cannot write ledgers or streaks from the client", async () => {
-    await assertFails(setDoc(doc(asAdmin(), `starsTransactions/x`), { userId: STUDENT, amount: 1000 }));
-    await assertFails(updateDoc(doc(asAdmin(), `streaks/${STUDENT}`), { current: 100 }));
+  it("resolve reports, update redemption status and store stock, but still not write ledgers", async () => {
+    await env.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), "reports/rep2"), { reporterId: OTHER, targetType: "user", targetId: STUDENT, groupId: null, reason: "spam", details: "", status: "open", createdAt: serverTimestamp() });
+    });
+    await assertSucceeds(updateDoc(doc(asAdmin(), "reports/rep2"), { status: "resolved" }));
+    await assertSucceeds(updateDoc(doc(asAdmin(), "redemptions/c1"), { status: "fulfilled" }));
+    await assertSucceeds(updateDoc(doc(asAdmin(), "rewards/r1"), { stock: 10 }));
+    await assertFails(setDoc(doc(asAdmin(), `xpTransactions/x`), { userId: STUDENT, amount: 1000 }));
+    await assertFails(setDoc(doc(asAdmin(), `streaks/${STUDENT}`), { current: 100 }, { merge: true }));
+    expect((await getDoc(doc(asAdmin(), "redemptions/c1"))).get("status")).toBe("fulfilled");
   });
 });

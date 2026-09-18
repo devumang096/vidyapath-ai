@@ -1,17 +1,18 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { collection, doc, documentId, getDoc, getDocs, limit, orderBy, query, serverTimestamp, setDoc, where } from "../firestore";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "../auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from "../auth";
 import { httpsCallable } from "../functions";
 import { listDocs, resetStore, Timestamp } from "../store";
 import { seedUserDocs } from "../seedData";
-import type { DoubtDoc, ProblemSolutionDoc, PublicProfile, QuestionKeyDoc, QuizDoc, RewardDoc, TopicProgressDoc, UserDoc } from "../../lib/types";
+import type { DailyActivityDoc, PublicProfile, QuestionDoc, QuestionKeyDoc, RewardDoc, StreakDoc, TopicMasteryDoc, UserDoc } from "../../lib/types";
 
 const AARAV = "demo-aarav";
+const PRIYA = "demo-priya";
 const call = <Input, Output>(name: string) => async (input: Input) => (await httpsCallable<Input, Output>({}, name)(input)).data;
-const readUser = async () => (await getDoc(doc(null, "users", AARAV))).data() as unknown as UserDoc;
+const readUser = async (uid: string) => (await getDoc(doc(null, "users", uid))).data() as unknown as UserDoc;
 
-async function loginAarav(): Promise<void> {
-  await signInWithEmailAndPassword({}, "aarav@vidyapath.demo", "demo1234");
+async function login(email: string): Promise<void> {
+  await signInWithEmailAndPassword({}, email, "demo1234");
 }
 
 beforeEach(() => {
@@ -19,142 +20,174 @@ beforeEach(() => {
 });
 
 describe("firestore shim", () => {
-  it("filters, orders and limits like the doubts page", async () => {
-    const snapshot = await getDocs(query(collection(null, "doubts"), where("hidden", "==", false), orderBy("createdAt", "desc"), limit(30)));
-    expect(snapshot.size).toBeGreaterThan(0);
-    const rows = snapshot.docs.map((item) => ({ id: item.id, ...item.data() }) as unknown as DoubtDoc);
-    for (let index = 1; index < rows.length; index += 1) {
-      expect((rows[index - 1].createdAt as Timestamp).toMillis()).toBeGreaterThanOrEqual((rows[index].createdAt as Timestamp).toMillis());
-    }
+  it("filters, orders and limits", async () => {
+    const snapshot = await getDocs(query(collection(null, "chapters"), where("subjectId", "==", "physics"), where("classLevel", "==", 11), orderBy("order", "asc"), limit(5)));
+    expect(snapshot.size).toBe(5);
+    expect(snapshot.docs[0].data().name).toBe("Units and Measurements");
   });
 
-  it("supports documentId() in, array-contains and nested collections", async () => {
-    const quiz = (await getDoc(doc(null, "quizzes", "10-mathematics-real-numbers-euclids-division-lemma-quiz"))).data() as unknown as QuizDoc;
-    const byId = await getDocs(query(collection(null, "questions"), where(documentId(), "in", quiz.questionIds.slice(0, 2))));
-    expect(byId.docs.map((item) => item.id).sort()).toEqual(quiz.questionIds.slice(0, 2).sort());
-    const topics = await getDocs(collection(null, `studentProgress/${AARAV}/topics`));
-    expect(topics.size).toBe(8);
-    await setDoc(doc(null, "twinChallenges/t1"), { members: ["a", "b"], createdAt: serverTimestamp() });
-    const mine = await getDocs(query(collection(null, "twinChallenges"), where("members", "array-contains", "b")));
-    expect(mine.size).toBe(1);
-    expect(mine.docs[0].data().createdAt).toBeInstanceOf(Timestamp);
+  it("supports documentId() in, array-contains and range filters", async () => {
+    const byId = await getDocs(query(collection(null, "questions"), where(documentId(), "in", ["9-physics-motion-equations-of-motion-q1", "9-physics-motion-equations-of-motion-q2"])));
+    expect(byId.size).toBe(2);
+    const jee = await getDocs(query(collection(null, "chapters"), where("examTags", "array-contains", "jee"), where("subjectId", "==", "biology")));
+    expect(jee.size).toBe(0);
+    await setDoc(doc(null, "dailyActivity/x_2026-09-10"), { uid: "x", date: "2026-09-10", createdAt: serverTimestamp() });
+    const range = await getDocs(query(collection(null, "dailyActivity"), where("uid", "==", "x"), where("date", ">=", "2026-09-01"), where("date", "<=", "2026-09-31")));
+    expect(range.size).toBe(1);
+    expect(range.docs[0].data().createdAt).toBeInstanceOf(Timestamp);
   });
 
-  it("merges on setDoc with merge and drops docs missing an orderBy field", async () => {
-    await setDoc(doc(null, "users", AARAV), { language: "hi" }, { merge: true });
-    expect((await readUser()).name).toBe("Aarav Sharma");
-    expect((await readUser()).language).toBe("hi");
-    await setDoc(doc(null, "spinHistory/no-date"), { userId: AARAV });
-    const history = await getDocs(query(collection(null, "spinHistory"), where("userId", "==", AARAV), orderBy("createdAt", "desc")));
-    expect(history.docs.some((item) => item.id === "no-date")).toBe(false);
+  it("only ever contains the four subjects", async () => {
+    const subjects = await getDocs(collection(null, "subjects"));
+    expect(subjects.docs.map((item) => item.id).sort()).toEqual(["biology", "chemistry", "mathematics", "physics"]);
+    const chapterSubjects = new Set(listDocs("chapters").map((row) => row.data.subjectId));
+    expect([...chapterSubjects].sort()).toEqual(["biology", "chemistry", "mathematics", "physics"]);
   });
 });
 
 describe("auth shim", () => {
-  it("rejects wrong passwords with a Firebase-style code", async () => {
-    await expect(signInWithEmailAndPassword({}, "aarav@vidyapath.demo", "nope")).rejects.toMatchObject({ code: "auth/invalid-credential" });
-  });
-
-  it("exposes admin claims and creates profile docs for new accounts", async () => {
-    const admin = await signInWithEmailAndPassword({}, "admin@vidyapath.demo", "demo1234");
-    expect((await admin.user.getIdTokenResult()).claims.admin).toBe(true);
-    const created = await createUserWithEmailAndPassword({}, "new@vidyapath.demo", "secret1");
-    await setDoc(doc(null, "users", created.user.uid), { uid: created.user.uid, email: "new@vidyapath.demo", name: "New", classLevel: 9, board: "CBSE", subjects: ["science"], goal: "board", role: "student", xp: 0, stars: 0, createdAt: serverTimestamp() });
-    const profile = (await getDoc(doc(null, "publicProfiles", created.user.uid))).data() as unknown as PublicProfile;
-    expect(profile.classLevel).toBe(9);
-    expect(profile.twinStatus).toBe("none");
-    expect((await getDoc(doc(null, "streaks", created.user.uid))).exists()).toBe(true);
-  });
-
-  it("blocks callables when signed out", async () => {
+  it("signs in demo accounts, rejects wrong passwords and creates new accounts", async () => {
+    await expect(signInWithEmailAndPassword({}, "aarav@eduorbit.demo", "nope")).rejects.toMatchObject({ code: "auth/invalid-credential" });
+    await login("aarav@eduorbit.demo");
     await signOut();
-    await expect(call("spinWheel")({})).rejects.toMatchObject({ code: "functions/unauthenticated" });
+    const created = await createUserWithEmailAndPassword({}, "new@eduorbit.demo", "secret1");
+    expect(created.user.emailVerified).toBe(false);
+    await expect(createUserWithEmailAndPassword({}, "new@eduorbit.demo", "secret1")).rejects.toMatchObject({ code: "auth/email-already-in-use" });
+  });
+
+  it("signs in a Google-style account without a profile so the complete-profile flow runs", async () => {
+    const { user } = await signInWithPopup({}, {});
+    expect(user.providerData[0].providerId).toBe("google.com");
+    expect((await getDoc(doc(null, "users", user.uid))).exists()).toBe(false);
+  });
+});
+
+describe("seeded history", () => {
+  it("gives Aarav real, engine-produced numbers and a streak with one gap", async () => {
+    const user = await readUser(AARAV);
+    expect(user.lessonsCompleted).toBeGreaterThan(0);
+    expect(user.questionsSolved).toBeGreaterThan(0);
+    expect(user.xp).toBeGreaterThan(0);
+    const ledger = listDocs("xpTransactions").filter((row) => row.data.userId === AARAV);
+    expect(ledger.reduce((sum, row) => sum + (row.data.amount as number), 0)).toBe(user.xp);
+    const streak = (await getDoc(doc(null, "streaks", AARAV))).data() as unknown as StreakDoc;
+    expect(streak.current).toBe(4);
+    expect(streak.longest).toBe(4);
+    const mastery = listDocs("topicMastery").filter((row) => row.data.userId === AARAV).map((row) => row.data as unknown as TopicMasteryDoc);
+    expect(mastery.length).toBeGreaterThan(2);
+    expect(mastery.some((row) => row.strength !== "unrated")).toBe(true);
+  });
+
+  it("leaves Priya with an honest empty state", async () => {
+    const user = await readUser(PRIYA);
+    expect(user.xp).toBe(0);
+    expect(listDocs("topicMastery").filter((row) => row.data.userId === PRIYA)).toHaveLength(0);
   });
 });
 
 describe("callables", () => {
-  beforeEach(loginAarav);
-
-  it("scores a quiz, rewards the first completion once, and is idempotent per attempt", async () => {
-    const quizId = "10-mathematics-quadratic-equations-nature-of-roots-quiz";
-    const quiz = (await getDoc(doc(null, "quizzes", quizId))).data() as unknown as QuizDoc;
-    const answers: Record<string, number> = {};
-    for (const questionId of quiz.questionIds) answers[questionId] = ((await getDoc(doc(null, "questionKeys", questionId))).data() as unknown as QuestionKeyDoc).correctIndex;
-    const before = await readUser();
-    const finalize = call<{ attemptId: string; quizId: string; answers: Record<string, number> }, { alreadyFinalized: boolean; score: number; total: number; firstCompletion?: boolean; rewards?: { xp: number; stars: number } }>("finalizeQuiz");
-    const first = await finalize({ attemptId: "attempt-1", quizId, answers });
-    expect(first).toMatchObject({ alreadyFinalized: false, firstCompletion: true, score: quiz.questionIds.length, total: quiz.questionIds.length });
-    expect(first.rewards?.stars).toBe(quiz.questionIds.length);
-    expect((await readUser()).stars).toBe(before.stars + quiz.questionIds.length);
-    const again = await finalize({ attemptId: "attempt-1", quizId, answers });
-    expect(again.alreadyFinalized).toBe(true);
-    expect((await readUser()).stars).toBe(before.stars + quiz.questionIds.length);
-  });
-
-  it("checks problem answers against the solution and classifies mistakes", async () => {
-    const problemId = "9-physics-motion-equations-of-motion-p1";
-    const solution = (await getDoc(doc(null, "problemSolutions", problemId))).data() as unknown as ProblemSolutionDoc;
-    const submit = call<{ attemptId: string; problemId: string; finalAnswer: string; steps: Record<string, string>; timeSpentSec: number }, { correct: boolean; rewarded: boolean; mistakeType: string | null; solution: unknown; rewards: { xp: number } }>("submitProblemAttempt");
-    const wrong = await submit({ attemptId: "p-wrong", problemId, finalAnswer: "definitely not it", steps: {}, timeSpentSec: 30 });
+  it("grades answers server-side, pays once, and mirrors mastery, activity and public profile", async () => {
+    await login("priya@eduorbit.demo");
+    const question = (await getDoc(doc(null, "questions", "9-physics-motion-equations-of-motion-q1"))).data() as unknown as QuestionDoc;
+    const key = (await getDoc(doc(null, "questionKeys", question.id))).data() as unknown as QuestionKeyDoc;
+    const submit = call<{ attemptId: string; questionId: string; answer: unknown; timeTakenSec: number; context: string }, { correct: boolean; rewarded: boolean; explanation: string; mastery: number }>("submitAnswer");
+    const wrongIndex = question.options.findIndex((_, index) => !key.correctIndexes.includes(index));
+    const wrong = await submit({ attemptId: "a1", questionId: question.id, answer: { indexes: [wrongIndex] }, timeTakenSec: 12, context: "practice" });
     expect(wrong.correct).toBe(false);
-    expect(wrong.mistakeType).not.toBeNull();
-    expect(wrong.solution).toBeNull();
-    expect(listDocs("mistakes").some((row) => row.data.problemId === problemId)).toBe(true);
-    const right = await submit({ attemptId: "p-right", problemId, finalAnswer: solution.acceptedAnswers[0], steps: {}, timeSpentSec: 60 });
-    expect(right).toMatchObject({ correct: true, rewarded: true });
-    expect(right.rewards.xp).toBeGreaterThan(0);
-    const progress = (await getDoc(doc(null, `studentProgress/${AARAV}/topics/9-physics-motion-equations-of-motion`))).data() as unknown as TopicProgressDoc;
-    expect(progress.solvedProblemIds).toContain(problemId);
+    expect(wrong.rewarded).toBe(false);
+    expect(wrong.explanation.length).toBeGreaterThan(0);
+    const right = await submit({ attemptId: "a2", questionId: question.id, answer: { indexes: key.correctIndexes }, timeTakenSec: 20, context: "practice" });
+    expect(right.correct).toBe(true);
+    expect(right.rewarded).toBe(true);
+    const again = await submit({ attemptId: "a3", questionId: question.id, answer: { indexes: key.correctIndexes }, timeTakenSec: 5, context: "practice" });
+    expect(again.rewarded).toBe(false);
+    const replay = await submit({ attemptId: "a2", questionId: question.id, answer: { indexes: key.correctIndexes }, timeTakenSec: 20, context: "practice" });
+    expect(replay).toMatchObject({ alreadySubmitted: true });
+    const user = await readUser(PRIYA);
+    expect(user.questionsSolved).toBe(1);
+    expect(user.xp).toBe(10);
+    expect(user.coins).toBe(1);
+    const mastery = (await getDoc(doc(null, "topicMastery", `${PRIYA}_${question.topicId}`))).data() as unknown as TopicMasteryDoc;
+    expect(mastery.attempts).toBe(3);
+    expect(mastery.correct).toBe(2);
+    const activity = (await getDocs(query(collection(null, "dailyActivity"), where("uid", "==", PRIYA)))).docs[0].data() as unknown as DailyActivityDoc;
+    expect(activity.questions).toBe(3);
+    expect(activity.topicIds).toContain(question.topicId);
+    const profile = (await getDoc(doc(null, "publicProfiles", PRIYA))).data() as unknown as PublicProfile;
+    expect(profile.progressSummary.questionsSolved).toBe(1);
+    await expect(submit({ attemptId: "a4", questionId: question.id, answer: { indexes: [9] }, timeTakenSec: 1, context: "practice" })).rejects.toMatchObject({ code: "functions/invalid-argument" });
   });
 
-  it("enforces the spin cooldown and reward balance", async () => {
+  it("completes a lesson once and finishes the chapter when every lesson is done", async () => {
+    await login("priya@eduorbit.demo");
+    const complete = call<{ lessonId: string }, { alreadyCompleted: boolean; chapterCompleted: boolean }>("completeLesson");
+    const lessons = listDocs("lessons").filter((row) => row.data.chapterId === "9-physics-motion").map((row) => row.id);
+    expect(lessons.length).toBeGreaterThan(0);
+    let chapterCompleted = false;
+    for (const lessonId of lessons) chapterCompleted = (await complete({ lessonId })).chapterCompleted;
+    expect(chapterCompleted).toBe(true);
+    expect((await complete({ lessonId: lessons[0] })).alreadyCompleted).toBe(true);
+    const user = await readUser(PRIYA);
+    expect(user.lessonsCompleted).toBe(lessons.length);
+    expect(user.chaptersCompleted).toBe(1);
+    expect(user.coins).toBe(25);
+  });
+
+  it("caps study sessions and counts them toward the streak", async () => {
+    await login("priya@eduorbit.demo");
+    const record = call<{ sessionId: string; topicId: null; minutes: number; kind: string }, { minutesCounted: number; rewards: { streak: { qualifiedToday: boolean } } }>("recordStudySession");
+    const first = await record({ sessionId: "s1", topicId: null, minutes: 25, kind: "learning" });
+    expect(first.minutesCounted).toBe(25);
+    expect(first.rewards.streak.qualifiedToday).toBe(true);
+    await expect(record({ sessionId: "s2", topicId: null, minutes: 90, kind: "learning" })).rejects.toMatchObject({ code: "functions/invalid-argument" });
+    const streak = (await getDoc(doc(null, "streaks", PRIYA))).data() as unknown as StreakDoc;
+    expect(streak.current).toBe(1);
+  });
+
+  it("redeems only with enough coins, stock and eligibility, then reduces stock", async () => {
+    await login("aarav@eduorbit.demo");
+    const redeem = call<{ rewardId: string; redemptionKey: string }, { alreadyRedeemed: boolean; coinsSpent: number; remainingCoins: number }>("redeemReward");
+    const before = await readUser(AARAV);
+    const cheap = listDocs("rewards").map((row) => row.data as unknown as RewardDoc).find((reward) => reward.coinPrice <= before.coins && reward.eligibility.minStreak === 0);
+    expect(cheap).toBeDefined();
+    const result = await redeem({ rewardId: cheap!.id, redemptionKey: "k1" });
+    expect(result.coinsSpent).toBe(cheap!.coinPrice);
+    expect((await readUser(AARAV)).coins).toBe(before.coins - cheap!.coinPrice);
+    expect(((await getDoc(doc(null, "rewards", cheap!.id))).data() as unknown as RewardDoc).stock).toBe(cheap!.stock - 1);
+    expect((await redeem({ rewardId: cheap!.id, redemptionKey: "k1" })).alreadyRedeemed).toBe(true);
+    await expect(redeem({ rewardId: "bag", redemptionKey: "k2" })).rejects.toMatchObject({ code: "functions/failed-precondition" });
+    expect((await readUser(AARAV)).coins).toBe(before.coins - cheap!.coinPrice);
+  });
+
+  it("spins once per cooldown and rejects a second spin", async () => {
+    await login("priya@eduorbit.demo");
     const spin = call<Record<string, never>, { result: string; nextSpinAt: number }>("spinWheel");
     const first = await spin({});
     expect(first.nextSpinAt).toBeGreaterThan(Date.now());
     await expect(spin({})).rejects.toMatchObject({ code: "functions/failed-precondition" });
-    const rewards = (await getDocs(collection(null, "rewards"))).docs.map((item) => item.data() as unknown as RewardDoc);
-    const tooExpensive = rewards.find((reward) => reward.available && reward.starsRequired > 10_000);
-    const affordable = rewards.find((reward) => reward.available && reward.starsRequired <= 180);
-    const claim = call<{ rewardId: string; claimKey: string }, { alreadyClaimed: boolean; starsSpent?: number }>("claimReward");
-    if (tooExpensive) await expect(claim({ rewardId: tooExpensive.id, claimKey: "k1" })).rejects.toMatchObject({ code: "functions/failed-precondition" });
-    expect(affordable).toBeDefined();
-    const before = (await readUser()).stars;
-    const result = await claim({ rewardId: affordable!.id, claimKey: "k2" });
-    expect(result.starsSpent).toBe(affordable!.starsRequired);
-    expect((await readUser()).stars).toBe(before - affordable!.starsRequired);
-    expect((await claim({ rewardId: affordable!.id, claimKey: "k2" })).alreadyClaimed).toBe(true);
   });
 
-  it("matches Aarav with the searching peer and runs a twin challenge", async () => {
-    const match = await call<Record<string, never>, { status: string; pairId: string | null }>("matchStudyTwin")({});
-    expect(match.status).toBe("matched");
-    const meera = (await getDoc(doc(null, "publicProfiles", "demo-meera"))).data() as unknown as PublicProfile;
-    expect(meera.twinPairId).toBe(match.pairId);
-    const challenge = await call<{ pairId: string }, { challengeId: string; questionIds: string[] }>("createTwinChallenge")({ pairId: match.pairId! });
-    expect(challenge.questionIds).toHaveLength(5);
-    const submitted = await call<{ challengeId: string; answers: Record<string, number> }, { score: number; total: number }>("submitTwinChallenge")({ challengeId: challenge.challengeId, answers: {} });
-    expect(submitted).toMatchObject({ score: 0, total: 5 });
+  it("answers OrbitAI from authored content, varies repeated explanations and stores the conversation", async () => {
+    await login("aarav@eduorbit.demo");
+    const ask = call<{ conversationId: string; mode: string; message?: string; topicId?: string }, { text: string; source: string; notice: string | null }>("askAi");
+    const topicId = "9-physics-motion-equations-of-motion";
+    const first = await ask({ conversationId: "c1", mode: "explain", topicId });
+    const second = await ask({ conversationId: "c1", mode: "explain", topicId });
+    expect(first.source).toBe("fallback");
+    expect(first.notice).toContain("Demo mode");
+    expect(first.text).not.toBe(second.text);
+    const messages = await getDocs(query(collection(null, "aiMessages"), where("conversationId", "==", "c1"), orderBy("createdAt", "asc")));
+    expect(messages.size).toBe(4);
+    const support = await ask({ conversationId: "c1", mode: "explain", topicId, message: "I want to die, this makes no sense" });
+    expect(support.text).toContain("trusted adult");
+    await expect(ask({ conversationId: "c2", mode: "hint", topicId: "9-physics-motion-graphs" })).rejects.toMatchObject({ code: "functions/unavailable" });
   });
 
-  it("answers from the guided fallback and records the conversation", async () => {
-    const askAi = call<{ sessionId: string; mode: string; topicId: string }, { text: string; source: string; notice: string | null; remaining: number }>("askAi");
-    const response = await askAi({ sessionId: "s1", mode: "explain", topicId: "10-mathematics-quadratic-equations-solving-by-factorisation" });
-    expect(response.source).toBe("fallback");
-    expect(response.text.length).toBeGreaterThan(20);
-    const history = await getDocs(query(collection(null, `aiSessions/${AARAV}/messages`), where("sessionId", "==", "s1"), orderBy("createdAt", "asc"), limit(20)));
-    expect(history.docs.map((item) => item.data().role)).toEqual(["user", "assistant"]);
-  });
-
-  it("posts, answers and votes on doubts with the anonymous name", async () => {
-    const posted = await call<Record<string, unknown>, { doubtId: string }>("postDoubt")({ subjectId: "physics", chapterId: null, topicId: null, title: "Why does g vary?", body: "Does gravity change with altitude?" });
-    await expect(call("postDoubt")({ subjectId: "physics", chapterId: null, topicId: null, title: "Another", body: "Too soon" })).rejects.toMatchObject({ code: "functions/resource-exhausted" });
-    await signInWithEmailAndPassword({}, "priya@vidyapath.demo", "demo1234");
-    const answered = await call<Record<string, unknown>, { answerId: string }>("postAnswer")({ doubtId: posted.doubtId, body: "Yes, it falls off with the square of distance." });
-    await loginAarav();
-    const voted = await call<Record<string, unknown>, { voteCount: number }>("voteAnswer")({ doubtId: posted.doubtId, answerId: answered.answerId });
-    expect(voted.voteCount).toBe(1);
-    const doubt = (await getDoc(doc(null, "doubts", posted.doubtId))).data() as unknown as DoubtDoc;
-    expect(doubt).toMatchObject({ answerCount: 1, voteCount: 1, status: "answered" });
-    expect(doubt.authorName).not.toContain("Aarav");
+  it("deletes every document the student owns", async () => {
+    await login("aarav@eduorbit.demo");
+    await call<Record<string, never>, { deleted: boolean }>("deleteAccount")({});
+    expect((await getDoc(doc(null, "users", AARAV))).exists()).toBe(false);
+    expect(listDocs("topicMastery").some((row) => row.data.userId === AARAV)).toBe(false);
+    expect(listDocs("xpTransactions").some((row) => row.data.userId === AARAV)).toBe(false);
   });
 });
