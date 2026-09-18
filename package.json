@@ -14,7 +14,8 @@
     "emulators": "firebase emulators:start --import=.emulator-data --export-on-exit",
     "test": "vitest run",
     "test:functions": "npm --prefix functions test",
-    "seed:check": "tsx seed/seed.ts --check"
+    "seed:check": "tsx seed/seed.ts --check",
+    "deploy:pages": "vite build --base=/vidyapath-ai/ && cp dist/index.html dist/404.html && gh-pages -d dist"
   },
   "dependencies": {
     "firebase": "^11.10.0",
@@ -33,6 +34,7 @@
     "dotenv": "^16.5.0",
     "firebase-admin": "^13.4.0",
     "firebase-tools": "^14.10.0",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4.1.11",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",

@@ -186,6 +186,14 @@ npx firebase deploy                             # rules, indexes, functions, hos
 
 Hosting serves `dist/` with an SPA rewrite. Functions deploy to `asia-south1`.
 
+### GitHub Pages (frontend only)
+
+A static preview of the UI is published at https://devumang096.github.io/vidyapath-ai/. It is built from a local `.env`, so the Firebase project in that file is what the preview talks to; without one the page shows the "Firebase is not configured" notice.
+
+```bash
+npm run deploy:pages   # builds with base /vidyapath-ai/, adds a 404.html for deep links, pushes dist/ to the gh-pages branch
+```
+
 ## 11. Demo account
 
 Run the seed after deploying functions (the `syncPublicProfile` trigger is not required for seeding; the script writes public profiles itself):
