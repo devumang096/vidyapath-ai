@@ -3,7 +3,7 @@ import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import { AppShell } from "./components/AppShell";
 import { Spinner } from "./components/ui";
-import { firebaseConfigured } from "./lib/firebase";
+import { demoMode, firebaseConfigured } from "./lib/firebase";
 
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
@@ -98,6 +98,7 @@ export function App() {
   }
   return (
     <ErrorBoundary>
+      {demoMode && <p className="fixed bottom-3 right-3 z-50 rounded-full bg-ink-900 px-3 py-1 text-xs text-white shadow">Demo mode: data stays in this browser</p>}
       <Suspense fallback={<FullPageSpinner />}>
         <Routes>
           <Route element={<PublicOnly />}>

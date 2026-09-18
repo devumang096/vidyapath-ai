@@ -186,12 +186,15 @@ npx firebase deploy                             # rules, indexes, functions, hos
 
 Hosting serves `dist/` with an SPA rewrite. Functions deploy to `asia-south1`.
 
-### GitHub Pages (frontend only)
+### GitHub Pages demo (no Firebase needed)
 
-A static preview of the UI is published at https://devumang096.github.io/vidyapath-ai/. It is built from a local `.env`, so the Firebase project in that file is what the preview talks to; without one the page shows the "Firebase is not configured" notice.
+A public preview runs at https://devumang096.github.io/vidyapath-ai/. It is built with `--mode demo`, which swaps the Firebase SDK for the in-browser shims in `src/demo/` (Vite aliases in `vite.config.ts`): seeded content, the demo accounts and Aarav's progress live in memory and localStorage, and every callable runs in the page using the same grading, reward and streak helpers from `functions/src/lib`. Nothing leaves the browser; the AI tutor answers from the guided fallback content.
+
+Log in with any demo account and the password `demo1234`: `aarav@vidyapath.demo` (student), `admin@vidyapath.demo` (admin), or `priya`, `rahul`, `meera` at the same domain.
 
 ```bash
-npm run deploy:pages   # builds with base /vidyapath-ai/, adds a 404.html for deep links, pushes dist/ to the gh-pages branch
+npm run demo           # local dev server in demo mode
+npm run deploy:pages   # typecheck, build in demo mode with base /vidyapath-ai/, add 404.html for deep links, push dist/ to gh-pages
 ```
 
 ## 11. Demo account

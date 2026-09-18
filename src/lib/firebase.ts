@@ -14,7 +14,8 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-export const firebaseConfigured = Boolean(firebaseConfig.apiKey && firebaseConfig.projectId);
+export const demoMode = import.meta.env.MODE === "demo";
+export const firebaseConfigured = demoMode || Boolean(firebaseConfig.apiKey && firebaseConfig.projectId);
 
 export const app = initializeApp(firebaseConfigured ? firebaseConfig : { apiKey: "missing", projectId: "missing", appId: "missing" });
 export const auth = getAuth(app);

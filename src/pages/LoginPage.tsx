@@ -1,8 +1,13 @@
 import { useState, type FormEvent } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { auth } from "../lib/firebase";
+import { auth, demoMode } from "../lib/firebase";
 import { InlineError } from "../components/ui";
+
+const DEMO_LOGINS = [
+  { label: "Student (Aarav)", email: "aarav@vidyapath.demo" },
+  { label: "Admin", email: "admin@vidyapath.demo" }
+];
 
 function loginErrorMessage(code: string | undefined): string {
   switch (code) {
@@ -53,6 +58,17 @@ export default function LoginPage() {
       <form onSubmit={onSubmit} className="card w-full max-w-md">
         <p className="text-lg font-bold text-brand-700">VidyaPath AI</p>
         <h1 className="mt-1 text-2xl font-bold">Log in</h1>
+        {demoMode && (
+          <div className="mt-3 rounded-lg bg-brand-50 p-3 text-sm text-ink-700">
+            <p className="font-semibold text-brand-700">Demo mode</p>
+            <p className="mt-1">No sign-up needed. Password for every demo account is <code>demo1234</code>.</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {DEMO_LOGINS.map((login) => (
+                <button key={login.email} type="button" className="btn-secondary text-xs" onClick={() => { setEmail(login.email); setPassword("demo1234"); }}>{login.label}</button>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="mt-4">
           <label htmlFor="email" className="label">Email</label>
           <input id="email" type="email" autoComplete="email" required className="input" value={email} onChange={(event) => setEmail(event.target.value)} />
