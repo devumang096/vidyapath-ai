@@ -28,7 +28,7 @@ The rebuild from the earlier VidyaPath prototype is in progress. Everything mark
 | Orbit Spin | live | 24 h server cooldown, replay-safe event ids |
 | Orbit Store | live | Eligibility, balance and stock checked in one transaction; stock decremented; redemptions tracked; admin fulfilment |
 | Badges | live | Seven spec badges on real conditions |
-| Free Goodie and 90-Day programs | live | Configurable criteria in `appConfig/rewards`, real progress bars; claim button lands once criteria can realistically be met |
+| Free Goodie and 90-Day programs | live | Configurable criteria in `appConfig/rewards`, real progress bars, server-checked one-time claim that creates a pending redemption |
 | OrbitAI | live | Explain, Solve, Hint, Quiz, Revision, Mistake Analysis, Study Planner, Beginner mode; context from class, path, chapter, topic, question, weak topics and conversation history; varied re-explanations; crisis support notice; persisted conversations; Gemini via Cloud Function with content-authored fallback |
 | Progress and Calendar | live | Accuracy by subject, minutes over time, strength groups, topic table, badges; month calendar with per-day breakdown |
 | Projects | live | Create, edit, delete, tasks, deadlines, notes, resources, status and progress |

@@ -44,6 +44,7 @@ EduOrbit treats security and data protection as the first priority (spec section
 | `recordStudySession` | kind in allowed set, 1..60 minutes | once per session id; 600 minutes per day cap |
 | `spinWheel` | none | event id from the spin counter; 24 h cooldown checked against server time |
 | `redeemReward` | reward exists, available, in stock, eligibility met, balance sufficient, once-per-user honoured | once per redemption key; any failure throws before writes |
+| `claimProgramReward` | program in {goodie, ninety_day}; every configured criterion met against transactional counters | once per program per student via `claim_{uid}_program_{program}`; no coins involved |
 | `askAi` | mode whitelist, message cap 1500 chars, ids capped, conversation ownership | 40 requests per student per IST day; output validated, hint mode leak check, crisis support notice |
 | `startAssessment` / `submitAssessment` | template exists, scope required for topic and chapter tests, answers validated per question type | one paper per period; attempt owner check; finalized attempts return the stored result |
 | `findBuddyCandidates` | none | returns anonymous profile fields only; excludes blocks in either direction, closed and matched students, other classes |

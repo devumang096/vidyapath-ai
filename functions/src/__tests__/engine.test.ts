@@ -4,7 +4,7 @@ vi.mock("../lib/admin.js", () => ({ db: {} }));
 
 import { computeOutcome, type OutcomeContext } from "../lib/outcome.js";
 import { completeLesson, recordSession, submitAnswer } from "../lib/learning.js";
-import { redeem, spin } from "../lib/rewards.js";
+import { claimProgram, programProgress, redeem, spin } from "../lib/rewards.js";
 import { DEFAULT_NOTIFICATION_PREFS, type LessonDoc, type QuestionDoc, type QuestionKeyDoc, type RewardConfig, type RewardDoc } from "../types.js";
 import type { Clock, WriteOp } from "../lib/writes.js";
 
@@ -142,5 +142,21 @@ describe("rewards logic", () => {
     expect(at(ok.writes, "streaks/u1")?.data.protectionTokens).toBe(1);
     expect(() => spin({ ctx: context(), clock, state: null, expectedSpins: 0, nextSpinAtMs: clock.now.getTime() + 1000, random: 0.1 })).toThrow(/cooldown/);
     expect(() => spin({ ctx: context(), clock, state: { uid: "u1", nextSpinAt: null, lastResult: null, totalSpins: 2 }, expectedSpins: 1, nextSpinAtMs: null, random: 0.1 })).toThrow(/already in progress/);
+  });
+});
+
+describe("program rewards", () => {
+  it("refuses until every criterion is met, then records one claim per program without touching coins", () => {
+    const met = context({ user: { ...context().user, chaptersCompleted: 20, questionsSolved: 2000 } });
+    expect(programProgress("goodie", met.user, 30, config.goodieCriteria).every((row) => row.value >= row.target)).toBe(true);
+    expect(() => claimProgram({ ctx: met, clock, program: "goodie", existing: null, streakCurrent: 5 })).toThrow(/Current streak 5\/30/);
+    const { writes, result } = claimProgram({ ctx: met, clock, program: "goodie", existing: null, streakCurrent: 30 });
+    expect(result).toEqual({ alreadyClaimed: false, redemptionId: "u1_program_goodie" });
+    expect(at(writes, "redemptions/u1_program_goodie")?.data).toMatchObject({ type: "goodie", coinsSpent: 0, status: "pending" });
+    expect(writes.some((write) => write.path.startsWith("coinTransactions/"))).toBe(false);
+    const again = claimProgram({ ctx: met, clock, program: "goodie", existing: at(writes, "redemptions/u1_program_goodie")?.data as never, streakCurrent: 30 });
+    expect(again.result.alreadyClaimed).toBe(true);
+    expect(again.writes).toHaveLength(0);
+    expect(() => claimProgram({ ctx: context(), clock, program: "ninety_day", existing: null, streakCurrent: 90 })).toThrow(/Active days 0\/90/);
   });
 });

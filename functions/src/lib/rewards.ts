@@ -3,7 +3,7 @@ import { computeOutcome, notificationOp, type OutcomeContext, type OutcomeResult
 import { LogicError } from "./learning.js";
 import { canSpin, pickOutcome } from "./spin.js";
 import type { Clock, WriteOp } from "./writes.js";
-import type { RedemptionDoc, RewardDoc, SpinOutcome, SpinStateDoc } from "../types.js";
+import type { GoodieCriteria, NinetyDayCriteria, RedemptionDoc, RewardDoc, SpinOutcome, SpinStateDoc } from "../types.js";
 
 export interface SpinInput {
   ctx: OutcomeContext;
@@ -108,4 +108,59 @@ export function redeem(input: RedeemInput): { writes: WriteOp[]; result: RedeemR
   const notify = notificationOp(uid, ctx.user.notificationPrefs, "reward", "Redemption received", `${reward.name} is pending fulfilment.`, "/rewards", clock);
   if (notify) writes.push(notify);
   return { writes, result: { alreadyRedeemed: false, redemptionId, coinsSpent: reward.coinPrice, remainingCoins: ctx.user.coins - reward.coinPrice } };
+}
+
+export type ProgramId = "goodie" | "ninety_day";
+
+export interface ProgramProgress {
+  label: string;
+  value: number;
+  target: number;
+}
+
+/** Progress rows for a program from real counters; every bar must be full to claim. */
+export function programProgress(program: ProgramId, user: OutcomeContext["user"], streakCurrent: number, criteria: GoodieCriteria | NinetyDayCriteria): ProgramProgress[] {
+  if (program === "goodie") {
+    const goodie = criteria as GoodieCriteria;
+    return [
+      { label: "Chapters completed", value: user.chaptersCompleted, target: goodie.chapters },
+      { label: "Questions solved", value: user.questionsSolved, target: goodie.questions },
+      { label: "Current streak", value: streakCurrent, target: goodie.streak }
+    ];
+  }
+  const ninety = criteria as NinetyDayCriteria;
+  return [
+    { label: "Active days", value: user.activeDays, target: ninety.activeDays },
+    { label: "Current streak", value: streakCurrent, target: ninety.streak },
+    { label: "Study hours", value: Math.floor(user.totalStudyMinutes / 60), target: ninety.studyHours },
+    { label: "Questions solved", value: user.questionsSolved, target: ninety.questions },
+    { label: "Chapters completed", value: user.chaptersCompleted, target: ninety.chapters }
+  ];
+}
+
+export interface ClaimProgramInput {
+  ctx: OutcomeContext;
+  clock: Clock;
+  program: ProgramId;
+  existing: RedemptionDoc | null;
+  streakCurrent: number;
+}
+
+/** One claim per program per student, only when every configured criterion is met. Coins are not involved. */
+export function claimProgram(input: ClaimProgramInput): { writes: WriteOp[]; result: { alreadyClaimed: boolean; redemptionId: string } } {
+  const { ctx, clock, program } = input;
+  const redemptionId = `${ctx.uid}_program_${program}`;
+  if (input.existing || ctx.eventDone) return { writes: [], result: { alreadyClaimed: true, redemptionId } };
+  const criteria = program === "goodie" ? ctx.config.goodieCriteria : ctx.config.ninetyDayCriteria;
+  const rows = programProgress(program, ctx.user, input.streakCurrent, criteria);
+  const short = rows.filter((row) => row.value < row.target);
+  if (short.length) throw new LogicError("failed-precondition", `Not there yet: ${short.map((row) => `${row.label} ${row.value}/${row.target}`).join(", ")}.`);
+  const name = program === "goodie" ? "Free Goodie Program reward" : "90-Day Champion reward";
+  const writes: WriteOp[] = [
+    { path: `redemptions/${redemptionId}`, data: { id: redemptionId, userId: ctx.uid, rewardId: `program_${program}`, rewardName: name, coinsSpent: 0, type: program, status: "pending", createdAt: clock.stamp } },
+    { path: `processedEvents/claim_${redemptionId}`, data: { userId: ctx.uid, reason: "program_claim", refId: program, createdAt: clock.stamp } }
+  ];
+  const notify = notificationOp(ctx.uid, ctx.user.notificationPrefs, "reward", "Reward claimed", `${name} is pending fulfilment.`, "/rewards", clock);
+  if (notify) writes.push(notify);
+  return { writes, result: { alreadyClaimed: false, redemptionId } };
 }

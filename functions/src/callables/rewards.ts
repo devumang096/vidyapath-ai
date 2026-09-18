@@ -1,7 +1,7 @@
-import { onCall } from "firebase-functions/v2/https";
+import { HttpsError, onCall } from "firebase-functions/v2/https";
 import { db, loadConfig, requireString, requireUid } from "../lib/admin.js";
 import { readUserContext, serverClock, toMillis, txnSink } from "../lib/engine.js";
-import { redeem, spin } from "../lib/rewards.js";
+import { claimProgram, redeem, spin, type ProgramId } from "../lib/rewards.js";
 import { applyWrites } from "../lib/writes.js";
 import { rethrow } from "./learning.js";
 import type { RedemptionDoc, RewardDoc, SpinStateDoc } from "../types.js";
@@ -60,6 +60,25 @@ export const redeemReward = onCall(async (request) => {
         redeemedBefore: !priorSnap.empty,
         streakCurrent: ctx.streak.current
       });
+      applyWrites(txnSink(txn), writes);
+      return result;
+    } catch (error) {
+      return rethrow(error);
+    }
+  });
+});
+
+export const claimProgramReward = onCall(async (request) => {
+  const uid = requireUid(request);
+  const program = requireString((request.data as { program?: unknown })?.program, "program", 20) as ProgramId;
+  if (program !== "goodie" && program !== "ninety_day") throw new HttpsError("invalid-argument", "Unknown program.");
+  const config = await loadConfig();
+  const redemptionId = `${uid}_program_${program}`;
+  return db.runTransaction(async (txn) => {
+    const ctx = await readUserContext(txn, uid, `claim_${redemptionId}`, config);
+    const existingSnap = await txn.get(db.doc(`redemptions/${redemptionId}`));
+    try {
+      const { writes, result } = claimProgram({ ctx, clock: serverClock(ctx.now), program, existing: existingSnap.exists ? (existingSnap.data() as RedemptionDoc) : null, streakCurrent: ctx.streak.current });
       applyWrites(txnSink(txn), writes);
       return result;
     } catch (error) {

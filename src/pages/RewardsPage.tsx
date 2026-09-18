@@ -8,7 +8,7 @@ import { formatDuration, istToday, newId, timeAgo, toDate } from "../lib/format"
 import { db } from "../lib/firebase";
 import { useAction, useDoc, useQueryOnce } from "../hooks/useFirestore";
 import { effectiveStreak } from "../../functions/src/lib/streak.js";
-import { eligibilityProblem } from "../../functions/src/lib/rewards.js";
+import { eligibilityProblem, programProgress } from "../../functions/src/lib/rewards.js";
 import { AsyncState, InlineError, Modal, PageHeader, ProgressBar, RewardToast, StatTile, Tag } from "../components/ui";
 import type { BadgeDoc, LedgerTransactionDoc, RedemptionDoc, RewardConfig, RewardDoc, SpinHistoryDoc, SpinStateDoc, UserDoc } from "../lib/types";
 
@@ -38,7 +38,7 @@ export default function RewardsPage() {
 
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
         <OrbitSpin uid={uid} onReward={(result) => { setToast(result); refresh(); }} />
-        <Programs profile={profile} streakCurrent={streakToday} config={config.data} />
+        <Programs profile={profile} streakCurrent={streakToday} config={config.data} redemptions={redemptions.data} onClaimed={() => redemptions.reload()} />
       </div>
 
       <OrbitStore profile={profile} streakCurrent={streakToday} redemptions={redemptions.data} focusRewardId={rewardId ?? null} onRedeemed={(coins) => { setToast({ xp: 0, coins, streak: { current: streakToday, longest: streak?.longest ?? 0, incremented: false, protectionUsed: false, milestones: [], qualifiedToday: false }, badges: [] }); refresh(); redemptions.reload(); }} />
@@ -122,30 +122,37 @@ function OrbitSpin({ uid, onReward }: { uid: string; onReward: (result: OutcomeR
   );
 }
 
-function Programs({ profile, streakCurrent, config }: { profile: UserDoc; streakCurrent: number; config: RewardConfig | null }) {
+function Programs({ profile, streakCurrent, config, redemptions, onClaimed }: { profile: UserDoc; streakCurrent: number; config: RewardConfig | null; redemptions: RedemptionDoc[]; onClaimed: () => void }) {
+  const claim = useAction(async (program: "goodie" | "ninety_day") => {
+    const result = await api.claimProgramReward({ program });
+    onClaimed();
+    return result;
+  });
   if (!config) return <div className="card text-sm text-ink-500">Loading reward programs...</div>;
-  const goodie = config.goodieCriteria;
-  const ninety = config.ninetyDayCriteria;
-  const rows = [
-    { title: "Free Goodie Program", items: [["Chapters", profile.chaptersCompleted, goodie.chapters], ["Questions", profile.questionsSolved, goodie.questions], ["Streak", streakCurrent, goodie.streak]] as [string, number, number][] },
-    { title: "90-Day Champion Reward", items: [["Active days", profile.activeDays, ninety.activeDays], ["Streak", streakCurrent, ninety.streak], ["Study hours", Math.floor(profile.totalStudyMinutes / 60), ninety.studyHours], ["Questions", profile.questionsSolved, ninety.questions], ["Chapters", profile.chaptersCompleted, ninety.chapters]] as [string, number, number][] }
+  const user = { ...profile, badgeIds: [] };
+  const programs: { id: "goodie" | "ninety_day"; title: string; rows: ReturnType<typeof programProgress> }[] = [
+    { id: "goodie", title: "Free Goodie Program", rows: programProgress("goodie", user, streakCurrent, config.goodieCriteria) },
+    { id: "ninety_day", title: "90-Day Champion Reward", rows: programProgress("ninety_day", user, streakCurrent, config.ninetyDayCriteria) }
   ];
   return (
     <section className="card" aria-label="Reward programs">
-      {rows.map((program) => {
-        const complete = program.items.every(([, value, target]) => value >= target);
+      {programs.map((program) => {
+        const complete = program.rows.every((row) => row.value >= row.target);
+        const claimed = redemptions.some((item) => item.type === program.id);
         return (
-          <div key={program.title} className="mb-4 last:mb-0">
-            <h2 className="flex items-center gap-2 text-lg font-semibold">{program.title} {complete && <Tag tone="success">Criteria met</Tag>}</h2>
+          <div key={program.id} className="mb-4 last:mb-0">
+            <h2 className="flex items-center gap-2 text-lg font-semibold">{program.title} {claimed ? <Tag tone="success">Claimed</Tag> : complete ? <Tag tone="success">Criteria met</Tag> : null}</h2>
             <ul className="mt-2 space-y-2">
-              {program.items.map(([label, value, target]) => (
-                <li key={label}><ProgressBar value={(value / target) * 100} label={`${label}: ${value} / ${target}`} tone={value >= target ? "success" : "brand"} /></li>
+              {program.rows.map((row) => (
+                <li key={row.label}><ProgressBar value={(row.value / row.target) * 100} label={`${row.label}: ${row.value} / ${row.target}`} tone={row.value >= row.target ? "success" : "brand"} /></li>
               ))}
             </ul>
+            {complete && !claimed && <button type="button" className="btn-primary mt-2" disabled={claim.busy} onClick={() => void claim.run(program.id)}>{claim.busy ? "Claiming..." : "Claim reward"}</button>}
           </div>
         );
       })}
-      <p className="text-xs text-ink-500">Criteria are configurable in appConfig/rewards. Claims open when every bar is full.</p>
+      <InlineError message={claim.error} />
+      <p className="text-xs text-ink-500">Criteria are configurable in appConfig/rewards. The server checks every bar before a claim is recorded; each program can be claimed once.</p>
     </section>
   );
 }

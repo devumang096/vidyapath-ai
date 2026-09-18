@@ -32,6 +32,7 @@ export const api = {
   recordStudySession: call<{ sessionId: string; topicId: string | null; minutes: number; kind: SessionKind }, { alreadyRecorded: boolean; minutesCounted: number; rewards: OutcomeResult | null }>("recordStudySession"),
   spinWheel: call<Record<string, never>, { result: string; xp: number; coins: number; streakProtection: number; nextSpinAt: number; rewards: OutcomeResult }>("spinWheel"),
   redeemReward: call<{ rewardId: string; redemptionKey: string }, { alreadyRedeemed: boolean; redemptionId: string; coinsSpent: number; remainingCoins: number }>("redeemReward"),
+  claimProgramReward: call<{ program: "goodie" | "ninety_day" }, { alreadyClaimed: boolean; redemptionId: string }>("claimProgramReward"),
   startAssessment: call<{ assessmentId: string; scopeId?: string | null }, StartResult>("startAssessment"),
   submitAssessment: call<{ attemptId: string; answers: Record<string, SubmittedAnswer>; timeTakenSec: number }, SubmitResult>("submitAssessment"),
   findBuddyCandidates: call<Record<string, never>, { candidates: RankedCandidate[] }>("findBuddyCandidates"),

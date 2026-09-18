@@ -9,7 +9,7 @@ import type {
 import { applyWrites } from "../../functions/src/lib/writes.js";
 import { toMillis } from "../../functions/src/lib/outcome.js";
 import { completeLesson, LogicError, recordSession, SESSION_KINDS, submitAnswer } from "../../functions/src/lib/learning.js";
-import { redeem, spin } from "../../functions/src/lib/rewards.js";
+import { claimProgram, redeem, spin, type ProgramId } from "../../functions/src/lib/rewards.js";
 import { PERIODIC_KINDS, periodKeyFor, startAttempt, submitAttempt } from "../../functions/src/lib/assessments.js";
 import { cancelRequest, countActivity, createChallenge, rankCandidates, refreshChallenge, respondRequest, roomAction, sendRequest, sessionDoc, unmatch, type RoomAction } from "../../functions/src/lib/buddy.js";
 import * as groups from "../../functions/src/lib/groups.js";
@@ -168,6 +168,13 @@ export const callables: Record<string, Handler> = {
     return run(uid, `redeem_${redemptionId}`, (ctx, clock) =>
       redeem({ ctx, clock, reward: getDoc<RewardDoc>(`rewards/${rewardId}`), redemptionKey, existing: getDoc<RedemptionDoc>(`redemptions/${redemptionId}`), redeemedBefore: prior.length > 0, streakCurrent: ctx.streak.current })
     );
+  },
+
+  async claimProgramReward(uid, input) {
+    const program = requireString(input.program, "program", 20) as ProgramId;
+    if (program !== "goodie" && program !== "ninety_day") throw new DemoError("invalid-argument", "Unknown program.");
+    const redemptionId = `${uid}_program_${program}`;
+    return run(uid, `claim_${redemptionId}`, (ctx, clock) => claimProgram({ ctx, clock, program, existing: getDoc<RedemptionDoc>(`redemptions/${redemptionId}`), streakCurrent: ctx.streak.current }));
   },
 
   async startAssessment(uid, input) {
