@@ -383,6 +383,7 @@ export interface AssessmentAttemptDoc {
   score: number | null;
   total: number | null;
   timeTakenSec: number | null;
+  timeLimitSec: number;
   results: Record<string, { correctIndexes: number[]; numericAnswer: number | null; explanation: string; correct: boolean }> | null;
   topicSummary: Record<string, { attempts: number; correct: number }> | null;
   createdAt: unknown;

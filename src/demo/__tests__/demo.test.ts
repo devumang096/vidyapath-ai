@@ -183,6 +183,29 @@ describe("callables", () => {
     await expect(ask({ conversationId: "c2", mode: "hint", topicId: "9-physics-motion-graphs" })).rejects.toMatchObject({ code: "functions/unavailable" });
   });
 
+  it("builds one daily paper per period, resumes it, grades it once and records the result", async () => {
+    await login("aarav@eduorbit.demo");
+    const start = call<{ assessmentId: string; scopeId?: string | null }, { attemptId: string; questionIds: string[]; resumed: boolean; finalized: boolean }>("startAssessment");
+    const submit = call<{ attemptId: string; answers: Record<string, unknown>; timeTakenSec: number }, { alreadyFinalized: boolean; score: number; total: number; topics: unknown[] }>("submitAssessment");
+    const first = await start({ assessmentId: "daily" });
+    expect(first.questionIds.length).toBeGreaterThanOrEqual(5);
+    const again = await start({ assessmentId: "daily" });
+    expect(again).toMatchObject({ attemptId: first.attemptId, resumed: true, questionIds: first.questionIds });
+    const before = await readUser(AARAV);
+    const result = await submit({ attemptId: first.attemptId, answers: { [first.questionIds[0]]: { indexes: [0] } }, timeTakenSec: 120 });
+    expect(result.alreadyFinalized).toBe(false);
+    expect(result.total).toBe(first.questionIds.length);
+    expect(result.topics.length).toBeGreaterThan(0);
+    const after = await readUser(AARAV);
+    expect(after.assessmentsCompleted).toBe(before.assessmentsCompleted + 1);
+    expect(after.xp).toBe(before.xp + result.total * 10);
+    expect((await submit({ attemptId: first.attemptId, answers: {}, timeTakenSec: 1 })).alreadyFinalized).toBe(true);
+    expect((await start({ assessmentId: "daily" })).finalized).toBe(true);
+    await expect(start({ assessmentId: "topic_test", scopeId: "9-physics-motion-graphs" })).rejects.toMatchObject({ code: "functions/failed-precondition" });
+    await login("priya@eduorbit.demo");
+    await expect(submit({ attemptId: first.attemptId, answers: {}, timeTakenSec: 1 })).rejects.toMatchObject({ code: "functions/permission-denied" });
+  });
+
   it("deletes every document the student owns", async () => {
     await login("aarav@eduorbit.demo");
     await call<Record<string, never>, { deleted: boolean }>("deleteAccount")({});

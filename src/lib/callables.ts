@@ -1,9 +1,10 @@
 import { httpsCallable } from "firebase/functions";
 import { functions } from "./firebase";
 import type { AiMode, AiSource, SessionKind, Strength, SubmittedAnswer } from "./types";
+import type { StartResult, SubmitResult } from "../../functions/src/lib/assessments.js";
 import type { OutcomeResult } from "../../functions/src/lib/outcome.js";
 
-export type { OutcomeResult };
+export type { OutcomeResult, StartResult as AssessmentStartResult, SubmitResult as AssessmentSubmitResult };
 
 function call<Input, Output>(name: string) {
   const callable = httpsCallable<Input, Output>(functions, name);
@@ -29,6 +30,8 @@ export const api = {
   recordStudySession: call<{ sessionId: string; topicId: string | null; minutes: number; kind: SessionKind }, { alreadyRecorded: boolean; minutesCounted: number; rewards: OutcomeResult | null }>("recordStudySession"),
   spinWheel: call<Record<string, never>, { result: string; xp: number; coins: number; streakProtection: number; nextSpinAt: number; rewards: OutcomeResult }>("spinWheel"),
   redeemReward: call<{ rewardId: string; redemptionKey: string }, { alreadyRedeemed: boolean; redemptionId: string; coinsSpent: number; remainingCoins: number }>("redeemReward"),
+  startAssessment: call<{ assessmentId: string; scopeId?: string | null }, StartResult>("startAssessment"),
+  submitAssessment: call<{ attemptId: string; answers: Record<string, SubmittedAnswer>; timeTakenSec: number }, SubmitResult>("submitAssessment"),
   askAi: call<
     { conversationId: string; mode: AiMode; message?: string; beginner?: boolean; topicId?: string | null; chapterId?: string | null; questionId?: string | null; attemptAnswer?: string },
     { text: string; source: AiSource; notice: string | null; remaining: number }

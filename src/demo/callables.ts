@@ -2,13 +2,14 @@
 // streak and mastery logic is the same code the server runs (functions/src/lib), so the demo
 // behaves like production minus the network.
 import type {
-  AiMessageDoc, AiMode, ChapterDoc, LessonDoc, LessonProgressDoc, ChapterProgressDoc, PublicProfile, QuestionDoc, QuestionKeyDoc, RedemptionDoc, RewardDoc,
+  AssessmentAttemptDoc, AssessmentDoc, AiMessageDoc, AiMode, ChapterDoc, LessonDoc, LessonProgressDoc, ChapterProgressDoc, PublicProfile, QuestionDoc, QuestionKeyDoc, RedemptionDoc, RewardDoc,
   SpinStateDoc, TopicDoc, TopicMasteryDoc, UserDoc
 } from "../lib/types";
 import { applyWrites } from "../../functions/src/lib/writes.js";
 import { toMillis } from "../../functions/src/lib/outcome.js";
 import { completeLesson, LogicError, recordSession, SESSION_KINDS, submitAnswer } from "../../functions/src/lib/learning.js";
 import { redeem, spin } from "../../functions/src/lib/rewards.js";
+import { PERIODIC_KINDS, periodKeyFor, startAttempt, submitAttempt } from "../../functions/src/lib/assessments.js";
 import { parseSubmittedAnswer } from "../../functions/src/lib/grading.js";
 import { fallbackResponse, planMinutes } from "../../functions/src/lib/aiFallback.js";
 import { needsSupportNotice, SUPPORT_NOTICE } from "../../functions/src/lib/aiValidate.js";
@@ -130,6 +131,52 @@ export const callables: Record<string, Handler> = {
     return run(uid, `redeem_${redemptionId}`, (ctx, clock) =>
       redeem({ ctx, clock, reward: getDoc<RewardDoc>(`rewards/${rewardId}`), redemptionKey, existing: getDoc<RedemptionDoc>(`redemptions/${redemptionId}`), redeemedBefore: prior.length > 0, streakCurrent: ctx.streak.current })
     );
+  },
+
+  async startAssessment(uid, input) {
+    const assessmentId = requireString(input.assessmentId, "assessmentId", 60);
+    const scopeId = typeof input.scopeId === "string" ? input.scopeId : null;
+    const template = requireDoc<AssessmentDoc>(`assessments/${assessmentId}`, "Assessment not found.");
+    const user = requireDoc<UserDoc>(`users/${uid}`, "Profile not found.", "failed-precondition");
+    const clock = demoClock();
+    const periodKey = periodKeyFor(template.kind, clock.today);
+    const attemptId = PERIODIC_KINDS.includes(template.kind) ? `${uid}_${template.id}_${periodKey}` : `${uid}_${template.id}_${newDocId()}`;
+    const existing = PERIODIC_KINDS.includes(template.kind) ? getDoc<AssessmentAttemptDoc>(`assessmentAttempts/${attemptId}`) : null;
+    let filters: { field: string; op: string; value: unknown }[] = [];
+    if (template.kind === "topic_test") {
+      if (!scopeId) throw new DemoError("invalid-argument", "A topic is required.");
+      filters = [{ field: "topicId", op: "==", value: scopeId }];
+    } else if (template.kind === "chapter_test") {
+      if (!scopeId) throw new DemoError("invalid-argument", "A chapter is required.");
+      filters = [{ field: "chapterId", op: "==", value: scopeId }];
+    } else if (template.examTag) {
+      filters = [{ field: "examTags", op: "array-contains", value: template.examTag }, { field: "subjectId", op: "in", value: template.subjectIds }];
+    } else {
+      filters = [{ field: "classLevel", op: "==", value: user.classLevel }, { field: "subjectId", op: "in", value: user.subjects }];
+    }
+    const pool = existing ? [] : runQuery({ path: "questions", filters, orders: [], max: 300 }).map((row) => row.data as unknown as QuestionDoc);
+    try {
+      const { writes, result } = startAttempt({ uid, template, scopeId, pool, existing, attemptId, clock });
+      applyWrites(storeSink, writes);
+      return result;
+    } catch (error) {
+      if (error instanceof LogicError) throw new DemoError(error.code, error.message);
+      throw error;
+    }
+  },
+
+  async submitAssessment(uid, input) {
+    const attemptId = requireString(input.attemptId, "attemptId", 160);
+    const timeTakenSec = requireNumber(input.timeTakenSec ?? 0, "timeTakenSec", 0, 36_000);
+    const rawAnswers = typeof input.answers === "object" && input.answers !== null ? (input.answers as Record<string, unknown>) : {};
+    const attempt = requireDoc<AssessmentAttemptDoc>(`assessmentAttempts/${attemptId}`, "Assessment attempt not found.");
+    if (attempt.userId !== uid) throw new DemoError("permission-denied", "Not your assessment.");
+    const questions = attempt.questionIds.map((id) => getDoc<QuestionDoc>(`questions/${id}`)).filter((row): row is QuestionDoc => Boolean(row));
+    const keys = attempt.questionIds.map((id) => getDoc<QuestionKeyDoc>(`questionKeys/${id}`)).filter((row): row is QuestionKeyDoc => Boolean(row));
+    const topicIds = [...new Set(questions.map((question) => question.topicId))];
+    const mastery = new Map(topicIds.map((topicId) => [topicId, getDoc<TopicMasteryDoc>(`topicMastery/${uid}_${topicId}`)]));
+    const poolSizes = new Map(topicIds.map((topicId) => [topicId, count("questions", "topicId", topicId)]));
+    return run(uid, `assessment_${attemptId}`, (ctx, clock) => submitAttempt({ ctx, clock, attempt, questions, keys, rawAnswers, timeTakenSec, mastery, poolSizes }));
   },
 
   async askAi(uid, input) {

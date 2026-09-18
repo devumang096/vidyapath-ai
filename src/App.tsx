@@ -18,6 +18,7 @@ const ChapterPage = lazy(() => import("./pages/ChapterPage"));
 const TopicPage = lazy(() => import("./pages/TopicPage"));
 const PracticePage = lazy(() => import("./pages/PracticePage"));
 const AssessmentsPage = lazy(() => import("./pages/AssessmentsPage"));
+const AssessmentRunPage = lazy(() => import("./pages/AssessmentRunPage"));
 const ExamPage = lazy(() => import("./pages/ExamPage"));
 const OrbitAiPage = lazy(() => import("./pages/OrbitAiPage"));
 const BuddyPage = lazy(() => import("./pages/BuddyPage"));
@@ -133,6 +134,7 @@ export function App() {
               <Route path="/learn/:classLevel/:subjectId/:chapterSlug/:topicSlug" element={<TopicPage />} />
               <Route path="/practice" element={<PracticePage />} />
               <Route path="/assessments" element={<AssessmentsPage />} />
+              <Route path="/assessments/:attemptId" element={<AssessmentRunPage />} />
               <Route path="/jee" element={<ExamPage examTag="jee" />} />
               <Route path="/jee/:subjectId" element={<ExamPage examTag="jee" />} />
               <Route path="/jee/:subjectId/:chapterId" element={<ChapterPage examTag="jee" />} />

@@ -12,10 +12,10 @@ Open the demo (`npm run demo` or the GitHub Pages preview). Log in as **aarav@ed
 | 6 | Learn tab: read the concept, mark the lesson complete | "XP toast. Lesson completion is a server event; finishing every lesson in a chapter pays a chapter bonus." | 2:10 |
 | 7 | Practice tab: answer one question wrong, then one right | "Grading happens on the server against a private answer key. Wrong shows the explanation and pays nothing. First correct attempt pays once; repeats never pay again." | 2:45 |
 | 8 | OrbitAI tab: Explain, then Explain again, then Hint | "OrbitAI knows the class, chapter and topic. Ask the same concept twice and it changes approach. Hint mode never reveals the answer. In the demo the AI key is absent, so answers come from authored content and are labelled as such." | 3:20 |
-| 9 | Practice from the sidebar: switch to Timed, then Weak Topic | "Five modes over one question bank; Weak Topic reads real mastery." | 3:40 |
+| 9 | Assessments: start the Daily Assessment, answer a few, submit | "Papers are built on the server, one per day. Result shows strong and weak topics with recommendations, and updates mastery." | 3:40 |
 | 10 | Rewards: spin, then redeem the Pen Set | "Server-timed 24-hour spin. Redemption checks eligibility, balance and stock in one transaction and reduces stock. Try the Backpack: refused, nothing deducted." | 4:10 |
 | 11 | Calendar: click a green day | "Study time, questions, accuracy, lessons, topics, XP and coins per day." | 4:30 |
 | 12 | Settings: scroll to Delete account | "Full server-side deletion. Also: notification preferences, language, privacy statement." | 4:45 |
 | 13 | Resize to phone width or open on a phone | "Bottom navigation, drawer menu, same features." | 5:00 |
 
-If asked what is not yet built: Assessments (start and submit flow), Buddy and Groups. Each page says so and shows no dead buttons. Their Firestore rules and data model are already in place.
+If asked what is not yet built: Buddy and Groups. Each page says so and shows no dead buttons. Their Firestore rules and data model are already in place.

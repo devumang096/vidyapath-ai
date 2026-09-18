@@ -28,13 +28,13 @@ The rebuild from the earlier VidyaPath prototype is in progress. Everything mark
 | Orbit Spin | live | 24 h server cooldown, replay-safe event ids |
 | Orbit Store | live | Eligibility, balance and stock checked in one transaction; stock decremented; redemptions tracked; admin fulfilment |
 | Badges | live | Seven spec badges on real conditions |
-| Free Goodie and 90-Day programs | live | Configurable criteria in `appConfig/rewards`, real progress bars; claim flow lands with Assessments |
+| Free Goodie and 90-Day programs | live | Configurable criteria in `appConfig/rewards`, real progress bars; claim button lands once criteria can realistically be met |
 | OrbitAI | live | Explain, Solve, Hint, Quiz, Revision, Mistake Analysis, Study Planner, Beginner mode; context from class, path, chapter, topic, question, weak topics and conversation history; varied re-explanations; crisis support notice; persisted conversations; Gemini via Cloud Function with content-authored fallback |
 | Progress and Calendar | live | Accuracy by subject, minutes over time, strength groups, topic table, badges; month calendar with per-day breakdown |
 | Projects | live | Create, edit, delete, tasks, deadlines, notes, resources, status and progress |
 | Global search | live | Subjects, chapters, topics, lessons, question sets, JEE, NEET, OrbitAI modes, public groups |
-| JEE and NEET hubs | live | Exam → Subject → Chapter with per-chapter accuracy and mastery; PYQ tag ready, mocks land with Assessments |
-| Assessments | planned (next phase) | Templates are live data; start/submit flow, timer, answer preservation and results are next |
+| JEE and NEET hubs | live | Exam → Subject → Chapter with per-chapter accuracy and mastery; JEE and NEET mocks via Assessments; PYQ tag in the schema, none tagged yet |
+| Assessments | live | Daily, weekly, monthly (one paper per period), topic and chapter tests, JEE and NEET mocks; server-built papers, countdown, answers preserved until submission succeeds, results with strong and weak topics and recommendations; refuses honestly when fewer than 5 questions exist |
 | Buddy | planned | Matching, requests, shared study room, challenges, unmatch, block, report |
 | Groups | planned | Create, discover, invite codes, invitations, roles, discussion, sessions, challenges |
 | Admin | live | Reports, redemptions, store stock; hidden from students, gated by custom claim and rules |
@@ -45,7 +45,7 @@ React 18, TypeScript, Vite, Tailwind CSS 4, Firebase Authentication, Cloud Fires
 
 ## 3. Architecture in one paragraph
 
-Feature logic lives as pure functions in `functions/src/lib` (`outcome.ts` for rewards and streaks, `learning.ts` for lessons, answers and sessions, `rewards.ts` for spin and store, `mastery.ts`, `grading.ts`, `aiFallback.ts`). Each returns a list of write operations. Cloud Functions read the documents inside a transaction, call the pure function and apply the writes; the browser demo (`src/demo`) reads from an in-memory store and applies the same writes. Firestore rules (`firestore.rules`) let the client write only its profile preferences, projects, buddy preferences, blocks, reports and notification read flags. Everything with value is server-written.
+Feature logic lives as pure functions in `functions/src/lib` (`outcome.ts` for rewards and streaks, `learning.ts` for lessons, answers and sessions, `assessments.ts` for building and grading papers, `rewards.ts` for spin and store, `mastery.ts`, `grading.ts`, `aiFallback.ts`). Each returns a list of write operations. Cloud Functions read the documents inside a transaction, call the pure function and apply the writes; the browser demo (`src/demo`) reads from an in-memory store and applies the same writes. Firestore rules (`firestore.rules`) let the client write only its profile preferences, projects, buddy preferences, blocks, reports and notification read flags. Everything with value is server-written.
 
 ## 4. Local development
 
@@ -77,7 +77,7 @@ Demo accounts (password `demo1234`): `aarav@eduorbit.demo` (student with nine da
    ```
 6. Grant an admin: `npm run set-admin -- admin@example.com`.
 
-Composite indexes that Firestore will ask for on first use: `topicMastery (userId, strength, mastery)`, `aiMessages (conversationId, createdAt)`, `aiConversations (userId, updatedAt)`, `dailyActivity (uid, date)`, `questionAttempts (userId, questionId)`, `groups (privacy, nameLower)`. Add them to `firestore.indexes.json` as the console suggests.
+Composite indexes that Firestore will ask for on first use: `topicMastery (userId, strength, mastery)`, `aiMessages (conversationId, createdAt)`, `aiConversations (userId, updatedAt)`, `dailyActivity (uid, date)`, `questionAttempts (userId, questionId)`, `assessmentAttempts (userId, createdAt)`, `questions (examTags, subjectId)`, `questions (classLevel, subjectId)`, `groups (privacy, nameLower)`. Add them to `firestore.indexes.json` as the console suggests.
 
 ## 6. Content
 

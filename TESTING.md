@@ -4,8 +4,8 @@
 
 | Suite | Command | Covers | Last result |
 |---|---|---|---|
-| Server logic | `npm run test:functions` | IST dates, streak with protection tokens, mastery formula and bands, grading of all five question types, spin cooldown and weights, AI validation and crisis notice, fallback variation and hint progression, badges, invite codes, `computeOutcome` ledgers and balances, lesson and chapter completion, first-correct payout, session caps, redemption failures and success, spin replay protection | 34 passed (2026-09-19) |
-| Demo shims and callables | `npm test` | Firestore shim queries, four-subject invariant, auth shim (wrong password, duplicate email, Google-style account), engine-generated seed history with ledger consistency, `submitAnswer` grading and idempotency, `completeLesson` chapter completion, `recordStudySession` caps and streak, `redeemReward` stock and coin invariants, `spinWheel` cooldown, `askAi` variation, persistence and support notice, `deleteAccount` | 14 passed (2026-09-19) |
+| Server logic | `npm run test:functions` | IST dates, streak with protection tokens, mastery formula and bands, grading of all five question types, spin cooldown and weights, AI validation and crisis notice, fallback variation and hint progression, badges, invite codes, `computeOutcome` ledgers and balances, lesson and chapter completion, first-correct payout, session caps, redemption failures and success, spin replay protection, assessment period keys, deterministic paper building with bucket borrowing, grading with unanswered-as-wrong, ownership and double-submit guards | 39 passed (2026-09-19) |
+| Demo shims and callables | `npm test` | Firestore shim queries, four-subject invariant, auth shim (wrong password, duplicate email, Google-style account), engine-generated seed history with ledger consistency, `submitAnswer` grading and idempotency, `completeLesson` chapter completion, `recordStudySession` caps and streak, `redeemReward` stock and coin invariants, `spinWheel` cooldown, `askAi` variation, persistence and support notice, one daily paper per period with resume, grading, replay and cross-user rejection, `deleteAccount` | 15 passed (2026-09-19) |
 | Content | `npm run seed:check` | Referential integrity, exact subject whitelist, slugs, question types vs keys, JEE/NEET subject rules, reward stock and prices | passed (2026-09-19) |
 | Firestore rules | `firebase emulators:exec --only firestore "npm run test:rules"` | Every "a student cannot" case from spec section 99 plus admin limits | **Not run in build environment** (no emulator or Java) |
 | Typecheck and build | `npm run typecheck`, `vite build --mode demo` | Frontend and Functions types, production bundle | passed (2026-09-19) |
@@ -47,7 +47,16 @@ Verified column: **Demo** means checked in the browser against the in-browser de
 | Submit correct answer | Reward once; repeat correct pays nothing | Demo (first payout) + Automated (repeat pays nothing) |
 
 ### Assessments
-Not implemented yet. The page states this.
+| Case | Expected | Verified |
+|---|---|---|
+| Start daily assessment | 10-question paper built from class and subjects; Start again returns the same paper | Demo |
+| Answer, navigate away, return | Draft restored from this device; Resume shown on the catalogue | Demo |
+| Submit | Score, accuracy, time, strong and weak topics, recommendations, per-question review with explanations; XP and coins paid; streak counted | Demo |
+| Submit again or open Start for the same period | Stored result, no second payout | Automated (demo tests) |
+| Topic test with too few questions | Honest "Not enough questions yet" error | Automated |
+| Another student submits my attempt | Permission denied | Automated |
+| Timer expiry auto-submits | Answers so far are graded | Not run in browser (logic in AssessmentRunPage) |
+| JEE and NEET mocks | Gated on the student's goal; pool from Class 11 and 12 tagged questions | Not run in browser (no tagged content yet) |
 
 ### OrbitAI
 | Case | Expected | Verified |
