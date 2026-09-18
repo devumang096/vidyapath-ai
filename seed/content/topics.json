@@ -377,5 +377,994 @@
     },
     "slug": "balancing-equations",
     "category": null
+  },
+  {
+    "id": "9-physics-motion-distance-and-displacement",
+    "slug": "distance-and-displacement",
+    "chapterId": "9-physics-motion",
+    "subjectId": "physics",
+    "category": null,
+    "classLevel": 9,
+    "name": "Distance and Displacement",
+    "order": 2,
+    "hasContent": true,
+    "concept": "Distance is the total length of the path an object travels. Displacement is the straight-line change in position from start to finish, with a direction. Distance can never be smaller than the magnitude of displacement, and for a round trip the displacement is zero even though the distance is not.",
+    "keyPoints": [
+      "Distance is a scalar: only magnitude.",
+      "Displacement is a vector: magnitude and direction.",
+      "Displacement can be zero, positive or negative; distance is never negative.",
+      "The two are equal only for motion in a straight line without turning back."
+    ],
+    "formulae": [
+      "Displacement = final position - initial position",
+      "|displacement| <= distance"
+    ],
+    "examples": [
+      {
+        "problem": "A student walks 3 m east, then 4 m north. Distance and displacement?",
+        "solution": "Distance = 3 + 4 = 7 m. Displacement is the diagonal: sqrt(3^2 + 4^2) = 5 m, towards north-east."
+      },
+      {
+        "problem": "A runner completes one lap of a 400 m track. Displacement?",
+        "solution": "She ends where she started, so displacement = 0 m while distance = 400 m."
+      }
+    ],
+    "commonMistakes": [
+      "Adding path lengths to get displacement.",
+      "Reporting displacement without a direction.",
+      "Thinking displacement is always shorter than distance (they can be equal)."
+    ],
+    "revision": {
+      "concept": "Distance is path length; displacement is start-to-end with direction.",
+      "formula": "|displacement| <= distance",
+      "commonMistake": "Forgetting a round trip has zero displacement.",
+      "miniQuestion": {
+        "question": "5 m east then 5 m west: distance and displacement?",
+        "answer": "10 m and 0 m"
+      }
+    }
+  },
+  {
+    "id": "9-physics-motion-speed-velocity-acceleration",
+    "slug": "speed-velocity-acceleration",
+    "chapterId": "9-physics-motion",
+    "subjectId": "physics",
+    "category": null,
+    "classLevel": 9,
+    "name": "Speed, Velocity and Acceleration",
+    "order": 3,
+    "hasContent": true,
+    "concept": "Speed is distance covered per unit time. Velocity is displacement per unit time, so it has a direction and can be negative. Acceleration is the rate of change of velocity. An object accelerates when its speed changes, its direction changes, or both.",
+    "keyPoints": [
+      "Average speed = total distance / total time.",
+      "Average velocity = total displacement / total time.",
+      "Acceleration a = (v - u) / t; unit m/s^2.",
+      "Negative acceleration in the direction of motion means slowing down (retardation).",
+      "1 km/h = 5/18 m/s."
+    ],
+    "formulae": [
+      "v_avg = total displacement / total time",
+      "a = (v - u) / t",
+      "1 km/h = 5/18 m/s"
+    ],
+    "examples": [
+      {
+        "problem": "A car covers 150 km in 2.5 h. Average speed?",
+        "solution": "150 / 2.5 = 60 km/h, which is 60 x 5/18 = 16.7 m/s."
+      },
+      {
+        "problem": "A bus speeds up from 10 m/s to 25 m/s in 5 s. Acceleration?",
+        "solution": "a = (25 - 10) / 5 = 3 m/s^2."
+      }
+    ],
+    "commonMistakes": [
+      "Averaging two speeds instead of dividing total distance by total time.",
+      "Dropping the sign of velocity.",
+      "Mixing hours with metres."
+    ],
+    "revision": {
+      "concept": "Speed is scalar, velocity is vector, acceleration is change of velocity per second.",
+      "formula": "a = (v - u)/t",
+      "commonMistake": "Averaging speeds directly.",
+      "miniQuestion": {
+        "question": "Convert 90 km/h to m/s.",
+        "answer": "25 m/s"
+      }
+    }
+  },
+  {
+    "id": "9-physics-motion-graphs-of-motion",
+    "slug": "graphs-of-motion",
+    "chapterId": "9-physics-motion",
+    "subjectId": "physics",
+    "category": null,
+    "classLevel": 9,
+    "name": "Graphs of Motion",
+    "order": 4,
+    "hasContent": true,
+    "concept": "A distance-time graph shows how far an object has travelled at each moment; its slope is speed. A velocity-time graph shows velocity at each moment; its slope is acceleration and the area between the graph and the time axis is displacement. Straight lines mean uniform quantities, curves mean changing ones.",
+    "keyPoints": [
+      "Distance-time: horizontal line means at rest, straight sloping line means uniform speed, curve means changing speed.",
+      "Velocity-time: horizontal line means uniform velocity, sloping line means uniform acceleration.",
+      "Area under v-t graph = displacement.",
+      "Slope of v-t graph = acceleration."
+    ],
+    "formulae": [
+      "speed = slope of distance-time graph",
+      "acceleration = slope of velocity-time graph",
+      "displacement = area under velocity-time graph"
+    ],
+    "examples": [
+      {
+        "problem": "A v-t graph is a horizontal line at 8 m/s for 10 s. Displacement?",
+        "solution": "Area of the rectangle = 8 x 10 = 80 m."
+      },
+      {
+        "problem": "A v-t graph rises from 0 to 12 m/s in 4 s. Acceleration?",
+        "solution": "Slope = 12/4 = 3 m/s^2."
+      }
+    ],
+    "commonMistakes": [
+      "Reading a sloping distance-time line as acceleration.",
+      "Forgetting that the area under a v-t graph below the axis counts as negative displacement.",
+      "Confusing a flat v-t line (constant velocity) with a flat d-t line (rest)."
+    ],
+    "revision": {
+      "concept": "Slope of d-t is speed; slope of v-t is acceleration; area under v-t is displacement.",
+      "formula": "s = area under v-t graph",
+      "commonMistake": "Mixing up what a flat line means on each graph.",
+      "miniQuestion": {
+        "question": "v-t graph: triangle with base 6 s and height 10 m/s. Displacement?",
+        "answer": "30 m"
+      }
+    }
+  },
+  {
+    "id": "11-physics-laws-of-motion-newtons-laws",
+    "slug": "newtons-laws",
+    "chapterId": "11-physics-laws-of-motion",
+    "subjectId": "physics",
+    "category": null,
+    "classLevel": 11,
+    "name": "Newton's Laws of Motion",
+    "order": 1,
+    "hasContent": true,
+    "concept": "The first law: a body keeps its state of rest or uniform straight-line motion unless a net external force acts. The second law: the net force equals the rate of change of momentum, F = ma for constant mass. The third law: if A pushes B, then B pushes A with an equal force in the opposite direction. The two forces of a pair act on different bodies.",
+    "keyPoints": [
+      "Mass is the measure of inertia.",
+      "F = ma uses the net (resultant) force.",
+      "Momentum p = mv; impulse equals change in momentum.",
+      "Action-reaction pairs never act on the same body.",
+      "Apparent weight in a lift = m(g + a) going up, m(g - a) going down."
+    ],
+    "formulae": [
+      "F_net = ma",
+      "p = mv",
+      "F = dp/dt",
+      "J = F*t = m(v - u)",
+      "N = m(g + a) (lift accelerating up)"
+    ],
+    "examples": [
+      {
+        "problem": "A 2 kg block is pushed by 10 N against 4 N friction. Acceleration?",
+        "solution": "Net force = 10 - 4 = 6 N. a = 6/2 = 3 m/s^2."
+      },
+      {
+        "problem": "A 60 kg person stands in a lift accelerating up at 2 m/s^2. Normal force?",
+        "solution": "N = m(g + a) = 60 x (9.8 + 2) = 708 N."
+      }
+    ],
+    "commonMistakes": [
+      "Using the applied force instead of the net force in F = ma.",
+      "Saying action and reaction cancel because they are equal and opposite.",
+      "Confusing mass with weight."
+    ],
+    "revision": {
+      "concept": "Net force causes acceleration; forces come in pairs on different bodies.",
+      "formula": "F_net = ma, J = change in p",
+      "commonMistake": "Using applied instead of net force.",
+      "miniQuestion": {
+        "question": "A 5 kg body gains 20 m/s in 4 s. Net force?",
+        "answer": "25 N"
+      }
+    }
+  },
+  {
+    "id": "11-physics-laws-of-motion-friction",
+    "slug": "friction",
+    "chapterId": "11-physics-laws-of-motion",
+    "subjectId": "physics",
+    "category": null,
+    "classLevel": 11,
+    "name": "Friction",
+    "order": 2,
+    "hasContent": true,
+    "concept": "Friction is the contact force that opposes relative motion or its tendency. Static friction adjusts itself up to a maximum called limiting friction, mu_s N. Once sliding starts, kinetic friction mu_k N acts, and it is usually a little smaller. Friction depends on the nature of the surfaces and the normal force, not on the area of contact.",
+    "keyPoints": [
+      "Static friction is self-adjusting: it equals the applied force until the limit.",
+      "Limiting friction f_max = mu_s N.",
+      "Kinetic friction f_k = mu_k N, with mu_k < mu_s.",
+      "On a level surface N = mg; on an incline N = mg cos(theta).",
+      "Rolling friction is much smaller than sliding friction."
+    ],
+    "formulae": [
+      "f_s <= mu_s N",
+      "f_k = mu_k N",
+      "Angle of repose: tan(theta) = mu_s",
+      "N = mg cos(theta) on an incline"
+    ],
+    "examples": [
+      {
+        "problem": "A 10 kg block on a floor with mu_s = 0.4 is pushed with 30 N. Does it move? (g = 10)",
+        "solution": "Limiting friction = 0.4 x 100 = 40 N > 30 N, so it stays; static friction = 30 N."
+      },
+      {
+        "problem": "Same block pushed with 60 N, mu_k = 0.3. Acceleration?",
+        "solution": "It moves. Net = 60 - 30 = 30 N, a = 3 m/s^2."
+      }
+    ],
+    "commonMistakes": [
+      "Setting static friction equal to mu_s N even when the body is not about to slip.",
+      "Forgetting to use mg cos(theta) for the normal force on an incline.",
+      "Thinking friction always opposes motion (it can cause it, as in walking)."
+    ],
+    "revision": {
+      "concept": "Static friction adjusts up to mu_s N; kinetic friction is mu_k N.",
+      "formula": "f_max = mu_s N, f_k = mu_k N",
+      "commonMistake": "Using mu N for static friction when the body is not slipping.",
+      "miniQuestion": {
+        "question": "mu_s = 0.5, N = 200 N. Limiting friction?",
+        "answer": "100 N"
+      }
+    }
+  },
+  {
+    "id": "11-physics-laws-of-motion-circular-motion-dynamics",
+    "slug": "circular-motion-dynamics",
+    "chapterId": "11-physics-laws-of-motion",
+    "subjectId": "physics",
+    "category": null,
+    "classLevel": 11,
+    "name": "Dynamics of Circular Motion",
+    "order": 3,
+    "hasContent": true,
+    "concept": "A body moving in a circle at constant speed still accelerates, because its velocity keeps turning. That centripetal acceleration v^2/r points to the centre and must be supplied by a real force: tension, gravity, friction or a normal force. On a level road friction provides it; on a banked road the normal force helps.",
+    "keyPoints": [
+      "Centripetal acceleration a_c = v^2 / r = omega^2 r.",
+      "Centripetal force F_c = mv^2 / r, directed towards the centre.",
+      "Maximum safe speed on a level road: v = sqrt(mu r g).",
+      "Banking angle without friction: tan(theta) = v^2 / (r g).",
+      "Centrifugal force appears only in the rotating frame."
+    ],
+    "formulae": [
+      "a_c = v^2/r",
+      "F_c = mv^2/r",
+      "v_max = sqrt(mu_s r g)",
+      "tan(theta) = v^2/(rg)"
+    ],
+    "examples": [
+      {
+        "problem": "A 1000 kg car takes a level turn of radius 50 m at 10 m/s. Friction needed?",
+        "solution": "F = mv^2/r = 1000 x 100/50 = 2000 N."
+      },
+      {
+        "problem": "Maximum speed on the same turn with mu = 0.5 (g = 10)?",
+        "solution": "v = sqrt(0.5 x 50 x 10) = sqrt(250) = 15.8 m/s."
+      }
+    ],
+    "commonMistakes": [
+      "Adding a centrifugal force in an inertial-frame free-body diagram.",
+      "Forgetting that the centripetal force is provided by some real force, not an extra one.",
+      "Using diameter instead of radius."
+    ],
+    "revision": {
+      "concept": "Circular motion needs a centre-directed force mv^2/r.",
+      "formula": "F_c = mv^2/r, v_max = sqrt(mu r g)",
+      "commonMistake": "Treating centrifugal force as real.",
+      "miniQuestion": {
+        "question": "m = 2 kg, v = 4 m/s, r = 2 m. Centripetal force?",
+        "answer": "16 N"
+      }
+    }
+  },
+  {
+    "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+    "slug": "types-of-reactions",
+    "chapterId": "10-chemistry-chemical-reactions-and-equations",
+    "subjectId": "chemistry",
+    "category": null,
+    "classLevel": 10,
+    "name": "Types of Chemical Reactions",
+    "order": 2,
+    "hasContent": true,
+    "concept": "Reactions are grouped by what happens to the reactants. Combination joins two or more substances into one. Decomposition splits one into several, often using heat, light or electricity. Displacement lets a more reactive element replace a less reactive one. Double displacement swaps ions between two compounds, often making a precipitate. Reactions that release heat are exothermic; those that absorb it are endothermic.",
+    "keyPoints": [
+      "Combination: A + B -> AB, e.g. CaO + H2O -> Ca(OH)2 (exothermic).",
+      "Decomposition: AB -> A + B, e.g. 2AgCl -> 2Ag + Cl2 in sunlight.",
+      "Displacement: Zn + CuSO4 -> ZnSO4 + Cu.",
+      "Double displacement: Na2SO4 + BaCl2 -> BaSO4 (precipitate) + 2NaCl.",
+      "Thermal, electrolytic and photolytic decomposition differ in the energy used."
+    ],
+    "formulae": [
+      "A + B -> AB (combination)",
+      "AB -> A + B (decomposition)",
+      "A + BC -> AC + B (displacement)",
+      "AB + CD -> AD + CB (double displacement)"
+    ],
+    "examples": [
+      {
+        "problem": "Classify: 2Mg + O2 -> 2MgO.",
+        "solution": "Two substances combine into one: combination reaction (also exothermic, with a bright flame)."
+      },
+      {
+        "problem": "Classify: Pb(NO3)2 + 2KI -> PbI2 + 2KNO3.",
+        "solution": "Ions swap partners and yellow PbI2 precipitates: double displacement (precipitation)."
+      }
+    ],
+    "commonMistakes": [
+      "Calling every reaction with heat a decomposition.",
+      "Confusing displacement (one element swaps) with double displacement (two ions swap).",
+      "Forgetting that decomposition needs an energy input."
+    ],
+    "revision": {
+      "concept": "Combination, decomposition, displacement, double displacement, redox.",
+      "formula": "A + BC -> AC + B shows displacement",
+      "commonMistake": "Mixing displacement with double displacement.",
+      "miniQuestion": {
+        "question": "Type of CaCO3 -> CaO + CO2 on heating?",
+        "answer": "Thermal decomposition"
+      }
+    }
+  },
+  {
+    "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+    "slug": "oxidation-and-reduction",
+    "chapterId": "10-chemistry-chemical-reactions-and-equations",
+    "subjectId": "chemistry",
+    "category": null,
+    "classLevel": 10,
+    "name": "Oxidation, Reduction and Everyday Effects",
+    "order": 3,
+    "hasContent": true,
+    "concept": "Oxidation is gain of oxygen or loss of hydrogen; reduction is loss of oxygen or gain of hydrogen. In any redox reaction one substance is oxidised while another is reduced. Corrosion is the slow oxidation of metals such as iron rusting in moist air. Rancidity is the oxidation of fats and oils in food.",
+    "keyPoints": [
+      "Oxidising agent gives oxygen (or takes hydrogen) and is itself reduced.",
+      "Reducing agent takes oxygen (or gives hydrogen) and is itself oxidised.",
+      "Rust is hydrated iron(III) oxide, Fe2O3.xH2O, needing both air and water.",
+      "Prevent corrosion by painting, oiling, galvanising, alloying.",
+      "Prevent rancidity with antioxidants, airtight packs, flushing with nitrogen, refrigeration."
+    ],
+    "formulae": [
+      "CuO + H2 -> Cu + H2O (CuO reduced, H2 oxidised)",
+      "4Fe + 3O2 + xH2O -> 2Fe2O3.xH2O (rusting)",
+      "ZnO + C -> Zn + CO"
+    ],
+    "examples": [
+      {
+        "problem": "In CuO + H2 -> Cu + H2O, identify the oxidising agent.",
+        "solution": "CuO loses oxygen (is reduced) and gives it to hydrogen, so CuO is the oxidising agent; H2 is the reducing agent."
+      },
+      {
+        "problem": "Why are chips packets flushed with nitrogen?",
+        "solution": "Nitrogen is unreactive and keeps oxygen away from the oil, slowing rancidity."
+      }
+    ],
+    "commonMistakes": [
+      "Naming the substance that is oxidised as the oxidising agent.",
+      "Thinking iron rusts in dry air or in boiled water alone.",
+      "Forgetting that oxidation and reduction happen together."
+    ],
+    "revision": {
+      "concept": "Oxidation gains O or loses H; reduction is the reverse; they occur together.",
+      "formula": "CuO + H2 -> Cu + H2O",
+      "commonMistake": "Swapping oxidising and reducing agents.",
+      "miniQuestion": {
+        "question": "In ZnO + C -> Zn + CO, which is reduced?",
+        "answer": "ZnO"
+      }
+    }
+  },
+  {
+    "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+    "slug": "mole-concept",
+    "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+    "subjectId": "chemistry",
+    "category": "physical_chemistry",
+    "classLevel": 11,
+    "name": "The Mole Concept",
+    "order": 1,
+    "hasContent": true,
+    "concept": "A mole is the amount of substance that contains as many particles as there are atoms in 12 g of carbon-12, which is Avogadro's number, 6.022 x 10^23. The molar mass of a substance in grams per mole is numerically equal to its relative atomic or molecular mass. One mole of any gas occupies 22.4 L at STP.",
+    "keyPoints": [
+      "Moles n = given mass / molar mass.",
+      "Number of particles = n x 6.022 x 10^23.",
+      "Molar mass of a compound = sum of atomic masses in its formula.",
+      "Molar volume of a gas at STP = 22.4 L.",
+      "Atomic masses used here: H 1, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, Ca 40."
+    ],
+    "formulae": [
+      "n = m/M",
+      "N = n N_A, N_A = 6.022 x 10^23",
+      "V(STP) = 22.4 n litres"
+    ],
+    "examples": [
+      {
+        "problem": "Moles in 36 g of water?",
+        "solution": "M(H2O) = 2 + 16 = 18 g/mol. n = 36/18 = 2 mol."
+      },
+      {
+        "problem": "Molecules in 4.4 g of CO2?",
+        "solution": "M = 44 g/mol, n = 0.1 mol, N = 0.1 x 6.022 x 10^23 = 6.022 x 10^22."
+      }
+    ],
+    "commonMistakes": [
+      "Using 16 g/mol for oxygen gas instead of 32 g/mol.",
+      "Forgetting to multiply atomic mass by the subscript.",
+      "Applying 22.4 L to liquids or solids."
+    ],
+    "revision": {
+      "concept": "A mole is 6.022 x 10^23 particles; molar mass links grams to moles.",
+      "formula": "n = m/M, N = n N_A",
+      "commonMistake": "O2 is 32 g/mol, not 16.",
+      "miniQuestion": {
+        "question": "Moles in 8 g of O2?",
+        "answer": "0.25 mol"
+      }
+    }
+  },
+  {
+    "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+    "slug": "stoichiometry",
+    "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+    "subjectId": "chemistry",
+    "category": "physical_chemistry",
+    "classLevel": 11,
+    "name": "Stoichiometry and Limiting Reagent",
+    "order": 2,
+    "hasContent": true,
+    "concept": "A balanced equation gives mole ratios between reactants and products. To find how much product forms, convert given masses to moles, use the ratio, then convert back. When reactants are not in the exact ratio, the one that runs out first is the limiting reagent and it fixes the amount of product. Percentage composition and empirical formulas also come from mole ratios.",
+    "keyPoints": [
+      "Coefficients in a balanced equation are mole ratios.",
+      "Limiting reagent: compare moles available with moles required.",
+      "Empirical formula: simplest whole-number ratio of atoms.",
+      "Molecular formula = n x empirical formula, n = molar mass / empirical mass.",
+      "Mass percent of an element = (mass of element in formula / molar mass) x 100."
+    ],
+    "formulae": [
+      "moles of product = moles of limiting reagent x (coefficient ratio)",
+      "n = molar mass / empirical formula mass",
+      "% element = (total atomic mass of element / molar mass) x 100"
+    ],
+    "examples": [
+      {
+        "problem": "3 g of H2 react with 29 g of O2 to form water. Limiting reagent?",
+        "solution": "2H2 + O2 -> 2H2O. n(H2) = 1.5 mol needs 0.75 mol O2; O2 available = 29/32 = 0.906 mol. H2 is limiting; water formed = 1.5 mol = 27 g."
+      },
+      {
+        "problem": "A compound has 40% C, 6.67% H, 53.33% O and molar mass 180. Formula?",
+        "solution": "Moles: C 3.33, H 6.67, O 3.33 -> ratio 1:2:1, empirical CH2O (30). n = 180/30 = 6, so C6H12O6."
+      }
+    ],
+    "commonMistakes": [
+      "Choosing the limiting reagent by smaller mass instead of by moles versus the ratio.",
+      "Using the excess reagent to compute the product.",
+      "Rounding mole ratios too early in empirical formula problems."
+    ],
+    "revision": {
+      "concept": "Balanced equations are mole recipes; the limiting reagent sets the yield.",
+      "formula": "n(molecular) = M / M(empirical)",
+      "commonMistake": "Picking the limiting reagent by mass.",
+      "miniQuestion": {
+        "question": "N2 + 3H2 -> 2NH3: moles of NH3 from 2 mol N2 and 3 mol H2?",
+        "answer": "2 mol (H2 limits)"
+      }
+    }
+  },
+  {
+    "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+    "slug": "concentration-of-solutions",
+    "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+    "subjectId": "chemistry",
+    "category": "physical_chemistry",
+    "classLevel": 11,
+    "name": "Concentration of Solutions",
+    "order": 3,
+    "hasContent": true,
+    "concept": "Concentration tells how much solute is in a given amount of solution or solvent. Molarity is moles of solute per litre of solution, molality is moles of solute per kilogram of solvent, and mole fraction is the fraction of all moles that a component contributes. Molarity depends on temperature because volume changes; molality and mole fraction do not.",
+    "keyPoints": [
+      "Molarity M = n / V(L of solution).",
+      "Molality m = n / mass of solvent in kg.",
+      "Mole fraction x_A = n_A / (n_A + n_B); fractions sum to 1.",
+      "Mass percent = mass of solute / mass of solution x 100.",
+      "Dilution: M1 V1 = M2 V2."
+    ],
+    "formulae": [
+      "M = n/V",
+      "m = n/w(kg)",
+      "x_A = n_A/(n_A + n_B)",
+      "M1V1 = M2V2"
+    ],
+    "examples": [
+      {
+        "problem": "4 g of NaOH in 500 mL of solution. Molarity?",
+        "solution": "n = 4/40 = 0.1 mol. M = 0.1/0.5 = 0.2 M."
+      },
+      {
+        "problem": "Mole fraction of ethanol in a mix of 46 g ethanol and 36 g water?",
+        "solution": "n(ethanol) = 1, n(water) = 2. x = 1/3 = 0.333."
+      }
+    ],
+    "commonMistakes": [
+      "Using mL instead of L for molarity.",
+      "Using mass of solution instead of mass of solvent for molality.",
+      "Forgetting mole fractions must add to 1."
+    ],
+    "revision": {
+      "concept": "Molarity per litre of solution, molality per kg of solvent, mole fraction per total moles.",
+      "formula": "M1V1 = M2V2",
+      "commonMistake": "Mixing solvent and solution.",
+      "miniQuestion": {
+        "question": "0.5 mol in 250 mL solution: molarity?",
+        "answer": "2 M"
+      }
+    }
+  },
+  {
+    "id": "10-mathematics-quadratic-equations-word-problems",
+    "slug": "word-problems",
+    "chapterId": "10-mathematics-quadratic-equations",
+    "subjectId": "mathematics",
+    "category": null,
+    "classLevel": 10,
+    "name": "Quadratic Word Problems",
+    "order": 4,
+    "hasContent": true,
+    "concept": "Many situations produce a quadratic: areas of rectangles, products of consecutive numbers, speed-distance-time with a changed speed, and ages. Name the unknown, write the relation, bring it to standard form, solve, then check which roots make sense in the story.",
+    "keyPoints": [
+      "Let x be the quantity asked for, not something else.",
+      "Area and product relations give x^2 terms; time = distance / speed gives fractions that clear to quadratics.",
+      "Consecutive numbers: x and x + 1; consecutive even: x and x + 2.",
+      "Always reject roots that are negative for lengths, ages or counts."
+    ],
+    "formulae": [
+      "Area = length x breadth",
+      "time = distance / speed",
+      "(x)(x + 1) for consecutive integers"
+    ],
+    "examples": [
+      {
+        "problem": "The product of two consecutive positive integers is 132. Find them.",
+        "solution": "x(x + 1) = 132 -> x^2 + x - 132 = 0 -> (x + 12)(x - 11) = 0. x = 11 (reject -12). Numbers: 11 and 12."
+      },
+      {
+        "problem": "A rectangle has area 60 cm^2 and its length is 4 cm more than its breadth. Breadth?",
+        "solution": "b(b + 4) = 60 -> b^2 + 4b - 60 = 0 -> (b + 10)(b - 6) = 0. b = 6 cm."
+      }
+    ],
+    "commonMistakes": [
+      "Forgetting to bring everything to one side before factorising.",
+      "Accepting a negative root as an answer.",
+      "Mixing up which quantity is x."
+    ],
+    "revision": {
+      "concept": "Set up, standardise, solve, then check admissibility.",
+      "formula": "x^2 + x - n = 0 for consecutive integers with product n",
+      "commonMistake": "Keeping negative roots.",
+      "miniQuestion": {
+        "question": "Two consecutive integers with product 56?",
+        "answer": "7 and 8"
+      }
+    }
+  },
+  {
+    "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+    "slug": "algebra-of-complex-numbers",
+    "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+    "subjectId": "mathematics",
+    "category": null,
+    "classLevel": 11,
+    "name": "Algebra of Complex Numbers",
+    "order": 1,
+    "hasContent": true,
+    "concept": "A complex number is z = a + ib with real a (real part) and b (imaginary part), where i^2 = -1. Add and subtract part by part. Multiply like binomials and replace i^2 by -1. Divide by multiplying numerator and denominator by the conjugate of the denominator. Powers of i repeat every four.",
+    "keyPoints": [
+      "i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1; reduce the exponent mod 4.",
+      "Re(a + ib) = a, Im(a + ib) = b.",
+      "(a + ib) = (c + id) iff a = c and b = d.",
+      "Conjugate of a + ib is a - ib; z x conj(z) = a^2 + b^2.",
+      "1/(a + ib) = (a - ib)/(a^2 + b^2)."
+    ],
+    "formulae": [
+      "i^(4k + r) = i^r",
+      "(a + ib)(c + id) = (ac - bd) + i(ad + bc)",
+      "1/z = conj(z)/|z|^2"
+    ],
+    "examples": [
+      {
+        "problem": "Simplify i^27.",
+        "solution": "27 = 4 x 6 + 3, so i^27 = i^3 = -i."
+      },
+      {
+        "problem": "Compute (2 + 3i)(1 - i).",
+        "solution": "2 - 2i + 3i - 3i^2 = 2 + i + 3 = 5 + i."
+      },
+      {
+        "problem": "Express (1 + i)/(1 - i) in the form a + ib.",
+        "solution": "Multiply by (1 + i)/(1 + i): (1 + i)^2/(1 + 1) = (1 + 2i - 1)/2 = i."
+      }
+    ],
+    "commonMistakes": [
+      "Treating i^2 as +1.",
+      "Adding moduli instead of numbers.",
+      "Forgetting the minus sign from i^2 in the product."
+    ],
+    "revision": {
+      "concept": "i^2 = -1; operate part by part; divide via the conjugate.",
+      "formula": "1/(a + ib) = (a - ib)/(a^2 + b^2)",
+      "commonMistake": "i^2 = +1.",
+      "miniQuestion": {
+        "question": "(3 + 2i) + (1 - 5i) = ?",
+        "answer": "4 - 3i"
+      }
+    }
+  },
+  {
+    "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+    "slug": "modulus-and-argand-plane",
+    "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+    "subjectId": "mathematics",
+    "category": null,
+    "classLevel": 11,
+    "name": "Modulus, Argument and the Argand Plane",
+    "order": 2,
+    "hasContent": true,
+    "concept": "Plot a + ib as the point (a, b): the Argand plane. The modulus |z| = sqrt(a^2 + b^2) is the distance from the origin and the argument is the angle the line makes with the positive real axis. In polar form z = r(cos t + i sin t). Multiplying complex numbers multiplies moduli and adds arguments.",
+    "keyPoints": [
+      "|z| = sqrt(a^2 + b^2) >= 0; |z| = 0 only for z = 0.",
+      "Principal argument lies in (-pi, pi]; find the quadrant from the signs of a and b.",
+      "Polar form: z = r cos t + i r sin t with r = |z|.",
+      "|z1 z2| = |z1||z2|; |z1/z2| = |z1|/|z2|.",
+      "Conjugate reflects the point in the real axis."
+    ],
+    "formulae": [
+      "|a + ib| = sqrt(a^2 + b^2)",
+      "tan(t) = b/a (adjust by quadrant)",
+      "z = r(cos t + i sin t)"
+    ],
+    "examples": [
+      {
+        "problem": "Modulus and argument of 1 + i.",
+        "solution": "|z| = sqrt(2). Point in the first quadrant, tan t = 1, so t = pi/4."
+      },
+      {
+        "problem": "Polar form of -sqrt(3) + i.",
+        "solution": "r = 2. Second quadrant with tan t = -1/sqrt(3): t = 5pi/6. z = 2(cos 5pi/6 + i sin 5pi/6)."
+      }
+    ],
+    "commonMistakes": [
+      "Reading the argument from tan alone without checking the quadrant.",
+      "Using |z| = a + b.",
+      "Giving arguments outside (-pi, pi] as principal."
+    ],
+    "revision": {
+      "concept": "Complex numbers are points; modulus is distance, argument is angle.",
+      "formula": "|z| = sqrt(a^2 + b^2)",
+      "commonMistake": "Ignoring the quadrant for the argument.",
+      "miniQuestion": {
+        "question": "|3 - 4i| = ?",
+        "answer": "5"
+      }
+    }
+  },
+  {
+    "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots",
+    "slug": "quadratics-with-complex-roots",
+    "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+    "subjectId": "mathematics",
+    "category": null,
+    "classLevel": 11,
+    "name": "Quadratic Equations with Complex Roots",
+    "order": 3,
+    "hasContent": true,
+    "concept": "The quadratic formula still works when the discriminant is negative: sqrt(D) becomes i sqrt(-D). A quadratic with real coefficients and D < 0 has two non-real roots that are conjugates of each other. The sum and product of roots formulas hold for complex roots too.",
+    "keyPoints": [
+      "D = b^2 - 4ac < 0 gives roots [-b +/- i sqrt(4ac - b^2)] / 2a.",
+      "Non-real roots of a real quadratic are conjugate pairs.",
+      "Sum of roots -b/a, product c/a, whether real or complex.",
+      "To build an equation from roots p and q: x^2 - (p + q)x + pq = 0."
+    ],
+    "formulae": [
+      "x = [-b +/- i sqrt(4ac - b^2)] / 2a",
+      "x^2 - (sum)x + (product) = 0"
+    ],
+    "examples": [
+      {
+        "problem": "Solve x^2 + 2x + 5 = 0.",
+        "solution": "D = 4 - 20 = -16. x = (-2 +/- 4i)/2 = -1 +/- 2i."
+      },
+      {
+        "problem": "Form the quadratic whose roots are 3 + i and 3 - i.",
+        "solution": "Sum 6, product 9 + 1 = 10: x^2 - 6x + 10 = 0."
+      }
+    ],
+    "commonMistakes": [
+      "Stopping at 'no real roots' when complex roots are asked.",
+      "Writing sqrt(-16) = -4.",
+      "Forgetting the roots must be conjugates when coefficients are real."
+    ],
+    "revision": {
+      "concept": "Negative discriminant gives conjugate complex roots.",
+      "formula": "x = [-b +/- i sqrt(4ac - b^2)]/2a",
+      "commonMistake": "sqrt(-16) is 4i, not -4.",
+      "miniQuestion": {
+        "question": "Roots of x^2 + 4 = 0?",
+        "answer": "2i and -2i"
+      }
+    }
+  },
+  {
+    "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory",
+    "slug": "discovery-and-cell-theory",
+    "chapterId": "9-biology-the-fundamental-unit-of-life",
+    "subjectId": "biology",
+    "category": null,
+    "classLevel": 9,
+    "name": "Discovery of the Cell and Cell Theory",
+    "order": 1,
+    "hasContent": true,
+    "concept": "Robert Hooke saw cork cells in 1665 and named them; Leeuwenhoek saw living cells; Robert Brown found the nucleus in 1831. Schleiden and Schwann proposed that all plants and animals are made of cells, and Virchow added that cells arise from pre-existing cells. Organisms can be unicellular or multicellular, and cells vary in size, shape and number.",
+    "keyPoints": [
+      "Hooke: named cells (cork). Leeuwenhoek: first living cells. Brown: nucleus. Purkinje: protoplasm.",
+      "Cell theory: all organisms are made of cells; the cell is the basic unit; new cells come from existing cells.",
+      "Unicellular: Amoeba, Paramecium, bacteria. Multicellular: fungi, plants, animals.",
+      "Shape suits function: nerve cells are long, red blood cells are disc shaped."
+    ],
+    "formulae": [],
+    "examples": [
+      {
+        "problem": "Who discovered the nucleus, and in which cells?",
+        "solution": "Robert Brown, in orchid cells, in 1831."
+      },
+      {
+        "problem": "Why do we say cells are the fundamental unit of life?",
+        "solution": "Every organism is built from cells, all life processes happen inside cells, and each cell can carry out the basic functions of life."
+      }
+    ],
+    "commonMistakes": [
+      "Crediting Hooke with seeing living cells (he saw dead cork cell walls).",
+      "Forgetting Virchow's part of the cell theory."
+    ],
+    "revision": {
+      "concept": "Cells were discovered with the microscope; cell theory has three parts.",
+      "formula": "",
+      "commonMistake": "Hooke saw cork, not living cells.",
+      "miniQuestion": {
+        "question": "Who said 'omnis cellula e cellula'?",
+        "answer": "Rudolf Virchow"
+      }
+    }
+  },
+  {
+    "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport",
+    "slug": "plasma-membrane-and-transport",
+    "chapterId": "9-biology-the-fundamental-unit-of-life",
+    "subjectId": "biology",
+    "category": null,
+    "classLevel": 9,
+    "name": "Plasma Membrane, Diffusion and Osmosis",
+    "order": 2,
+    "hasContent": true,
+    "concept": "The plasma membrane is a selectively permeable boundary that lets some substances pass and stops others. Gases such as oxygen and carbon dioxide move by diffusion from higher to lower concentration. Water moves by osmosis across the membrane from a region of higher water concentration to lower. Cells in hypotonic, isotonic and hypertonic solutions gain, keep or lose water.",
+    "keyPoints": [
+      "Diffusion: spontaneous movement of a substance from high to low concentration.",
+      "Osmosis: diffusion of water through a selectively permeable membrane.",
+      "Hypotonic: cell gains water and swells; isotonic: no net change; hypertonic: cell shrinks.",
+      "Plasmolysis: shrinking of the cell contents away from the wall in a hypertonic solution.",
+      "The membrane is flexible, allowing endocytosis in Amoeba."
+    ],
+    "formulae": [],
+    "examples": [
+      {
+        "problem": "Dried raisins swell in water. Why?",
+        "solution": "Water is more concentrated outside, so it enters by osmosis (hypotonic surroundings)."
+      },
+      {
+        "problem": "A peeled potato cup with sugar inside fills with water. Explain.",
+        "solution": "The potato cells act as a semipermeable membrane; water moves from the trough into the sugar solution by osmosis."
+      }
+    ],
+    "commonMistakes": [
+      "Saying sugar moves by osmosis (only water does).",
+      "Reversing the direction of water movement.",
+      "Thinking the membrane blocks everything."
+    ],
+    "revision": {
+      "concept": "Diffusion for gases, osmosis for water, across a selectively permeable membrane.",
+      "formula": "",
+      "commonMistake": "Direction of osmosis.",
+      "miniQuestion": {
+        "question": "A cell in a hypertonic solution will",
+        "answer": "lose water and shrink"
+      }
+    }
+  },
+  {
+    "id": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+    "slug": "cell-organelles",
+    "chapterId": "9-biology-the-fundamental-unit-of-life",
+    "subjectId": "biology",
+    "category": null,
+    "classLevel": 9,
+    "name": "Nucleus and Cell Organelles",
+    "order": 3,
+    "hasContent": true,
+    "concept": "The nucleus holds chromosomes and directs the cell. The cytoplasm contains organelles: endoplasmic reticulum for transport and synthesis, Golgi apparatus for packaging, lysosomes for digestion, mitochondria for energy, plastids for photosynthesis and storage, and vacuoles for storage and support. Plant cells add a rigid cellulose cell wall.",
+    "keyPoints": [
+      "Nucleus: double membrane with pores, contains DNA in chromosomes; prokaryotes lack a nuclear membrane.",
+      "Rough ER (ribosomes) makes proteins; smooth ER makes lipids and detoxifies.",
+      "Golgi apparatus packages and dispatches materials.",
+      "Lysosomes are suicide bags full of digestive enzymes.",
+      "Mitochondria are the powerhouse, making ATP; they have their own DNA.",
+      "Chloroplasts contain chlorophyll; leucoplasts store starch, oil, protein.",
+      "Plant vacuoles are large and give turgidity."
+    ],
+    "formulae": [],
+    "examples": [
+      {
+        "problem": "Which organelle would be abundant in a cell that secretes enzymes?",
+        "solution": "Rough endoplasmic reticulum and Golgi apparatus, for making and packaging proteins."
+      },
+      {
+        "problem": "Why are lysosomes called suicide bags?",
+        "solution": "If a cell is damaged, lysosomes may burst and their enzymes digest the cell itself."
+      }
+    ],
+    "commonMistakes": [
+      "Confusing chloroplast (photosynthesis) with chromoplast (colour).",
+      "Saying animal cells have chloroplasts.",
+      "Mixing up the roles of ER and Golgi."
+    ],
+    "revision": {
+      "concept": "Each organelle has one main job; plant cells add wall, plastids and a big vacuole.",
+      "formula": "",
+      "commonMistake": "Chloroplast vs chromoplast.",
+      "miniQuestion": {
+        "question": "Which organelle makes ATP?",
+        "answer": "Mitochondrion"
+      }
+    }
+  },
+  {
+    "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+    "slug": "prokaryotic-and-eukaryotic-cells",
+    "chapterId": "11-biology-cell-the-unit-of-life",
+    "subjectId": "biology",
+    "category": "botany",
+    "classLevel": 11,
+    "name": "Prokaryotic and Eukaryotic Cells",
+    "order": 1,
+    "hasContent": true,
+    "concept": "Prokaryotic cells (bacteria, blue-green algae, mycoplasma) are small, have a cell wall, a naked circular DNA in a nucleoid, plasmids, 70S ribosomes and no membrane-bound organelles. Eukaryotic cells have a true nucleus with a membrane, many membrane-bound organelles, 80S ribosomes and a cytoskeleton. Bacteria are Gram positive or Gram negative by their wall structure.",
+    "keyPoints": [
+      "Prokaryotes: no nuclear membrane, nucleoid, plasmids, 70S ribosomes, mesosomes.",
+      "Eukaryotes: nuclear membrane, organelles, 80S ribosomes, cytoskeleton.",
+      "Bacterial cell envelope: glycocalyx, cell wall, plasma membrane.",
+      "Flagella in bacteria: filament, hook, basal body.",
+      "Mycoplasma is the smallest cell; it has no cell wall."
+    ],
+    "formulae": [],
+    "examples": [
+      {
+        "problem": "Why are mitochondrial ribosomes similar to bacterial ones?",
+        "solution": "Both are 70S, supporting the idea that mitochondria evolved from engulfed bacteria."
+      },
+      {
+        "problem": "What extra DNA do bacteria often carry?",
+        "solution": "Plasmids: small circular DNA that can carry antibiotic resistance."
+      }
+    ],
+    "commonMistakes": [
+      "Saying prokaryotes have no ribosomes.",
+      "Thinking all prokaryotes lack a cell wall (only mycoplasma lacks one)."
+    ],
+    "revision": {
+      "concept": "Prokaryotes lack a true nucleus and organelles; eukaryotes have both.",
+      "formula": "",
+      "commonMistake": "Ribosome sizes: 70S prokaryote, 80S eukaryote.",
+      "miniQuestion": {
+        "question": "Smallest living cell?",
+        "answer": "Mycoplasma"
+      }
+    }
+  },
+  {
+    "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+    "slug": "cell-membrane-and-wall",
+    "chapterId": "11-biology-cell-the-unit-of-life",
+    "subjectId": "biology",
+    "category": "botany",
+    "classLevel": 11,
+    "name": "Cell Membrane, Cell Wall and the Endomembrane System",
+    "order": 2,
+    "hasContent": true,
+    "concept": "The fluid mosaic model describes the membrane as a phospholipid bilayer with proteins floating in it; it is selectively permeable and its fluidity allows growth, endocytosis and cell division. The plant cell wall of cellulose, hemicellulose and pectin gives shape and protection, with plasmodesmata connecting neighbours. The endomembrane system (ER, Golgi, lysosomes, vacuoles) works as a unit for synthesis, modification, packaging and digestion.",
+    "keyPoints": [
+      "Membrane: lipid bilayer with integral and peripheral proteins; about 52% protein, 40% lipid in RBC membranes.",
+      "Passive transport: diffusion and osmosis; active transport uses ATP against the gradient.",
+      "Cell wall: primary wall grows, secondary wall forms inside; middle lamella of calcium pectate glues cells.",
+      "ER: rough (ribosomes, proteins) and smooth (lipids, steroids).",
+      "Golgi: cis face receives, trans face ships; forms glycoproteins and glycolipids.",
+      "Lysosomes: hydrolytic enzymes; vacuoles: tonoplast-bound storage."
+    ],
+    "formulae": [],
+    "examples": [
+      {
+        "problem": "Why are mitochondria not part of the endomembrane system?",
+        "solution": "Their functions are not coordinated with the ER-Golgi-lysosome pathway; they have separate origins and roles."
+      },
+      {
+        "problem": "Which side of the Golgi receives vesicles from the ER?",
+        "solution": "The cis (forming) face; products leave from the trans (maturing) face."
+      }
+    ],
+    "commonMistakes": [
+      "Placing mitochondria or chloroplasts in the endomembrane system.",
+      "Saying the middle lamella is made of cellulose (it is calcium pectate).",
+      "Thinking active transport is downhill."
+    ],
+    "revision": {
+      "concept": "Fluid mosaic membrane; cellulose wall; ER, Golgi, lysosomes and vacuoles work as one system.",
+      "formula": "",
+      "commonMistake": "Mitochondria are not endomembrane organelles.",
+      "miniQuestion": {
+        "question": "What connects adjacent plant cells through their walls?",
+        "answer": "Plasmodesmata"
+      }
+    }
+  },
+  {
+    "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+    "slug": "nucleus-and-chromosomes",
+    "chapterId": "11-biology-cell-the-unit-of-life",
+    "subjectId": "biology",
+    "category": "botany",
+    "classLevel": 11,
+    "name": "Nucleus, Chromosomes and Non-membrane Organelles",
+    "order": 3,
+    "hasContent": true,
+    "concept": "The nucleus has a double membrane with nuclear pores, a nucleoplasm, one or more nucleoli that make ribosomal RNA, and chromatin that condenses into chromosomes during division. Each chromosome has a centromere whose position defines metacentric, submetacentric, acrocentric and telocentric types. Ribosomes, the cytoskeleton, cilia, flagella and centrioles are organelles without membranes.",
+    "keyPoints": [
+      "Nuclear envelope: two membranes with pores for RNA and protein traffic.",
+      "Nucleolus: site of ribosomal RNA synthesis.",
+      "Chromatin = DNA + histones; heterochromatin is condensed.",
+      "Centromere position: metacentric (middle), submetacentric (slightly off), acrocentric (near end), telocentric (at end).",
+      "Cilia and flagella have a 9 + 2 microtubule axoneme; centrioles have 9 triplets and no central pair.",
+      "Cytoskeleton: microtubules, microfilaments, intermediate filaments."
+    ],
+    "formulae": [],
+    "examples": [
+      {
+        "problem": "Which chromosome type has arms of equal length?",
+        "solution": "Metacentric, with the centromere in the middle."
+      },
+      {
+        "problem": "How do centrioles and cilia differ in microtubule arrangement?",
+        "solution": "Centrioles: 9 triplets, no central pair. Cilia: 9 doublets plus 2 central singlets."
+      }
+    ],
+    "commonMistakes": [
+      "Confusing centromere (on the chromosome) with centrosome (contains centrioles).",
+      "Saying the nucleolus is membrane-bound.",
+      "Mixing 9 + 2 (cilia) with 9 + 0 triplets (centrioles)."
+    ],
+    "revision": {
+      "concept": "Nucleus with envelope, nucleolus and chromatin; chromosome types by centromere; 9 + 2 versus 9 triplets.",
+      "formula": "",
+      "commonMistake": "Centromere vs centrosome.",
+      "miniQuestion": {
+        "question": "Where is rRNA made?",
+        "answer": "Nucleolus"
+      }
+    }
   }
 ]

@@ -229,11 +229,35 @@
     "slug": "motion",
     "category": null,
     "hasContent": true,
-    "overview": "",
-    "objectives": [],
-    "formulas": [],
-    "keyConcepts": [],
-    "commonMistakes": []
+    "overview": "Motion describes how the position of an object changes with time. This chapter builds the vocabulary of distance, displacement, speed, velocity and acceleration, shows how graphs make motion visible, and derives the three equations that connect them for uniform acceleration.",
+    "objectives": [
+      "Distinguish distance from displacement and speed from velocity.",
+      "Define acceleration and recognise uniform and non-uniform motion.",
+      "Read and draw distance-time and velocity-time graphs.",
+      "Apply the three equations of motion to straight-line problems.",
+      "Describe uniform circular motion as accelerated motion."
+    ],
+    "formulas": [
+      "speed = distance / time",
+      "velocity = displacement / time",
+      "a = (v - u) / t",
+      "v = u + at",
+      "s = ut + (1/2)at^2",
+      "v^2 = u^2 + 2as",
+      "v = 2*pi*r / T (uniform circular motion)"
+    ],
+    "keyConcepts": [
+      "Displacement is a vector; distance is a scalar.",
+      "The slope of a distance-time graph is speed; the slope of a velocity-time graph is acceleration.",
+      "The area under a velocity-time graph is displacement.",
+      "Uniform circular motion has constant speed but changing velocity."
+    ],
+    "commonMistakes": [
+      "Treating distance and displacement as the same quantity.",
+      "Forgetting that a negative acceleration means slowing down only when velocity is positive.",
+      "Using km/h and m/s in the same formula.",
+      "Assuming zero velocity means zero acceleration."
+    ]
   },
   {
     "id": "9-physics-force-and-laws-of-motion",
@@ -407,12 +431,27 @@
     ],
     "slug": "the-fundamental-unit-of-life",
     "category": null,
-    "hasContent": false,
-    "overview": "",
-    "objectives": [],
+    "hasContent": true,
+    "overview": "All living things are made of cells. This chapter traces the discovery of the cell, states the cell theory, explains how the plasma membrane controls what enters and leaves, and tours the organelles that keep a cell alive, contrasting plant and animal cells.",
+    "objectives": [
+      "State the cell theory and name who discovered cells and their nucleus.",
+      "Explain diffusion, osmosis and the role of the plasma membrane.",
+      "Describe the structure and function of the nucleus and major organelles.",
+      "Compare plant and animal cells."
+    ],
     "formulas": [],
-    "keyConcepts": [],
-    "commonMistakes": []
+    "keyConcepts": [
+      "Cells are the structural and functional units of life.",
+      "The plasma membrane is selectively permeable.",
+      "Osmosis is the movement of water across a semipermeable membrane.",
+      "Plant cells have a cell wall, chloroplasts and a large central vacuole."
+    ],
+    "commonMistakes": [
+      "Confusing diffusion (any substance) with osmosis (water only).",
+      "Saying animal cells have a cell wall.",
+      "Calling the nucleus the powerhouse; that is the mitochondrion.",
+      "Mixing up hypotonic and hypertonic solutions."
+    ]
   },
   {
     "id": "9-biology-tissues",
@@ -522,11 +561,30 @@
     "slug": "quadratic-equations",
     "category": null,
     "hasContent": true,
-    "overview": "",
-    "objectives": [],
-    "formulas": [],
-    "keyConcepts": [],
-    "commonMistakes": []
+    "overview": "A quadratic equation has the form ax^2 + bx + c = 0 with a not zero. This chapter shows how to recognise one, solve it by factorisation, completing the square and the quadratic formula, decide how many real roots it has from the discriminant, and use it to model word problems.",
+    "objectives": [
+      "Write equations in standard form and identify a, b, c.",
+      "Solve by splitting the middle term and by the quadratic formula.",
+      "Use the discriminant to predict the nature of roots.",
+      "Translate word problems into quadratic equations and reject inadmissible roots."
+    ],
+    "formulas": [
+      "ax^2 + bx + c = 0, a != 0",
+      "x = [-b +/- sqrt(b^2 - 4ac)] / 2a",
+      "D = b^2 - 4ac",
+      "Sum of roots = -b/a, product of roots = c/a"
+    ],
+    "keyConcepts": [
+      "Factorisation works when the middle term splits nicely.",
+      "D > 0: two distinct real roots; D = 0: two equal roots; D < 0: no real roots.",
+      "Word problems often produce a root that does not make sense (negative length, fractional people); reject it."
+    ],
+    "commonMistakes": [
+      "Forgetting a != 0.",
+      "Sign errors when splitting the middle term.",
+      "Writing D = b^2 + 4ac.",
+      "Keeping an inadmissible root in a word problem."
+    ]
   },
   {
     "id": "10-mathematics-arithmetic-progressions",
@@ -812,11 +870,33 @@
     "slug": "chemical-reactions-and-equations",
     "category": null,
     "hasContent": true,
-    "overview": "",
-    "objectives": [],
-    "formulas": [],
-    "keyConcepts": [],
-    "commonMistakes": []
+    "overview": "A chemical reaction rearranges atoms into new substances. This chapter shows how to write and balance chemical equations, classifies reactions as combination, decomposition, displacement, double displacement and redox, and explains everyday effects such as corrosion and rancidity.",
+    "objectives": [
+      "Recognise the signs of a chemical reaction.",
+      "Write balanced chemical equations with states and conditions.",
+      "Classify reactions by type.",
+      "Identify oxidation and reduction in a reaction.",
+      "Explain corrosion and rancidity and how they are prevented."
+    ],
+    "formulas": [
+      "2H2 + O2 -> 2H2O",
+      "CaCO3 -> CaO + CO2 (heat)",
+      "Fe + CuSO4 -> FeSO4 + Cu",
+      "AgNO3 + NaCl -> AgCl + NaNO3",
+      "Oxidation: gain of O or loss of H; reduction: loss of O or gain of H"
+    ],
+    "keyConcepts": [
+      "Mass is conserved, so equations must balance atom by atom.",
+      "State symbols (s), (l), (g), (aq) make equations complete.",
+      "Displacement follows the reactivity series.",
+      "Oxidation and reduction always happen together (redox)."
+    ],
+    "commonMistakes": [
+      "Changing subscripts to balance instead of coefficients.",
+      "Forgetting that a precipitate forms only when the product is insoluble.",
+      "Calling an exothermic reaction a decomposition.",
+      "Mixing up which species is oxidised and which is reduced."
+    ]
   },
   {
     "id": "10-chemistry-acids-bases-and-salts",
@@ -1046,12 +1126,38 @@
     ],
     "slug": "laws-of-motion",
     "category": null,
-    "hasContent": false,
-    "overview": "",
-    "objectives": [],
-    "formulas": [],
-    "keyConcepts": [],
-    "commonMistakes": []
+    "hasContent": true,
+    "overview": "Newton's laws connect forces with the motion they cause. The first law defines inertia and inertial frames, the second gives F = ma (more precisely F = dp/dt), and the third says forces come in equal and opposite pairs. The chapter then applies these to friction, connected bodies and circular motion.",
+    "objectives": [
+      "State Newton's three laws and identify action-reaction pairs.",
+      "Draw free-body diagrams and resolve forces.",
+      "Use F = ma for single bodies, connected masses and lifts.",
+      "Distinguish static, limiting and kinetic friction.",
+      "Apply centripetal force to circular motion on level and banked roads."
+    ],
+    "formulas": [
+      "F = ma = dp/dt",
+      "p = mv",
+      "Impulse J = F*t = change in momentum",
+      "f_s <= mu_s N",
+      "f_k = mu_k N",
+      "F_c = mv^2 / r",
+      "v_max = sqrt(mu*r*g) on a level road",
+      "tan(theta) = v^2/(rg) for banking without friction"
+    ],
+    "keyConcepts": [
+      "Inertia is resistance to change of motion; mass measures it.",
+      "Net force, not force alone, decides acceleration.",
+      "Action and reaction act on different bodies and never cancel.",
+      "Friction opposes relative motion and adjusts up to a limit.",
+      "Circular motion needs a centripetal force towards the centre."
+    ],
+    "commonMistakes": [
+      "Including reaction forces in the same free-body diagram as the action.",
+      "Using mu_s N for friction even when the body is not about to slip.",
+      "Treating centrifugal force as real in an inertial frame.",
+      "Forgetting that normal force is not always mg."
+    ]
   },
   {
     "id": "11-physics-work-energy-and-power",
@@ -1206,12 +1312,36 @@
     ],
     "slug": "some-basic-concepts-of-chemistry",
     "category": "physical_chemistry",
-    "hasContent": false,
-    "overview": "",
-    "objectives": [],
-    "formulas": [],
-    "keyConcepts": [],
-    "commonMistakes": []
+    "hasContent": true,
+    "overview": "Chemistry counts atoms and molecules with the mole. This chapter covers atomic and molecular masses, the mole and Avogadro's number, percentage composition, empirical and molecular formulas, stoichiometry with a limiting reagent, and ways of expressing the concentration of solutions.",
+    "objectives": [
+      "Calculate molar masses from atomic masses.",
+      "Convert between mass, moles, number of particles and gas volume at STP.",
+      "Find empirical and molecular formulas from percentage composition.",
+      "Solve stoichiometry problems including limiting reagents.",
+      "Express concentration as molarity, molality and mole fraction."
+    ],
+    "formulas": [
+      "n = m / M",
+      "N = n x 6.022 x 10^23",
+      "Volume at STP = n x 22.4 L",
+      "Molarity M = moles of solute / litres of solution",
+      "Molality m = moles of solute / kg of solvent",
+      "Mole fraction x_A = n_A / (n_A + n_B)",
+      "Mass % of element = (mass of element in 1 mol / molar mass) x 100"
+    ],
+    "keyConcepts": [
+      "One mole contains 6.022 x 10^23 particles.",
+      "Molar mass in g/mol equals the relative molecular mass numerically.",
+      "The limiting reagent is the reactant used up first and decides the yield.",
+      "Molarity changes with temperature; molality does not."
+    ],
+    "commonMistakes": [
+      "Using atomic mass instead of molecular mass for molecules like O2.",
+      "Dividing by litres of solvent instead of litres of solution for molarity.",
+      "Picking the limiting reagent by mass instead of by moles.",
+      "Forgetting to convert grams to moles before comparing."
+    ]
   },
   {
     "id": "11-chemistry-structure-of-atom",
@@ -1442,12 +1572,35 @@
     ],
     "slug": "complex-numbers-and-quadratic-equations",
     "category": null,
-    "hasContent": false,
-    "overview": "",
-    "objectives": [],
-    "formulas": [],
-    "keyConcepts": [],
-    "commonMistakes": []
+    "hasContent": true,
+    "overview": "Square roots of negative numbers are handled by introducing i with i^2 = -1. Complex numbers a + ib can be added, multiplied and divided, pictured as points in the Argand plane, and measured by modulus and argument. With them every quadratic equation has two roots, even when the discriminant is negative.",
+    "objectives": [
+      "Simplify powers of i and perform arithmetic with complex numbers.",
+      "Find the conjugate, modulus and multiplicative inverse.",
+      "Plot complex numbers and express them in polar form.",
+      "Solve quadratic equations with negative discriminant."
+    ],
+    "formulas": [
+      "i^2 = -1, i^3 = -i, i^4 = 1",
+      "(a + ib)(c + id) = (ac - bd) + i(ad + bc)",
+      "conj(z) = a - ib",
+      "|z| = sqrt(a^2 + b^2)",
+      "z^-1 = conj(z) / |z|^2",
+      "z = r(cos t + i sin t), r = |z|",
+      "x = [-b +/- i sqrt(4ac - b^2)] / 2a when b^2 < 4ac"
+    ],
+    "keyConcepts": [
+      "Two complex numbers are equal only when both real and imaginary parts match.",
+      "Multiplying by the conjugate makes a denominator real.",
+      "|z1 z2| = |z1| |z2| and conj(z1 z2) = conj(z1) conj(z2).",
+      "Non-real roots of a real quadratic come in conjugate pairs."
+    ],
+    "commonMistakes": [
+      "Writing i^2 = 1.",
+      "Forgetting to change the sign of the imaginary part in the conjugate.",
+      "Taking the modulus as a + b instead of sqrt(a^2 + b^2).",
+      "Leaving i in the denominator."
+    ]
   },
   {
     "id": "11-mathematics-linear-inequalities",
@@ -1708,12 +1861,27 @@
     ],
     "slug": "cell-the-unit-of-life",
     "category": "botany",
-    "hasContent": false,
-    "overview": "",
-    "objectives": [],
+    "hasContent": true,
+    "overview": "This chapter deepens Class 9 cell biology: the fluid mosaic model of the membrane, the difference between prokaryotic and eukaryotic cells, the endomembrane system, mitochondria, plastids, ribosomes, the cytoskeleton, cilia, flagella and centrioles, and the detailed structure of the nucleus and chromosomes.",
+    "objectives": [
+      "Describe the fluid mosaic model and membrane transport.",
+      "Compare prokaryotic and eukaryotic cell structure.",
+      "Explain the endomembrane system as a coordinated set of organelles.",
+      "Describe chromosome types by centromere position."
+    ],
     "formulas": [],
-    "keyConcepts": [],
-    "commonMistakes": []
+    "keyConcepts": [
+      "Membranes are lipid bilayers with embedded proteins (fluid mosaic).",
+      "Prokaryotes lack membrane-bound organelles and have 70S ribosomes.",
+      "The endomembrane system: ER, Golgi, lysosomes, vacuoles.",
+      "Chromosomes are metacentric, submetacentric, acrocentric or telocentric."
+    ],
+    "commonMistakes": [
+      "Calling the mesosome a mitochondrion.",
+      "Saying eukaryotic ribosomes are 70S (they are 80S; mitochondrial ones are 70S).",
+      "Including mitochondria in the endomembrane system.",
+      "Confusing centromere with centrosome."
+    ]
   },
   {
     "id": "11-biology-biomolecules",

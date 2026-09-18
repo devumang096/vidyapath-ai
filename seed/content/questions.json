@@ -2558,5 +2558,5435 @@
       "tolerance": 0.01,
       "explanation": "Given: Mg 24 g, MgO 40 g\nFormula: Mass of reactants = mass of products\nUnits: grams\nSubstitute: 24 + m = 40\nCalculate: m = 16\nVerify: 2Mg + O2 -> 2MgO: 48 g Mg with 32 g O2 gives 80 g MgO, scaled by half matches"
     }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-distance-and-displacement-q1",
+      "topicId": "9-physics-motion-distance-and-displacement",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A body moves 6 m east and then 6 m west. Its displacement is",
+      "options": [
+        "12 m",
+        "6 m",
+        "0 m",
+        "3 m"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-distance-and-displacement-q1",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "It returns to the start, so the change in position is zero. Distance would be 12 m."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-distance-and-displacement-q2",
+      "topicId": "9-physics-motion-distance-and-displacement",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Distance can never be less than the magnitude of displacement.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-distance-and-displacement-q2",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The straight line between two points is the shortest path, so any actual path is at least that long."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-distance-and-displacement-q3",
+      "topicId": "9-physics-motion-distance-and-displacement",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A cyclist rides 30 m north, then 40 m east. The magnitude of her displacement is",
+      "options": [
+        "70 m",
+        "50 m",
+        "10 m",
+        "35 m"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-distance-and-displacement-q3",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The two legs are perpendicular: sqrt(30^2 + 40^2) = 50 m."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-distance-and-displacement-q4",
+      "topicId": "9-physics-motion-distance-and-displacement",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which statement about a car that completes two full laps of a circular track is correct?",
+      "options": [
+        "Distance and displacement are both zero",
+        "Distance is zero, displacement is nonzero",
+        "Distance is nonzero, displacement is zero",
+        "Both equal the circumference"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-distance-and-displacement-q4",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "After whole laps the car is back at the start, so displacement is zero while distance is twice the circumference."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-distance-and-displacement-q5",
+      "topicId": "9-physics-motion-distance-and-displacement",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which of these are vector quantities?",
+      "options": [
+        "Distance",
+        "Displacement",
+        "Speed",
+        "Velocity"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-distance-and-displacement-q5",
+      "correctIndexes": [
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Displacement and velocity carry direction; distance and speed do not."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-distance-and-displacement-q6",
+      "topicId": "9-physics-motion-distance-and-displacement",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A person walks 12 m north, 5 m east, then 12 m south. Find the magnitude of the displacement in metres.",
+      "options": [],
+      "unit": "m",
+      "hints": [
+        "Which legs cancel each other?",
+        "What is left after cancelling?"
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-distance-and-displacement-q6",
+      "correctIndexes": [],
+      "numericAnswer": 5,
+      "tolerance": 0.1,
+      "explanation": "The north and south legs cancel, leaving 5 m east. Displacement magnitude = 5 m."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q1",
+      "topicId": "9-physics-motion-speed-velocity-acceleration",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "numerical",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Convert 54 km/h to m/s.",
+      "options": [],
+      "unit": "m/s",
+      "hints": [
+        "1 km/h equals 5/18 m/s.",
+        "54 x 5 = 270; divide by 18."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q1",
+      "correctIndexes": [],
+      "numericAnswer": 15,
+      "tolerance": 0.1,
+      "explanation": "Multiply by 5/18: 54 x 5/18 = 15 m/s."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q2",
+      "topicId": "9-physics-motion-speed-velocity-acceleration",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The SI unit of acceleration is",
+      "options": [
+        "m/s",
+        "m/s^2",
+        "km/h",
+        "m^2/s"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Acceleration is velocity (m/s) per second, so m/s^2."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q3",
+      "topicId": "9-physics-motion-speed-velocity-acceleration",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "An object moving with constant speed can still be accelerating.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q3",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "If its direction changes, its velocity changes, so it accelerates. Uniform circular motion is the standard example."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q4",
+      "topicId": "9-physics-motion-speed-velocity-acceleration",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A car travels the first 100 m at 10 m/s and the next 100 m at 20 m/s. Its average speed is",
+      "options": [
+        "15 m/s",
+        "13.3 m/s",
+        "12 m/s",
+        "16.7 m/s"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q4",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Total time = 100/10 + 100/20 = 15 s. Average speed = 200/15 = 13.3 m/s, not the mean of the two speeds."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q5",
+      "topicId": "9-physics-motion-speed-velocity-acceleration",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A scooter accelerates from rest to 18 m/s in 6 s. Find the acceleration in m/s^2.",
+      "options": [],
+      "unit": "m/s^2",
+      "hints": [
+        "Initial velocity is zero.",
+        "Divide the change in velocity by the time."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q5",
+      "correctIndexes": [],
+      "numericAnswer": 3,
+      "tolerance": 0.05,
+      "explanation": "a = (18 - 0)/6 = 3 m/s^2."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q6",
+      "topicId": "9-physics-motion-speed-velocity-acceleration",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A ball thrown straight up momentarily stops at the top. At that instant",
+      "options": [
+        "its acceleration is zero",
+        "its velocity and acceleration are both zero",
+        "its velocity is zero but acceleration is 9.8 m/s^2 downward",
+        "its acceleration is upward"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q6",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Gravity keeps acting throughout the flight; only the velocity passes through zero."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q7",
+      "topicId": "9-physics-motion-speed-velocity-acceleration",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which of the following describe uniformly accelerated motion?",
+      "options": [
+        "A freely falling stone",
+        "A car cruising at 60 km/h on a straight road",
+        "A ball rolling down a smooth incline",
+        "A pendulum bob at the end of its swing"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q7",
+      "correctIndexes": [
+        0,
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Free fall and rolling down a smooth incline have constant acceleration. Cruising has zero acceleration; a pendulum's acceleration changes."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q8",
+      "topicId": "9-physics-motion-speed-velocity-acceleration",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A train moving at 90 km/h applies brakes and stops in 25 s. Find the magnitude of the retardation in m/s^2.",
+      "options": [],
+      "unit": "m/s^2",
+      "hints": [
+        "Convert km/h to m/s first.",
+        "a = (v - u)/t with v = 0."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-speed-velocity-acceleration-q8",
+      "correctIndexes": [],
+      "numericAnswer": 1,
+      "tolerance": 0.05,
+      "explanation": "90 km/h = 25 m/s. Retardation = 25/25 = 1 m/s^2."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-graphs-of-motion-q1",
+      "topicId": "9-physics-motion-graphs-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "On a distance-time graph, a horizontal straight line represents",
+      "options": [
+        "uniform speed",
+        "an object at rest",
+        "uniform acceleration",
+        "increasing speed"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-graphs-of-motion-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Distance does not change with time, so the object is stationary."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-graphs-of-motion-q2",
+      "topicId": "9-physics-motion-graphs-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The slope of a velocity-time graph gives",
+      "options": [
+        "distance",
+        "displacement",
+        "acceleration",
+        "speed"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-graphs-of-motion-q2",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Change in velocity divided by change in time is acceleration."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-graphs-of-motion-q3",
+      "topicId": "9-physics-motion-graphs-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The area under a velocity-time graph gives the acceleration.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-graphs-of-motion-q3",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The area gives displacement; the slope gives acceleration."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-graphs-of-motion-q4",
+      "topicId": "9-physics-motion-graphs-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A velocity-time graph is a straight line from 0 m/s at t = 0 to 10 m/s at t = 4 s. Find the displacement in metres.",
+      "options": [],
+      "unit": "m",
+      "hints": [
+        "The region is a triangle.",
+        "Area = half base times height."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-graphs-of-motion-q4",
+      "correctIndexes": [],
+      "numericAnswer": 20,
+      "tolerance": 0.1,
+      "explanation": "Area of the triangle = 0.5 x 4 x 10 = 20 m."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-graphs-of-motion-q5",
+      "topicId": "9-physics-motion-graphs-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A distance-time graph curves upward more and more steeply. The object is",
+      "options": [
+        "slowing down",
+        "at rest",
+        "moving with uniform speed",
+        "speeding up"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-graphs-of-motion-q5",
+      "correctIndexes": [
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "An increasing slope means the distance covered per second is growing, so speed increases."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-graphs-of-motion-q6",
+      "topicId": "9-physics-motion-graphs-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A body moves at 15 m/s for 8 s, then decelerates uniformly to rest in 4 s. Find the total displacement in metres.",
+      "options": [],
+      "unit": "m",
+      "hints": [
+        "Split the graph into a rectangle and a triangle.",
+        "Add the two areas."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-graphs-of-motion-q6",
+      "correctIndexes": [],
+      "numericAnswer": 150,
+      "tolerance": 0.5,
+      "explanation": "Rectangle: 15 x 8 = 120 m. Triangle: 0.5 x 4 x 15 = 30 m. Total 150 m."
+    }
+  },
+  {
+    "question": {
+      "id": "9-physics-motion-graphs-of-motion-q7",
+      "topicId": "9-physics-motion-graphs-of-motion",
+      "chapterId": "9-physics-motion",
+      "subjectId": "physics",
+      "classLevel": 9,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "For a velocity-time graph, which statements are true?",
+      "options": [
+        "A line below the time axis means motion in the negative direction",
+        "A steeper line means greater acceleration",
+        "A horizontal line above the axis means the object is at rest",
+        "The area can be negative"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-physics-motion-graphs-of-motion-q7",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "A horizontal line above the axis means constant nonzero velocity, not rest."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q1",
+      "topicId": "11-physics-laws-of-motion-newtons-laws",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The property of a body to resist any change in its state of motion is called",
+      "options": [
+        "momentum",
+        "inertia",
+        "impulse",
+        "force"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Inertia is measured by mass."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q2",
+      "topicId": "11-physics-laws-of-motion-newtons-laws",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Action and reaction forces cancel each other because they are equal and opposite.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "They act on different bodies, so they never appear in the same free-body diagram and cannot cancel."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q3",
+      "topicId": "11-physics-laws-of-motion-newtons-laws",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A net force of 15 N acts on a 3 kg body. Find its acceleration in m/s^2.",
+      "options": [],
+      "unit": "m/s^2",
+      "hints": [
+        "F = ma.",
+        "Divide force by mass."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q3",
+      "correctIndexes": [],
+      "numericAnswer": 5,
+      "tolerance": 0.05,
+      "explanation": "a = F/m = 15/3 = 5 m/s^2."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q4",
+      "topicId": "11-physics-laws-of-motion-newtons-laws",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A 0.5 kg ball moving at 10 m/s is stopped in 0.2 s. Find the magnitude of the average force in newtons.",
+      "options": [],
+      "unit": "N",
+      "hints": [
+        "Impulse equals change in momentum.",
+        "Divide momentum change by time."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q4",
+      "correctIndexes": [],
+      "numericAnswer": 25,
+      "tolerance": 0.5,
+      "explanation": "Change in momentum = 0.5 x 10 = 5 kg m/s. F = 5/0.2 = 25 N."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q5",
+      "topicId": "11-physics-laws-of-motion-newtons-laws",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A person of mass 70 kg stands on a weighing scale in a lift moving down with uniform velocity. The scale reads",
+      "options": [
+        "more than 70 kg",
+        "less than 70 kg",
+        "70 kg",
+        "zero"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q5",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Uniform velocity means zero acceleration, so the normal force equals the weight."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q6",
+      "topicId": "11-physics-laws-of-motion-newtons-laws",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A 10 kg block is pulled up a frictionless incline of 30 degrees by a force of 100 N along the incline. Its acceleration is about (g = 10 m/s^2)",
+      "options": [
+        "10 m/s^2",
+        "5 m/s^2",
+        "2.5 m/s^2",
+        "0"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Component of weight along the incline = mg sin30 = 50 N. Net = 100 - 50 = 50 N. a = 50/10 = 5 m/s^2."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q7",
+      "topicId": "11-physics-laws-of-motion-newtons-laws",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "For a lift accelerating upward, which are true?",
+      "options": [
+        "Apparent weight is greater than mg",
+        "The normal force equals m(g + a)",
+        "The person's mass increases",
+        "If the cable snaps, apparent weight becomes zero"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q7",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Mass never changes; the normal force does."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q8",
+      "topicId": "11-physics-laws-of-motion-newtons-laws",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Two blocks of 2 kg and 3 kg on a frictionless surface are connected by a string and pulled by 20 N applied to the 3 kg block. Find the tension in the string in newtons.",
+      "options": [],
+      "unit": "N",
+      "hints": [
+        "Find the common acceleration of the whole system first.",
+        "The string alone accelerates the 2 kg block."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-newtons-laws-q8",
+      "correctIndexes": [],
+      "numericAnswer": 8,
+      "tolerance": 0.2,
+      "explanation": "Whole system: a = 20/5 = 4 m/s^2. Tension pulls only the 2 kg block: T = 2 x 4 = 8 N."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-friction-q1",
+      "topicId": "11-physics-laws-of-motion-friction",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Kinetic friction is generally",
+      "options": [
+        "greater than limiting friction",
+        "equal to limiting friction",
+        "less than limiting friction",
+        "zero"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-friction-q1",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Once sliding starts the surfaces interlock less, so mu_k < mu_s."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-friction-q2",
+      "topicId": "11-physics-laws-of-motion-friction",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Friction depends on the area of contact between two surfaces.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-friction-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "To a good approximation it depends only on the normal force and the nature of the surfaces."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-friction-q3",
+      "topicId": "11-physics-laws-of-motion-friction",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A 20 kg block rests on a horizontal floor with mu_s = 0.3. Find the maximum static friction in newtons (g = 10 m/s^2).",
+      "options": [],
+      "unit": "N",
+      "hints": [
+        "N = mg on a level floor.",
+        "Multiply by mu_s."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-friction-q3",
+      "correctIndexes": [],
+      "numericAnswer": 60,
+      "tolerance": 0.5,
+      "explanation": "f_max = mu_s N = 0.3 x 200 = 60 N."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-friction-q4",
+      "topicId": "11-physics-laws-of-motion-friction",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A block on a rough floor is pushed with a force smaller than the limiting friction. The static friction on the block is",
+      "options": [
+        "mu_s N",
+        "equal to the applied force",
+        "mu_k N",
+        "zero"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-friction-q4",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Static friction only supplies what is needed to prevent motion."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-friction-q5",
+      "topicId": "11-physics-laws-of-motion-friction",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A 5 kg block slides on a floor with mu_k = 0.2. Find its retardation in m/s^2 (g = 10 m/s^2).",
+      "options": [],
+      "unit": "m/s^2",
+      "hints": [
+        "Kinetic friction = mu_k N.",
+        "Divide by mass."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-friction-q5",
+      "correctIndexes": [],
+      "numericAnswer": 2,
+      "tolerance": 0.05,
+      "explanation": "f_k = 0.2 x 50 = 10 N; a = 10/5 = 2 m/s^2."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-friction-q6",
+      "topicId": "11-physics-laws-of-motion-friction",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A block just starts sliding on an incline of 45 degrees. Find the coefficient of static friction.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Use the angle of repose relation.",
+        "tan 45 degrees."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-friction-q6",
+      "correctIndexes": [],
+      "numericAnswer": 1,
+      "tolerance": 0.02,
+      "explanation": "At the angle of repose tan(theta) = mu_s, and tan 45 = 1."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-friction-q7",
+      "topicId": "11-physics-laws-of-motion-friction",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which actions increase the maximum static friction between a crate and the floor?",
+      "options": [
+        "Placing a heavy box on the crate",
+        "Polishing the floor",
+        "Roughening the crate base",
+        "Pushing at an angle downward"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-friction-q7",
+      "correctIndexes": [
+        0,
+        2,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Anything that raises N or mu_s raises the limit; polishing lowers mu_s."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q1",
+      "topicId": "11-physics-laws-of-motion-circular-motion-dynamics",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The direction of centripetal force is",
+      "options": [
+        "along the tangent",
+        "away from the centre",
+        "towards the centre",
+        "along the axis of rotation"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q1",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "It must keep pulling the body inward to bend its path."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q2",
+      "topicId": "11-physics-laws-of-motion-circular-motion-dynamics",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A body in uniform circular motion has zero acceleration because its speed is constant.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Its velocity direction changes continuously, so it has centripetal acceleration v^2/r."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q3",
+      "topicId": "11-physics-laws-of-motion-circular-motion-dynamics",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A 0.5 kg stone tied to a 1 m string is whirled at 4 m/s in a horizontal circle. Find the tension in newtons.",
+      "options": [],
+      "unit": "N",
+      "hints": [
+        "Tension supplies the centripetal force.",
+        "Use mv^2/r."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q3",
+      "correctIndexes": [],
+      "numericAnswer": 8,
+      "tolerance": 0.1,
+      "explanation": "T = mv^2/r = 0.5 x 16 / 1 = 8 N."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q4",
+      "topicId": "11-physics-laws-of-motion-circular-motion-dynamics",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "On a level circular road, the centripetal force on a car is provided by",
+      "options": [
+        "the engine thrust",
+        "the normal reaction",
+        "static friction between tyres and road",
+        "the weight of the car"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q4",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Friction is the only horizontal force available on a level road."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q5",
+      "topicId": "11-physics-laws-of-motion-circular-motion-dynamics",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Find the maximum speed in m/s at which a car can safely take a level turn of radius 80 m if mu_s = 0.2 (g = 10 m/s^2).",
+      "options": [],
+      "unit": "m/s",
+      "hints": [
+        "v_max = sqrt(mu r g).",
+        "Compute 0.2 x 80 x 10 first."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q5",
+      "correctIndexes": [],
+      "numericAnswer": 12.65,
+      "tolerance": 0.1,
+      "explanation": "v = sqrt(mu r g) = sqrt(0.2 x 80 x 10) = sqrt(160) = 12.65 m/s."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q6",
+      "topicId": "11-physics-laws-of-motion-circular-motion-dynamics",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A road of radius 100 m is banked for 20 m/s with no friction. Find the banking angle in degrees (g = 10 m/s^2).",
+      "options": [],
+      "unit": "degrees",
+      "hints": [
+        "tan(theta) = v^2/(rg).",
+        "Take the inverse tangent."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q6",
+      "correctIndexes": [],
+      "numericAnswer": 21.8,
+      "tolerance": 0.5,
+      "explanation": "tan(theta) = v^2/(rg) = 400/1000 = 0.4, so theta = arctan(0.4) = 21.8 degrees."
+    }
+  },
+  {
+    "question": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q7",
+      "topicId": "11-physics-laws-of-motion-circular-motion-dynamics",
+      "chapterId": "11-physics-laws-of-motion",
+      "subjectId": "physics",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which statements about a banked curve without friction are correct?",
+      "options": [
+        "The normal force has a horizontal component towards the centre",
+        "Only one speed lets the car take the turn without friction",
+        "The banking angle depends on the car's mass",
+        "tan(theta) = v^2/(rg)"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-physics-laws-of-motion-circular-motion-dynamics-q7",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Mass cancels out of the banking relation."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q1",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "2Mg + O2 -> 2MgO is an example of a",
+      "options": [
+        "decomposition reaction",
+        "combination reaction",
+        "displacement reaction",
+        "double displacement reaction"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Two reactants form a single product."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q2",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The reaction of quicklime with water is endothermic.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "CaO + H2O -> Ca(OH)2 releases a large amount of heat; the vessel becomes hot."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q3",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which reaction is a double displacement reaction?",
+      "options": [
+        "Zn + H2SO4 -> ZnSO4 + H2",
+        "2H2O -> 2H2 + O2",
+        "AgNO3 + NaCl -> AgCl + NaNO3",
+        "C + O2 -> CO2"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q3",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Silver and sodium swap partners and AgCl precipitates."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q4",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "When a more reactive metal is added to a salt solution of a less reactive metal, the less reactive metal is",
+      "options": [
+        "oxidised",
+        "displaced from the solution",
+        "dissolved further",
+        "converted to its oxide"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q4",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The reactive metal takes the anion and the less reactive one is deposited as a solid."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q5",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which of these are decomposition reactions?",
+      "options": [
+        "2FeSO4 -> Fe2O3 + SO2 + SO3",
+        "CaCO3 -> CaO + CO2",
+        "Fe + CuSO4 -> FeSO4 + Cu",
+        "2AgBr -> 2Ag + Br2"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q5",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Each of the three splits one compound; Fe + CuSO4 is displacement."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q6",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Electrolysis of water is classified as",
+      "options": [
+        "thermal decomposition",
+        "photolytic decomposition",
+        "electrolytic decomposition",
+        "combination"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q6",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Electric current provides the energy that splits water into hydrogen and oxygen."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q7",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "conceptual",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A yellow precipitate forms when lead nitrate solution is mixed with potassium iodide solution. The precipitate is",
+      "options": [
+        "KNO3",
+        "PbI2",
+        "Pb",
+        "I2"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q7",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Lead iodide is insoluble and yellow; potassium nitrate stays dissolved."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q8",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-types-of-reactions",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "true_false",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Respiration in our body is an exothermic process.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-types-of-reactions-q8",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Glucose combines with oxygen releasing energy, water and carbon dioxide."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q1",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "In the reaction CuO + H2 -> Cu + H2O, the substance oxidised is",
+      "options": [
+        "CuO",
+        "H2",
+        "Cu",
+        "H2O"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Hydrogen gains oxygen to become water."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q2",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Rusting of iron needs both oxygen and moisture.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q2",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Iron in dry air or in air-free water does not rust."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q3",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Coating iron with a thin layer of zinc to prevent rusting is called",
+      "options": [
+        "alloying",
+        "galvanisation",
+        "anodising",
+        "electroplating with tin"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q3",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Galvanised iron resists rust because zinc corrodes first."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q4",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Fried snacks turn rancid on long storage because",
+      "options": [
+        "their proteins decompose",
+        "their oils are oxidised",
+        "they absorb moisture only",
+        "their salt evaporates"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q4",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Oxygen attacks the fats and oils, producing unpleasant smells and taste."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q5",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which of these reduce rancidity of packaged food?",
+      "options": [
+        "Adding antioxidants",
+        "Flushing the packet with nitrogen",
+        "Storing in sunlight",
+        "Refrigeration"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q5",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Sunlight speeds up oxidation."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q6",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "In ZnO + C -> Zn + CO, the reducing agent is",
+      "options": [
+        "ZnO",
+        "C",
+        "Zn",
+        "CO"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Carbon takes oxygen from zinc oxide, so carbon is oxidised and acts as the reducing agent."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q7",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "conceptual",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Silver articles turn black on exposure to air because silver reacts with",
+      "options": [
+        "oxygen forming Ag2O",
+        "sulphur compounds forming Ag2S",
+        "carbon dioxide forming Ag2CO3",
+        "nitrogen forming AgN3"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q7",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Traces of hydrogen sulphide in air form a black silver sulphide layer."
+    }
+  },
+  {
+    "question": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q8",
+      "topicId": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction",
+      "chapterId": "10-chemistry-chemical-reactions-and-equations",
+      "subjectId": "chemistry",
+      "classLevel": 10,
+      "type": "true_false",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "In a redox reaction, the oxidising agent is itself oxidised.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-chemistry-chemical-reactions-and-equations-oxidation-and-reduction-q8",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The oxidising agent supplies oxygen or takes hydrogen and is therefore reduced."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q1",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Calculate the molar mass of CO2 in g/mol (C = 12, O = 16).",
+      "options": [],
+      "unit": "g/mol",
+      "hints": [
+        "Add one carbon and two oxygens.",
+        "12 + 32."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q1",
+      "correctIndexes": [],
+      "numericAnswer": 44,
+      "tolerance": 0.1,
+      "explanation": "12 + 2 x 16 = 44 g/mol."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q2",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Avogadro's number is approximately",
+      "options": [
+        "6.022 x 10^22",
+        "6.022 x 10^23",
+        "6.022 x 10^24",
+        "3.011 x 10^23"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "One mole contains 6.022 x 10^23 particles."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q3",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "How many moles are there in 20 g of calcium carbonate CaCO3 (Ca = 40, C = 12, O = 16)?",
+      "options": [],
+      "unit": "mol",
+      "hints": [
+        "Find the molar mass first.",
+        "Divide 20 by the molar mass."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q3",
+      "correctIndexes": [],
+      "numericAnswer": 0.2,
+      "tolerance": 0.005,
+      "explanation": "M = 40 + 12 + 48 = 100 g/mol. n = 20/100 = 0.2 mol."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q4",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "What volume in litres does 0.5 mol of any ideal gas occupy at STP?",
+      "options": [],
+      "unit": "L",
+      "hints": [
+        "Molar volume at STP is 22.4 L.",
+        "Multiply by moles."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q4",
+      "correctIndexes": [],
+      "numericAnswer": 11.2,
+      "tolerance": 0.1,
+      "explanation": "0.5 x 22.4 = 11.2 L."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q5",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "One mole of oxygen gas has a mass of 16 g.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q5",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Oxygen gas is O2, so one mole has a mass of 32 g."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q6",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which sample contains the greatest number of molecules?",
+      "options": [
+        "1 g of H2",
+        "1 g of O2",
+        "1 g of CO2",
+        "1 g of N2"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q6",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The smallest molar mass gives the most moles for the same mass: 1/2 mol of H2 versus 1/32, 1/44 and 1/28 mol."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q7",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "How many atoms are present in 0.25 mol of ammonia, NH3? Give your answer as a multiple of 10^23.",
+      "options": [],
+      "unit": "x 10^23 atoms",
+      "hints": [
+        "Count atoms per molecule.",
+        "Multiply moles by atoms per molecule and Avogadro's number."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q7",
+      "correctIndexes": [],
+      "numericAnswer": 6.022,
+      "tolerance": 0.05,
+      "explanation": "Each NH3 has 4 atoms. Atoms = 0.25 x 4 x 6.022 x 10^23 = 6.022 x 10^23."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q8",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which quantities contain exactly one mole of the substance? (H = 1, C = 12, O = 16, Na = 23, Cl = 35.5)",
+      "options": [
+        "22.4 L of N2 at STP",
+        "18 g of water",
+        "58.5 g of NaCl",
+        "12 g of CO2"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-mole-concept-q8",
+      "correctIndexes": [
+        0,
+        1,
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "12 g of CO2 is only 12/44 mol."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q1",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "In 2H2 + O2 -> 2H2O, how many moles of water form from 4 mol of hydrogen with excess oxygen?",
+      "options": [],
+      "unit": "mol",
+      "hints": [
+        "Read the coefficient ratio.",
+        "H2 and H2O are 1 : 1 here."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q1",
+      "correctIndexes": [],
+      "numericAnswer": 4,
+      "tolerance": 0.05,
+      "explanation": "The ratio H2 : H2O is 2 : 2, so 4 mol H2 gives 4 mol H2O."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q2",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The empirical formula of glucose, C6H12O6, is",
+      "options": [
+        "C6H12O6",
+        "C3H6O3",
+        "CH2O",
+        "C2H4O2"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q2",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Divide all subscripts by 6."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q3",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Calculate the mass percentage of oxygen in water (H = 1, O = 16).",
+      "options": [],
+      "unit": "%",
+      "hints": [
+        "Molar mass of water is 18.",
+        "Oxygen contributes 16 of it."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q3",
+      "correctIndexes": [],
+      "numericAnswer": 88.9,
+      "tolerance": 0.3,
+      "explanation": "16/18 x 100 = 88.9%."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q4",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The limiting reagent is always the reactant present in the smaller mass.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q4",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "It is the reactant that gives the fewest moles of product after accounting for the coefficients."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q5",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "How many grams of CO2 form when 6 g of carbon burns completely in excess oxygen (C = 12, O = 16)?",
+      "options": [],
+      "unit": "g",
+      "hints": [
+        "Convert carbon to moles.",
+        "One mole of C gives one mole of CO2."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q5",
+      "correctIndexes": [],
+      "numericAnswer": 22,
+      "tolerance": 0.2,
+      "explanation": "C + O2 -> CO2. n(C) = 0.5 mol gives 0.5 mol CO2 = 0.5 x 44 = 22 g."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q6",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "In N2 + 3H2 -> 2NH3, 1 mol of N2 is mixed with 1 mol of H2. The limiting reagent is",
+      "options": [
+        "N2",
+        "H2",
+        "NH3",
+        "neither, they are in exact ratio"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "1 mol N2 would need 3 mol H2 but only 1 is present."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q7",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A compound contains 80% carbon and 20% hydrogen by mass. Its molar mass is 30 g/mol. How many hydrogen atoms are in its molecular formula?",
+      "options": [],
+      "unit": "atoms",
+      "hints": [
+        "Find the empirical formula from mole ratios.",
+        "Scale it by molar mass / empirical mass."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q7",
+      "correctIndexes": [],
+      "numericAnswer": 6,
+      "tolerance": 0,
+      "explanation": "Moles per 100 g: C 6.67, H 20, ratio 1 : 3, empirical CH3 (15). n = 30/15 = 2, so C2H6 with 6 hydrogen atoms."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q8",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "For 2Al + 3Cl2 -> 2AlCl3 with 4 mol Al and 4 mol Cl2, which statements are true?",
+      "options": [
+        "Cl2 is the limiting reagent",
+        "2.67 mol of AlCl3 forms",
+        "1.33 mol of Al is left over",
+        "Al is the limiting reagent"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-stoichiometry-q8",
+      "correctIndexes": [
+        0,
+        1,
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Al needs 6 mol Cl2 but only 4 is present; 4 mol Cl2 makes 8/3 mol AlCl3 using 8/3 mol Al."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q1",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "5.85 g of NaCl is dissolved to make 1 L of solution. Find the molarity (NaCl = 58.5 g/mol).",
+      "options": [],
+      "unit": "M",
+      "hints": [
+        "Convert grams to moles.",
+        "Divide by litres of solution."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q1",
+      "correctIndexes": [],
+      "numericAnswer": 0.1,
+      "tolerance": 0.005,
+      "explanation": "n = 5.85/58.5 = 0.1 mol in 1 L, so 0.1 M."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q2",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Molality is defined as moles of solute per",
+      "options": [
+        "litre of solution",
+        "litre of solvent",
+        "kilogram of solvent",
+        "kilogram of solution"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q2",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Molality uses the mass of the solvent only."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q3",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Molarity of a solution changes when its temperature changes.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q3",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Volume changes with temperature while the number of moles stays the same."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q4",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Find the molarity when 0.2 mol of glucose is dissolved in 400 mL of solution.",
+      "options": [],
+      "unit": "M",
+      "hints": [
+        "Convert 400 mL to litres.",
+        "Divide moles by litres."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q4",
+      "correctIndexes": [],
+      "numericAnswer": 0.5,
+      "tolerance": 0.01,
+      "explanation": "M = 0.2/0.4 = 0.5 M."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q5",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which concentration unit is independent of temperature?",
+      "options": [
+        "Molarity",
+        "Normality",
+        "Molality",
+        "Grams per litre"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q5",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Molality uses masses only, which do not change with temperature."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q6",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Calculate the mole fraction of NaOH in a solution containing 8 g of NaOH (M = 40) in 90 g of water (M = 18).",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Convert both to moles.",
+        "Divide NaOH moles by the total."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q6",
+      "correctIndexes": [],
+      "numericAnswer": 0.0385,
+      "tolerance": 0.002,
+      "explanation": "n(NaOH) = 0.2, n(water) = 5. x = 0.2/5.2 = 0.0385."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q7",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "To what final volume in mL must 50 mL of 3 M H2SO4 be diluted to obtain 0.6 M solution?",
+      "options": [],
+      "unit": "mL",
+      "hints": [
+        "Use M1V1 = M2V2.",
+        "Solve for V2."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q7",
+      "correctIndexes": [],
+      "numericAnswer": 250,
+      "tolerance": 1,
+      "explanation": "M1V1 = M2V2: 3 x 50 = 0.6 x V2, V2 = 250 mL."
+    }
+  },
+  {
+    "question": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q8",
+      "topicId": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions",
+      "chapterId": "11-chemistry-some-basic-concepts-of-chemistry",
+      "subjectId": "chemistry",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A solution is made by dissolving 10 g of NaOH in 90 g of water (density of solution about 1 g/mL). Which are correct? (NaOH = 40)",
+      "options": [
+        "Mass percent of NaOH is 10%",
+        "Molality is about 2.78 m",
+        "Molarity is about 2.5 M",
+        "Mole fraction of water is about 0.95"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-chemistry-some-basic-concepts-of-chemistry-concentration-of-solutions-q8",
+      "correctIndexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "n = 0.25 mol; molality = 0.25/0.09 = 2.78; volume about 100 mL gives 2.5 M; x(water) = 5/5.25 = 0.95."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q1",
+      "topicId": "10-mathematics-quadratic-equations-word-problems",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "type": "numerical",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "The product of two consecutive positive integers is 72. Find the smaller integer.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Let the integers be x and x + 1.",
+        "Factorise x^2 + x - 72."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q1",
+      "correctIndexes": [],
+      "numericAnswer": 8,
+      "tolerance": 0,
+      "explanation": "x(x + 1) = 72 -> x^2 + x - 72 = 0 -> (x + 9)(x - 8) = 0, so x = 8."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q2",
+      "topicId": "10-mathematics-quadratic-equations-word-problems",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "A rectangular field has breadth b and length b + 3. If its area is 40 m^2, the equation for b is",
+      "options": [
+        "b^2 + 3b + 40 = 0",
+        "b^2 + 3b - 40 = 0",
+        "b^2 - 3b - 40 = 0",
+        "3b^2 - 40 = 0"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "b(b + 3) = 40 gives b^2 + 3b - 40 = 0."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q3",
+      "topicId": "10-mathematics-quadratic-equations-word-problems",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "The sum of the squares of two consecutive natural numbers is 85. Find the larger number.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Write x^2 + (x + 1)^2 = 85.",
+        "Simplify and factorise."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q3",
+      "correctIndexes": [],
+      "numericAnswer": 7,
+      "tolerance": 0,
+      "explanation": "x^2 + (x + 1)^2 = 85 -> 2x^2 + 2x - 84 = 0 -> x^2 + x - 42 = 0 -> x = 6, so the larger is 7."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q4",
+      "topicId": "10-mathematics-quadratic-equations-word-problems",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "When a quadratic word problem about the length of a side gives roots 5 and -8, the correct answer is",
+      "options": [
+        "5",
+        "-8",
+        "both 5 and -8",
+        "neither, the problem is wrong"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q4",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "A length cannot be negative, so -8 is rejected."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q5",
+      "topicId": "10-mathematics-quadratic-equations-word-problems",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "type": "true_false",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Every quadratic word problem has exactly two valid answers.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q5",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Usually one root is inadmissible; sometimes both are valid, sometimes neither."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q6",
+      "topicId": "10-mathematics-quadratic-equations-word-problems",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "A train travels 300 km at a uniform speed. If the speed had been 5 km/h more, the journey would have taken 2 hours less. Find the original speed in km/h.",
+      "options": [],
+      "unit": "km/h",
+      "hints": [
+        "time = distance / speed for both cases.",
+        "The difference of the two times is 2 hours."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q6",
+      "correctIndexes": [],
+      "numericAnswer": 25,
+      "tolerance": 0,
+      "explanation": "300/x - 300/(x + 5) = 2 -> 1500 = 2x(x + 5) -> x^2 + 5x - 750 = 0 -> (x + 30)(x - 25) = 0 -> x = 25."
+    }
+  },
+  {
+    "question": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q7",
+      "topicId": "10-mathematics-quadratic-equations-word-problems",
+      "chapterId": "10-mathematics-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 10,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "A right triangle has hypotenuse 13 cm and one leg 7 cm longer than the other. Which statements are true?",
+      "options": [
+        "The shorter leg satisfies x^2 + (x + 7)^2 = 169",
+        "The equation simplifies to x^2 + 7x - 60 = 0",
+        "The legs are 5 cm and 12 cm",
+        "The legs are 6 cm and 13 cm"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "10-mathematics-quadratic-equations-word-problems-q7",
+      "correctIndexes": [
+        0,
+        1,
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "x^2 + 7x - 60 = (x + 12)(x - 5), so x = 5 and the legs are 5 and 12."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q1",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "The value of i^2 is",
+      "options": [
+        "1",
+        "-1",
+        "i",
+        "-i"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "By definition i^2 = -1."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q2",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the real part of (4 + 3i) - (1 - 2i).",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Subtract real parts separately."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q2",
+      "correctIndexes": [],
+      "numericAnswer": 3,
+      "tolerance": 0,
+      "explanation": "Real parts: 4 - 1 = 3 (the imaginary part is 5)."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q3",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "i^50 equals",
+      "options": [
+        "i",
+        "-i",
+        "1",
+        "-1"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q3",
+      "correctIndexes": [
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "50 = 4 x 12 + 2, so i^50 = i^2 = -1."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q4",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the imaginary part of (2 + i)(3 - 2i).",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Expand like binomials.",
+        "Replace i^2 with -1."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q4",
+      "correctIndexes": [],
+      "numericAnswer": -1,
+      "tolerance": 0,
+      "explanation": "6 - 4i + 3i - 2i^2 = 6 - i + 2 = 8 - i, imaginary part -1."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q5",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "The conjugate of 5 - 7i is -5 + 7i.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q5",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Only the sign of the imaginary part changes: 5 + 7i."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q6",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "If (x + 2) + i(y - 3) = 5 + 4i, then",
+      "options": [
+        "x = 5, y = 4",
+        "x = 3, y = 7",
+        "x = 7, y = 1",
+        "x = 2, y = 3"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Equate real parts: x + 2 = 5; imaginary parts: y - 3 = 4."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q7",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Express (1 + 2i)/(3 - i) in the form a + ib and give the value of 10a + 10b.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Multiply top and bottom by the conjugate 3 + i.",
+        "Simplify and read off a and b."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q7",
+      "correctIndexes": [],
+      "numericAnswer": 8,
+      "tolerance": 0,
+      "explanation": "(1 + 2i)(3 + i)/(9 + 1) = (3 + i + 6i + 2i^2)/10 = (1 + 7i)/10, so a = 0.1, b = 0.7 and 10a + 10b = 8."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q8",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Which of the following are true for all complex z1, z2?",
+      "options": [
+        "conj(z1 + z2) = conj(z1) + conj(z2)",
+        "|z1 + z2| = |z1| + |z2|",
+        "conj(z1 z2) = conj(z1) conj(z2)",
+        "z conj(z) = |z|^2"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-algebra-of-complex-numbers-q8",
+      "correctIndexes": [
+        0,
+        2,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The modulus of a sum is at most the sum of moduli, not always equal."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q1",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the modulus of 6 + 8i.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Use sqrt(a^2 + b^2)."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q1",
+      "correctIndexes": [],
+      "numericAnswer": 10,
+      "tolerance": 0,
+      "explanation": "sqrt(36 + 64) = 10."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q2",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "In the Argand plane the complex number -2 + 3i lies in the",
+      "options": [
+        "first quadrant",
+        "second quadrant",
+        "third quadrant",
+        "fourth quadrant"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Negative real part, positive imaginary part: second quadrant."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q3",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the principal argument of 1 + sqrt(3) i in degrees.",
+      "options": [],
+      "unit": "degrees",
+      "hints": [
+        "Both parts positive: first quadrant.",
+        "tan t = sqrt(3)/1."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q3",
+      "correctIndexes": [],
+      "numericAnswer": 60,
+      "tolerance": 0.5,
+      "explanation": "First quadrant, tan t = sqrt(3), so t = 60 degrees."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q4",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "The conjugate of a complex number has the same modulus as the number.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q4",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Reflecting in the real axis does not change the distance from the origin."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q5",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "If |z| = 1, then 1/z equals",
+      "options": [
+        "z",
+        "conj(z)",
+        "-z",
+        "1"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q5",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "1/z = conj(z)/|z|^2 = conj(z)."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q6",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the principal argument of -1 + i in degrees.",
+      "options": [],
+      "unit": "degrees",
+      "hints": [
+        "Locate the quadrant from the signs.",
+        "Subtract the reference angle from 180."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q6",
+      "correctIndexes": [],
+      "numericAnswer": 135,
+      "tolerance": 0.5,
+      "explanation": "Second quadrant with |b/a| = 1: 180 - 45 = 135 degrees."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q7",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "If z1 = 2 + 2i and z2 = 1 - i, find |z1 / z2|.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Moduli divide.",
+        "|2 + 2i| = sqrt(8)."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q7",
+      "correctIndexes": [],
+      "numericAnswer": 2,
+      "tolerance": 0.01,
+      "explanation": "|z1| = 2 sqrt(2), |z2| = sqrt(2), ratio = 2."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q8",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Which statements about z = sqrt(3) + i are correct?",
+      "options": [
+        "|z| = 2",
+        "arg z = 30 degrees",
+        "z^2 has modulus 4",
+        "conj(z) = -sqrt(3) + i"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-modulus-and-argand-plane-q8",
+      "correctIndexes": [
+        0,
+        1,
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The conjugate is sqrt(3) - i; the other three follow from r = 2 and t = 30 degrees."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q1",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "The roots of x^2 + 9 = 0 are",
+      "options": [
+        "3 and -3",
+        "3i and -3i",
+        "9i and -9i",
+        "no roots at all"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "x^2 = -9, so x = +/- 3i."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q2",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "A quadratic equation with real coefficients can have exactly one non-real root.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Non-real roots of real quadratics come in conjugate pairs."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q3",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Find the discriminant of x^2 + 2x + 10 = 0.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "D = b^2 - 4ac."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q3",
+      "correctIndexes": [],
+      "numericAnswer": -36,
+      "tolerance": 0,
+      "explanation": "D = 4 - 40 = -36."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q4",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "If one root of a real quadratic is 2 - 5i, the other root is",
+      "options": [
+        "-2 + 5i",
+        "2 + 5i",
+        "-2 - 5i",
+        "5 - 2i"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q4",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Roots come in conjugate pairs."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q5",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "For the equation x^2 - 6x + 13 = 0, find the product of the roots.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Product = c/a."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q5",
+      "correctIndexes": [],
+      "numericAnswer": 13,
+      "tolerance": 0,
+      "explanation": "Product of roots = c/a = 13 (roots are 3 +/- 2i)."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q6",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "numerical",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Solve x^2 + 4x + 29 = 0 and give the imaginary part of the root with positive imaginary part.",
+      "options": [],
+      "unit": "",
+      "hints": [
+        "Compute D first.",
+        "sqrt(-100) = 10i."
+      ],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q6",
+      "correctIndexes": [],
+      "numericAnswer": 5,
+      "tolerance": 0.01,
+      "explanation": "D = 16 - 116 = -100. x = (-4 +/- 10i)/2 = -2 +/- 5i."
+    }
+  },
+  {
+    "question": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q7",
+      "topicId": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots",
+      "chapterId": "11-mathematics-complex-numbers-and-quadratic-equations",
+      "subjectId": "mathematics",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "jee"
+      ],
+      "pyq": false,
+      "text": "Which quadratic equations have non-real roots?",
+      "options": [
+        "x^2 + x + 1 = 0",
+        "x^2 - 5x + 6 = 0",
+        "2x^2 + 3 = 0",
+        "x^2 - 2x + 1 = 0"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-mathematics-complex-numbers-and-quadratic-equations-quadratics-with-complex-roots-q7",
+      "correctIndexes": [
+        0,
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "D values: -3, 1, -24, 0. Negative D means non-real roots."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q1",
+      "topicId": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The term 'cell' was coined by",
+      "options": [
+        "Robert Brown",
+        "Robert Hooke",
+        "Leeuwenhoek",
+        "Schwann"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Hooke named the box-like compartments he saw in cork."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q2",
+      "topicId": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Robert Brown discovered the nucleus.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q2",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "In 1831, in orchid cells."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q3",
+      "topicId": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which statement completes the cell theory: 'All cells arise from'",
+      "options": [
+        "non-living matter",
+        "pre-existing cells",
+        "the nucleus alone",
+        "spontaneous generation"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q3",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Virchow's contribution in 1855."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q4",
+      "topicId": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A red blood cell in humans lacks a nucleus. This mainly",
+      "options": [
+        "makes it unable to live",
+        "leaves more room for haemoglobin",
+        "lets it divide faster",
+        "makes it a plant cell"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q4",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Losing the nucleus maximises oxygen-carrying capacity."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q5",
+      "topicId": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which of these are unicellular organisms?",
+      "options": [
+        "Amoeba",
+        "Paramecium",
+        "Hydra",
+        "Bacteria"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q5",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Hydra is multicellular."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q6",
+      "topicId": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Hooke observed living cells in cork in 1665.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-discovery-and-cell-theory-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Cork is dead tissue; he saw only the cell walls."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q1",
+      "topicId": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The movement of water across a selectively permeable membrane is called",
+      "options": [
+        "diffusion",
+        "osmosis",
+        "plasmolysis",
+        "endocytosis"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Osmosis is specifically the diffusion of water."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q2",
+      "topicId": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Carbon dioxide leaves a cell by diffusion because its concentration is higher inside.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q2",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Cells produce CO2, so it diffuses out down its concentration gradient."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q3",
+      "topicId": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A cell placed in a hypertonic solution will",
+      "options": [
+        "swell and burst",
+        "stay the same",
+        "lose water and shrink",
+        "gain water slowly"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q3",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Water concentration is lower outside, so water leaves the cell."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q4",
+      "topicId": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which process is Amoeba using when it engulfs a food particle by folding its membrane?",
+      "options": [
+        "osmosis",
+        "diffusion",
+        "endocytosis",
+        "plasmolysis"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q4",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Endocytosis takes in material through the flexible plasma membrane."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q5",
+      "topicId": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which substances usually cross the plasma membrane by simple diffusion?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Large proteins",
+        "Water"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q5",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Large proteins need active transport or endocytosis."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q6",
+      "topicId": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "conceptual",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Plasmolysis is best demonstrated by placing a leaf peel in",
+      "options": [
+        "distilled water",
+        "isotonic sugar solution",
+        "concentrated salt solution",
+        "warm water"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q6",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "A hypertonic solution draws water out so the cell contents shrink from the wall."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q7",
+      "topicId": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "In an isotonic solution water stops crossing the cell membrane completely.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-plasma-membrane-and-transport-q7",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Water moves both ways at equal rates; there is no net movement."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q1",
+      "topicId": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which organelle is known as the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Golgi apparatus"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q1",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Mitochondria release energy as ATP."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q2",
+      "topicId": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Animal cells have a cell wall made of cellulose.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Only plant cells (and some others such as fungi, with different material) have cell walls."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q3",
+      "topicId": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Proteins are synthesised on",
+      "options": [
+        "smooth endoplasmic reticulum",
+        "rough endoplasmic reticulum",
+        "lysosomes",
+        "vacuoles"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q3",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Ribosomes attached to the ER make it rough and make proteins."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q4",
+      "topicId": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A cell that stores starch in a potato tuber is rich in",
+      "options": [
+        "chloroplasts",
+        "chromoplasts",
+        "leucoplasts",
+        "lysosomes"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q4",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Leucoplasts are colourless plastids that store starch, oil or protein."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q5",
+      "topicId": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which organelles contain their own DNA?",
+      "options": [
+        "Mitochondria",
+        "Chloroplasts",
+        "Golgi apparatus",
+        "Lysosomes"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q5",
+      "correctIndexes": [
+        0,
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Both are semi-autonomous and have ribosomes too."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q6",
+      "topicId": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The cell organelle that packages materials into vesicles for secretion is the",
+      "options": [
+        "endoplasmic reticulum",
+        "Golgi apparatus",
+        "nucleolus",
+        "mitochondrion"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The Golgi modifies, sorts and dispatches products."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q7",
+      "topicId": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "conceptual",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Bacteria are called prokaryotes because they",
+      "options": [
+        "have no cytoplasm",
+        "have no plasma membrane",
+        "have no membrane-bound nucleus",
+        "cannot divide"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q7",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Their genetic material lies free in the cytoplasm as a nucleoid."
+    }
+  },
+  {
+    "question": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q8",
+      "topicId": "9-biology-the-fundamental-unit-of-life-cell-organelles",
+      "chapterId": "9-biology-the-fundamental-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 9,
+      "type": "true_false",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Plant cells usually have a single large central vacuole that keeps the cell turgid.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "9-biology-the-fundamental-unit-of-life-cell-organelles-q8",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "It can fill up to 90% of the cell and stores water, sap and wastes."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q1",
+      "topicId": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Ribosomes in a prokaryotic cell are",
+      "options": [
+        "80S",
+        "70S",
+        "60S",
+        "40S"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Prokaryotes and organelles such as mitochondria have 70S ribosomes."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q2",
+      "topicId": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Prokaryotic cells have a membrane-bound nucleus.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Their DNA lies in a nucleoid without a nuclear membrane."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q3",
+      "topicId": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The smallest known cells, which also lack a cell wall, are",
+      "options": [
+        "cyanobacteria",
+        "mycoplasma",
+        "E. coli",
+        "yeast"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q3",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Mycoplasma are about 0.3 micrometres and have no cell wall."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q4",
+      "topicId": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The mesosome of a bacterial cell is formed by",
+      "options": [
+        "the nuclear membrane",
+        "extension of the plasma membrane into the cell",
+        "the cell wall folding inward",
+        "plasmid DNA"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q4",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Mesosomes are membrane infoldings that help in respiration and cell wall formation."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q5",
+      "topicId": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which features are found in eukaryotic but not prokaryotic cells?",
+      "options": [
+        "Nuclear envelope",
+        "Mitochondria",
+        "Ribosomes",
+        "Endoplasmic reticulum"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q5",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Ribosomes are present in both, differing in size."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q6",
+      "topicId": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A bacterial flagellum consists of",
+      "options": [
+        "nine doublets and two central microtubules",
+        "filament, hook and basal body",
+        "microfilaments only",
+        "cellulose fibres"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The 9 + 2 arrangement is the eukaryotic flagellum."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q7",
+      "topicId": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Gram negative bacteria stain differently mainly because",
+      "options": [
+        "they lack peptidoglycan entirely",
+        "their thin peptidoglycan is covered by an outer membrane",
+        "they have no plasma membrane",
+        "they are larger"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q7",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The outer membrane and thin wall lose the crystal violet during decolourisation."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q8",
+      "topicId": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Plasmids are essential for the survival of every bacterium.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-prokaryotic-and-eukaryotic-cells-q8",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Plasmids are extra DNA that confer traits like antibiotic resistance but are not required for basic survival."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q1",
+      "topicId": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The fluid mosaic model of the plasma membrane was proposed by",
+      "options": [
+        "Watson and Crick",
+        "Singer and Nicolson",
+        "Schleiden and Schwann",
+        "Robert Brown"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q1",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "In 1972."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q2",
+      "topicId": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The plant cell wall is made mainly of cellulose.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q2",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "With hemicellulose, pectin and proteins."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q3",
+      "topicId": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which organelle is NOT part of the endomembrane system?",
+      "options": [
+        "Golgi apparatus",
+        "Lysosome",
+        "Mitochondrion",
+        "Endoplasmic reticulum"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q3",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Mitochondria function independently of the ER-Golgi pathway."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q4",
+      "topicId": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Movement of ions against their concentration gradient using ATP is called",
+      "options": [
+        "osmosis",
+        "facilitated diffusion",
+        "active transport",
+        "simple diffusion"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q4",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Active transport needs energy because it works uphill."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q5",
+      "topicId": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which are functions of the Golgi apparatus?",
+      "options": [
+        "Forming glycoproteins",
+        "Packaging materials into vesicles",
+        "Synthesising ATP",
+        "Forming lysosomes"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q5",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "ATP synthesis belongs to mitochondria."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q6",
+      "topicId": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The middle lamella that holds neighbouring plant cells together is made of",
+      "options": [
+        "cellulose",
+        "calcium pectate",
+        "lignin",
+        "chitin"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Calcium pectate acts as cement between cells."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q7",
+      "topicId": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The membrane of a red blood cell is roughly",
+      "options": [
+        "52% protein and 40% lipid",
+        "90% lipid and 10% protein",
+        "100% lipid",
+        "50% carbohydrate"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q7",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Proteins make up over half by mass."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q8",
+      "topicId": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Smooth endoplasmic reticulum is the main site of lipid and steroid synthesis.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-cell-membrane-and-wall-q8",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "It lacks ribosomes and specialises in lipids and detoxification."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q1",
+      "topicId": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Ribosomal RNA is synthesised in the",
+      "options": [
+        "nucleolus",
+        "nuclear pore",
+        "centriole",
+        "lysosome"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q1",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The nucleolus is the ribosome factory of the nucleus."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q2",
+      "topicId": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 1,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The nuclear envelope consists of a single membrane.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q2",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "It has two membranes with a perinuclear space and pores."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q3",
+      "topicId": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "A chromosome with its centromere at the very end is called",
+      "options": [
+        "metacentric",
+        "submetacentric",
+        "acrocentric",
+        "telocentric"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q3",
+      "correctIndexes": [
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Telo means end."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q4",
+      "topicId": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Chromatin is composed of",
+      "options": [
+        "DNA only",
+        "RNA and lipids",
+        "DNA and histone proteins",
+        "proteins only"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q4",
+      "correctIndexes": [
+        2
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Histones package the DNA into nucleosomes."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q5",
+      "topicId": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "multi",
+      "difficulty": 2,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Which organelles lack a membrane?",
+      "options": [
+        "Ribosome",
+        "Centriole",
+        "Lysosome",
+        "Cilium's axoneme"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q5",
+      "correctIndexes": [
+        0,
+        1,
+        3
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Lysosomes are membrane-bound vesicles."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q6",
+      "topicId": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "mcq",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The 9 + 2 arrangement of microtubules is found in",
+      "options": [
+        "centrioles",
+        "cilia and flagella",
+        "ribosomes",
+        "nucleoli"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q6",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "Nine peripheral doublets and two central singlet microtubules form the axoneme."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q7",
+      "topicId": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "conceptual",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "The centrosome differs from the centromere in that the centrosome",
+      "options": [
+        "is part of a chromosome",
+        "contains two centrioles and organises the spindle",
+        "is inside the nucleus",
+        "is made of DNA"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q7",
+      "correctIndexes": [
+        1
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "The centromere is the constriction on a chromosome; the centrosome is a cytoplasmic organelle."
+    }
+  },
+  {
+    "question": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q8",
+      "topicId": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes",
+      "chapterId": "11-biology-cell-the-unit-of-life",
+      "subjectId": "biology",
+      "classLevel": 11,
+      "type": "true_false",
+      "difficulty": 3,
+      "examTags": [
+        "school",
+        "neet"
+      ],
+      "pyq": false,
+      "text": "Microtubules in centrioles are arranged as nine triplets with no central pair.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "unit": null,
+      "hints": [],
+      "source": null
+    },
+    "key": {
+      "id": "11-biology-cell-the-unit-of-life-nucleus-and-chromosomes-q8",
+      "correctIndexes": [
+        0
+      ],
+      "numericAnswer": null,
+      "tolerance": 0,
+      "explanation": "This 9 + 0 triplet pattern is the cartwheel structure."
+    }
   }
 ]

@@ -180,7 +180,7 @@ describe("callables", () => {
     expect(messages.size).toBe(4);
     const support = await ask({ conversationId: "c1", mode: "explain", topicId, message: "I want to die, this makes no sense" });
     expect(support.text).toContain("trusted adult");
-    await expect(ask({ conversationId: "c2", mode: "hint", topicId: "9-physics-motion-graphs" })).rejects.toMatchObject({ code: "functions/unavailable" });
+    await expect(ask({ conversationId: "c2", mode: "hint", topicId: "9-physics-motion-nonexistent-topic" })).rejects.toMatchObject({ code: "functions/unavailable" });
   });
 
   it("builds one daily paper per period, resumes it, grades it once and records the result", async () => {
@@ -201,7 +201,7 @@ describe("callables", () => {
     expect(after.xp).toBe(before.xp + result.total * 10);
     expect((await submit({ attemptId: first.attemptId, answers: {}, timeTakenSec: 1 })).alreadyFinalized).toBe(true);
     expect((await start({ assessmentId: "daily" })).finalized).toBe(true);
-    await expect(start({ assessmentId: "topic_test", scopeId: "9-physics-motion-graphs" })).rejects.toMatchObject({ code: "functions/failed-precondition" });
+    await expect(start({ assessmentId: "topic_test", scopeId: "9-physics-motion-nonexistent-topic" })).rejects.toMatchObject({ code: "functions/failed-precondition" });
     await login("priya@eduorbit.demo");
     await expect(submit({ attemptId: first.attemptId, answers: {}, timeTakenSec: 1 })).rejects.toMatchObject({ code: "functions/permission-denied" });
   });
